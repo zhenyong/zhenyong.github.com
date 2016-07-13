@@ -1,0 +1,78 @@
+Document {
+  title: 'Flow in Vue',
+  date: {
+    [Number: 1467781651000]
+    _isAMomentObject: true,
+    _i: Wed Jul 06 2016 13: 07: 31 GMT + 0800(CST),
+    _isUTC: false,
+    _pf: {
+      empty: false,
+      unusedTokens: [],
+      unusedInput: [],
+      overflow: -2,
+      charsLeftOver: 0,
+      nullInput: false,
+      invalidMonth: null,
+      invalidFormat: false,
+      userInvalidated: false,
+      iso: false,
+      parsedDateParts: [],
+      meridiem: null
+    },
+    _locale: Locale {
+      _ordinalParse: /\d{1,2}(th|st|nd|rd)/,
+      ordinal: [Function],
+      _abbr: 'en',
+      _config: [Object],
+      _ordinalParseLenient: /\d{1,2}(th|st|nd|rd)|\d{1,2}/
+    },
+    _d: Wed Jul 06 2016 13: 07: 31 GMT + 0800(CST),
+    _z: null
+  },
+  _content: '\n> Facebook 出品的 JS 静态类型检查器\n\nJS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 [回答](http://www.zhihu.com/question/46397274)\n\n[Flow 官网](https://flowtype.org/)\n\n<!--more-->\n\n## Flow 简单体验\n\n### 安装\n\nmac 用户：\n\n```\nbrew install flow\n```\n\n然后命令行敲 flow，如果没有反应大概是 brew link 失败了，重新 link 一次就好了\n\nlinux 用户通过 npm 安装 `flow-bin` （全局方便点）\n\nwindows 用户目前要使用非官方 build 的版本，[这里](http://www.ocamlpro.com/pub/ocpwin/flow-builds/)\n\n### 配置\n\n在项目根目录创建 `.flowconfig` 空白文件，让 flow 知道这个目录下的文件可以用 flow 检测，当然还可以通过这个文件配置一些规则\n\n### 运行\n\n创建一个 `hello.js`，第一行 `/* @flow */` 表明这个文件需要检测\n\n```\n/* @flow */\n\nfunction foo(x) {\n  return x * 10;\n}\n\nfoo("Hello, world!")\n```\n\n在跟目录下，执行命令\n\n```\nflow check\n```\n\n控制台输出\n\n```\n7: foo("Hello, world!")\n     ^^^^^^^^^^^^^^^^^^^^ function call\n  4:   return x * 10;\n              ^ string. This type is incompatible with\n  4:   return x * 10;\n              ^^^^^^ number\n```\n\n这里检测到 `foo` 方法的参数 `x` 应该是数字类型，代码中使用了字符串 `"Hello, world!"` 作为参数就会报错\n\n### 更多\n\n基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型...\n\n## 编辑器实时检测\n\n通常都不会手动执行命令，结合编辑器实时监测，跟之前介绍的 `eslint` linter 差不多，sublime 安装\n\n- `SublimeLinter` [安装指南](http://sublimelinter.readthedocs.org/en/latest/installation.html)\n- `SublimeLinter-flow`[安装指南](https://github.com/SublimeLinter/SublimeLinter-flow)\n\n效果：\n\n![](http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg)\n\n## Flow in Vue\n\n// TODO\n',
+  source: '_posts/Flow-in-Vue.md',
+  raw: '---\ntitle: Flow in Vue\ndate: 2016-07-06 13:07:31\ntags:\n---\n\n> Facebook 出品的 JS 静态类型检查器\n\nJS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 [回答](http://www.zhihu.com/question/46397274)\n\n[Flow 官网](https://flowtype.org/)\n\n<!--more-->\n\n## Flow 简单体验\n\n### 安装\n\nmac 用户：\n\n```\nbrew install flow\n```\n\n然后命令行敲 flow，如果没有反应大概是 brew link 失败了，重新 link 一次就好了\n\nlinux 用户通过 npm 安装 `flow-bin` （全局方便点）\n\nwindows 用户目前要使用非官方 build 的版本，[这里](http://www.ocamlpro.com/pub/ocpwin/flow-builds/)\n\n### 配置\n\n在项目根目录创建 `.flowconfig` 空白文件，让 flow 知道这个目录下的文件可以用 flow 检测，当然还可以通过这个文件配置一些规则\n\n### 运行\n\n创建一个 `hello.js`，第一行 `/* @flow */` 表明这个文件需要检测\n\n```\n/* @flow */\n\nfunction foo(x) {\n  return x * 10;\n}\n\nfoo("Hello, world!")\n```\n\n在跟目录下，执行命令\n\n```\nflow check\n```\n\n控制台输出\n\n```\n7: foo("Hello, world!")\n     ^^^^^^^^^^^^^^^^^^^^ function call\n  4:   return x * 10;\n              ^ string. This type is incompatible with\n  4:   return x * 10;\n              ^^^^^^ number\n```\n\n这里检测到 `foo` 方法的参数 `x` 应该是数字类型，代码中使用了字符串 `"Hello, world!"` 作为参数就会报错\n\n### 更多\n\n基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型...\n\n## 编辑器实时检测\n\n通常都不会手动执行命令，结合编辑器实时监测，跟之前介绍的 `eslint` linter 差不多，sublime 安装\n\n- `SublimeLinter` [安装指南](http://sublimelinter.readthedocs.org/en/latest/installation.html)\n- `SublimeLinter-flow`[安装指南](https://github.com/SublimeLinter/SublimeLinter-flow)\n\n效果：\n\n![](http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg)\n\n## Flow in Vue\n\n// TODO\n',
+  slug: 'Flow-in-Vue',
+  published: true,
+  updated: {
+    [Number: 1468064603000]
+    _isAMomentObject: true,
+    _i: Sat Jul 09 2016 19: 43: 23 GMT + 0800(CST),
+    _isUTC: false,
+    _pf: {
+      empty: false,
+      unusedTokens: [],
+      unusedInput: [],
+      overflow: -2,
+      charsLeftOver: 0,
+      nullInput: false,
+      invalidMonth: null,
+      invalidFormat: false,
+      userInvalidated: false,
+      iso: false,
+      parsedDateParts: [],
+      meridiem: null
+    },
+    _locale: Locale {
+      _ordinalParse: /\d{1,2}(th|st|nd|rd)/,
+      ordinal: [Function],
+      _abbr: 'en',
+      _config: [Object],
+      _ordinalParseLenient: /\d{1,2}(th|st|nd|rd)|\d{1,2}/
+    },
+    _d: Sat Jul 09 2016 19: 43: 23 GMT + 0800(CST),
+    _z: null
+  },
+  comments: true,
+  layout: 'post',
+  photos: [],
+  link: '',
+  _id: 'ciqiuf8000006kotgs7eplvql',
+  path: [Getter],
+  permalink: [Getter],
+  full_source: [Getter],
+  asset_dir: [Getter],
+  tags: [Getter],
+  categories: [Getter],
+  content: '\n> Facebook 出品的 JS 静态类型检查器\n\nJS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 [回答](http://www.zhihu.com/question/46397274)\n\n[Flow 官网](https://flowtype.org/)\n\n<!--more-->\n\n## Flow 简单体验\n\n### 安装\n\nmac 用户：\n\n<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install flow</div></pre></td></tr></table></figure></escape>\n\n然后命令行敲 flow，如果没有反应大概是 brew link 失败了，重新 link 一次就好了\n\nlinux 用户通过 npm 安装 `flow-bin` （全局方便点）\n\nwindows 用户目前要使用非官方 build 的版本，[这里](http://www.ocamlpro.com/pub/ocpwin/flow-builds/)\n\n### 配置\n\n在项目根目录创建 `.flowconfig` 空白文件，让 flow 知道这个目录下的文件可以用 flow 检测，当然还可以通过这个文件配置一些规则\n\n### 运行\n\n创建一个 `hello.js`，第一行 `/* @flow */` 表明这个文件需要检测\n\n<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/* @flow */</div><div class="line"></div><div class="line">function foo(x) &#123;</div><div class="line">  return x * 10;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(&quot;Hello, world!&quot;)</div></pre></td></tr></table></figure></escape>\n\n在跟目录下，执行命令\n\n<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flow check</div></pre></td></tr></table></figure></escape>\n\n控制台输出\n\n<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">7: foo(&quot;Hello, world!&quot;)</div><div class="line">     ^^^^^^^^^^^^^^^^^^^^ function call</div><div class="line">  4:   return x * 10;</div><div class="line">              ^ string. This type is incompatible with</div><div class="line">  4:   return x * 10;</div><div class="line">              ^^^^^^ number</div></pre></td></tr></table></figure></escape>\n\n这里检测到 `foo` 方法的参数 `x` 应该是数字类型，代码中使用了字符串 `"Hello, world!"` 作为参数就会报错\n\n### 更多\n\n基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型...\n\n## 编辑器实时检测\n\n通常都不会手动执行命令，结合编辑器实时监测，跟之前介绍的 `eslint` linter 差不多，sublime 安装\n\n- `SublimeLinter` [安装指南](http://sublimelinter.readthedocs.org/en/latest/installation.html)\n- `SublimeLinter-flow`[安装指南](https://github.com/SublimeLinter/SublimeLinter-flow)\n\n效果：\n\n![](http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg)\n\n## Flow in Vue\n\n// TODO\n<!--donate1468290783744-->'
+}

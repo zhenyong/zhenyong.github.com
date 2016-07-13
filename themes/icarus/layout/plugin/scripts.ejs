@@ -1,0 +1,35 @@
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1259873399'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1259873399' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<% if (typeof(isHead) !== 'undefined' && isHead) { %>
+    <% if (theme.plugins.fancybox) { %>
+        <%- css('vendor/fancybox/jquery.fancybox') %>
+    <% } %>
+    <% if (theme.plugins.google_analytics) { %>
+        <%- partial('plugin/google-analytics') %>
+    <% } %>
+    <% if (theme.plugins.google_site_verification) { %>
+        <meta name="google-site-verification" content="<%= theme.plugins.google_site_verification %>" />
+    <% } %>
+    <% if (theme.plugins.baidu_analytics) { %>
+        <%- partial('plugin/baidu-analytics') %>
+    <% } %>
+<% } else { %>
+    <% if (theme.plugins.fancybox) { %>
+        <%- js('vendor/fancybox/jquery.fancybox.pack') %>
+    <% } %>
+<% } %>
