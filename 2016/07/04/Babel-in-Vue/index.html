@@ -3,20 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>EditorConfig in Vue | Make Hungry</title>
+    <title>Babel in Vue | Make Hungry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格">
+    <meta name="description" content="Babel 是一个 JavaScript 编译器
+
+Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 Babel 这个工具">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EditorConfig in Vue">
-<meta property="og:url" content="http://zhenyong.site/2016/07/EditorConfig-in-Vue/index.html">
+<meta property="og:title" content="Babel in Vue">
+<meta property="og:url" content="http://zhenyong.site/2016/07/04/Babel-in-Vue/index.html">
 <meta property="og:site_name" content="Make Hungry">
-<meta property="og:description" content="EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格">
-<meta property="og:image" content="http://editorconfig.org/logo.png">
-<meta property="og:updated_time" content="2016-07-05T07:14:16.000Z">
+<meta property="og:description" content="Babel 是一个 JavaScript 编译器
+
+Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 Babel 这个工具">
+<meta property="og:image" content="https://babeljs.io/images/logo.svg">
+<meta property="og:updated_time" content="2016-07-11T06:40:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EditorConfig in Vue">
-<meta name="twitter:description" content="EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格">
-<meta name="twitter:image" content="http://editorconfig.org/logo.png">
+<meta name="twitter:title" content="Babel in Vue">
+<meta name="twitter:description" content="Babel 是一个 JavaScript 编译器
+
+Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 Babel 这个工具">
+<meta name="twitter:image" content="https://babeljs.io/images/logo.svg">
     
 
     
@@ -207,7 +213,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-EditorConfig-in-Vue" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Babel-in-Vue" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -216,7 +222,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            EditorConfig in Vue
+            Babel in Vue
         </h1>
     
 
@@ -225,8 +231,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/07/EditorConfig-in-Vue/">
-            <time datetime="2016-07-03T09:23:26.000Z" itemprop="datePublished">2016-07-03</time>
+        <a href="/2016/07/04/Babel-in-Vue/">
+            <time datetime="2016-07-04T02:36:26.000Z" itemprop="datePublished">2016-07-04</time>
         </a>
     </div>
 
@@ -251,53 +257,38 @@ var _hmt = _hmt || [];
         
             
             <blockquote>
-<p>EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格</p>
+<p>Babel 是一个 JavaScript 编译器</p>
 </blockquote>
+<p>Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 <code>Babel</code> 这个工具</p>
 <a id="more"></a>
-<p>某些编辑器使用 EditorConfig 则需要安装对应的插件，Sublime Text 的话就安装 EditorConfig </p>
-<p>源码中的配置文件 <code>.editorconfig</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">root = true</div><div class="line"></div><div class="line">[*]</div><div class="line">charset = utf-8</div><div class="line">indent_style = space</div><div class="line">indent_size = 2</div><div class="line">end_of_line = lf</div><div class="line">insert_final_newline = true</div><div class="line">trim_trailing_whitespace = true</div></pre></td></tr></table></figure>
-<p>解释一下这份配置的意思:</p>
+<h2 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h2><p>对照 Babel 的 <a href="https://babeljs.io/" target="_blank" rel="external">官网</a>  首页的指南简单玩一下：</p>
 <ul>
-<li><code>root = true</code></li>
+<li>安装</li>
 </ul>
-<p>当打开一个文件时，EditorConfig 插件在文件的目录和其每一级父目录查找 .editorconfig 文件，直到有一个配置文件包含 root = true</p>
-<p>EditorConfig 配置文件从上往下读取，并且路径最近的文件最后被读取，匹配到的配置按照读取顺序应用在代码上，最接近代码文件的属性优先级最高</p>
+<p>安装 babel 命令行工具 （官网是在项目下安装，这里全局安装）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g babel-cli</div></pre></td></tr></table></figure>
+<p>这样就能在命令行下启动 babel</p>
+<p>另外，我们还要告诉 babel 使用哪种转码规则，这里使用 <a href="http://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">ES2015 preset</a>。在项目下创建 <code>.babelrc</code> 文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [<span class="string">"es2015"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后还要安装对应转码规则包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-preset-es2015</div></pre></td></tr></table></figure>
 <ul>
-<li><p><code>[*]</code><br>表示对所有文件文件使用 editorconfig，也可以指定某种文件格式</p>
-</li>
-<li><p><code>charset = utf-8</code></p>
-</li>
+<li>测试</li>
 </ul>
-<p>设置文件编码格式为 utf-8</p>
+<p>创建 js 代码文件 <code>test.js</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> hello = () =&gt; &#123;</div><div class="line">  <span class="keyword">let</span> name = <span class="string">'peter'</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'hello '</span> + name)</div><div class="line">&#125;</div><div class="line"></div><div class="line">hello()</div></pre></td></tr></table></figure>
+<p>转换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel test.js --out-file test.compiled.js</div></pre></td></tr></table></figure>
+<p>生成 <code>test.compiled.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line"></div><div class="line">var hello = function hello() &#123;</div><div class="line">  var name = &apos;peter&apos;;</div><div class="line">  console.log(&apos;hello &apos; + name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">hello();</div></pre></td></tr></table></figure>
+<p>现在就可以在浏览器运行这段代码了</p>
+<p>更多关于 babel 或者 es6 的知识可以参考官网，或者还有下面中文网站：</p>
 <ul>
-<li><code>indent_style = space</code></li>
+<li><a href="http://www.infoq.com/cn/es6-in-depth/" target="_blank" rel="external">InfoQ 专栏 - 深入浅出 ES6</a></li>
+<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">阮一峰 - ECMAScript 6 入门</a></li>
 </ul>
-<p>所有的缩进使用空格，包括 tab 键产生的空白</p>
-<ul>
-<li><code>indent_size = 2</code></li>
-</ul>
-<p>设置整数表示规定每级缩进的列数</p>
-<ul>
-<li><code>end_of_line = lf</code></li>
-</ul>
-<p>统一设置换行符，不同操作系统默认使用不同的换行符</p>
-<p>windows 是 crlf，即 <code>\r\n</code></p>
-<p>unix 则是 lf ，即 <code>\n</code></p>
-<ul>
-<li><code>insert_final_newline = true</code></li>
-</ul>
-<p>文件都以一个空白行结尾</p>
-<ul>
-<li><code>trim_trailing_whitespace = true</code></li>
-</ul>
-<p>除去换行行首的任意空白字符</p>
-<hr>
-<p>参考：</p>
-<ul>
-<li><a href="http://editorconfig.org/" target="_blank" rel="external">官网</a></li>
-<li><a href="http://www.alloyteam.com/2014/12/editor-config/" target="_blank" rel="external">EditorConfig介绍（译）</a></li>
-</ul>
+<h2 id="vue-中使用"><a href="#vue-中使用" class="headerlink" title="vue 中使用"></a>vue 中使用</h2><p>vue 中在构建代码的时候结合 webpack 和 babel 相关插件使用，。。。</p>
+<p>//TODO 在 webpack 部分一起写</p>
 
 
   <!-- css -->
@@ -403,7 +394,7 @@ var _hmt = _hmt || [];
 <p>本作品采用 <img style="display:inline-block;vertical-align: top;" src="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg"> <a href="https://creativecommons.org/licenses/by/2.5/cn/" target="_blank" rel="external">知识共享署名 2.5 中国大陆许可协议</a> 进行许可</p>
 <p>欢迎转载，但转载请注明来自 <a href="zhenyong.github.io">zhenyong.github.io</a>，并保持转载后文章内容的完整</p>
 <p>本人保留所有版权相关权利</p>
-<p>本文链接：<a href="http://zhenyong.site/2016/07/EditorConfig-in-Vue/">http://zhenyong.site/2016/07/EditorConfig-in-Vue/</a></p>
+<p>本文链接：<a href="http://zhenyong.site/2016/07/04/Babel-in-Vue/">http://zhenyong.site/2016/07/04/Babel-in-Vue/</a></p>
 
         
         </div>
@@ -467,7 +458,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://zhenyong.site/2016/07/EditorConfig-in-Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zhenyong.site/2016/07/EditorConfig-in-Vue/">Comments</a>
+        <a href="http://zhenyong.site/2016/07/04/Babel-in-Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zhenyong.site/2016/07/04/Babel-in-Vue/">Comments</a>
     
 
         </footer>
@@ -476,19 +467,19 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2016/07/Babel-in-Vue/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2016/07/05/ESLint-in-Vue/" id="article-nav-newer" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Newer</strong>
             <div class="article-nav-title">
                 
-                    Babel in Vue
+                    ESLint in Vue
                 
             </div>
         </a>
     
     
-        <a href="/2016/07/Vue-源码工具链介绍/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/07/03/EditorConfig-in-Vue/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Vue 源码工具链介绍</div>
+            <div class="article-nav-title">EditorConfig in Vue</div>
         </a>
     
 </nav>
@@ -522,7 +513,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/Flow-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/06/Flow-in-Vue/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -533,7 +524,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/07/Flow-in-Vue/" class="title">Flow in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/06/Flow-in-Vue/" class="title">Flow in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-06T05:07:31.000Z" itemprop="datePublished">2016-07-06</time></p>
                         </div>
                     </li>
@@ -541,7 +532,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/ESLint-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/05/ESLint-in-Vue/" class="thumbnail">
     
     
         <span style="background-image:url(http://eslint.org/img/logo.svg)" alt="ESLint in Vue" class="thumbnail-image"></span>
@@ -552,7 +543,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/ESLint-in-Vue/" class="title">ESLint in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/05/ESLint-in-Vue/" class="title">ESLint in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-05T04:02:35.000Z" itemprop="datePublished">2016-07-05</time></p>
                         </div>
                     </li>
@@ -560,7 +551,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/Babel-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/04/Babel-in-Vue/" class="thumbnail">
     
     
         <span style="background-image:url(https://babeljs.io/images/logo.svg)" alt="Babel in Vue" class="thumbnail-image"></span>
@@ -571,7 +562,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/Babel-in-Vue/" class="title">Babel in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/04/Babel-in-Vue/" class="title">Babel in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-04T02:36:26.000Z" itemprop="datePublished">2016-07-04</time></p>
                         </div>
                     </li>
@@ -579,7 +570,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/EditorConfig-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/03/EditorConfig-in-Vue/" class="thumbnail">
     
     
         <span style="background-image:url(http://editorconfig.org/logo.png)" alt="EditorConfig in Vue" class="thumbnail-image"></span>
@@ -590,7 +581,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/EditorConfig-in-Vue/" class="title">EditorConfig in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/03/EditorConfig-in-Vue/" class="title">EditorConfig in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-03T09:23:26.000Z" itemprop="datePublished">2016-07-03</time></p>
                         </div>
                     </li>
@@ -598,7 +589,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/Vue-源码工具链介绍/" class="thumbnail">
+                            <a href="/2016/07/03/Vue-源码工具链介绍/" class="thumbnail">
     
     
         <span style="background-image:url(https://vuejs.org/images/logo.png)" alt="Vue 源码工具链介绍" class="thumbnail-image"></span>
@@ -609,7 +600,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/Vue-源码工具链介绍/" class="title">Vue 源码工具链介绍</a></p>
+                            <p class="item-title"><a href="/2016/07/03/Vue-源码工具链介绍/" class="title">Vue 源码工具链介绍</a></p>
                             <p class="item-date"><time datetime="2016-07-03T08:55:15.000Z" itemprop="datePublished">2016-07-03</time></p>
                         </div>
                     </li>
@@ -688,9 +679,9 @@ var _hmt = _hmt || [];
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://zhenyong.site/2016/07/EditorConfig-in-Vue/';
+            this.page.url = 'http://zhenyong.site/2016/07/04/Babel-in-Vue/';
         
-        this.page.identifier = 'EditorConfig-in-Vue';
+        this.page.identifier = 'Babel-in-Vue';
     };
     (function() { 
         var d = document, s = d.createElement('script');  

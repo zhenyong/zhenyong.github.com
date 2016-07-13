@@ -3,26 +3,32 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Babel in Vue | Make Hungry</title>
+    <title>Flow in Vue | Make Hungry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Babel 是一个 JavaScript 编译器
+    <meta name="description" content="Facebook 出品的 JS 静态类型检查器
 
-Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 Babel 这个工具">
+JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 回答
+Flow 官网">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Babel in Vue">
-<meta property="og:url" content="http://zhenyong.site/2016/07/Babel-in-Vue/index.html">
+<meta property="og:title" content="Flow in Vue">
+<meta property="og:url" content="http://zhenyong.site/2016/07/06/Flow-in-Vue/index.html">
 <meta property="og:site_name" content="Make Hungry">
-<meta property="og:description" content="Babel 是一个 JavaScript 编译器
+<meta property="og:description" content="Facebook 出品的 JS 静态类型检查器
 
-Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 Babel 这个工具">
-<meta property="og:image" content="https://babeljs.io/images/logo.svg">
-<meta property="og:updated_time" content="2016-07-11T06:40:19.000Z">
+JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 回答
+Flow 官网">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg">
+<meta property="og:image" content="http://zhenyong.site/images/webchat.jpg">
+<meta property="og:image" content="http://zhenyong.site/images/alipay.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
+<meta property="og:updated_time" content="2016-07-09T11:43:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Babel in Vue">
-<meta name="twitter:description" content="Babel 是一个 JavaScript 编译器
+<meta name="twitter:title" content="Flow in Vue">
+<meta name="twitter:description" content="Facebook 出品的 JS 静态类型检查器
 
-Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 Babel 这个工具">
-<meta name="twitter:image" content="https://babeljs.io/images/logo.svg">
+JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 回答
+Flow 官网">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg">
     
 
     
@@ -213,7 +219,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-Babel-in-Vue" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-Flow-in-Vue" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -222,7 +228,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            Babel in Vue
+            Flow in Vue
         </h1>
     
 
@@ -231,24 +237,14 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/07/Babel-in-Vue/">
-            <time datetime="2016-07-04T02:36:26.000Z" itemprop="datePublished">2016-07-04</time>
+        <a href="/2016/07/06/Flow-in-Vue/">
+            <time datetime="2016-07-06T05:07:31.000Z" itemprop="datePublished">2016-07-06</time>
         </a>
     </div>
 
 
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/tech/">tech</a>
-    </div>
-
                         
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/vue/">vue</a>
-    </div>
-
                     </div>
                 
             </header>
@@ -257,39 +253,33 @@ var _hmt = _hmt || [];
         
             
             <blockquote>
-<p>Babel 是一个 JavaScript 编译器</p>
+<p>Facebook 出品的 JS 静态类型检查器</p>
 </blockquote>
-<p>Vue 的所有模块代码都是用了 ES6 的语法，可是大多数浏览器对 ES6 支持不够，所以需要先把源码（ES6）转化为浏览器能够识别执行的代码（ES5），而这个过程就需要用到 <code>Babel</code> 这个工具</p>
+<p>JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 <a href="http://www.zhihu.com/question/46397274" target="_blank" rel="external">回答</a></p>
+<p><a href="https://flowtype.org/" target="_blank" rel="external">Flow 官网</a></p>
 <a id="more"></a>
-<h2 id="简单例子"><a href="#简单例子" class="headerlink" title="简单例子"></a>简单例子</h2><p>对照 Babel 的 <a href="https://babeljs.io/" target="_blank" rel="external">官网</a>  首页的指南简单玩一下：</p>
+<h2 id="Flow-简单体验"><a href="#Flow-简单体验" class="headerlink" title="Flow 简单体验"></a>Flow 简单体验</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>mac 用户：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install flow</div></pre></td></tr></table></figure>
+<p>然后命令行敲 flow，如果没有反应大概是 brew link 失败了，重新 link 一次就好了</p>
+<p>linux 用户通过 npm 安装 <code>flow-bin</code> （全局方便点）</p>
+<p>windows 用户目前要使用非官方 build 的版本，<a href="http://www.ocamlpro.com/pub/ocpwin/flow-builds/" target="_blank" rel="external">这里</a></p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在项目根目录创建 <code>.flowconfig</code> 空白文件，让 flow 知道这个目录下的文件可以用 flow 检测，当然还可以通过这个文件配置一些规则</p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p>创建一个 <code>hello.js</code>，第一行 <code>/* @flow */</code> 表明这个文件需要检测</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/* @flow */</div><div class="line"></div><div class="line">function foo(x) &#123;</div><div class="line">  return x * 10;</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(&quot;Hello, world!&quot;)</div></pre></td></tr></table></figure>
+<p>在跟目录下，执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flow check</div></pre></td></tr></table></figure>
+<p>控制台输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">7: foo(&quot;Hello, world!&quot;)</div><div class="line">     ^^^^^^^^^^^^^^^^^^^^ function call</div><div class="line">  4:   return x * 10;</div><div class="line">              ^ string. This type is incompatible with</div><div class="line">  4:   return x * 10;</div><div class="line">              ^^^^^^ number</div></pre></td></tr></table></figure>
+<p>这里检测到 <code>foo</code> 方法的参数 <code>x</code> 应该是数字类型，代码中使用了字符串 <code>&quot;Hello, world!&quot;</code> 作为参数就会报错</p>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型…</p>
+<h2 id="编辑器实时检测"><a href="#编辑器实时检测" class="headerlink" title="编辑器实时检测"></a>编辑器实时检测</h2><p>通常都不会手动执行命令，结合编辑器实时监测，跟之前介绍的 <code>eslint</code> linter 差不多，sublime 安装</p>
 <ul>
-<li>安装</li>
+<li><code>SublimeLinter</code> <a href="http://sublimelinter.readthedocs.org/en/latest/installation.html" target="_blank" rel="external">安装指南</a></li>
+<li><code>SublimeLinter-flow</code><a href="https://github.com/SublimeLinter/SublimeLinter-flow" target="_blank" rel="external">安装指南</a></li>
 </ul>
-<p>安装 babel 命令行工具 （官网是在项目下安装，这里全局安装）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g babel-cli</div></pre></td></tr></table></figure>
-<p>这样就能在命令行下启动 babel</p>
-<p>另外，我们还要告诉 babel 使用哪种转码规则，这里使用 <a href="http://babeljs.io/docs/plugins/preset-es2015/" target="_blank" rel="external">ES2015 preset</a>。在项目下创建 <code>.babelrc</code> 文件</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"presets"</span>: [<span class="string">"es2015"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>然后还要安装对应转码规则包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev babel-preset-es2015</div></pre></td></tr></table></figure>
-<ul>
-<li>测试</li>
-</ul>
-<p>创建 js 代码文件 <code>test.js</code>：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> hello = () =&gt; &#123;</div><div class="line">  <span class="keyword">let</span> name = <span class="string">'peter'</span></div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'hello '</span> + name)</div><div class="line">&#125;</div><div class="line"></div><div class="line">hello()</div></pre></td></tr></table></figure>
-<p>转换：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">babel test.js --out-file test.compiled.js</div></pre></td></tr></table></figure>
-<p>生成 <code>test.compiled.js</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&apos;use strict&apos;;</div><div class="line"></div><div class="line">var hello = function hello() &#123;</div><div class="line">  var name = &apos;peter&apos;;</div><div class="line">  console.log(&apos;hello &apos; + name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">hello();</div></pre></td></tr></table></figure>
-<p>现在就可以在浏览器运行这段代码了</p>
-<p>更多关于 babel 或者 es6 的知识可以参考官网，或者还有下面中文网站：</p>
-<ul>
-<li><a href="http://www.infoq.com/cn/es6-in-depth/" target="_blank" rel="external">InfoQ 专栏 - 深入浅出 ES6</a></li>
-<li><a href="http://es6.ruanyifeng.com/" target="_blank" rel="external">阮一峰 - ECMAScript 6 入门</a></li>
-</ul>
-<h2 id="vue-中使用"><a href="#vue-中使用" class="headerlink" title="vue 中使用"></a>vue 中使用</h2><p>vue 中在构建代码的时候结合 webpack 和 babel 相关插件使用，。。。</p>
-<p>//TODO 在 webpack 部分一起写</p>
-
+<p>效果：</p>
+<p><img src="http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg" alt=""></p>
+<h2 id="Flow-in-Vue"><a href="#Flow-in-Vue" class="headerlink" title="Flow in Vue"></a>Flow in Vue</h2><p>// TODO<br>
 
   <!-- css -->
   <style type="text/css">
@@ -388,13 +378,13 @@ var _hmt = _hmt || [];
   <!-- /donate script -->
 </div>
 <!-- /Donate Module -->
-   
+   </p>
 <hr>
 <p><strong>版权声明</strong></p>
 <p>本作品采用 <img style="display:inline-block;vertical-align: top;" src="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg"> <a href="https://creativecommons.org/licenses/by/2.5/cn/" target="_blank" rel="external">知识共享署名 2.5 中国大陆许可协议</a> 进行许可</p>
 <p>欢迎转载，但转载请注明来自 <a href="zhenyong.github.io">zhenyong.github.io</a>，并保持转载后文章内容的完整</p>
 <p>本人保留所有版权相关权利</p>
-<p>本文链接：<a href="http://zhenyong.site/2016/07/Babel-in-Vue/">http://zhenyong.site/2016/07/Babel-in-Vue/</a></p>
+<p>本文链接：<a href="http://zhenyong.site/2016/07/06/Flow-in-Vue/">http://zhenyong.site/2016/07/06/Flow-in-Vue/</a></p>
 
         
         </div>
@@ -458,7 +448,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://zhenyong.site/2016/07/Babel-in-Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zhenyong.site/2016/07/Babel-in-Vue/">Comments</a>
+        <a href="http://zhenyong.site/2016/07/06/Flow-in-Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zhenyong.site/2016/07/06/Flow-in-Vue/">Comments</a>
     
 
         </footer>
@@ -467,19 +457,10 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2016/07/ESLint-in-Vue/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    ESLint in Vue
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/07/EditorConfig-in-Vue/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/07/05/ESLint-in-Vue/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">EditorConfig in Vue</div>
+            <div class="article-nav-title">ESLint in Vue</div>
         </a>
     
 </nav>
@@ -513,7 +494,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/Flow-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/06/Flow-in-Vue/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -524,7 +505,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2016/07/Flow-in-Vue/" class="title">Flow in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/06/Flow-in-Vue/" class="title">Flow in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-06T05:07:31.000Z" itemprop="datePublished">2016-07-06</time></p>
                         </div>
                     </li>
@@ -532,7 +513,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/ESLint-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/05/ESLint-in-Vue/" class="thumbnail">
     
     
         <span style="background-image:url(http://eslint.org/img/logo.svg)" alt="ESLint in Vue" class="thumbnail-image"></span>
@@ -543,7 +524,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/ESLint-in-Vue/" class="title">ESLint in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/05/ESLint-in-Vue/" class="title">ESLint in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-05T04:02:35.000Z" itemprop="datePublished">2016-07-05</time></p>
                         </div>
                     </li>
@@ -551,7 +532,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/Babel-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/04/Babel-in-Vue/" class="thumbnail">
     
     
         <span style="background-image:url(https://babeljs.io/images/logo.svg)" alt="Babel in Vue" class="thumbnail-image"></span>
@@ -562,7 +543,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/Babel-in-Vue/" class="title">Babel in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/04/Babel-in-Vue/" class="title">Babel in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-04T02:36:26.000Z" itemprop="datePublished">2016-07-04</time></p>
                         </div>
                     </li>
@@ -570,7 +551,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/EditorConfig-in-Vue/" class="thumbnail">
+                            <a href="/2016/07/03/EditorConfig-in-Vue/" class="thumbnail">
     
     
         <span style="background-image:url(http://editorconfig.org/logo.png)" alt="EditorConfig in Vue" class="thumbnail-image"></span>
@@ -581,7 +562,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/EditorConfig-in-Vue/" class="title">EditorConfig in Vue</a></p>
+                            <p class="item-title"><a href="/2016/07/03/EditorConfig-in-Vue/" class="title">EditorConfig in Vue</a></p>
                             <p class="item-date"><time datetime="2016-07-03T09:23:26.000Z" itemprop="datePublished">2016-07-03</time></p>
                         </div>
                     </li>
@@ -589,7 +570,7 @@ var _hmt = _hmt || [];
                     <li>
                         
                         <div class="item-thumbnail">
-                            <a href="/2016/07/Vue-源码工具链介绍/" class="thumbnail">
+                            <a href="/2016/07/03/Vue-源码工具链介绍/" class="thumbnail">
     
     
         <span style="background-image:url(https://vuejs.org/images/logo.png)" alt="Vue 源码工具链介绍" class="thumbnail-image"></span>
@@ -600,7 +581,7 @@ var _hmt = _hmt || [];
                         
                         <div class="item-inner">
                             <p class="item-category"><a class="article-category-link" href="/categories/tech/">tech</a></p>
-                            <p class="item-title"><a href="/2016/07/Vue-源码工具链介绍/" class="title">Vue 源码工具链介绍</a></p>
+                            <p class="item-title"><a href="/2016/07/03/Vue-源码工具链介绍/" class="title">Vue 源码工具链介绍</a></p>
                             <p class="item-date"><time datetime="2016-07-03T08:55:15.000Z" itemprop="datePublished">2016-07-03</time></p>
                         </div>
                     </li>
@@ -679,9 +660,9 @@ var _hmt = _hmt || [];
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://zhenyong.site/2016/07/Babel-in-Vue/';
+            this.page.url = 'http://zhenyong.site/2016/07/06/Flow-in-Vue/';
         
-        this.page.identifier = 'Babel-in-Vue';
+        this.page.identifier = 'Flow-in-Vue';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
