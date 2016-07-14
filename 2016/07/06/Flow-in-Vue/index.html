@@ -21,7 +21,7 @@ Flow 官网">
 <meta property="og:image" content="http://zhenyong.site/images/webchat.jpg">
 <meta property="og:image" content="http://zhenyong.site/images/alipay.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
-<meta property="og:updated_time" content="2016-07-09T11:43:23.000Z">
+<meta property="og:updated_time" content="2016-07-14T01:04:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flow in Vue">
 <meta name="twitter:description" content="Facebook 出品的 JS 静态类型检查器
@@ -271,7 +271,7 @@ var _hmt = _hmt || [];
 <p>控制台输出</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">7: foo(&quot;Hello, world!&quot;)</div><div class="line">     ^^^^^^^^^^^^^^^^^^^^ function call</div><div class="line">  4:   return x * 10;</div><div class="line">              ^ string. This type is incompatible with</div><div class="line">  4:   return x * 10;</div><div class="line">              ^^^^^^ number</div></pre></td></tr></table></figure>
 <p>这里检测到 <code>foo</code> 方法的参数 <code>x</code> 应该是数字类型，代码中使用了字符串 <code>&quot;Hello, world!&quot;</code> 作为参数就会报错</p>
-<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型…</p>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><p>基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型… 参考 <a href="https://flowtype.org/docs/getting-started.html#_" target="_blank" rel="external">官方文档</a></p>
 <h2 id="编辑器实时检测"><a href="#编辑器实时检测" class="headerlink" title="编辑器实时检测"></a>编辑器实时检测</h2><p>通常都不会手动执行命令，结合编辑器实时监测，跟之前介绍的 <code>eslint</code> linter 差不多，sublime 安装</p>
 <ul>
 <li><code>SublimeLinter</code> <a href="http://sublimelinter.readthedocs.org/en/latest/installation.html" target="_blank" rel="external">安装指南</a></li>

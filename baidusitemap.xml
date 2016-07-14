@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://zhenyong.site/2016/07/06/Flow-in-Vue/</loc>
+    <lastmod>2016-07-14T01:04:32.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flow in Vue</title>
+        <pubTime>2016-07-06T05:07:31.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhenyong.site/2016/07/03/Vue-%E6%BA%90%E7%A0%81%E5%B7%A5%E5%85%B7%E9%93%BE%E4%BB%8B%E7%BB%8D/</loc>
     <lastmod>2016-07-13T08:50:25.000Z</lastmod>
     <data>
@@ -38,21 +53,6 @@
              
               <breadCrumb title="tech" url="http://zhenyong.site/categories/tech/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhenyong.site/2016/07/06/Flow-in-Vue/</loc>
-    <lastmod>2016-07-09T11:43:23.000Z</lastmod>
-    <data>
-        <display>
-        <title>Flow in Vue</title>
-        <pubTime>2016-07-06T05:07:31.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
