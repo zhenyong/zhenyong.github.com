@@ -276,45 +276,72 @@
     <h1>在已有的代码上跑 Flow</h1>
     <p></p>
 
-    <h2>A word of warning<a id="a-word-of-warning" class="hashref"></a><a href="#a-word-of-warning" class="hash">#</a></h2>
+    <h2>提醒<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
 
-<p>Making previously-untyped code typecheck with Flow may take some time and work - and sometimes it may not be worth the effort in the short term. Flow supports <em>interface files</em> so you can use libraries in a typed way without having to run Flow on them at all. If your project just depends on third party libraries, check out our <a href="third-party.html">guide</a> on using Flow with external dependencies and consider using an interface file for the libraries.</p>
+<p>对原先没有使用类型注解的代码使用 Flow，需要花点时间，而且短期内体现不出什么价值。
+Flow 支持 <em>接口定义文件</em>，所以你不一定要对已有模块进行 Flow 检测，你可以对已有模块定义类型，然后使用时就带有类型检测功能了。
+如果你的项目依赖第三方库，请查看 <a href="third-party.html">指南</a> ，了解如何使用 Flow 配合第三方库，定义它们的接口文件。</p>
 
-<p>Why is typechecking existing code so hard? Libraries not written with types in mind often contain complex, highly dynamic code that confuses analyzers such as Flow. The code may also have been written in a style that Flow deliberately chooses not to support in order to give the programmer more help. Some typical examples are:</p>
+<p>为什么对现有代码作类型检测很难呢？
+某些代码不带类型，通常是因为代码复杂、动态逻辑特别多，然后解析器无法很好理解、探测。
+还有一些代码风格是 Flow 故意不建议的，是为了更好的帮助开发者，像下面这些典型例子：</p>
 
 <ul>
-  <li>Operations on primitive values: While JavaScript allows operations such as <code class="highlighter-rouge">true + 3</code>, Flow considers it a type error. This is by design, and is done to provide the programmer with more safety. While that’s easily avoided for new code, it can sometimes be a lot of effort to eliminate such patterns from existing code.</li>
-  <li>Nullability: Flow protects you against accessing properties on <code class="highlighter-rouge">null</code> by tracking null or undefined values throughout the program. In large existing codebases, though, this can require inserting some extra null checks in places where a value appears like it may be null, but actually isn’t at runtime.</li>
+  <li>
+    <p>primitive 值运算：js 允许这样运算，如 <code class="highlighter-rouge">true + 3</code>，
+不过 Flow 认为这是个类型错误。
+Flow 设计如此，希望开发者编写更安全的代码。
+以后新添加的代码都能避开这种潜在危险了，
+甚至有时候对已有代码过滤一下这类错误也是很有用的。</p>
+  </li>
+  <li>
+    <p>null 值：Flow 通过跟踪程序内 null 或者 undefined 的值，在你可能访问到 <code class="highlighter-rouge">null</code> 值的
+属性时，给你提醒保护。虽然不是发生在运行时，但它依然能探测到，并且需要你在一些可能是 null 的地方加一些判断代码，保证安全。</p>
+  </li>
 </ul>
 
-<p>It is typically a much larger effort, and requires much more programmer annotation, to get such code to typecheck. On the other hand, if you own a library and would like to benefit from Flow typechecking within the library itself, this guide is for you.</p>
+<p>为了让这些代码作类型检测，真的得花上更多的精力，而且要添加好多类型注解。
+不过话说回来，如果你有一个库然后想相对它使用 Flow，这些指南是适合你的。</p>
 
-<h2>Weak mode<a id="weak-mode" class="hashref"></a><a href="#weak-mode" class="hash">#</a></h2>
+<h2>弱模式<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
 
-<p>Flow has a special mode, known as <em>weak mode</em>, to get started with complex library code without having to pay the full cost up front. The difference between weak mode and regular mode is how Flow deals with missing type annotations. In regular mode Flow will infer types for all missing annotations, and produce errors whenever it detects a mismatch. In weak mode, Flow will do much less type inference. It will still infer types within functions, but will otherwise treat unannotated variables as having the <a href="base-types.html#any"><code class="highlighter-rouge">any</code></a> type - meaning no typechecking happens on them.</p>
+<p>Flow 有一个特殊模式，叫 <em>弱模式</em>, 适合复杂项目开展前期，让你无须过早的付出太多时间。
+弱模式和正常模式的区别在于 Flow 如何对待遗漏的类型注解。在正常模式下，Flow 对缺少
+类型注解的地方探测类型，然后输出相应错误。但是在弱模式下，Flow 就不做那么多类型检测，
+对方法内的类型还是会探测，但是对其他未注解的变量，会认为他们可以是 <a href="base-types.html#any"><code class="highlighter-rouge">任何类型</code></a>——也就意味着无须检测</p>
 
-<p>A good first step towards typechecking existing library code is to use weak mode, rather than regular mode. Simply change the header declaration in the file you want to typecheck:</p>
+<p>对于一个现有的库来说，先用弱模式比较好，只需要修改首行注释为：</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="cm">/* @flow weak */</span>
 </pre></td></tr></tbody></table>
 </div>
 </div>
 
-<p>Weak mode can still point out type problems, and likely will, but there will be far fewer and they will be easier to fix. This should give you some benefit straight away without too much work. The typical errors you are likely to run into are:</p>
+<p>弱模式依然会给出类型错误，不过可能给的更少，比较容易修复。
+这能给你直接带来好处又无须太多工作。
+通常给出的错误都是你想要的：</p>
 
 <ul>
-  <li>Potentially <code class="highlighter-rouge">null</code> or <code class="highlighter-rouge">undefined</code> values, easily fixed by adding conditional checks.</li>
-  <li>Primitive type issues, like <code class="highlighter-rouge">true + 3</code>. Fixing these requires more knowledge of the code but is usually a small, local fix.</li>
-  <li>In cases where Flow just doesn’t understand the code as written, <a href="/flowtype/blog/2015/02/18/Typecasts.html">explicitly annotating values with <code class="highlighter-rouge">any</code></a> can help the typechecker.</li>
+  <li>
+    <p>潜在的 <code class="highlighter-rouge">null</code> 或者 <code class="highlighter-rouge">undefined</code> 问题, 加个条件判断就完了</p>
+  </li>
+  <li>
+    <p>primitive 类型错误：例如 <code class="highlighter-rouge">true + 3</code>. 需要一点语法知识解决，不过都是一些小改动</p>
+  </li>
+  <li>
+    <p>Flow 不懂你的代码，那就 <a href="/flowtype/blog/2015/02/18/Typecasts.html">注解为 <code class="highlighter-rouge">任何类型</code></a>，
+让检测器更容易理解</p>
+  </li>
 </ul>
 
-<p>Weak mode typically produces a manageable number of errors, so you can get down to zero errors in weak mode with moderate effort.</p>
+<p>通常，弱模式给出的错误数不多而且都好解决，然后你又能得到一定好处。</p>
 
-<h2>下一步<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
+<h2>下一步<a id="section-2" class="hashref"></a><a href="#section-2" class="hash">#</a></h2>
 
-<p>Once your code typechecks with Flow’s weak mode, you can start adding type annotations incrementally. Each type annotation you add will allow Flow to validate more code, and you can gradually increase Flow’s coverage of your code.</p>
+<p>一旦你使用弱模式检测，你可以着手添加逐渐添加类型注解。每增加一个类型注解，Flow 就能检测
+更多的代码，你就能逐步的将 Flow 检测覆盖所有代码</p>
 
-<p>Once your code has more type annotations, you can consider switching it over to regular flow mode by switching the comment at the top of the file to</p>
+<p>随着你的类型注解逐渐完整，你可以考虑切换到正常模式，也就是改下首行注释。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
 </pre></td></tr></tbody></table>
