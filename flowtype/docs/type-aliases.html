@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Type Aliases</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Type Aliases" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/type-aliases.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_" class="active">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Type Aliases</h1>
+    <p></p>
+
+    <p>Flow supports type aliasing.
+Type aliases are similar to <code class="highlighter-rouge">typedef</code>s in C or type abbreviations in OCaml. Type aliasing
+provides a way to redefine existing types as new type names. For example,
+type aliases may be used to define names for object types, effectively modeling
+interface types.</p>
+
+<p>Here is a simple example:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="nx">type</span> <span class="nx">T</span> <span class="o">=</span> <span class="nx">number</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">T</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>We declare the new type <code class="highlighter-rouge">T</code> is an alias for the built-in type <code class="highlighter-rouge">number</code>.
+Anywhere we use <code class="highlighter-rouge">T</code>, we are asserting that <code class="highlighter-rouge">T</code> will have an underlying
+type of <code class="highlighter-rouge">number</code>.</p>
+
+<h2>Type Checking Aliases<a id="type-checking-aliases" class="hashref"></a><a href="#type-checking-aliases" class="hash">#</a></h2>
+
+<p>Aliases are type checked the same way as any other type.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="nx">type</span> <span class="nx">T</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">T</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">x</span><span class="p">[</span><span class="s2">"Hi"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>/tmp/flow/f.js:4:3,6: string
+This type is incompatible with
+  /tmp/flow/f.js:4:1,11: number
+
+/tmp/flow/f.js:4:11,11: number
+This type is incompatible with
+  /tmp/flow/f.js:2:16,21: string
+
+Found 2 errors
+</code></pre>
+</div>
+
+<p>As you can see, we aliased an <code class="highlighter-rouge">Array&lt;string&gt;</code> to a new type called <code class="highlighter-rouge">T</code>. And
+then we tried to assign a <code class="highlighter-rouge">number</code> value to a <code class="highlighter-rouge">string</code> key in the array.
+However, that does not comport with how we declared <code class="highlighter-rouge">T</code>. Instead, this would
+work:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="nx">type</span> <span class="nx">T</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">string</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">T</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"Hi"</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h2>A More Complicated Example<a id="a-more-complicated-example" class="hashref"></a><a href="#a-more-complicated-example" class="hash">#</a></h2>
+
+<p>Let’s take a look at a more involved example where we use arrow functions in
+our type aliasing.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="c1">// Let F&lt;U, V&gt; describe the type of functions of the form</span>
+<span class="c1">// function(x: U) {</span>
+<span class="c1">//   // return some value compatible with that assigned to V</span>
+<span class="c1">// }</span>
+<span class="nx">type</span> <span class="nx">F</span><span class="o">&lt;</span><span class="nx">U</span><span class="p">,</span> <span class="nx">V</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nx">x</span><span class="err">:</span> <span class="nx">U</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">V</span><span class="p">;</span>
+
+<span class="c1">// The function foo applies a given function f to a given argument x</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="o">&lt;</span><span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">f</span><span class="err">:</span> <span class="nx">F</span><span class="o">&lt;</span><span class="nx">X</span><span class="p">,</span> <span class="nx">Y</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">X</span><span class="p">)</span><span class="err">:</span> <span class="nx">Y</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">f</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">b</span><span class="err">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span><span class="err">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">foo</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">b</span><span class="p">;</span> <span class="p">},</span> <span class="mi">0</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>We alias a function (via the <code class="highlighter-rouge">=&gt;</code> syntax), to <code class="highlighter-rouge">F&lt;U, V&gt;</code>. So whenever <code class="highlighter-rouge">F&lt;U, V&gt;</code>
+is used as a parameter or return type, that function will be the underlying
+type.</p>
+
+<p>Then we create a function that is parameterized to <code class="highlighter-rouge">X</code> and <code class="highlighter-rouge">Y</code>. <code class="highlighter-rouge">foo()</code> takes
+as its first parameter our type alias <code class="highlighter-rouge">F&lt;X, Y&gt;</code> and as its second parameter a
+value of type <code class="highlighter-rouge">X</code>. We are returning a <code class="highlighter-rouge">Y</code> from <code class="highlighter-rouge">foo()</code>.</p>
+
+<p>When we call <code class="highlighter-rouge">foo()</code> we have assigned <code class="highlighter-rouge">X</code> to an <code class="highlighter-rouge">int</code> (via <code class="highlighter-rouge">x</code>) and <code class="highlighter-rouge">Y</code> as
+a <code class="highlighter-rouge">boolean</code> (via <code class="highlighter-rouge">b</code>). Thus, <code class="highlighter-rouge">result</code> is expected to be of type <code class="highlighter-rouge">boolean</code>.</p>
+
+<p>Since we have <code class="highlighter-rouge">result</code> as a <code class="highlighter-rouge">string</code>, we get the following error:</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>/tmp/flow/f.js:9:48,48: boolean
+This type is incompatible with
+  /tmp/flow/f.js:9:13,18: string
+
+Found 1 error
+</code></pre>
+</div>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/destructuring.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/union-intersection-types.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/01-type-aliases.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

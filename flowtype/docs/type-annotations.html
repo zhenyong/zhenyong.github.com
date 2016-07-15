@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Type Annotations</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Type Annotations" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/type-annotations.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_" class="active">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Type Annotations</h1>
+    <p></p>
+
+    <p>JavaScript is inherently a dynamically-typed language. As such, explicitly
+typing your code is not part of the JavaScript lexicon. This is normal
+JavaScript code:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>What is the value of <code class="highlighter-rouge">x</code>? <code class="highlighter-rouge">3</code>? <code class="highlighter-rouge">"30"</code>? <code class="highlighter-rouge">undefined</code>? The answer is <code class="highlighter-rouge">"30"</code>, and, in most
+cases, this probably not the behavior you would prefer.</p>
+
+<p>Flow helps mitigate these sort of subtle bugs by trying to keep your code sane
+through static analysis and type annotations.</p>
+
+<h2>Type Annotations<a id="type-annotations" class="hashref"></a><a href="#type-annotations" class="hash">#</a></h2>
+
+<p>Type annotations are generally prefixed by <code class="highlighter-rouge">:</code>. And they can be placed on
+function parameters, function return types and variable declarations. e.g.,</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="err">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">b</span><span class="err">:</span> <span class="nx">number</span><span class="p">)</span><span class="err">:</span> <span class="k">void</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">someBool</span><span class="p">;</span>
+<span class="kr">class</span> <span class="nx">Bar</span> <span class="p">{</span>
+  <span class="nl">y</span><span class="p">:</span> <span class="nx">string</span><span class="p">;</span>
+  <span class="nx">someMethod</span><span class="p">(</span><span class="nx">a</span><span class="err">:</span> <span class="nx">number</span><span class="p">)</span><span class="err">:</span> <span class="nx">string</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h2>Simple Example<a id="simple-example" class="hashref"></a><a href="#simple-example" class="hash">#</a></h2>
+
+<p>We can easily take this code and make it Flow aware by adding a simple
+annotation <code class="highlighter-rouge">@flow</code> at the top in a comment block:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>However, Flow will find no errors with the above code. That’s because the <code class="highlighter-rouge">+</code>
+operator is perfectly acceptable on <code class="highlighter-rouge">number</code>s and <code class="highlighter-rouge">string</code>s, and we didn’t
+specify that the parameters to <code class="highlighter-rouge">add</code> must be <code class="highlighter-rouge">number</code>s.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">num1</span><span class="err">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">num2</span><span class="err">:</span> <span class="nx">number</span><span class="p">)</span><span class="err">:</span> <span class="nx">number</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">num1</span> <span class="o">+</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Running the type checker against the above code will yield type errors
+since we have explicitly typed all parameters and variables.</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:5
+  5: var x: number = add(3, '0');
+                     ^^^^^^^^^^^ function call
+  5: var x: number = add(3, '0');
+                            ^^^ string. This type is incompatible with
+  2: function add(num1: number, num2: number): number {
+                                      ^^^^^^ number
+
+Found 1 error
+</code></pre>
+</div>
+
+<h2>Type Annotation Requirements<a id="type-annotation-requirements" class="hashref"></a><a href="#type-annotation-requirements" class="hash">#</a></h2>
+
+<p>Type annotations are not always strictly necessary to use Flow. As shown above,
+all that is strictly required to make your JavaScript file Flow aware is
+the <code class="highlighter-rouge">@flow</code> annotation. And this annotation by itself can be enough for Flow to
+deduce all that is necessary to type check your code.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">multPI</span><span class="p">(</span><span class="nx">num1</span><span class="p">,</span> <span class="nx">num2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nx">num1</span> <span class="o">*</span> <span class="nx">num2</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">multPI</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'0'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Since the multiplication operator makes no real sense on a string, Flow is
+smart enough to deduce a problem here without explicit type annotations.</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:5
+  5: var x = multPI(3, '0');
+             ^^^^^^^^^^^^^^ function call
+  3:   return Math.PI * num1 * num2;
+                               ^^^^ string. This type is incompatible with
+  3:   return Math.PI * num1 * num2;
+              ^^^^^^^^^^^^^^^^^^^^^ number
+
+Found 1 error
+</code></pre>
+</div>
+
+<h3>Module Boundaries<a id="module-boundaries" class="hashref"></a><a href="#module-boundaries" class="hash">#</a></h3>
+
+<p>Flow requires annotations at the boundaries of modules. This allows Flow to analyze modules in isolation which improves the performance of checking types across module boundaries. Coincidentally we’ve found that this helps to improve the self-documenting nature of module interfaces as well</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="cm">/**
+ * Size.js
+ * @flow
+ */</span>
+<span class="kd">function</span> <span class="nx">size</span><span class="p">(</span><span class="nx">input</span><span class="err">:</span> <span class="nx">string</span><span class="p">)</span><span class="err">:</span> <span class="nx">number</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">size</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="cm">/**
+ * UseSize.js
+ * @flow
+ */</span>
+<span class="kd">var</span> <span class="nx">size</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'./Size'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">size</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Type annotations are required for the <code class="highlighter-rouge">size</code> function in <code class="highlighter-rouge">Size.js</code> because <code class="highlighter-rouge">UseSize.js</code> imports it and thus crosses the module boundary and isn’t inferred.</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>UseSize.js:6
+  6: var result = size(null);
+                  ^^^^^^^^^^ function call
+  6: var result = size(null);
+                       ^^^^ null. This type is incompatible with
+  5: function size(input: string): number {
+                          ^^^^^^ string. See: Size.js:5
+
+Found 1 error
+</code></pre>
+</div>
+
+<h2><code class="highlighter-rouge">any</code> Annotations<a id="any-annotations" class="hashref"></a><a href="#any-annotations" class="hash">#</a></h2>
+
+<p><code class="highlighter-rouge">any</code> is a special type annotation that represents the universal dynamic type.
+<code class="highlighter-rouge">any</code> can flow to any other type, and vice-versa. <code class="highlighter-rouge">any</code> is basically the “get
+out of my way, I know what I am doing” annotation. Use it when Flow is getting
+in your way, but you know your program is correct.</p>
+
+<h2>Bottom Line<a id="bottom-line" class="hashref"></a><a href="#bottom-line" class="hash">#</a></h2>
+
+<p>You can type annotate all your code. That would be the most expressive and
+self-documenting approach. However, Flow does a lot of type inference for you to
+alleviate this requirement when it becomes a burden. The only place that you must
+annotate types is where those types go across module boundaries.</p>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/existing.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/third-party.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/01-type-annotations.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

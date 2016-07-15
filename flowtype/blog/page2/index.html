@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/blog/page2/">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+          >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          
+            class="active"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  <section>
+    <h3>Recent Releases</h3>
+    <ul>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.28.0">
+            v0.28.0
+          </a>
+          <small>(July  5, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.27.0">
+            v0.27.0
+          </a>
+          <small>(June 10, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.26.0">
+            v0.26.0
+          </a>
+          <small>(May 27, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.25.0">
+            v0.25.0
+          </a>
+          <small>(May 16, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.24.2">
+            v0.24.2
+          </a>
+          <small>(May  6, 2016)</small>
+        </li>
+      
+      <li>
+        <a href="https://github.com/facebook/flow/releases">
+          All releases...
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>Recent Posts</h3>
+    <ul>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2016/07/01/New-Unions-Intersections.html">
+            New Unions and Intersections
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2016/02/02/Version-0.21.0.html">
+            Version 0.21.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/12/01/Version-0.19.0.html">
+            Version 0.19.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/11/09/Generators.html">
+            Generators
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/10/07/Version-0.17.0.html">
+            Version 0.17.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/09/22/Version-0.16.0.html">
+            Version 0.16.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/09/10/Version-0.15.0.html">
+            Version 0.15.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/07/29/Version-0.14.0.html">
+            Version 0.14.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/07/03/Disjoint-Unions.html">
+            Disjoint Unions
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/03/12/Bounded-Polymorphism.html">
+            Bounded Polymorphism
+            
+          </a>
+        </li>
+      
+      <li><a
+        
+        href="/blog/all.html">All posts...</a></li>
+    </ul>
+  <section>
+</nav>
+
+
+<article class='withtoc'>
+    <p></p>
+
+    <!-- Pagination links - copied from http://jekyllrb.com/docs/pagination/ -->
+
+<p class="pagination">
+  
+    <a href="/blog/">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/blog">1</a>
+    
+  
+    
+      <em>2</em>
+    
+  
+    
+      <a href="/blog/page3/">3</a>
+    
+  
+
+  
+    <a href="/blog/page3/">Next &raquo;</a>
+  
+</p>
+
+
+
+<div class="posts">
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/09/22/Version-0.16.0.html">Version 0.16.0</a></h1>
+        <p class="meta">September 22, 2015 by Jeff Morrison</p>
+
+      <div class="entry">
+        
+          <p>On Friday we released Flow v0.16.0! We had some major perf improvements that we wanted to get into a release, plus let/const support was ready (thanks again <a href="https://github.com/samwgoldman">@samwgoldman</a>)!</p>
+
+<p>As always, the <a href="https://github.com/facebook/flow/blob/master/Changelog.md#v0160">Changelog</a> is best at summing up the big changes.</p>
+
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/09/10/Version-0.15.0.html">Version 0.15.0</a></h1>
+        <p class="meta">September 10, 2015 by Gabe Levi</p>
+
+      <div class="entry">
+        
+          <p>Today we released Flow v0.15.0! A lot has changed in the last month and we’re excited to get the hard work of all our contributors in front of people! Big thanks to everyone who contributed to this release!</p>
+
+<p>Check out the <a href="https://github.com/facebook/flow/blob/master/Changelog.md#v0150">Changelog</a> to see what’s new.</p>
+
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/07/29/Version-0.14.0.html">Version 0.14.0</a></h1>
+        <p class="meta">July 29, 2015 by Gabe Levi</p>
+
+      <div class="entry">
+        
+          <p>It has come to our attention that not everyone obsessively checks GitHub for Flow releases. This came as a surprise, but we would like to support these users too. Therefore, we will start announcing each Flow release on the blog, starting with this release.</p>
+
+<p>So here is Flow v0.14.0! Check out the <a href="https://github.com/facebook/flow/blob/master/Changelog.md#v0140">Changelog</a> for the canonical list of what has changed.</p>
+
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/07/03/Disjoint-Unions.html">Announcing Disjoint Unions</a></h1>
+        <p class="meta">July  3, 2015 by Avik Chaudhuri</p>
+
+      <div class="entry">
+        
+          <p>Sometimes programs need to deal with different kinds of data all at once, where the shape of the data can be different based on what kind of data the code is looking at. This kind of programming is so common in functional programming languages that almost all such languages come with a way of:</p>
+
+<ul>
+  <li>Specifying such data by a set of disjoint cases, distinguished by “tags”, where each tag is associated with a different “record” of properties. (These descriptions are called “disjoint union” or “variant” types.)</li>
+  <li>Doing case analysis on such data, by checking tags and then directly accessing the associated record of properties. (The common way to do such case analysis is by pattern matching.)</li>
+</ul>
+
+<p>Examples of programs that analyze or transform such data range from compilers working with abstract syntax trees, to operations that may return exceptional values,  with much more in between!</p>
+
+<p>As of Flow 0.13.1 it is now possible to program in this style in JavaScript in a type-safe manner. You can define a disjoint union of object types and do case analysis on objects of that type by switching on the value of some common property (called a “sentinel”) in those object types.</p>
+
+<p>Flow’s syntax for disjoint unions looks like:</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">BinaryTree</span> <span class="o">=</span>
+  <span class="p">{</span> <span class="na">kind</span><span class="p">:</span> <span class="s2">"leaf"</span><span class="p">,</span> <span class="na">value</span><span class="p">:</span> <span class="nx">number</span> <span class="p">}</span> <span class="o">|</span>
+  <span class="p">{</span> <span class="na">kind</span><span class="p">:</span> <span class="s2">"branch"</span><span class="p">,</span> <span class="na">left</span><span class="p">:</span> <span class="nx">BinaryTree</span><span class="p">,</span> <span class="na">right</span><span class="p">:</span> <span class="nx">BinaryTree</span> <span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">sumLeaves</span><span class="p">(</span><span class="nx">tree</span><span class="err">:</span> <span class="nx">BinaryTree</span><span class="p">)</span><span class="err">:</span> <span class="nx">number</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">kind</span> <span class="o">===</span> <span class="s2">"leaf"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">sumLeaves</span><span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">left</span><span class="p">)</span> <span class="o">+</span> <span class="nx">sumLeaves</span><span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">right</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/07/03/Disjoint-Unions.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/03/12/Bounded-Polymorphism.html">Announcing Bounded Polymorphism</a></h1>
+        <p class="meta">March 12, 2015 by Avik Chaudhuri</p>
+
+      <div class="entry">
+        
+          <p>As of Flow 0.5.0, you can define polymorphic functions and classes with bounds on their type parameters. This is extremely useful for writing functions and classes that need some constraints on their type parameters. Flow’s bounded polymorphism syntax looks like</p>
+
+<pre><code class="language-JavaScript">class BagOfBones&lt;T: Bone&gt; { ... }
+function eat&lt;T: Food&gt;(meal: T): Indigestion&lt;T&gt; { ... }
+</code></pre>
+
+<h2>The problem<a id="the-problem" class="hashref"></a><a href="#the-problem" class="hash">#</a></h2>
+
+<p>Consider the following code that defines a polymorphic function in Flow:</p>
+
+<pre><code class="language-JavaScript">function fooBad&lt;T&gt;(obj: T): T {
+  console.log(Math.abs(obj.x));
+  return obj;
+}
+</code></pre>
+
+<p>This code does not (and should not!) type check. Not all values <code class="highlighter-rouge">obj: T</code> have a property <code class="highlighter-rouge">x</code>, let alone a property <code class="highlighter-rouge">x</code> that is a <code class="highlighter-rouge">number</code>, given the additional requirement imposed by <code class="highlighter-rouge">Math.abs()</code>.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/03/12/Bounded-Polymorphism.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+</div>
+
+<!-- Pagination links - copied from http://jekyllrb.com/docs/pagination/ -->
+
+<p class="pagination">
+  
+    <a href="/blog/">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/blog">1</a>
+    
+  
+    
+      <em>2</em>
+    
+  
+    
+      <a href="/blog/page3/">3</a>
+    
+  
+
+  
+    <a href="/blog/page3/">Next &raquo;</a>
+  
+</p>
+
+
+
+
+    <div class="docs-prevnext">
+      
+      
+    </div>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Functions</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Functions" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/functions.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_" class="active">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Functions</h1>
+    <p></p>
+
+    <p>Functions are ubiquitous in JavaScript. As expected, Flow propagates types through function calls.</p>
+
+<h2>Type Annotating Functions<a id="type-annotating-functions" class="hashref"></a><a href="#type-annotating-functions" class="hash">#</a></h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="err">:</span> <span class="nx">string</span><span class="p">)</span><span class="err">:</span> <span class="nx">string</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Running Flow produces the following error:</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:2:26,31: string
+This type is incompatible with
+  file.js:3:8,13: number
+</code></pre>
+</div>
+
+<h2>Open methods<a id="open-methods" class="hashref"></a><a href="#open-methods" class="hash">#</a></h2>
+
+<p>In JavaScript, functions also take an implicit <code class="highlighter-rouge">this</code> parameter, and can
+therefore serve as open methods for objects that have such functions as
+properties: the <code class="highlighter-rouge">this</code> parameter is bound to whatever object the method is
+called on. Flow understands such behavior and propagates types through <code class="highlighter-rouge">this</code>
+as well. For example, the following code does not typecheck:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span> <span class="na">x</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="na">f</span><span class="p">:</span> <span class="nx">foo</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">o</span><span class="p">.</span><span class="nx">f</span><span class="p">();</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:3:14,15: number
+This type is incompatible with
+  file.js:4:8,13: string
+
+file.js:4:17,21: call of method f
+Too few arguments (expected default/rest parameters in function)
+  file.js:2:1,34: function
+</code></pre>
+</div>
+
+<h2>Variadics<a id="variadics" class="hashref"></a><a href="#variadics" class="hash">#</a></h2>
+
+<p>Functions can take optional and rest parameters, and calls to such functions
+are checked as expected. For example, the following code typechecks:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">bar</span><span class="p">(</span><span class="nx">z</span><span class="p">,</span> <span class="p">...</span><span class="nx">w</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+<span class="nx">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="nx">bar</span><span class="p">(</span><span class="s1">'h'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'l'</span><span class="p">,</span> <span class="s1">'o'</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Calls are matched against function signatures following the usual rules of
+argument matching while taking into account optional/rest parameters.</p>
+
+<p>When checking the body of a function, types of optional parameters are considered <a href="http://flowtype.org/docs/nullable-types.html#_">optional</a> unless default values are provided.</p>
+
+<h3>Too Few Arguments<a id="too-few-arguments" class="hashref"></a><a href="#too-few-arguments" class="hash">#</a></h3>
+
+<p>When you call a function with fewer arguments than it accepts, the <code class="highlighter-rouge">void</code> type
+will be flowed to the missing parameters. If the missing parameter does not
+accept values of type <code class="highlighter-rouge">void</code> then you will get an error.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">takesANumber</span><span class="p">(</span><span class="nx">x</span><span class="err">:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{}</span>
+<span class="nx">takesANumber</span><span class="p">()</span> <span class="c1">// Error: undefined passed to x, which expects a number</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>However if the missing parameter accepts values of type <code class="highlighter-rouge">void</code> then there will
+be no error.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">canTakeNoArgs</span><span class="p">(</span><span class="nx">a</span><span class="err">:</span> <span class="k">void</span><span class="p">,</span> <span class="nx">b</span><span class="err">:</span> <span class="p">?</span><span class="nx">number</span><span class="p">,</span> <span class="nx">c</span><span class="p">?:</span> <span class="nx">number</span><span class="p">)</span> <span class="p">{}</span>
+<span class="nx">canTakeNoArgs</span><span class="p">();</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h3>Too Many Arguments<a id="too-many-arguments" class="hashref"></a><a href="#too-many-arguments" class="hash">#</a></h3>
+
+<p>In JavaScript you can call a function with more arguments than it expects. Flow
+allows this too. However, there is an easy trick to declare a function can’t
+take extra arguments.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">takesOnlyOneNumber</span><span class="p">(</span><span class="nx">x</span><span class="err">:</span> <span class="nx">number</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="err">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{}</span>
+<span class="nx">takesOnlyOneNumber</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// Error: 2 does not have the type void</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>This is particularly useful when declaring overloads in lib files.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="c1">// The first overload matches 0 args, the second matches 1 arg, the third</span>
+<span class="c1">// matches 2 args</span>
+<span class="nx">declare</span> <span class="kd">function</span> <span class="nx">foo</span><span class="p">(...</span><span class="nx">rest</span><span class="err">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">)</span><span class="err">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="nx">declare</span> <span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="err">:</span> <span class="nx">number</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="err">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">)</span><span class="err">:</span> <span class="nx">string</span><span class="p">;</span>
+<span class="nx">declare</span> <span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">a</span><span class="err">:</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">b</span><span class="err">:</span> <span class="nx">number</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="err">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="k">void</span><span class="o">&gt;</span><span class="p">)</span><span class="err">:</span> <span class="nx">string</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h2>Function-based type annotations<a id="function-based-type-annotations" class="hashref"></a><a href="#function-based-type-annotations" class="hash">#</a></h2>
+
+<p>Since functions are first-class values in JavaScript (meaning they can be
+passed around, like numbers), type annotations may include function types. A
+function type is of the form <code class="highlighter-rouge">(P1: T1, .., Pn: Tn) =&gt; U</code> where each <code class="highlighter-rouge">Ti</code> is a
+parameter type, <code class="highlighter-rouge">U</code> is the return type, and each <code class="highlighter-rouge">Pi</code> is one of the following:</p>
+
+<ul>
+  <li>an identifier <code class="highlighter-rouge">x</code>, suggesting a name for a regular parameter</li>
+  <li>of the form <code class="highlighter-rouge">x?</code>, indicating an optional parameter</li>
+  <li>of the form <code class="highlighter-rouge">...x</code>, indicating a rest parameter</li>
+</ul>
+
+<p>There may be at most one rest parameter, which has to appear at the end, and
+optional parameters must follow regular parameters.</p>
+
+<p>Furthermore, function expressions and function definitions may have parts of
+their types annotated inline, as seen above. For example, we may have:</p>
+
+<p><code class="highlighter-rouge">function foo (P1: T1, .., Pn: Tn): U { .. }</code></p>
+
+<h2>Polymorphic functions<a id="polymorphic-functions" class="hashref"></a><a href="#polymorphic-functions" class="hash">#</a></h2>
+<p>Functions can be polymorphic, just like polymorphic classes.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">function</span> <span class="nx">foo</span><span class="o">&lt;</span><span class="nx">X</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">x</span><span class="err">:</span> <span class="nx">X</span><span class="p">)</span><span class="err">:</span> <span class="nx">X</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">x</span><span class="err">:</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">y</span><span class="err">:</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">(</span><span class="s1">''</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Furthermore, you may have polymorphic methods in polymorphic classes. For
+example, you may define a List class with a map method:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kr">class</span> <span class="nx">List</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">map</span><span class="o">&lt;</span><span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="na">f</span><span class="p">:</span> <span class="p">(</span><span class="na">x</span><span class="p">:</span> <span class="nx">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">U</span><span class="p">):</span> <span class="nx">List</span><span class="o">&lt;</span><span class="nx">U</span><span class="o">&gt;</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>This means that for every instantiation of <code class="highlighter-rouge">T</code>, there is a polymorphic method
+for objects of type <code class="highlighter-rouge">List&lt;T&gt;</code> that, for any instantiation of <code class="highlighter-rouge">U</code>, takes a
+function of type <code class="highlighter-rouge">(x: T) =&gt; U</code> and returns an object of type <code class="highlighter-rouge">List&lt;U&gt;</code>.</p>
+
+<h2>Overloading<a id="overloading" class="hashref"></a><a href="#overloading" class="hash">#</a></h2>
+
+<p>Some methods, such as <code class="highlighter-rouge">replace()</code> in <code class="highlighter-rouge">String</code> and (the polymorphic method)
+<code class="highlighter-rouge">then()</code> in (the polymorphic class) <code class="highlighter-rouge">Promise</code>, have multiple signatures to
+model slightly different use cases that otherwise make sense to group into a single method.</p>
+
+<p>Flow understands such “overloaded” signatures and knows how to apply the
+correct one for a given call. In fact, the addition operator is a special case
+of an overloaded function that returns number in some cases and string in
+others, based on the types of its arguments.</p>
+
+<p>Sometimes, multiple signatures are not needed to express overloading: the signatures can
+be coalesced using <a href="http://flowtype.org/docs/union-intersection-types.html#_">union types</a>.
+Flow provides the following syntax for union types:</p>
+
+<p><code class="highlighter-rouge">T1 | .. | Tn</code></p>
+
+<p>is the union of types <code class="highlighter-rouge">Ti</code>. Union types are available for general use.</p>
+
+<p>As specific cases, the overloaded signatures of both <code class="highlighter-rouge">replace()</code> in <code class="highlighter-rouge">String</code> and <code class="highlighter-rouge">then()</code> in <code class="highlighter-rouge">Promise</code> have been rewritten to use union types, thereby compressing a combinatorial number of signatures into one. In general this is possible whenever return types do not depend on the specific choice and combination of argument types, which is often the case in JavaScript due to lack of overloading support at run time.</p>
+
+<h3>Overloading Caution<a id="overloading-caution" class="hashref"></a><a href="#overloading-caution" class="hash">#</a></h3>
+
+<p>Overloading is not recommended in general in a dynamic language, because it
+can be very confusing, and often results in performance penalties. Flow does not yet provide a way to declare overloaded signatures for definitions outside the prelude, so it is not available for general use.</p>
+
+<p>Curiously, there is no actual overloading at run time in JavaScript (since
+there are no static types at run time). Instead, an overloaded function is
+implemented by a function that accepts several possible arguments and then
+does a series of dynamic type tests in its body to dispatch accordingly. This
+has an interesting effect: since type signatures reflect the truth about
+implementations, it often turns out that a set of overloaded signatures can be
+simplified to a single signature using a union type for some parameters.</p>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/objects.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/nullable-types.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/01-functions.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | 一个 JavaScript 静态类型检测器</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="一个 JavaScript 静态类型检测器" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="home">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+          >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+
+<header class="main hero"><div class="width">
+  <div class="flow-header"></div>
+  <div>
+    <p>一个 JavaScript 静态类型检测器</p>
+  </div>
+</div></header>
+
+<section class="marketing-row three"><div class="width">
+<div class="col first">
+
+      <h2>类型接口<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
+
+      <p>Flow 使用类型接过查找错误，甚至不需要任何类型声明。
+它能够准确地跟踪变量的类型，就像运行时那样。</p>
+
+    </div>
+<div class="col">
+
+      <h2>JS 风格<a id="js-" class="hashref"></a><a href="#js-" class="hash">#</a></h2>
+
+      <p>Flow 专为 JavaScript 程序员设计。
+他能够理解常用 JS 方言和极具动态的特性</p>
+
+    </div>
+<div class="col">
+
+      <h2>实时反馈<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
+
+      <p>Flow 能立刻检测代码变化，在开发 JS 时提供快速不断地反馈</p>
+
+    </div>
+</div></section>
+
+<section class="content"><div class="width">
+<article>
+
+      <p>Flow 能在 JS 运行前找出常见的 bug，包括：</p>
+
+      <ul>
+        <li>自动类型转换,</li>
+        <li><code class="highlighter-rouge">null</code> 引用,</li>
+        <li>可怕的 <code class="highlighter-rouge">undefined is not a function</code>.</li>
+      </ul>
+
+      <div class="code-sample">
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="error" data-error-id="E1" data-message-id="M1003"><span class="error" data-error-id="E1" data-message-id="M1001"><span class="normal T_IDENTIFIER">x</span></span> <span class="normal T_MULT">*</span> <span class="normal T_NUMBER">10</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+<span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello, world!&#39;</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+
+<a class="show" href="#" onclick="this.parentNode.className = 'code-sample shown'; return false">show Flow output</a>
+<a class="hide" href="#" onclick="this.parentNode.className = 'code-sample'; return false">hide Flow output</a>
+
+<div class="language-bash highlighter-flow">
+  <pre class="highlight"><code>$&gt; flow</code></pre>
+</div>
+<div class="language-text cli-error highlighter-flow">
+  <pre class="highlight"><code>5: <strong>foo(&#39;Hello, world!&#39;)</strong>;
+   ^^^^^^^^^^^^^^^^^^^^ function call
+3:   return <strong>x</strong> * 10;
+            ^ string. This type is incompatible with
+3:   return <strong>x * 10</strong>;
+            ^^^^^^ number</code></pre>
+</div>
+
+
+</div>
+
+      <p>Flow 允许你『平缓地』增加类型断言，</p>
+      <div class="code-sample">
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">bar</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="error" data-error-id="E2" data-message-id="M2003"><span class="type T_STRING_TYPE">string</span></span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="error" data-error-id="E2" data-message-id="M2001"><span class="normal T_IDENTIFIER">x</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+<span class="normal T_IDENTIFIER">bar</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello, world!&#39;</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+
+<a class="show" href="#" onclick="this.parentNode.className = 'code-sample shown'; return false">show Flow output</a>
+<a class="hide" href="#" onclick="this.parentNode.className = 'code-sample'; return false">hide Flow output</a>
+
+<div class="language-bash highlighter-flow">
+  <pre class="highlight"><code>$&gt; flow</code></pre>
+</div>
+<div class="language-text cli-error highlighter-flow">
+  <pre class="highlight"><code>3:   return <strong>x.length</strong>;
+            ^^^^^^^^ number. This type is incompatible with the expected return type of
+2: function bar(x): <strong>string</strong> {
+                    ^^^^^^ string</code></pre>
+</div>
+
+
+</div>
+
+      <p>带有 Flow 类型注解的 JS 代码可以 <a href="/docs/running.html">简单转化</a>
+为常规的 JS 代码，所以随处运行</p>
+
+    </article>
+</div></section>
+
+<section class="content"><div class="width">
+<article>
+
+      <h2>使用 Flow<a id="flow" class="hashref"></a><a href="#flow" class="hash">#</a></h2>
+
+      <p>翻开我们的 <a href="/docs/getting-started.html">起步</a> 指南，自个试试 Flow 吧</p>
+
+      <p>Flow 对多个编辑器提供强力支持，包括 <a href="https://github.com/flowtype/vim-flow">Vim</a>,
+<a href="https://github.com/facebook/flow/blob/master/flow-types.el">Emacs</a>, and <a href="http://nuclide.io/docs/languages/flow/">Nuclide</a>.</p>
+
+      <header class="hero"><div class="width">
+  <div class="buttons-unit">
+    <a href="/docs/getting-started.html#_" class="button">开始学习</a>
+  </div>
+  <div>
+    <a href="/docs/quick-reference.html" class="sub-header-link">快速索引</a>
+    <a href="https://github.com/facebook/flow/releases/latest" class="sub-header-link">下载</a>
+  </div>
+</div></header>
+
+    </article>
+</div></section>
+
+<footer><div class="width">
+  <div class="oss_logo">
+    <a href="https://code.facebook.com/projects/">
+      <img src="/assets/oss_logo.png" alt="Facebook Open Source" />
+    </a>
+  </div>
+  <div class="contributing">
+
+      <p>Flow 发布在 <a href="https://github.com/facebook/flow">GitHub</a> 上. 
+在 Facebook 内部大量使用，并且是开源的。
+我们希望它对其他 JavaScript 项目有所帮助，所以请您试试。
+参与社区，给我们反馈吧！</p>
+
+      <p>该 <a href="http://zhenyong.site/flow/">中文网站</a> 由 <a href="http://github.com/zhenyong">zhenyong</a>
+翻译自 <a href="https://flowtype.org/">Flow 官网</a>，发布在 <a href="http://zhenyong.site/flow">http://zhenyong.site/flow</a>
+翻译结果仅供学习交流，如有问题请邮件联系 
+<a href="mailto:hzyszu@qq.com">hzyszu@qq.com</a></p>
+
+      <p>所有版权相关信息归原项目 <a href="https://github.com/facebook/flow">Flow</a> 所有</p>
+
+    </div>
+  <div class="copyright">
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+  </div>
+</div></footer>
+<script>require(['inlineErrors'], function(inlineErrors) {
+  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"  return x * 10;","source":"-","start":{"line":62,"column":10,"offset":1136},"end":{"line":62,"column":10,"offset":1137}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"number","context":"  return x * 10;","source":"-","start":{"line":62,"column":10,"offset":1136},"end":{"line":62,"column":15,"offset":1142}}],"operation":{"description":"function call\n","context":"foo('Hello, world!');","source":"-","start":{"line":64,"column":1,"offset":1146},"end":{"line":64,"column":20,"offset":1166}}},{"id":"E2","messages":[{"id":"M2001","description":"number","context":"  return x.length;","source":"-","start":{"line":73,"column":10,"offset":1288},"end":{"line":73,"column":17,"offset":1296}},{"id":"M2002","description":"This type is incompatible with the expected return type of","context":null},{"id":"M2003","description":"string","context":"function bar(x): string {","source":"-","start":{"line":72,"column":18,"offset":1270},"end":{"line":72,"column":23,"offset":1276}}],"operation":null}]);
+});</script>
+
+
+<script>require(['default']);</script>
+</body>
+</html>
+

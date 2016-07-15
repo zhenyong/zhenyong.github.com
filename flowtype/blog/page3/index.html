@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/blog/page3/">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+          >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          
+            class="active"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  <section>
+    <h3>Recent Releases</h3>
+    <ul>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.28.0">
+            v0.28.0
+          </a>
+          <small>(July  5, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.27.0">
+            v0.27.0
+          </a>
+          <small>(June 10, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.26.0">
+            v0.26.0
+          </a>
+          <small>(May 27, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.25.0">
+            v0.25.0
+          </a>
+          <small>(May 16, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.24.2">
+            v0.24.2
+          </a>
+          <small>(May  6, 2016)</small>
+        </li>
+      
+      <li>
+        <a href="https://github.com/facebook/flow/releases">
+          All releases...
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>Recent Posts</h3>
+    <ul>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2016/07/01/New-Unions-Intersections.html">
+            New Unions and Intersections
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2016/02/02/Version-0.21.0.html">
+            Version 0.21.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/12/01/Version-0.19.0.html">
+            Version 0.19.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/11/09/Generators.html">
+            Generators
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/10/07/Version-0.17.0.html">
+            Version 0.17.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/09/22/Version-0.16.0.html">
+            Version 0.16.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/09/10/Version-0.15.0.html">
+            Version 0.15.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/07/29/Version-0.14.0.html">
+            Version 0.14.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/07/03/Disjoint-Unions.html">
+            Disjoint Unions
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/03/12/Bounded-Polymorphism.html">
+            Bounded Polymorphism
+            
+          </a>
+        </li>
+      
+      <li><a
+        
+        href="/blog/all.html">All posts...</a></li>
+    </ul>
+  <section>
+</nav>
+
+
+<article class='withtoc'>
+    <p></p>
+
+    <!-- Pagination links - copied from http://jekyllrb.com/docs/pagination/ -->
+
+<p class="pagination">
+  
+    <a href="/blog/page2/">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/blog">1</a>
+    
+  
+    
+      <a href="/blog/page2/">2</a>
+    
+  
+    
+      <em>3</em>
+    
+  
+
+  
+    <span>Next &raquo;</span>
+  
+</p>
+
+
+
+<div class="posts">
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/02/20/Flow-Comments.html">Announcing Flow Comments</a></h1>
+        <p class="meta">February 20, 2015 by Gabe Levi</p>
+
+      <div class="entry">
+        
+          <p>As of Flow 0.4.0, you can put your Flow-specific syntax in special comments. If you use these special comments then you do not need to transform away Flow-specific syntax before running your code. While we strongly recommend that you write your code without the special comments, this feature will help people who can’t fit a Flow-stripping transformation into their setup. This was one of our <a href="https://github.com/facebook/flow/issues/3">most requested features</a> and hopefully it will enable even more people to use Flow!</p>
+
+<p>This feature introduces 3 special comments: <code class="highlighter-rouge">/*:</code>, <code class="highlighter-rouge">/*::</code>, and <code class="highlighter-rouge">/*flow-include</code>. Flow will read the code inside these special comments and treat the code as if the special comment tokens didn’t exist. These special comments are valid JavaScript block comments, so your JavaScript engine will ignore the code inside the comments.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/02/20/Flow-Comments.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/02/18/Typecasts.html">Announcing Typecasts</a></h1>
+        <p class="meta">February 18, 2015 by Basil Hosmer</p>
+
+      <div class="entry">
+        
+          <p>As of version 0.3.0, Flow supports typecast expression.</p>
+
+<p>A typecast expression is a simple way to type-annotate any JavaScript expression. Here are some examples of typecasts:</p>
+
+<pre><code class="language-JavaScript">(1 + 1 : number);
+var a = { name: (null: ?string) };
+([1, 'a', true]: Array&lt;mixed&gt;).map(fn);
+</code></pre>
+
+<p>For any JavaScript expression <code class="highlighter-rouge">&lt;expr&gt;</code> and any Flow type <code class="highlighter-rouge">&lt;type&gt;</code>, you can write</p>
+
+<pre><code class="language-JavaScript">(&lt;expr&gt; : &lt;type&gt;)
+</code></pre>
+
+<p><strong>Note:</strong> the parentheses are necessary.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/02/18/Typecasts.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/02/18/Import-Types.html">Announcing Import Type</a></h1>
+        <p class="meta">February 18, 2015 by Jeff Morrison</p>
+
+      <div class="entry">
+        
+          <p>As of Flow 0.3.0, it’s now possible to import types from another module. So, for example, if you’re only importing a class for purposes of referencing it in a type annotation, you can now use the new <code class="highlighter-rouge">import type</code> syntax to do this.</p>
+
+<h2>Motivation<a id="motivation" class="hashref"></a><a href="#motivation" class="hash">#</a></h2>
+
+<p>Has this ever happened to you:</p>
+
+<pre><code class="language-JavaScript">// @flow
+
+// Post-transformation lint error: Unused variable 'URI'
+import URI from "URI";
+
+// But if you delete the require you get a Flow error:
+// identifier URI - Unknown global name
+module.exports = function(x: URI): URI {
+  return x;
+}
+</code></pre>
+
+<p>Now you have an out! To solve this problem (and with an eye toward a near future with ES6 module syntax), we’ve added the new <code class="highlighter-rouge">import type</code> syntax.  With <code class="highlighter-rouge">import type</code>, you can convey what you really mean here — that you want to import the <em>type</em> of the class and not really the class itself.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/02/18/Import-Types.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+</div>
+
+<!-- Pagination links - copied from http://jekyllrb.com/docs/pagination/ -->
+
+<p class="pagination">
+  
+    <a href="/blog/page2/">&laquo; Prev</a>
+  
+
+  
+    
+      <a href="/blog">1</a>
+    
+  
+    
+      <a href="/blog/page2/">2</a>
+    
+  
+    
+      <em>3</em>
+    
+  
+
+  
+    <span>Next &raquo;</span>
+  
+</p>
+
+
+
+
+    <div class="docs-prevnext">
+      
+      
+    </div>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

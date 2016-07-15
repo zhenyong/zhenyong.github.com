@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Troubleshooting</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Troubleshooting" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/troubleshooting.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_" class="active">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Troubleshooting</h1>
+    <p></p>
+
+    <h2>Common errors and how to fix them<a id="common-errors-and-how-to-fix-them" class="hashref"></a><a href="#common-errors-and-how-to-fix-them" class="hash">#</a></h2>
+
+<h3>Global not found<a id="global-not-found" class="hashref"></a><a href="#global-not-found" class="hash">#</a></h3>
+
+<p>These errors are due to global references in your code, and possibly also due to typos. If the former, you can <a href="/docs/third-party.html#interface-files">declare them in an interface file</a> if you know that they are going to be available when you run the code.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="nx">declare</span> <span class="kd">var</span> <span class="nx">foo</span><span class="err">:</span> <span class="o">&lt;</span><span class="nx">type</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h3>Required module not found<a id="required-module-not-found" class="hashref"></a><a href="#required-module-not-found" class="hash">#</a></h3>
+
+<p>These errors are due to <code class="highlighter-rouge">require(...)</code> or <code class="highlighter-rouge">import</code> statements in your code that don’t resolve to the set of modules exported by files under <code class="highlighter-rouge">&lt;root&gt;</code>. To specify additional code directories to Flow, you can add the following lines to your project’s <code class="highlighter-rouge">.flowconfig</code> under <code class="highlighter-rouge">&lt;root&gt;</code>.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[include]
+../node_modules/
+../lib/
+</code></pre>
+</div>
+
+<p>Alternatively, you may not have the code available for those modules, or otherwise want to specify declarations for them. In that case, as in the ‘global not found’ case above you need to add an interface file and point to it from within your <code class="highlighter-rouge">.flowconfig</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="nx">declare</span> <span class="nx">module</span> <span class="nx">Bar</span> <span class="p">{</span>
+  <span class="p">...</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>For more information about writing interface files, see <a href="third-party.html">this guide</a> Note that if both an implementation and a declaration is found for a module, Flow will choose the implementation only if it has been opted-in. Otherwise it will use the declaration.</p>
+
+<h3>Operation not allowed on <code class="highlighter-rouge">null</code> / <code class="highlighter-rouge">undefined</code><a id="operation-not-allowed-on-null--undefined" class="hashref"></a><a href="#operation-not-allowed-on-null--undefined" class="hash">#</a></h3>
+
+<p>Flow considers types to be incompatible with <code class="highlighter-rouge">null</code> / <code class="highlighter-rouge">undefined</code> in general (the only compatible types are “nullable” types, denoted <code class="highlighter-rouge">?&lt;type&gt;</code>. Thus, it will complain if it finds that an operation may happen on <code class="highlighter-rouge">null</code> / <code class="highlighter-rouge">undefined</code> that couldn’t normally happen on the type as well as null.</p>
+
+<p>The general way to deal with this is to store the value in a local variable, and guard the operation with a dynamic check on the local variable.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="c1">// var result = foo().bar</span>
+<span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">foo</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">!=</span> <span class="kc">null</span> <span class="p">?</span> <span class="nx">x</span><span class="p">.</span><span class="nx">bar</span> <span class="p">:</span> <span class="p">...</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>You can also try other variations of this basic pattern:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="c1">// foo.bar()</span>
+<span class="nx">foo</span> <span class="o">&amp;&amp;</span> <span class="nx">foo</span><span class="p">.</span><span class="nx">bar</span><span class="p">()</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h3>Function call with too few arguments<a id="function-call-with-too-few-arguments" class="hashref"></a><a href="#function-call-with-too-few-arguments" class="hash">#</a></h3>
+
+<p>In JavaScript, function calls can pass too many or too few arguments: Additional arguments get dropped, and missing arguments get initialized with <code class="highlighter-rouge">undefined</code>. Flow admits the former pattern because it is mostly harmless; but it complains about the latter.</p>
+
+<p>The most common way to fix these errors is to mark optional parameters with a trailing-<code class="highlighter-rouge">?</code> in the definition for the function being called:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">?)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="nx">foo</span><span class="p">();</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Doing this might shift the problem to the function definition, where <code class="highlighter-rouge">x</code> now has a “optional” type. So operations on <code class="highlighter-rouge">x</code> may then need to be guarded by dynamic checks.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span><span class="p">?)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">!=</span> <span class="kc">undefined</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// operation on x</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">foo</span><span class="p">();</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Alternatively, you might want to just provide a default value to <code class="highlighter-rouge">x</code>, in which case the dynamic check is not required.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="kd">function</span> <span class="nx">foo</span><span class="p">(</span><span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// operation on x</span>
+<span class="p">}</span>
+<span class="nx">foo</span><span class="p">();</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<h3>Other type confusions<a id="other-type-confusions" class="hashref"></a><a href="#other-type-confusions" class="hash">#</a></h3>
+
+<p>Some operations only make sense when they’re performed on a particular set of values. (They may still work on other values, but may have unintended consequences).</p>
+
+<p>For example, multiplication (<code class="highlighter-rouge">*</code>) should be performed only on numbers even though it may happen to work when you pass strings (though usually they’re usually converted to <code class="highlighter-rouge">NaN</code>).</p>
+
+<p>Iteration using <code class="highlighter-rouge">for-in</code> should be performed only on objects even though it may still work on arrays (the keys are converted to strings and other, often unexpected, properties are also included).</p>
+
+<p>Non-strict equality <code class="highlighter-rouge">==</code> should be performed only on values that have the same type (otherwise, some sequence of type conversions are tried).</p>
+
+<p>Flow will error on many of these operations because they tend to be hazardous. Usually there is a safer way to express the intent of the code in these cases: e.g., use <code class="highlighter-rouge">Array.forEach</code> and <code class="highlighter-rouge">===</code> in the latter two cases or use <code class="highlighter-rouge">Number(...)</code> in the former case).</p>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/running.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/cli.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/02-troubleshooting.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

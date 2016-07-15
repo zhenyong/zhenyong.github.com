@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Checking third-party code</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Checking third-party code" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/third-party.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_" class="active">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Checking third-party code</h1>
+    <p></p>
+
+    <p>Most real JavaScript programs depend on third-party libraries. This guide shows how to use Flow in a project with external dependencies, without having to typecheck library code.</p>
+
+<h2>Interface Files<a id="interface-files" class="hashref"></a><a href="#interface-files" class="hash">#</a></h2>
+
+<p>Flow supports <em>interface files</em> for the purpose of understanding third party code you did not write. These files define the interface to a library, including types, separately from the actual code of the library. You never need to change library code to use interface files, but your code will be typechecked against the types declared in the interface file.</p>
+
+<p>The workflow for dealing with library code is:</p>
+
+<ul>
+  <li>Do not change the library files or add <code class="highlighter-rouge">@flow</code> to them</li>
+  <li>Add one or more interface files for your libraries in a special directory in your project - for example <code class="highlighter-rouge">interfaces</code></li>
+  <li>Point Flow at those interface files by starting it with <code class="highlighter-rouge">flow start --lib  &lt;path to your interface files&gt;</code> or by specifying a <code class="highlighter-rouge">[libs]</code> section in your <code class="highlighter-rouge">.flowconfig</code> file as such:</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[libs]
+interfaces/
+</code></pre>
+</div>
+
+<h2>Example<a id="example" class="hashref"></a><a href="#example" class="hash">#</a></h2>
+
+<p>To illustrate this workflow, we’ll pick the <a href="http://underscorejs.org/">Underscore</a> library. Let’s say we have this simple file using Underscore:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+
+<span class="kd">var</span> <span class="nx">pizzas</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Margherita'</span><span class="p">,</span> <span class="na">vegetarian</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Pepperoni'</span><span class="p">,</span> <span class="na">vegetarian</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Four cheese'</span><span class="p">,</span> <span class="na">vegetarian</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">title</span><span class="p">:</span> <span class="s1">'Hawaiian'</span><span class="p">,</span> <span class="na">vegetarian</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+<span class="p">];</span>
+
+<span class="kd">function</span> <span class="nx">vegetarianPizzas</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">_</span><span class="p">.</span><span class="nx">findWhere</span><span class="p">(</span><span class="nx">pizzas</span><span class="p">,</span> <span class="p">{</span><span class="na">vegetarian</span><span class="p">:</span> <span class="kc">true</span><span class="p">});</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>Running <code class="highlighter-rouge">flow</code> will unsurprisingly produce an error:</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>underscore_example.js:11:10,10: unknown global name: _
+</code></pre>
+</div>
+
+<p>This is because Flow doesn’t know anything about the global variable <code class="highlighter-rouge">_</code>. To fix this we need to create an interface file for Underscore. If we set the <code class="highlighter-rouge">[libs]</code> configuration to <code class="highlighter-rouge">interfaces/</code>, Flow will look for any <code class="highlighter-rouge">.js</code> files located inside that directory for declarations.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="c1">// interfaces/underscore.js</span>
+<span class="nx">declare</span> <span class="kr">class</span> <span class="nx">Underscore</span> <span class="p">{</span>
+  <span class="nx">findWhere</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">list</span><span class="err">:</span> <span class="nb">Array</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">,</span> <span class="nx">properties</span><span class="err">:</span> <span class="p">{})</span><span class="err">:</span> <span class="nx">T</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">declare</span> <span class="kd">var</span> <span class="nx">_</span><span class="err">:</span> <span class="nx">Underscore</span><span class="p">;</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>This only describes (part of) the interface for Underscore, eliding all implementation details - so Flow never has to understand the Underscore code itself.</p>
+
+<p>If we now add the <code class="highlighter-rouge">interfaces/</code> directory to our flow config under a <code class="highlighter-rouge">[libs]</code> section:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[libs]
+interfaces/
+</code></pre>
+</div>
+
+<p>We can run flow again and see that the error goes away:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Found 0 errors
+</code></pre>
+</div>
+
+<p>If you temporarily modify your code that uses Underscore to purposefully introduce a type error, you can verify that it’s now being checked against this interface file.</p>
+
+<p>When defining the interface for a library, you can use the <code class="highlighter-rouge">any</code> type whenever you don’t need Flow to check a value. This lets you gradually add type definitions for the parts of the library you care most about. See the reference guide on <a href="declarations.html">declarations</a> for more details.</p>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/type-annotations.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/running.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/02-third-party.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

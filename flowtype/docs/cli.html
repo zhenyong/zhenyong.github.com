@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Using the CLI</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Using the CLI" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/cli.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_" class="active">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Using the CLI</h1>
+    <p></p>
+
+    <p>The flow command line tool is made to be easy-to-use for the simple case.</p>
+
+<p>Just using the command <code class="highlighter-rouge">flow</code> will type-check your current directory if the <code class="highlighter-rouge">.flowconfig</code> file is present.
+A flow server will automatically be started if needed.</p>
+
+<p>The CLI tool also provides several other options and commands that allow you to control the server and build tools that integrate with Flow. For example, this is how the <a href="http://nuclide.io">Nuclide</a> editor integrates with Flow to provide autocompletion, type errors, etc. in its UI.</p>
+
+<p>To find out more about the CLI just type:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>flow --help
+</code></pre>
+</div>
+
+<p>This will give you information about everything that flow can do. Running this command should print something like this:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Usage: flow [COMMAND]
+
+Valid values for COMMAND:
+  ast             Print the AST
+  autocomplete    Queries autocompletion information
+  check           Does a full Flow check and prints the results
+  check-contents  Run typechecker on contents from stdin
+  coverage        Shows coverage information for a given file
+  find-module     Resolves a module reference to a file
+  get-def         Gets the definition location of a variable or property
+  get-importers   Gets a list of all importers for one or more given modules
+  get-imports     Get names of all modules imported by one or more given modules
+  init            Initializes a directory to be used as a flow root directory
+  port            Shows ported type annotations for given files
+  search          Searches a pattern
+  server          Runs a Flow server in the foreground
+  start           Starts a Flow server
+  status          (default) Shows current Flow errors by asking the Flow server
+  stop            Stops a Flow server
+  suggest         Shows type annotation suggestions for given files
+  type-at-pos     Shows the type at a given file and position
+  version         Print version information
+
+Default values if unspecified:
+  COMMAND	status
+
+Status command options:
+  --color              Display terminal output in color. never, always, auto (default: auto)
+  --from               Specify client (for use by editor plugins)
+  --help               This list of options
+  --json               Output results in JSON format
+  --no-auto-start      If the server is not running, do not start it; just exit
+  --old-output-format  Use old output format (absolute file names, line and column numbers)
+  --one-line           Escapes newlines so that each error prints on one line
+  --retries            Set the number of retries. (default: 3)
+  --retry-if-init      retry if the server is initializing (default: true)
+  --show-all-errors    Print all errors (the default is to truncate after 50 errors)
+  --strip-root         Print paths without the root
+  --temp-dir           Directory in which to store temp files (default: /tmp/flow/)
+  --timeout            Maximum time to wait, in seconds
+  --version            (Deprecated, use `flow version` instead) Print version number and exit
+</code></pre>
+</div>
+
+<p>You can then, further dig into particular COMMANDs by adding the <code class="highlighter-rouge">--help</code> flag.</p>
+
+<p>So, for example, if you want to know more about how the autocomplete works, you can use this command:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>flow autocomplete --help
+</code></pre>
+</div>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/troubleshooting.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/advanced-configuration.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/04-cli.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

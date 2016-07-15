@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Blog</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Blog" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/blog/">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+          >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          
+            class="active"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  <section>
+    <h3>Recent Releases</h3>
+    <ul>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.28.0">
+            v0.28.0
+          </a>
+          <small>(July  5, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.27.0">
+            v0.27.0
+          </a>
+          <small>(June 10, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.26.0">
+            v0.26.0
+          </a>
+          <small>(May 27, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.25.0">
+            v0.25.0
+          </a>
+          <small>(May 16, 2016)</small>
+        </li>
+      
+      
+        <li>
+          <a href="https://github.com/facebook/flow/releases/tag/v0.24.2">
+            v0.24.2
+          </a>
+          <small>(May  6, 2016)</small>
+        </li>
+      
+      <li>
+        <a href="https://github.com/facebook/flow/releases">
+          All releases...
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <h3>Recent Posts</h3>
+    <ul>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2016/07/01/New-Unions-Intersections.html">
+            New Unions and Intersections
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2016/02/02/Version-0.21.0.html">
+            Version 0.21.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/12/01/Version-0.19.0.html">
+            Version 0.19.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/11/09/Generators.html">
+            Generators
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/10/07/Version-0.17.0.html">
+            Version 0.17.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/09/22/Version-0.16.0.html">
+            Version 0.16.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/09/10/Version-0.15.0.html">
+            Version 0.15.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/07/29/Version-0.14.0.html">
+            Version 0.14.0
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/07/03/Disjoint-Unions.html">
+            Disjoint Unions
+            
+          </a>
+        </li>
+      
+      
+        <li>
+          <a
+            
+            href="/blog/2015/03/12/Bounded-Polymorphism.html">
+            Bounded Polymorphism
+            
+          </a>
+        </li>
+      
+      <li><a
+        
+        href="/blog/all.html">All posts...</a></li>
+    </ul>
+  <section>
+</nav>
+
+
+<article class='withtoc'>
+    <p></p>
+
+    <!-- Pagination links - copied from http://jekyllrb.com/docs/pagination/ -->
+
+<p class="pagination">
+  
+    <span>&laquo; Prev</span>
+  
+
+  
+    
+      <em>1</em>
+    
+  
+    
+      <a href="/blog/page2/">2</a>
+    
+  
+    
+      <a href="/blog/page3/">3</a>
+    
+  
+
+  
+    <a href="/blog/page2/">Next &raquo;</a>
+  
+</p>
+
+
+
+<div class="posts">
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2016/07/01/New-Unions-Intersections.html">New Implementation of Unions and Intersections</a></h1>
+        <p class="meta">July  1, 2016 by Sam Goldman</p>
+
+      <div class="entry">
+        
+          <h2>Summary<a id="summary" class="hashref"></a><a href="#summary" class="hash">#</a></h2>
+
+<p>Before Flow 0.28, the implementation of union/intersection types had serious bugs and was <a href="https://github.com/facebook/flow/issues/1759">the</a> <a href="https://github.com/facebook/flow/issues/1664">root</a> <a href="https://github.com/facebook/flow/issues/1663">cause</a> <a href="https://github.com/facebook/flow/issues/1462">of</a> <a href="https://github.com/facebook/flow/issues/1455">a</a> <a href="https://github.com/facebook/flow/issues/1371">lot</a> <a href="https://github.com/facebook/flow/issues/1349">of</a> <a href="https://github.com/facebook/flow/issues/824">weird</a> <a href="https://github.com/facebook/flow/issues/815">behaviors</a> you may have run into with Flow in the past. These bugs have now been addressed in <a href="https://github.com/facebook/flow/commit/2df7671e7bda770b95e6b1eaede96d7a8ab1f2ac">a diff landing in 0.28</a>.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2016/07/01/New-Unions-Intersections.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2016/02/02/Version-0.21.0.html">Version 0.21.0</a></h1>
+        <p class="meta">February  2, 2016 by Gabe Levi</p>
+
+      <div class="entry">
+        
+          <p>Yesterday we deployed Flow v0.21.0! As always, we’ve listed out the most interesting changes in the <a href="https://github.com/facebook/flow/blob/master/Changelog.md#v0210">Changelog</a>. However, since I’m on a plane and can’t sleep, I thought it might be fun to dive into a couple of the changes! Hope this blog post turns out interesting and legible!</p>
+
+<h2>JSX Intrinsics<a id="jsx-intrinsics" class="hashref"></a><a href="#jsx-intrinsics" class="hash">#</a></h2>
+
+<p>If you’re writing JSX, it’s probably a mix of your own React Components and some intrinsics. For example, you might write</p>
+
+<pre><code class="language-JavaScript">render() {
+  return &lt;div&gt;&lt;FluffyBunny name="Fifi" /&gt;&lt;/div&gt;;
+}
+</code></pre>
+
+<p>In this example, <code class="highlighter-rouge">FluffyBunny</code> is a React Component you wrote and <code class="highlighter-rouge">div</code> is a JSX intrinsic. Lower-cased JSX elements are assumed to be intrinsics by React and by Flow. Up until Flow v0.21.0, Flow ignored intrinsics and gave them the type <code class="highlighter-rouge">any</code>. This meant Flow let you set any property on JSX intrinsics. Flow v0.21.0 will, by default, do the same thing as v0.20.0, However now you can also configure Flow to properly type your JSX intrinsics!</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2016/02/02/Version-0.21.0.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/12/01/Version-0.19.0.html">Version 0.19.0</a></h1>
+        <p class="meta">December  1, 2015 by Gabe Levi</p>
+
+      <div class="entry">
+        
+          <p>Flow v0.19.0 was deployed today! It has a ton of changes, which the <a href="https://github.com/facebook/flow/blob/master/Changelog.md#v0190">Changelog</a> summarizes. The Changelog can be a little concise, though, so here are some longer explanations for some of the changes. Hope this helps!</p>
+
+<h2>@noflow<a id="noflow" class="hashref"></a><a href="#noflow" class="hash">#</a></h2>
+
+<p>Flow is opt-in by default (you add <code class="highlighter-rouge">@flow</code> to a file). However we noticed that sometimes people would add Flow annotations to files that were missing <code class="highlighter-rouge">@flow</code>. Often, these people didn’t notice that the file was being ignored by Flow. So we decided to stop allowing Flow syntax in non-Flow files. This is easily fixed by adding either <code class="highlighter-rouge">@flow</code> or <code class="highlighter-rouge">@noflow</code> to your file. The former will make the file a Flow file. The latter will tell Flow to completely ignore the file.</p>
+
+<h2>Declaration files<a id="declaration-files" class="hashref"></a><a href="#declaration-files" class="hash">#</a></h2>
+
+<p>Files that end with <code class="highlighter-rouge">.flow</code> are now treated specially. They are the preferred provider of modules. That is if both <code class="highlighter-rouge">foo.js</code> and <code class="highlighter-rouge">foo.js.flow</code> exist, then when you write <code class="highlighter-rouge">import Foo from './foo'</code>, Flow will use the type exported from <code class="highlighter-rouge">foo.js.flow</code> rather than <code class="highlighter-rouge">foo.js</code>.</p>
+
+<p>We imagine two main ways people will use <code class="highlighter-rouge">.flow</code> files.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/12/01/Version-0.19.0.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/11/09/Generators.html">Typing Generators with Flow</a></h1>
+        <p class="meta">November  9, 2015 by Sam Goldman</p>
+
+      <div class="entry">
+        
+          <p>Flow 0.14.0 included support for generator functions. Generator functions provide a unique ability to JavaScript programs: the abilty to suspend and resume execution. This kind of control paves the way for async/await, an <a href="https://github.com/tc39/ecmascript-asyncawait">upcoming feature</a> already supported by Flow.</p>
+
+
+          <div class="read-more">
+            <a href="/blog/2015/11/09/Generators.html" >
+              ...read the rest of this truncated post
+            </a>
+          </div>
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+    
+    <article class="post">
+      
+      <h1><a href="/blog/2015/10/07/Version-0.17.0.html">Version 0.17.0</a></h1>
+        <p class="meta">October  7, 2015 by Gabe Levi</p>
+
+      <div class="entry">
+        
+          <p>Today we released Flow v0.17.0! The first thing you may notice is that we changed the way we display errors at the command line. The new errors look like this:</p>
+
+<p><img src="/static/new_error_format_v0_17_0.png" alt="New error format" /></p>
+
+<p>This should hopefully help our command line users understand many errors without having to refer to their source code. We’ll keep iterating on this format, so tell us what you like and what you don’t like! Thanks to <a href="https://github.com/frantic">@frantic</a> for building this feature!</p>
+
+<p>There are a whole bunch of other features and fixes in this release! Head on over to our <a href="https://github.com/facebook/flow/releases/tag/v0.17.0">Release</a> for the full list!</p>
+
+        
+      </div>
+      
+      <hr class="blogpostend" >
+    </article>
+  
+</div>
+
+<!-- Pagination links - copied from http://jekyllrb.com/docs/pagination/ -->
+
+<p class="pagination">
+  
+    <span>&laquo; Prev</span>
+  
+
+  
+    
+      <em>1</em>
+    
+  
+    
+      <a href="/blog/page2/">2</a>
+    
+  
+    
+      <a href="/blog/page3/">3</a>
+    
+  
+
+  
+    <a href="/blog/page2/">Next &raquo;</a>
+  
+</p>
+
+
+
+
+    <div class="docs-prevnext">
+      
+      
+    </div>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

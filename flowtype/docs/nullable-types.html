@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Maybe Types</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Maybe Types" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/nullable-types.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_" class="active">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Maybe Types</h1>
+    <p></p>
+
+    <p>In JavaScript, <code class="highlighter-rouge">null</code> implicitly converts to all the primitive types; it is
+also a valid inhabitant of any object type.</p>
+
+<p>In contrast, Flow considers <code class="highlighter-rouge">null</code> to be a distinct value that is not part of
+any other type. For example, the following code does not typecheck:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:3:7,9: property x
+Property cannot be accessed on possibly null value
+  file.js:2:9,12: null
+</code></pre>
+</div>
+
+<h2>Type Annotating Null<a id="type-annotating-null" class="hashref"></a><a href="#type-annotating-null" class="hash">#</a></h2>
+
+<p>Any type <code class="highlighter-rouge">T</code> can be made to include <code class="highlighter-rouge">null</code> (and the related value <code class="highlighter-rouge">undefined</code>) by writing <code class="highlighter-rouge">?T</code>: the latter type
+is a maybe type that describes <code class="highlighter-rouge">null</code> (or <code class="highlighter-rouge">undefined</code>) or the set of values of <code class="highlighter-rouge">T</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">var</span> <span class="nx">o</span><span class="err">:</span> <span class="p">?</span><span class="nx">string</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:3:7,14: property length
+Property cannot be accessed on possibly null or undefined value
+  file.js:2:9,14: ?string
+</code></pre>
+</div>
+
+<p>Relaxing a type into a maybe type makes it a valid annotation for any location that may
+contain <code class="highlighter-rouge">null</code>, but it still does not allow useful operations to be performed
+on it (as shown by the code above). To do so, we must perform a <code class="highlighter-rouge">null</code> check,
+as follows:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
+<span class="kd">var</span> <span class="nx">o</span><span class="err">:</span> <span class="p">?</span><span class="nx">string</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">o</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">o</span> <span class="o">=</span> <span class="s1">'hello'</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+<p>In this code, after the <code class="highlighter-rouge">if</code>-statement Flow infers that <code class="highlighter-rouge">o</code> is not <code class="highlighter-rouge">null</code> (it
+either was <code class="highlighter-rouge">null</code> before the <code class="highlighter-rouge">if</code>-statement but is now an object, or was not
+<code class="highlighter-rouge">null</code> before the <code class="highlighter-rouge">if</code>-statement). So the code typechecks.</p>
+
+<blockquote>
+  <p>NOTE</p>
+
+  <p>It is important to note that we used <code class="highlighter-rouge">==</code> instead of <code class="highlighter-rouge">===</code> to do a <code class="highlighter-rouge">null</code> check.
+This ensures that we also check for <code class="highlighter-rouge">undefined</code>, which is considered part of a maybe type.
+Using <code class="highlighter-rouge">=== null</code> instead would require yet another <code class="highlighter-rouge">=== undefined</code> to cover all cases.</p>
+</blockquote>
+
+<p>This illustrates an interesting feature of Flow: it understands the effects of
+some dynamic type tests and can adjust the types of local variables
+accordingly (in technical terms, Flow’s analysis is path-sensitive).</p>
+
+<p>Read more about <a href="/docs/dynamic-type-tests.html">dynamic type tests</a>.</p>
+
+<h2>Maybe and Objects<a id="maybe-and-objects" class="hashref"></a><a href="#maybe-and-objects" class="hash">#</a></h2>
+
+<p>In addition to being able to adjust types of local variables, Flow can sometimes
+also adjust types of object properties, especially when there are no intermediate
+operations between a check and a use. In general, though, aliasing of objects
+limits the scope of this form of reasoning, since a check on an object property
+may be invalidated by a write to that property through an alias, and
+it is difficult for a static analysis to track aliases precisely.</p>
+
+<p>In particular, don’t expect a nullable field to be recognized as non-<code class="highlighter-rouge">null</code> in some method because a <code class="highlighter-rouge">null</code> check is
+performed in some other method in your code, even when it is clear to you that
+the <code class="highlighter-rouge">null</code> check is sufficient for safety at run time (say, because you know
+that calls to the former method always follow calls to the latter method). On
+the other hand, you can always propagate the result of a <code class="highlighter-rouge">null</code>-check by
+explicitly passing around the non-<code class="highlighter-rouge">null</code> value in your code, and if you are
+careful enough it should be possible to satisfy Flow without doing additional
+<code class="highlighter-rouge">null</code> checks.</p>
+
+<h2>Undefined Values and Optional Types<a id="undefined-values-and-optional-types" class="hashref"></a><a href="#undefined-values-and-optional-types" class="hash">#</a></h2>
+
+<p>Undefined values, just like <code class="highlighter-rouge">null</code>, can cause issues too. Unfortunately,
+undefined values are ubiquitous in JavaScript and it is hard to avoid them
+without severely affecting the usability of the language. For example, arrays
+can have holes for elements; object properties can be dynamically added and
+removed. Flow ignores the possibility of <code class="highlighter-rouge">undefined</code> resulting from object property and array element
+accesses. Being stricter would force the programmer to do <code class="highlighter-rouge">undefined</code> checks (like <code class="highlighter-rouge">null</code> checks) on each dereference of
+an array element or object property to get anything useful done.</p>
+
+<p>However, Flow does detect <code class="highlighter-rouge">undefined</code> local variables
+and return values, and it considers optional parameters and properties to possibly be <code class="highlighter-rouge">undefined</code>. As such, uses of these types must be guarded by <code class="highlighter-rouge">undefined</code> checks to avoid errors.</p>
+
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/functions.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/destructuring.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/01-nullable-types.md" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

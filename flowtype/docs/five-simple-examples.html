@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | 五个简单例子</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="五个简单例子" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/five-simple-examples.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_" class="active">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>五个简单例子</h1>
+    <p></p>
+
+    
+<p>在接下例子里，我们将用 <code class="highlighter-rouge">flow</code> 命令行来检查代码。
+你可以使用 <a href="http://blog.npmjs.org/post/85484771375/how-to-install-npm">npm</a> 运行</p>
+
+<p><code class="highlighter-rouge">npm install --global flow-bin</code></p>
+
+<p>从而安装命令行工具</p>
+
+<blockquote>
+  <p>译者:安装略坑，建议</p>
+</blockquote>
+
+<p><br /></p>
+
+<ul>
+  <li>mac: brew install flow</li>
+  <li>linux: 如果 npm install 不好使就自己到 github 下源码按照提示 make</li>
+  <li>windows： 官方都没提太多，参考 <a href="http://www.ocamlpro.com/pub/ocpwin/flow-builds/">这里</a></li>
+</ul>
+
+<p>第一次运行 <code class="highlighter-rouge">flow</code> 通常会多花几秒，接下来每次都会快一点。
+这是因为运行 <code class="highlighter-rouge">flow</code> 会启动一个后台进程，
+监测你当前项目，当你每次修改保存后，自动重新计算类型错误。
+<strong>可以使用 <code class="highlighter-rouge">flow stop</code> 来停止这个后台进程</strong></p>
+
+<p>如果你只是想检查一下，而不要一个后台进程，
+（你不介意每次都多等几秒的话）那么你可以使用 <code class="highlighter-rouge">flow check</code>命令。
+这样的话，Flow 在检查完你的项目后就立即停止了。</p>
+
+<h2>1. Hello Flow!<a id="hello-flow" class="hashref"></a><a href="#hello-flow" class="hash">#</a></h2>
+
+<p>在 Flow GitHub 库里, 你可以找到
+<a href="https://github.com/facebook/flow/tree/master/examples"><code class="highlighter-rouge">examples</code> 目录</a>.
+这个目录包含了教程所需的例子。先看看第一个例子，感受一下 Flow</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span><span class="nb">cd </span>flow/examples/01_HelloWorld
+<span class="gp">$&gt; </span>flow
+</code></pre>
+</div>
+
+<p>你应该看到如下错误：</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>hello.js:7
+  7: foo("Hello, world!");
+     ^^^^^^^^^^^^^^^^^^^^ function call
+  4:   return x * 10;
+              ^ string. This type is incompatible with
+  4:   return x * 10;
+              ^^^^^^ number
+</code></pre>
+</div>
+
+<p>看下例子中的 <code class="highlighter-rouge">hello.js</code> 文件, 就明白为什么了:</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="error" data-error-id="E1" data-message-id="M1003"><span class="error" data-error-id="E1" data-message-id="M1001"><span class="normal T_IDENTIFIER">x</span></span> <span class="normal T_MULT">*</span> <span class="normal T_NUMBER">10</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello, world!&#39;</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>我们调用 <code class="highlighter-rouge">foo</code> 方法，使用 string 类型参数，不过 <code class="highlighter-rouge">foo</code> 方法期望的参数是 number 类型的。
+Flow 能够检测到这个问题并且给出错误提示。解决这个错误的一个方案就是调用 <code class="highlighter-rouge">foo</code> 时用
+number 类型参数</p>
+
+<div class="language-javascript highlighter-flow">
+  <pre class="highlight"><code><span class="comment line">// @flow</span></code></pre>
+</div>
+
+<p>这个首行很关键：它告诉 Flow 这个文件需要检测。
+  <strong>如果某些文件不带这个首行，Flow 则会忽略检测这些文件</strong></p>
+
+<h2>2. Add type annotations（类型注释 / 类型注解）<a id="add-type-annotations--" class="hashref"></a><a href="#add-type-annotations--" class="hash">#</a></h2>
+
+<p>在大多数情况下，Flow 都能够探测出具体类型，所以你不需要给每个方法、变量都添加类型注解。
+  虽说 Flow 能探测出类型，但是你依然可以严格声明类型。
+  只有下面这类情况才 <em>必须</em> 明确地声明类型：变量/方法/类 是从别的模块中导入的（在别的文件定义）</p>
+
+<p>第二个例子 (<code class="highlighter-rouge">02_TypeAnnotations</code>) 展示 Flow 简单的类型注释:</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_COMMA">,</span> <span class="normal T_IDENTIFIER">y</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="error" data-error-id="E2" data-message-id="M2003"><span class="type T_STRING_TYPE">string</span></span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="error" data-error-id="E2" data-message-id="M2001"><span class="normal T_IDENTIFIER">x</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span> <span class="normal T_MULT">*</span> <span class="normal T_IDENTIFIER">y</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello&#39;</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">42</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>这表示 <code class="highlighter-rouge">foo</code> 方法返回值的类型为 <code class="highlighter-rouge">string</code>，并且两个参数类型分别为 <code class="highlighter-rouge">string</code> 和 <code class="highlighter-rouge">number</code></p>
+
+<p>有了这些类型注释之后，如果运行 <code class="highlighter-rouge">flow check</code> 将会看到如下错误提示：</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>type_annotations.js:4
+  4:   return x.length * y;
+              ^^^^^^^^^^^^ number. This type is incompatible with the expected return type of
+  3: function foo(x: string, y: number): string {
+                                         ^^^^^^ string
+</code></pre>
+</div>
+
+<p>此时提示 <code class="highlighter-rouge">foo</code> 返回值的类型有误。我们声明了返回值为 <code class="highlighter-rouge">string</code> 类型，
+可是返回的（<code class="highlighter-rouge">number</code>）不匹配，于是 Flow 就给出错误提示，可以通过修改返回类型来解决</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="comment line">// Changing the return type to number fixes the error</span>
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_COMMA">,</span> <span class="normal T_IDENTIFIER">y</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="normal T_IDENTIFIER">x</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span> <span class="normal T_MULT">*</span> <span class="normal T_IDENTIFIER">y</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello&#39;</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">42</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<h2>3. Nullable types<a id="nullable-types" class="hashref"></a><a href="#nullable-types" class="hash">#</a></h2>
+
+<p>Flow 处理 <code class="highlighter-rouge">null</code> 的方式跟大多数类型系统不太一样。如果检测工具没有仔细地跟踪好 <code class="highlighter-rouge">null</code> 的使用，
+  那么可能会误导你，让你认为你的代码都没问题了，于是在非法使用 <code class="highlighter-rouge">null</code> 的时候就悲剧了。</p>
+
+<p>当 Flow 检测到你访问 <code class="highlighter-rouge">null</code> 的方式存在危险的话，
+  它就会给你错误提醒，正如第三个例子(<code class="highlighter-rouge">03_Null</code>)</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">length</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="error" data-error-id="E3" data-message-id="M3003"><span class="normal T_IDENTIFIER">x</span></span><span class="normal T_PERIOD">.</span><span class="error" data-error-id="E3" data-message-id="M3001"><span class="normal T_IDENTIFIER">length</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">total</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_IDENTIFIER">length</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello&#39;</span><span class="normal T_RPAREN">)</span> <span class="normal T_PLUS">+</span> <span class="normal T_IDENTIFIER">length</span><span class="normal T_LPAREN">(</span><span class="normal T_NULL">null</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>这个程序在运行时会报 <code class="highlighter-rouge">TypeError</code> 错误，因为读取 <code class="highlighter-rouge">null</code> 的 <code class="highlighter-rouge">length</code> 属性是不合法的.
+运行 <code class="highlighter-rouge">flow</code> 能够提前检测出这个 bug:</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>nulls.js:7
+  7: var total = length("Hello") + length(null);
+                                   ^^^^^^^^^^^^ function call
+  4:   return x.length;
+                ^^^^^^ property `length`. Property cannot be accessed on possibly null value
+  4:   return x.length;
+              ^ null
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">answer</code> 目录里的代码给出了解决方案，也许你在运行代码发现错误后也会这么解决。</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">length</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_IF">if</span> <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span> <span class="normal T_STRICT_NOT_EQUAL">!==</span> <span class="normal T_NULL">null</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+    <span class="normal T_RETURN">return</span> <span class="normal T_IDENTIFIER">x</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_RCURLY">}</span> <span class="normal T_ELSE">else</span> <span class="normal T_LCURLY">{</span>
+    <span class="normal T_RETURN">return</span> <span class="normal T_NUMBER">0</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_RCURLY">}</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">total</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_IDENTIFIER">length</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello&#39;</span><span class="normal T_RPAREN">)</span> <span class="normal T_PLUS">+</span> <span class="normal T_IDENTIFIER">length</span><span class="normal T_LPAREN">(</span><span class="normal T_NULL">null</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>因为我们已经判断 <code class="highlighter-rouge">x</code> 是非 <code class="highlighter-rouge">null</code>，Flow 知道现在的代码是安全的，然后就不会出现错误提醒了。</p>
+
+<h2>4. Arrays (数组)<a id="arrays-" class="hashref"></a><a href="#arrays-" class="hash">#</a></h2>
+
+<p>当然，Flow 能检测的类型不仅仅是数字和字符串，下一个例子 <code class="highlighter-rouge">04_Arrays</code>，展示如何在函数中
+  对数组类型进行注解：</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">total</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">numbers</span><span class="type T_COLON">:</span> <span class="type T_IDENTIFIER">Array</span><span class="type T_LESS_THAN">&lt;</span><span class="error" data-error-id="E4" data-message-id="M4003"><span class="type T_NUMBER_TYPE">number</span></span><span class="type T_GREATER_THAN">&gt;</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">result</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_NUMBER">0</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_FOR">for</span> <span class="normal T_LPAREN">(</span><span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">i</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_NUMBER">0</span><span class="normal T_SEMICOLON">;</span> <span class="normal T_IDENTIFIER">i</span> <span class="normal T_LESS_THAN">&lt;</span> <span class="normal T_IDENTIFIER">numbers</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span><span class="normal T_SEMICOLON">;</span> <span class="normal T_IDENTIFIER">i</span><span class="normal T_INCR">++</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+    <span class="normal T_IDENTIFIER">result</span> <span class="normal T_PLUS_ASSIGN">+=</span> <span class="normal T_IDENTIFIER">numbers</span><span class="normal T_LBRACKET">[</span><span class="normal T_IDENTIFIER">i</span><span class="normal T_RBRACKET">]</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_RCURLY">}</span>
+  <span class="normal T_RETURN">return</span> <span class="normal T_IDENTIFIER">result</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_IDENTIFIER">total</span><span class="normal T_LPAREN">(</span><span class="normal T_LBRACKET">[</span><span class="normal T_NUMBER">1</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">2</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">3</span><span class="normal T_COMMA">,</span> <span class="error" data-error-id="E4" data-message-id="M4001"><span class="normal T_STRING">&#39;Hello&#39;</span></span><span class="normal T_RBRACKET">]</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>Flow 会标注 <code class="highlighter-rouge">'Hello'</code> 字符串，因为 <code class="highlighter-rouge">total()</code> 方法只接受数字组成的数组</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>arrays.js:11
+ 11: total([1, 2, 3, "Hello"]);
+     ^^^^^^^^^^^^^^^^^^^^^^^^^ function call
+ 11: total([1, 2, 3, "Hello"]);
+                     ^^^^^^^ string. This type is incompatible with
+  3: function total(numbers: Array&lt;number&gt;) {
+                                   ^^^^^^ number
+</code></pre>
+</div>
+
+<p>如果把 <code class="highlighter-rouge">"Hello"</code> 改为数字，就能通过 Flow 的检测</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">total</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">numbers</span><span class="type T_COLON">:</span> <span class="type T_IDENTIFIER">Array</span><span class="type T_LESS_THAN">&lt;</span><span class="type T_NUMBER_TYPE">number</span><span class="type T_GREATER_THAN">&gt;</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">result</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_NUMBER">0</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_FOR">for</span> <span class="normal T_LPAREN">(</span><span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">i</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_NUMBER">0</span><span class="normal T_SEMICOLON">;</span> <span class="normal T_IDENTIFIER">i</span> <span class="normal T_LESS_THAN">&lt;</span> <span class="normal T_IDENTIFIER">numbers</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span><span class="normal T_SEMICOLON">;</span> <span class="normal T_IDENTIFIER">i</span><span class="normal T_INCR">++</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+    <span class="normal T_IDENTIFIER">result</span> <span class="normal T_PLUS_ASSIGN">+=</span> <span class="normal T_IDENTIFIER">numbers</span><span class="normal T_LBRACKET">[</span><span class="normal T_IDENTIFIER">i</span><span class="normal T_RBRACKET">]</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_RCURLY">}</span>
+  <span class="normal T_RETURN">return</span> <span class="normal T_IDENTIFIER">result</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_IDENTIFIER">total</span><span class="normal T_LPAREN">(</span><span class="normal T_LBRACKET">[</span><span class="normal T_NUMBER">1</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">2</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">3</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">4</span><span class="normal T_RBRACKET">]</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<h2>5. Dynamic code (动态代码)<a id="dynamic-code-" class="hashref"></a><a href="#dynamic-code-" class="hash">#</a></h2>
+
+<p>最后一个例子 <code class="highlighter-rouge">05_DynamicCode</code>，这里我们没有给函数返回类型注释类型，
+  但是我们在调用的时候传递了两个不同类型的参数：</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_RETURN">return</span> <span class="error" data-error-id="E5" data-message-id="M5003"><span class="normal T_IDENTIFIER">x</span></span><span class="normal T_PERIOD">.</span><span class="error" data-error-id="E5" data-message-id="M5001"><span class="normal T_IDENTIFIER">length</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">res</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello&#39;</span><span class="normal T_RPAREN">)</span> <span class="normal T_PLUS">+</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_NUMBER">42</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>这种情况，Flow 检测到第二次调用的参数是数字，它木有 <code class="highlighter-rouge">length</code> 属性，铁定会挂</p>
+
+<div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>dynamic.js:4
+  4:   return x.length;
+                ^^^^^^ property `length`. Property not found in
+  4:   return x.length;
+              ^ Number
+</code></pre>
+</div>
+
+<p>一个简单的解决方式就是作类型判断：</p>
+
+<div class="language-javascript highlighter-flow">
+  <div class="highlight">
+    <table style="border-spacing: 0"><tbody>
+      <tr>
+        <td class="gutter gl" style="text-align: right">
+          <pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre>
+        </td>
+        <td class="code"><pre><span class="comment line">// @flow</span>
+
+<span class="normal T_LPAREN">(</span><span class="normal T_FUNCTION">function</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span> 
+<span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+  <span class="normal T_IF">if</span> <span class="normal T_LPAREN">(</span><span class="normal T_TYPEOF">typeof</span> <span class="normal T_IDENTIFIER">x</span> <span class="normal T_STRICT_EQUAL">===</span> <span class="normal T_STRING">&#39;string&#39;</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
+    <span class="normal T_RETURN">return</span> <span class="normal T_IDENTIFIER">x</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">length</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_RCURLY">}</span> <span class="normal T_ELSE">else</span> <span class="normal T_LCURLY">{</span>
+    <span class="normal T_RETURN">return</span> <span class="normal T_IDENTIFIER">x</span><span class="normal T_SEMICOLON">;</span>
+  <span class="normal T_RCURLY">}</span>
+<span class="normal T_RCURLY">}</span>
+
+<span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">res</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&#39;Hello&#39;</span><span class="normal T_RPAREN">)</span> <span class="normal T_PLUS">+</span> <span class="normal T_IDENTIFIER">foo</span><span class="normal T_LPAREN">(</span><span class="normal T_NUMBER">42</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> </pre></td>
+      </tr>
+    </tbody></table>
+  </div>
+</div>
+
+<p>Flow 很聪明，能够明白你的条件语句规避了潜在的悲剧，于是就啥错误都没了。</p>
+
+<h2>下一步<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
+
+<p>这些浅显的例子算是扒开了 Flow，以后在新项目就可以玩 Flow，然后在发布生产前用 
+  <a href="/docs/running.html#using-the-offline-transform-tool">转换工具</a>
+  编译类型注解。
+  当然，你也可以 <a href="/docs/existing.html">给老项目用上 FLow</a>。
+  你还可以看看这个稍微大点的 <a href="/docs/existing.html">React 例子</a>，了解更多典型的用法</p>
+
+<script>require(['inlineErrors'], function(inlineErrors) {
+  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"  return x * 10;","source":"-","start":{"line":74,"column":10,"offset":1864},"end":{"line":74,"column":10,"offset":1865}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"number","context":"  return x * 10;","source":"-","start":{"line":74,"column":10,"offset":1864},"end":{"line":74,"column":15,"offset":1870}}],"operation":{"description":"function call\n","context":"foo('Hello, world!');","source":"-","start":{"line":77,"column":1,"offset":1875},"end":{"line":77,"column":20,"offset":1895}}},{"id":"E2","messages":[{"id":"M2001","description":"number","context":"  return x.length * y;","source":"-","start":{"line":106,"column":10,"offset":2956},"end":{"line":106,"column":21,"offset":2968}},{"id":"M2002","description":"This type is incompatible with the expected return type of","context":null},{"id":"M2003","description":"string","context":"function foo(x: string, y: number): string {","source":"-","start":{"line":105,"column":37,"offset":2938},"end":{"line":105,"column":42,"offset":2944}}],"operation":null},{"id":"E3","messages":[{"id":"M3001","description":"property `length`","context":"  return x.length;","source":"-","start":{"line":160,"column":12,"offset":4467},"end":{"line":160,"column":17,"offset":4473}},{"id":"M3002","description":"Property cannot be accessed on possibly null value","context":null},{"id":"M3003","description":"null","context":"  return x.length;","source":"-","start":{"line":160,"column":10,"offset":4465},"end":{"line":160,"column":10,"offset":4466}}],"operation":{"description":"function call\n","context":"var total = length('Hello') + length(null);","source":"-","start":{"line":163,"column":31,"offset":4508},"end":{"line":163,"column":42,"offset":4520}}},{"id":"E4","messages":[{"id":"M4001","description":"string","context":"total([1, 2, 3, 'Hello']);","source":"-","start":{"line":220,"column":17,"offset":5885},"end":{"line":220,"column":23,"offset":5892}},{"id":"M4002","description":"This type is incompatible with","context":null},{"id":"M4003","description":"number","context":"function total(numbers: Array<number>) {","source":"-","start":{"line":212,"column":31,"offset":5745},"end":{"line":212,"column":36,"offset":5751}}],"operation":{"description":"function call\n","context":"total([1, 2, 3, 'Hello']);","source":"-","start":{"line":220,"column":1,"offset":5869},"end":{"line":220,"column":25,"offset":5894}}},{"id":"E5","messages":[{"id":"M5001","description":"property `length`","context":"  return x.length;","source":"-","start":{"line":267,"column":12,"offset":6908},"end":{"line":267,"column":17,"offset":6914}},{"id":"M5002","description":"Property not found in","context":null},{"id":"M5003","description":"Number","context":"  return x.length;","source":"-","start":{"line":267,"column":10,"offset":6906},"end":{"line":267,"column":10,"offset":6907}}],"operation":null}]);
+});</script>
+
+    <p class="docs-prevnext">
+      
+        <a href="/docs/getting-started.html#_">&larr; Prev</a>
+      
+      
+        <a class="right" href="/docs/new-project.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/five-simple-examples.doc.js" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+

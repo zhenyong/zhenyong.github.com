@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset='utf-8'>
+    <title>Flow | Flow 起步</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/default.css">
+    <link type="text/css" rel="stylesheet" href="/assets/syntax.css">
+    <link rel='shortcut icon' href='/static/favicon.png'>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Flow 起步" />
+    <meta property="og:site_name" content="flowtype">
+    <meta property='og:description' content='Flow is a static type checker for
+    JavaScript.'>
+    <meta property='og:image' content='http://flowtype.org/static/flow-og-image.png'>
+    <meta property='og:url' content="http://flowtype.org/docs/getting-started.html">
+    
+    <meta property='og:type' content='website'>
+    
+    <script type="text/javascript" src="/assets/prelude.js"></script>
+    <link rel="alternate" type="application/rss+xml" title="Flow" href="http://flowtype.org/blog/feed.xml">
+</head>
+<body class="">
+
+<header class='topbar'><nav class='width'>
+<a href='/'>
+  <img src="/assets/flow-logo.png" alt="Flow logo" class="logo" />
+</a>
+    <ul>
+      <li><a href="/docs/getting-started.html#_"
+           class="active" >
+          文档
+      </a></li>
+      <li><a href="/try/"
+          >
+          试试
+      </a></li>
+      <li><a href="/support.html"
+          >
+          支持
+      </a></li>
+      <li><a href="/blog"
+          >
+          博客
+      </a></li>
+      <li>
+        <input id="algolia-doc-search" type="text" placeholder="Search docs..." />
+      </li>
+    </ul>
+    <ul class="external">
+      <li><a href="http://github.com/facebook/flow">GitHub</a>
+    </ul>
+</nav></header>
+
+
+<section class='content'><div class='width'>
+
+<nav class='toc'>
+  
+    <section>
+      <h3>Quick Start</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/getting-started.html#_" class="active">
+              Flow 起步
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/five-simple-examples.html#_">
+              五个简单例子
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>User Guide</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/new-project.html#_">
+              Starting a new Flow project
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/existing.html#_">
+              Running Flow on existing code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-annotations.html#_">
+              Adding Type Annotations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/third-party.html#_">
+              Checking third-party code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/running.html#_">
+              Running Flow code
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/troubleshooting.html#_">
+              Troubleshooting
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/cli.html#_">
+              Using the CLI
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/advanced-configuration.html#_">
+              Advanced Configuration
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+    <section>
+      <h3>Language Reference</h3>
+      <ul>
+        
+          <li>
+            <a href="/docs/quick-reference.html#_">
+              Quick Reference
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/builtins.html#_">
+              Built-in Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/syntax.html#_">
+              Syntax
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/arrays.html#_">
+              Arrays and Tuples
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/classes.html#_">
+              Classes
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/objects.html#_">
+              Objects
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/functions.html#_">
+              Functions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/nullable-types.html#_">
+              Maybe Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/destructuring.html#_">
+              Destructuring
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/type-aliases.html#_">
+              Type Aliases
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/union-intersection-types.html#_">
+              Union and Intersection Types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/typeof.html#_">
+              Typeof types
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/dynamic-type-tests.html#_">
+              Dynamic Type Tests
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/disjoint-unions.html#_">
+              Disjoint Unions
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/modules.html#_">
+              Modules
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/declarations.html#_">
+              Declarations
+            </a>
+            
+          </li>
+        
+          <li>
+            <a href="/docs/react.html#_">
+              React
+            </a>
+            
+          </li>
+        
+      </ul>
+    </section>
+  
+</nav>
+
+
+<article class='withtoc'>
+    <h1>Flow 起步</h1>
+    <p></p>
+
+    
+<p>为了示范如何将 Flow 应用到项目，我们就来一个 npm 项目作例子吧</p>
+
+<p>首先，创建一个名为 “get_started” 的项目：</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>mkdir -p get_started
+<span class="gp">$&gt; </span><span class="nb">cd </span>get_started
+<span class="gp">$&gt; </span><span class="nb">echo</span> <span class="s1">'{"name": "get_started", "scripts": {"flow": "flow; test $? -eq 0 -o $? -eq 2"}}'</span> &gt; package.json
+</code></pre>
+</div>
+
+<p>接着，加入 Flow</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>touch .flowconfig
+<span class="gp">$&gt; </span>npm install --save-dev flow-bin
+</code></pre>
+</div>
+
+<p>然后就开始写代码</p>
+
+<p><strong>index.js</strong></p>
+<div class="language-javascript highlighter-flow">
+  <pre class="highlight"><code><span class="comment line">// @flow</span>
+
+
+<span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">str</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_STRING">&#39;hello world!&#39;</span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_IDENTIFIER">console</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">log</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">str</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
+</div>
+
+<p>注意第一行，我们添加了 <code class="highlighter-rouge">// @flow</code>，用来告诉 Flow 你得检查我这个文件。<strong>如果不加这个首行，
+Flow 就认为这个文件还没准备好，先不检查它</strong></p>
+
+<p>好了，现在运行 Flow 看看它怎么说</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>npm run-script flow
+
+<span class="gp">&gt; </span><span class="nb">test</span>@ flow /get_started
+<span class="gp">&gt; </span>flow
+
+No errors!
+</code></pre>
+</div>
+
+<p>唉妈呀! No errors! 好的, 那咋们就给它弄点小错误看看：</p>
+
+<p><strong>index.js</strong></p>
+<div class="language-javascript highlighter-flow">
+  <pre class="highlight"><code><span class="comment line">// @flow</span>
+
+<span class="normal T_VAR">var</span> <span class="normal T_IDENTIFIER">str</span><span class="type T_COLON">:</span> <span class="error" data-error-id="E1" data-message-id="M1003"><span class="type T_NUMBER_TYPE">number</span></span> <span class="normal T_ASSIGN">=</span> <span class="error" data-error-id="E1" data-message-id="M1001"><span class="normal T_STRING">&#39;hello world!&#39;</span></span><span class="normal T_SEMICOLON">;</span>
+<span class="normal T_IDENTIFIER">console</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">log</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">str</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>npm run-script flow
+
+<span class="gp">&gt; </span><span class="nb">test</span>@ flow /get_started
+<span class="gp">&gt; </span>flow 2&gt; /dev/null
+
+index.js:3
+  3: <span class="nb">let </span>str: number <span class="o">=</span> <span class="s1">'hello world!'</span>;
+                       ^^^^^^^^^^^^^^ string. This <span class="nb">type </span>is incompatible with
+  3: <span class="nb">let </span>str: number <span class="o">=</span> <span class="s1">'hello world!'</span>;
+              ^^^^^^ number
+
+
+Found 1 error
+</code></pre>
+</div>
+
+<p>牛B – Flow 知道我们将 string 类型的值赋值给 number 类型，并且给出了错误</p>
+
+<p>在修复这个类型错误前，我们先添加 Babel 插件，然后试着运行代码</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>npm install -g babel-cli
+<span class="gp">$&gt; </span>npm install --save-dev babel-plugin-transform-flow-strip-types
+<span class="gp">$&gt; </span><span class="nb">echo</span> <span class="s1">'{"plugins": ["transform-flow-strip-types"]}'</span> &gt; .babelrc
+</code></pre>
+</div>
+
+<p>现在我们可以试着运行代码，不用管之前 Flow 给出的错误，看下结果</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>babel-node index.js
+hello world!
+</code></pre>
+</div>
+
+<p>你看，还是能跑的呀！Flow 虽然给出了类型错误提示，但是它不会禁止代码运行。当然，按照最佳实践，
+如果有类型错误的话就绝不发布，不过在开发阶段，即便还没完美解决 Flow 的提醒，你还是会经常运行代码的（
+特别是 调试/随机测试 ）。这就是 <a href="https://en.wikipedia.org/wiki/Gradual_typing">Gradual typing</a> 
+的好处之一，Flow 的设计如此，让你在开发期间，不受到任何耽误</p>
+
+<p>注意，我们运行代码的时候，使用的命令是 <code class="highlighter-rouge">babel-node</code> 而不是 <code class="highlighter-rouge">node</code>。
+<a href="https://babeljs.io/docs/usage/cli/#babel-node"><code class="highlighter-rouge">babel-node</code></a>
+包含在 <code class="highlighter-rouge">babel-cli</code> 库，其实就是在 node 上包了一层，
+在原来的 <code class="highlighter-rouge">node</code> 执行前拦截代码并转换成合适的格式</p>
+
+<p>查看 <a href="/docs/running.html">Running Flow Code</a> 部分，
+了解如何更好的编译和发布 Flow 代码到 npm 和 生产环境</p>
+
+<h3>下一步<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h3>
+
+<p>现在我们知道怎么添加 Flow 了，接下来快速看下
+<a href="/docs/five-simple-examples.html">一些例子代码</a> ，也保存在
+<a href="https://github.com/facebook/flow/tree/master/examples"> Flow 仓库</a>:</p>
+
+<ol>
+  <li><a href="/docs/five-simple-examples.html#1-hello-flow">Hello Flow!</a></li>
+  <li><a href="/docs/five-simple-examples.html#2-adding-type-annotations">Adding type annotations</a></li>
+  <li><a href="/docs/five-simple-examples.html#3-nullable-types">Nullable types</a></li>
+  <li><a href="/docs/five-simple-examples.html#4-arrays">Arrays</a></li>
+  <li><a href="/docs/five-simple-examples.html#5-dynamic-code">Dynamic code</a></li>
+</ol>
+<script>require(['inlineErrors'], function(inlineErrors) {
+  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"var str: number = 'hello world!';","source":"-","start":{"line":63,"column":19,"offset":1150},"end":{"line":63,"column":32,"offset":1164}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"number","context":"var str: number = 'hello world!';","source":"-","start":{"line":63,"column":10,"offset":1141},"end":{"line":63,"column":15,"offset":1147}}],"operation":null}]);
+});</script>
+
+    <p class="docs-prevnext">
+      
+      
+        <a class="right" href="/docs/five-simple-examples.html#_">Next &rarr;</a>
+      
+    </p>
+
+    <p class="edit-page-block">
+      You can
+      <a href="https://github.com/facebook/flow/tree/master/website/docs/getting-started.doc.js" target="_blank">
+        edit this page on GitHub
+      </a>
+      and send us a pull request!
+    </p>
+
+    <a id="_"></a>
+</article>
+
+</div></section>
+
+<footer><div class='width'>
+    &copy; Copyright 2014 - 2016, Facebook Inc.
+</div></footer>
+
+<script>require(['default']);</script>
+</body>
+</html>
+
