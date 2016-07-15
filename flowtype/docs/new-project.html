@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Starting a new Flow project</title>
+    <title>Flow | 开始一个新的 Flow 项目</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Starting a new Flow project" />
+    <meta property="og:title" content="开始一个新的 Flow 项目" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -81,19 +81,19 @@
     </section>
   
     <section>
-      <h3>User Guide</h3>
+      <h3>使用指南</h3>
       <ul>
         
           <li>
             <a href="/flowtype/docs/new-project.html#_" class="active">
-              Starting a new Flow project
+              开始一个新的 Flow 项目
             </a>
             
           </li>
         
           <li>
             <a href="/flowtype/docs/existing.html#_">
-              Running Flow on existing code
+              在已有的代码上跑 Flow
             </a>
             
           </li>
@@ -273,14 +273,17 @@
 
 
 <article class='withtoc'>
-    <h1>Starting a new Flow project</h1>
+    <h1>开始一个新的 Flow 项目</h1>
     <p></p>
 
-    <p>One of the most powerful ways to use Flow is to have it checking your code from the first line you write. This allows you to ensure type safety from the very beginning and reduce the likelihood of errors, even while prototyping.</p>
+    <p>从第一行代码开始使用 Flow 检测是非常很不错的。
+从最开始的阶段，甚至是原型设计的时候开始使用，
+确保代码类型安全，减少错误的可能性，</p>
 
-<h2>Setting up your project<a id="setting-up-your-project" class="hashref"></a><a href="#setting-up-your-project" class="hash">#</a></h2>
+<h2>配置你的项目<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
 
-<p>To set up a new project using Flow, all you need to do is initialize the root of the folder to tell Flow to start typechecking files within your project:</p>
+<p>给新项目添加 Flow，只需要在项目根目录初始化，然后让 Flow 
+知道要检测项目里的文件</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>mkdir new_project
 <span class="gp">$&gt; </span><span class="nb">cd </span>new_project
@@ -288,71 +291,88 @@
 </code></pre>
 </div>
 
-<p>All this actually does is create a hidden file <code class="highlighter-rouge">.flowconfig</code> at the root of the folder. You might have noticed that this file was already present in each of the examples we looked at earlier.</p>
+<p>这些命令实际上就是在根目录创建一个隐藏文件 <code class="highlighter-rouge">.flowconfig</code>。
+你可能注意到，之前的每个例子里面都有这个文件。</p>
 
-<p>Once the <code class="highlighter-rouge">.flowconfig</code> file is present, you can run ad-hoc checks on the code within it and its subfolders:</p>
+<p>一旦有了 <code class="highlighter-rouge">.flowconfig</code>，你就可以立刻检测根目录以及所有子目录的代码</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow check
 </code></pre>
 </div>
 
-<p>Although this works, it is <strong>not the most efficient</strong> way to use Flow. This command causes flow to re-check the entire project’s file structure every time. Instead, we recommend you use the flow server:</p>
+<p>这个命令虽然可行，不过不是 <strong>最高效</strong> 的用法。
+这个命令会让 flow 每次都把项目下所有文件检查一遍。
+我们建议你用下面这种 flow 后台服务代替：</p>
 
-<h2>Using the Flow server<a id="using-the-flow-server" class="hashref"></a><a href="#using-the-flow-server" class="hash">#</a></h2>
+<h2>使用 Flow 后台服务<a id="flow-" class="hashref"></a><a href="#flow-" class="hash">#</a></h2>
 
-<p>For a large project, you probably only want Flow to recheck files incrementally when they change. Flow uses a client/server architecture which allows you to start a Flow server that will run in the background and type check files as they change. To do this simply run:</p>
+<p>对于大型项目来说，你应该不希望每次改文件都让 Flow 立刻检查所有文件。
+Flow 使用 c/s 架构设计，于是你就可以先开启一个 Flow 后台服务，
+当你文件改变时，Flow 就在后台默默地检测。命令很简单：</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow   <span class="c"># This starts a server and prints the initial type check results</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow   <span class="c"># 开启一个后台服务，输出首次检测结果</span>
 </code></pre>
 </div>
 
-<p>You can then check the status of the server again later with the same command:</p>
+<p>下次使用同样的命令查看后台服务的检测状态：</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow   <span class="c"># Connect to the running server and print the type check results</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow   <span class="c"># 连接正在运行的后台服务，输出检测结果</span>
 </code></pre>
 </div>
 
-<p>And once you’ve changed some files, you can quickly run it again to see the current state of the type check results:</p>
+<p>一旦你修改某些文件，你可以快速运行这个命令，查看检测结果：</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow   <span class="c"># Connect to server (or start one) and print type check results</span>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow   <span class="c"># 连接后台服务 (或者开启) 然后输出检测结果</span>
 </code></pre>
 </div>
 
-<p>Using the <code class="highlighter-rouge">flow</code> command with a running server reduces the overhead of having to re-check all files in the project each time you make a change. This allows for a much faster incremental workflow - not to mention a better integration with IDEs and other tools.</p>
+<p>使用带后台服务的 <code class="highlighter-rouge">flow</code> 命令，避免每次修改都触发项目所有文件的检查，节省时间，
+提高工作效率 - 更不用说与IDE和其他工具更好地整合。</p>
 
-<p>When you’ve finished working on your code, you can shutdown the server:</p>
+<p>当你的代码写好了，你就可以关掉这个后台服务：</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow stop
 </code></pre>
 </div>
 
-<h2>Typechecking your files<a id="typechecking-your-files" class="hashref"></a><a href="#typechecking-your-files" class="hash">#</a></h2>
+<h2>检测文件<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
 
-<p>As with all the examples in the Flow tutorial, you need to add</p>
+<p>跟之前教程的例子一样，你需要把这行代码：</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="cm">/* @flow */</span>
 </code></pre>
 </div>
 
-<p>to the top of each file you’d like Flow to typecheck. You don’t have to do this for all files at once, since Flow will just ignore files that do not have this comment. This allows you to convert your project progressively, one file at a time, and get the benefit of typing gradually. No need to convert your whole project at once.</p>
+<p>添加到待检测文件的首行。 由于 Flow 会忽略掉不带首行注释的文件，所以不必马上给所有文件都加上首行注释。
+毕竟这个机制让你在项目中使用 Flow 时，能够一次处理一个文件，
+慢慢过渡，这就是 typing gradually 的好处。</p>
 
-<p>It is possible to indicate on the command line that you would like Flow to check all JavaScript files, regardless of whether they have the <code class="highlighter-rouge">/* @flow */</code> declaration at the top. To do this, use the <code class="highlighter-rouge">--all</code> flag:</p>
+<p>当然，你可以强制 Flow 检测所有的文件，不管文件有没有
+ <code class="highlighter-rouge">/* @flow */</code> 首行注释，带上 <code class="highlighter-rouge">--all</code> 参数就行了</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow check --all
 </code></pre>
 </div>
 
-<p>However, use this command cautiously, particularly if you are running Flow against a large existing project or a project with many large third party frameworks or test suites. The chances are that the checker will find a <em>lot</em> of errors or hazards, and it can be a little overwhelming!</p>
+<p>不过还是要慎用呀，特别是在一个大项目，或者是项目中有很多第三方库的。
+检测器会找到巨多错误，然后你就崩溃吧。</p>
 
-<p>A more valuable approach to converting an existing project is to incrementally check - and fix - the project one file at a time. When you’re ready to convert a file, simply add the <code class="highlighter-rouge">/* @flow */</code> declaration at the top of the file and run the <code class="highlighter-rouge">flow</code> command to see if any errors were discovered.</p>
+<p>想在老项目中立刻用 Flow 检测然后改 bug，靠谱一点的话，还是
+一个个文件弄吧。</p>
 
-<p>Read more about testing existing libraries or code in the <a href="existing.html">Running Flow on existing code</a> section of this guide.</p>
+<p>阅读 <a href="existing.html">在已有的代码上跑 Flow</a> 了解更多关于检测现存代码的内容吧</p>
 
-<h2>Common Issues<a id="common-issues" class="hashref"></a><a href="#common-issues" class="hash">#</a></h2>
+<h2>常见错误<a id="section-2" class="hashref"></a><a href="#section-2" class="hash">#</a></h2>
 
-<p>As Flow starts to typecheck your files you may run into type errors. Check out the <a href="troubleshooting.html">Troubleshooting</a> section for common errors and how to resolve them. Your goal is to get the number of errors down to zero as fast as possible so you can continue on with your development.</p>
+<p>当 Flow 运行检测出错误后，可以参考 
+<a href="troubleshooting.html">Troubleshooting</a>
+中的常见错误和解决方法。
+你的目标就是让错误数为 0，然后继续开发。</p>
 
-<p>In some cases, errors may be due to inherent imprecision of the analysis - which means Flow won’t always get it right and could give errors that are false positives. In those cases you can either try to refactor your code to help Flow understand it, or you can use the <a href="base-types.html#any"><code class="highlighter-rouge">any</code></a> type to tell Flow about values that should not be checked.</p>
+<p>某些时候，错误可能是由于 Flow 内部解析不当引起的，也就是说，
+Flow 有时候不靠谱，这时候，你可以考虑重构你的代码让 Flow 更好
+地解析，或是使用 <a href="base-types.html#any"><code class="highlighter-rouge">any</code></a> 类型来告诉
+Flow，某些地方的类型不需要检测</p>
 
 
     <p class="docs-prevnext">
