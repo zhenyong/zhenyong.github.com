@@ -2,14 +2,21 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "copywebsite": "gulp --gulpfile copy-flow-website.gulpfile.js"
+  },
   "hexo": {
     "version": "3.2.2"
   },
   "dependencies": {
-    "hexo-filter-file-link": "0.0.1",
     "bluebird": "^3.4.1",
-    "hexo": "^3.2.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^2.1.2",
+    "gulp-if": "^2.0.1",
+    "gulp-tap": "^0.1.3",
+    "hexo": "^3.2.2",
     "hexo-deployer-git": "^0.2.0",
+    "hexo-filter-file-link": "^1.0.2",
     "hexo-generator-archive": "^0.1.4",
     "hexo-generator-baidu-sitemap": "^0.1.2",
     "hexo-generator-category": "^0.1.3",
@@ -20,6 +27,7 @@
     "hexo-renderer-ejs": "^0.2.0",
     "hexo-renderer-marked": "^0.2.10",
     "hexo-renderer-stylus": "^0.3.1",
-    "hexo-server": "^0.2.0"
+    "hexo-server": "^0.2.0",
+    "rimraf": "^2.5.3"
   }
 }

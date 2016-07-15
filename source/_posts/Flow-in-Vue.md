@@ -67,7 +67,7 @@ flow check
 
 ### 更多
 
-基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型...
+基本上 Typescript 你能用到的 Flow 都有，例如指定变量类型、函数返回值类型、自定义对象元类型... 参考 [官方文档](https://flowtype.org/docs/getting-started.html#_)
 
 ## 编辑器实时检测
 
