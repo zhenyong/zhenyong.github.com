@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Type Annotations</title>
+    <title>Flow | 类型注解</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Type Annotations" />
+    <meta property="og:title" content="类型注解" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -100,7 +100,7 @@
         
           <li>
             <a href="/flowtype/docs/type-annotations.html#_" class="active">
-              Adding Type Annotations
+              Adding 类型注解
             </a>
             
           </li>
@@ -273,12 +273,15 @@
 
 
 <article class='withtoc'>
-    <h1>Type Annotations</h1>
+    <h1>类型注解</h1>
     <p></p>
 
     <p>JavaScript is inherently a dynamically-typed language. As such, explicitly
 typing your code is not part of the JavaScript lexicon. This is normal
 JavaScript code:</p>
+
+<p>JavaScript 是一门动态类型语言，语法上也没规定要明确表示类型。
+下面是正常的 JavaScript 代码</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -293,16 +296,15 @@ JavaScript code:</p>
 </div>
 </div>
 
-<p>What is the value of <code class="highlighter-rouge">x</code>? <code class="highlighter-rouge">3</code>? <code class="highlighter-rouge">"30"</code>? <code class="highlighter-rouge">undefined</code>? The answer is <code class="highlighter-rouge">"30"</code>, and, in most
-cases, this probably not the behavior you would prefer.</p>
+<p><code class="highlighter-rouge">x</code> 的值是什么？ <code class="highlighter-rouge">3</code> 还是 <code class="highlighter-rouge">"30"</code>？还是 <code class="highlighter-rouge">undefined</code> 呢？
+答案是 <code class="highlighter-rouge">"30"</code>。
+很多时候，这可能不是你想要的。</p>
 
-<p>Flow helps mitigate these sort of subtle bugs by trying to keep your code sane
-through static analysis and type annotations.</p>
+<p>Flow 通过静态分析和类型注解，让你减少这类隐晦的 bug，让代码更加符合预期。</p>
 
-<h2>Type Annotations<a id="type-annotations" class="hashref"></a><a href="#type-annotations" class="hash">#</a></h2>
+<h2>类型注解<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
 
-<p>Type annotations are generally prefixed by <code class="highlighter-rouge">:</code>. And they can be placed on
-function parameters, function return types and variable declarations. e.g.,</p>
+<p>类型注解通常都以 <code class="highlighter-rouge">:</code> 开头，可以用在方法参数和返回值，还有变量声明，例如：</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -319,10 +321,9 @@ function parameters, function return types and variable declarations. e.g.,</p>
 </div>
 </div>
 
-<h2>Simple Example<a id="simple-example" class="hashref"></a><a href="#simple-example" class="hash">#</a></h2>
+<h2>简单例子<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
 
-<p>We can easily take this code and make it Flow aware by adding a simple
-annotation <code class="highlighter-rouge">@flow</code> at the top in a comment block:</p>
+<p>可以简单地添加 <code class="highlighter-rouge">@flow</code> 作为注释，让 Flow 检测它</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -339,9 +340,8 @@ annotation <code class="highlighter-rouge">@flow</code> at the top in a comment 
 </div>
 </div>
 
-<p>However, Flow will find no errors with the above code. That’s because the <code class="highlighter-rouge">+</code>
-operator is perfectly acceptable on <code class="highlighter-rouge">number</code>s and <code class="highlighter-rouge">string</code>s, and we didn’t
-specify that the parameters to <code class="highlighter-rouge">add</code> must be <code class="highlighter-rouge">number</code>s.</p>
+<p>不过，Flow 没能发现任何错误。这是因为 <code class="highlighter-rouge">+</code> 运算符能够支持 <code class="highlighter-rouge">number</code> 和 <code class="highlighter-rouge">string</code>
+类型的值，我们也没有明确指名参数类型必须为 <code class="highlighter-rouge">number</code></p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -358,8 +358,7 @@ specify that the parameters to <code class="highlighter-rouge">add</code> must b
 </div>
 </div>
 
-<p>Running the type checker against the above code will yield type errors
-since we have explicitly typed all parameters and variables.</p>
+<p>对上面代码执行类型检测，于是给出类型错误了，因为我们明确声明了参数和变量的类型</p>
 
 <div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:5
   5: var x: number = add(3, '0');
@@ -373,12 +372,10 @@ Found 1 error
 </code></pre>
 </div>
 
-<h2>Type Annotation Requirements<a id="type-annotation-requirements" class="hashref"></a><a href="#type-annotation-requirements" class="hash">#</a></h2>
+<h2>类型注解是必须的吗<a id="section-2" class="hashref"></a><a href="#section-2" class="hash">#</a></h2>
 
-<p>Type annotations are not always strictly necessary to use Flow. As shown above,
-all that is strictly required to make your JavaScript file Flow aware is
-the <code class="highlighter-rouge">@flow</code> annotation. And this annotation by itself can be enough for Flow to
-deduce all that is necessary to type check your code.</p>
+<p>用上 Flow 并不意味一定要类型注解，唯一必须的就是上面提到的 <code class="highlighter-rouge">@flow</code> 注解.
+就像上面的例子，这行注释让 Flow 知道要检测代码</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -395,8 +392,7 @@ deduce all that is necessary to type check your code.</p>
 </div>
 </div>
 
-<p>Since the multiplication operator makes no real sense on a string, Flow is
-smart enough to deduce a problem here without explicit type annotations.</p>
+<p>因为 <code class="highlighter-rouge">*</code> 操作符不支持字符串运算，Flow 很聪明，无需类型注解就能够推断出问题</p>
 
 <div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>file.js:5
   5: var x = multPI(3, '0');
@@ -410,9 +406,11 @@ Found 1 error
 </code></pre>
 </div>
 
-<h3>Module Boundaries<a id="module-boundaries" class="hashref"></a><a href="#module-boundaries" class="hash">#</a></h3>
+<h3>模块界限<a id="section-3" class="hashref"></a><a href="#section-3" class="hash">#</a></h3>
 
-<p>Flow requires annotations at the boundaries of modules. This allows Flow to analyze modules in isolation which improves the performance of checking types across module boundaries. Coincidentally we’ve found that this helps to improve the self-documenting nature of module interfaces as well</p>
+<p>在跨模块使用的时候，Flow 需要明确注解。
+为了保证 Flow 在各自模块内的独立检测，不去探测别的模块的调用，提高性能。
+刚好这也提升了模块化编程中代码即文档的风格。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -450,7 +448,9 @@ Found 1 error
 </div>
 </div>
 
-<p>Type annotations are required for the <code class="highlighter-rouge">size</code> function in <code class="highlighter-rouge">Size.js</code> because <code class="highlighter-rouge">UseSize.js</code> imports it and thus crosses the module boundary and isn’t inferred.</p>
+<p><code class="highlighter-rouge">Size.js</code> 的 <code class="highlighter-rouge">size</code> 方法必须要类型注解，因为 <code class="highlighter-rouge">UseSize.js</code> 用到它，
+因为不能夸模块探测，别的模块怎么使用我的方法我不知道，
+所以我必须明确声明类型，暴露出去的时候，别人就知道我的要求了。</p>
 
 <div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>UseSize.js:6
   6: var result = size(null);
@@ -464,19 +464,17 @@ Found 1 error
 </code></pre>
 </div>
 
-<h2><code class="highlighter-rouge">any</code> Annotations<a id="any-annotations" class="hashref"></a><a href="#any-annotations" class="hash">#</a></h2>
+<h2><code class="highlighter-rouge">any</code> 注解<a id="any-" class="hashref"></a><a href="#any-" class="hash">#</a></h2>
 
-<p><code class="highlighter-rouge">any</code> is a special type annotation that represents the universal dynamic type.
-<code class="highlighter-rouge">any</code> can flow to any other type, and vice-versa. <code class="highlighter-rouge">any</code> is basically the “get
-out of my way, I know what I am doing” annotation. Use it when Flow is getting
-in your way, but you know your program is correct.</p>
+<p><code class="highlighter-rouge">any</code> 是一个特殊的类型注解，代表任何动态类型。
+<code class="highlighter-rouge">any</code> 能够表示任何类型，当然也能接受任何类型。
+<code class="highlighter-rouge">any</code> 就意味着 “别检查我，我知道我在干嘛”。</p>
 
-<h2>Bottom Line<a id="bottom-line" class="hashref"></a><a href="#bottom-line" class="hash">#</a></h2>
+<h2>一个话<a id="section-4" class="hashref"></a><a href="#section-4" class="hash">#</a></h2>
 
-<p>You can type annotate all your code. That would be the most expressive and
-self-documenting approach. However, Flow does a lot of type inference for you to
-alleviate this requirement when it becomes a burden. The only place that you must
-annotate types is where those types go across module boundaries.</p>
+<p>你可以处处写上注解，这能充分表达你的代码意图。
+不过 Flow 也有很多类型接口来减轻你的负担。
+唯一必须要类型注解的就是模块间调用的资源。</p>
 
 
     <p class="docs-prevnext">

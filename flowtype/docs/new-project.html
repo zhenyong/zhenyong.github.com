@@ -100,7 +100,7 @@
         
           <li>
             <a href="/flowtype/docs/type-annotations.html#_">
-              Adding Type Annotations
+              Adding 类型注解
             </a>
             
           </li>
@@ -337,18 +337,18 @@ Flow 使用 c/s 架构设计，于是你就可以先开启一个 Flow 后台服�
 
 <h2>检测文件<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
 
-<p>跟之前教程的例子一样，你需要把这行代码：</p>
+<p>跟之前教程的例子一样，你需要把这行注释：</p>
 
 <div class="language-js highlighter-rouge"><pre class="highlight"><code><span class="cm">/* @flow */</span>
 </code></pre>
 </div>
 
-<p>添加到待检测文件的首行。 由于 Flow 会忽略掉不带首行注释的文件，所以不必马上给所有文件都加上首行注释。
+<p>添加到待检测文件中。 由于 Flow 会忽略掉不带注释的文件，所以不必马上给所有文件都加上首行注释。
 毕竟这个机制让你在项目中使用 Flow 时，能够一次处理一个文件，
 慢慢过渡，这就是 typing gradually 的好处。</p>
 
 <p>当然，你可以强制 Flow 检测所有的文件，不管文件有没有
- <code class="highlighter-rouge">/* @flow */</code> 首行注释，带上 <code class="highlighter-rouge">--all</code> 参数就行了</p>
+ <code class="highlighter-rouge">@flow</code> 注释，带上 <code class="highlighter-rouge">--all</code> 参数就行了</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow check --all
 </code></pre>

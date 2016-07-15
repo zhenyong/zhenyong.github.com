@@ -100,7 +100,7 @@
         
           <li>
             <a href="/flowtype/docs/type-annotations.html#_">
-              Adding Type Annotations
+              Adding 类型注解
             </a>
             
           </li>
@@ -308,9 +308,9 @@ Flow 设计如此，希望开发者编写更安全的代码。
 <p>Flow 有一个特殊模式，叫 <em>弱模式</em>, 适合复杂项目开展前期，让你无须过早的付出太多时间。
 弱模式和正常模式的区别在于 Flow 如何对待遗漏的类型注解。在正常模式下，Flow 对缺少
 类型注解的地方探测类型，然后输出相应错误。但是在弱模式下，Flow 就不做那么多类型检测，
-对方法内的类型还是会探测，但是对其他未注解的变量，会认为他们可以是 <a href="base-types.html#any"><code class="highlighter-rouge">任何类型</code></a>——也就意味着无须检测</p>
+对方法内的类型还是会探测，但是对其他未注解的变量，会认为他们可以是 <a href="base-types.html#any"><code class="highlighter-rouge">any</code> 任何类型</a>——也就意味着无须检测</p>
 
-<p>对于一个现有的库来说，先用弱模式比较好，只需要修改首行注释为：</p>
+<p>对于一个现有的库来说，先用弱模式比较好，只需要修改注释为：</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="cm">/* @flow weak */</span>
 </pre></td></tr></tbody></table>
@@ -329,7 +329,7 @@ Flow 设计如此，希望开发者编写更安全的代码。
     <p>primitive 类型错误：例如 <code class="highlighter-rouge">true + 3</code>. 需要一点语法知识解决，不过都是一些小改动</p>
   </li>
   <li>
-    <p>Flow 不懂你的代码，那就 <a href="/flowtype/blog/2015/02/18/Typecasts.html">注解为 <code class="highlighter-rouge">任何类型</code></a>，
+    <p>Flow 不懂你的代码，那就 <a href="/flowtype/blog/2015/02/18/Typecasts.html">注解为 <code class="highlighter-rouge">any</code> 任何类型</a>，
 让检测器更容易理解</p>
   </li>
 </ul>
@@ -341,7 +341,7 @@ Flow 设计如此，希望开发者编写更安全的代码。
 <p>一旦你使用弱模式检测，你可以着手添加逐渐添加类型注解。每增加一个类型注解，Flow 就能检测
 更多的代码，你就能逐步的将 Flow 检测覆盖所有代码</p>
 
-<p>随着你的类型注解逐渐完整，你可以考虑切换到正常模式，也就是改下首行注释。</p>
+<p>随着你的类型注解逐渐完整，你可以考虑切换到正常模式，也就是改下注释。</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="cm">/* @flow */</span>
 </pre></td></tr></tbody></table>

@@ -69,7 +69,7 @@
       <h2>类型接口<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
 
       <p>Flow 使用类型接口查找错误，甚至不需要任何类型声明。
-它能够准确地跟踪变量的类型，就像运行时那样。</p>
+它也能够准确地跟踪变量的类型，就像运行时那样。</p>
 
     </div>
 <div class="col">
@@ -238,7 +238,7 @@
   </div>
 </div></footer>
 <script>require(['inlineErrors'], function(inlineErrors) {
-  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"  return x * 10;","source":"-","start":{"line":62,"column":10,"offset":1136},"end":{"line":62,"column":10,"offset":1137}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"number","context":"  return x * 10;","source":"-","start":{"line":62,"column":10,"offset":1136},"end":{"line":62,"column":15,"offset":1142}}],"operation":{"description":"function call\n","context":"foo('Hello, world!');","source":"-","start":{"line":64,"column":1,"offset":1146},"end":{"line":64,"column":20,"offset":1166}}},{"id":"E2","messages":[{"id":"M2001","description":"number","context":"  return x.length;","source":"-","start":{"line":73,"column":10,"offset":1288},"end":{"line":73,"column":17,"offset":1296}},{"id":"M2002","description":"This type is incompatible with the expected return type of","context":null},{"id":"M2003","description":"string","context":"function bar(x): string {","source":"-","start":{"line":72,"column":18,"offset":1270},"end":{"line":72,"column":23,"offset":1276}}],"operation":null}]);
+  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"  return x * 10;","source":"-","start":{"line":62,"column":10,"offset":1139},"end":{"line":62,"column":10,"offset":1140}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"number","context":"  return x * 10;","source":"-","start":{"line":62,"column":10,"offset":1139},"end":{"line":62,"column":15,"offset":1145}}],"operation":{"description":"function call\n","context":"foo('Hello, world!');","source":"-","start":{"line":64,"column":1,"offset":1149},"end":{"line":64,"column":20,"offset":1169}}},{"id":"E2","messages":[{"id":"M2001","description":"number","context":"  return x.length;","source":"-","start":{"line":73,"column":10,"offset":1291},"end":{"line":73,"column":17,"offset":1299}},{"id":"M2002","description":"This type is incompatible with the expected return type of","context":null},{"id":"M2003","description":"string","context":"function bar(x): string {","source":"-","start":{"line":72,"column":18,"offset":1273},"end":{"line":72,"column":23,"offset":1279}}],"operation":null}]);
 });</script>
 
 
