@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Running Flow code</title>
+    <title>Flow | 运行 Flow 代码</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Running Flow code" />
+    <meta property="og:title" content="运行 Flow 代码" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -273,22 +273,23 @@
 
 
 <article class='withtoc'>
-    <h1>Running Flow code</h1>
+    <h1>运行 Flow 代码</h1>
     <p></p>
 
-    <p>Since types are not part of the JavaScript specification, we need to strip them out before sending the file to the user. We recommend using <a href="http://babeljs.io/">Babel</a> to do this.</p>
+    <p>因为类型注解不是 Js 规范的一部分，所以我们得移除它，建议使用 <a href="http://babeljs.io/">Babel</a> 。</p>
 
-<p>For integration with various other tools and build systems, check out this <a href="http://babeljs.io/docs/setup/">really thorough set of docs</a> detailing how to set up Babel to work with various popular tools like Browserify, Broccoli, Webpack, Node.js, etc.</p>
+<p>要把 Babel 继承到各种工具或者打包系统的话， <a href="http://babeljs.io/docs/setup/">这里有很多文档</a> 告诉你如何讲 Babel 结合各种流行工具一起玩，像 Browserify, Broccoli, Webpack, Node.js, 等等.</p>
 
-<h2>Babel Quick Start<a id="babel-quick-start" class="hashref"></a><a href="#babel-quick-start" class="hash">#</a></h2>
+<h2>Babel 快速开始<a id="babel-" class="hashref"></a><a href="#babel-" class="hash">#</a></h2>
 
-<p>First, install the Babel CLI:</p>
+<p>首先，安装 Babel 命令行工具：</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>npm install -g babel-cli
 </code></pre>
 </div>
 
-<p>Next, install the Flow transform and add a <code class="highlighter-rouge">.babelrc</code> file to the root your project to tell Babel to strip Flow annotations:</p>
+<p>然后，安装 Flow 转换器，并且添加一个 <code class="highlighter-rouge">.babelrc</code> 文件到项目根目录，用来告诉 Babel 要
+移除 Flow 注解：</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span><span class="nb">cd</span> /path/to/my/project
 <span class="gp">$&gt; </span>mkdir -p node_modules <span class="o">&amp;&amp;</span> npm install babel-plugin-transform-flow-strip-types
@@ -297,13 +298,19 @@
 </div>
 <p>You can now simply run the transpiler in the background using the <code class="highlighter-rouge">babel</code> command:</p>
 
+<p>现在可以使用 <code class="highlighter-rouge">babel</code> 命令，在后台启动转换器</p>
+
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>babel --watch<span class="o">=</span>./src --out-dir<span class="o">=</span>./build
 </code></pre>
 </div>
 
-<p>This will run in the background, pick up any changes to files in <code class="highlighter-rouge">src/</code>, and create their pure JavaScript version in <code class="highlighter-rouge">build/</code>.</p>
+<p>babel 会在后台运行，当发现 <code class="highlighter-rouge">src/</code> 目录下的文件改变时，
+就会创建相应的正常的 Js 版本，保存在 <code class="highlighter-rouge">build/</code> 目录下</p>
+
+<p>更多关于 <code class="highlighter-rouge">babel</code> 命令行工具的使用，参考它家的文档</p>
 
 <p>For more detailed documentation on the <code class="highlighter-rouge">babel</code> CLI utility, check out it’s own <a href="https://babeljs.io/docs/usage/cli/">docs</a>.</p>
+
 
 
     <p class="docs-prevnext">
