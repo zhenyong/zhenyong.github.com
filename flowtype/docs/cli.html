@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Using the CLI</title>
+    <title>Flow | 命令行工具</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Using the CLI" />
+    <meta property="og:title" content="命令行工具" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -128,7 +128,7 @@
         
           <li>
             <a href="/flowtype/docs/cli.html#_" class="active">
-              Using the CLI
+              命令行工具
             </a>
             
           </li>
@@ -273,46 +273,48 @@
 
 
 <article class='withtoc'>
-    <h1>Using the CLI</h1>
+    <h1>命令行工具</h1>
     <p></p>
 
-    <p>The flow command line tool is made to be easy-to-use for the simple case.</p>
+    <p>Flow 的命令行工具简单易用。</p>
 
-<p>Just using the command <code class="highlighter-rouge">flow</code> will type-check your current directory if the <code class="highlighter-rouge">.flowconfig</code> file is present.
-A flow server will automatically be started if needed.</p>
+<p>运行 <code class="highlighter-rouge">flow</code>，如果当前目录有 <code class="highlighter-rouge">.flowconfig</code> 文件，就会进行类型检测。
+同时自动启动一个后台服务。</p>
 
-<p>The CLI tool also provides several other options and commands that allow you to control the server and build tools that integrate with Flow. For example, this is how the <a href="http://nuclide.io">Nuclide</a> editor integrates with Flow to provide autocompletion, type errors, etc. in its UI.</p>
+<p>命令行工具提供了多个参数和命令，允许你控制后台服务以及将 Flow 集成到构建工具。
+例如，这是 <a href="http://nuclide.io">Nuclide</a> 编辑器集成了 Flow，用来提供
+自动完成、错误提醒等 UI 功能</p>
 
-<p>To find out more about the CLI just type:</p>
+<p>要查看更多命令行参数和命令，敲入</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>flow --help
 </code></pre>
 </div>
 
-<p>This will give you information about everything that flow can do. Running this command should print something like this:</p>
+<p>它会告诉你 flow 所有能做的事情：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>Usage: flow [COMMAND]
 
 Valid values for COMMAND:
-  ast             Print the AST
-  autocomplete    Queries autocompletion information
-  check           Does a full Flow check and prints the results
-  check-contents  Run typechecker on contents from stdin
-  coverage        Shows coverage information for a given file
-  find-module     Resolves a module reference to a file
-  get-def         Gets the definition location of a variable or property
-  get-importers   Gets a list of all importers for one or more given modules
-  get-imports     Get names of all modules imported by one or more given modules
-  init            Initializes a directory to be used as a flow root directory
+  ast             输出 AST
+  autocomplete    查询自动提示完成的信息
+  check           作完整检测并且输出接过
+  check-contents  对标准输入的内容作检测
+  coverage        显示一个文件的覆盖率
+  find-module     解析模块，返回对应文件信息
+  get-def         获取变量或者属性的定义位置
+  get-importers   列出通过 import 引用了指定模块的所有模块
+  get-imports     列出一个或多个模块中，所有 import 的模块
+  init            初始化一个目录为 flow 根目录
   port            Shows ported type annotations for given files
   search          Searches a pattern
-  server          Runs a Flow server in the foreground
-  start           Starts a Flow server
-  status          (default) Shows current Flow errors by asking the Flow server
-  stop            Stops a Flow server
-  suggest         Shows type annotation suggestions for given files
-  type-at-pos     Shows the type at a given file and position
-  version         Print version information
+  server          启动 flow 前台服务
+  start           启动 flow 后台服务
+  status          (默认) 访问 flow 服务，显示当前错误情况
+  stop            停止 flow 后台服务
+  suggest         对指定的文件，给出建议的类型注解
+  type-at-pos     显示指定的文件的某个位置的类型
+  version         打印版本信息
 
 Default values if unspecified:
   COMMAND	status
@@ -335,9 +337,9 @@ Status command options:
 </code></pre>
 </div>
 
-<p>You can then, further dig into particular COMMANDs by adding the <code class="highlighter-rouge">--help</code> flag.</p>
+<p>接着你加个标识 <code class="highlighter-rouge">--help</code> 扒一下某些命令</p>
 
-<p>So, for example, if you want to know more about how the autocomplete works, you can use this command:</p>
+<p>例如，你要知道更多关于 autocomplete 如何工作，可以敲下面命令</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>flow autocomplete --help
 </code></pre>

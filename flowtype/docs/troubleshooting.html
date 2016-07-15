@@ -128,7 +128,7 @@
         
           <li>
             <a href="/flowtype/docs/cli.html#_">
-              Using the CLI
+              命令行工具
             </a>
             
           </li>
@@ -401,8 +401,6 @@ Flow 对前者无感，毕竟它无害；不过对后者就会报错。</p>
 
 <p>使用 <code class="highlighter-rouge">for-in</code> 遍历应该用在对象上，即便用在数组上也不会报错
 （索引被转成字符串或者其它，通常都不是你想要的）</p>
-
-<p>Non-strict equality <code class="highlighter-rouge">==</code> should be performed only on values that have the same type (otherwise, some sequence of type conversions are tried).</p>
 
 <p>弱等于 <code class="highlighter-rouge">==</code> 应该用在两个类型相同的值上（可是，它会试着偷偷转换类型再比较）</p>
 
