@@ -171,7 +171,7 @@ header.topbar .logo {
   height: 50px; }
 
 .flow-header {
-  background-image: url("/assets/flow-hero-logo.png");
+  background-image: url("/flowtype/assets/flow-hero-logo.png");
   background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -575,7 +575,7 @@ div.CodeMirror-lines {
   #algolia-doc-search {
     display: none; } }
 input#algolia-doc-search {
-  background: transparent url("/assets/search.png") no-repeat 10px center;
+  background: transparent url("/flowtype/assets/search.png") no-repeat 10px center;
   background-size: 16px 16px;
   position: relative;
   vertical-align: top;
@@ -634,7 +634,7 @@ input#algolia-doc-search:focus {
 
 @media (min-width: 768px) {
   .fourOhFour section.content article {
-    background-image: url("/assets/flow-no-wordmark.png");
+    background-image: url("/flowtype/assets/flow-no-wordmark.png");
     background-size: 241px 300px;
     background-repeat: no-repeat;
     padding-left: 260px;

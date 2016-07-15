@@ -3,7 +3,7 @@
 	[
 		{
 			"path": "/Users/zhenyong/codes/flow/website-cn",
-            "folder_exclude_patterns":["_site"]
+            "folder_exclude_patterns":["site"]
 		}
 	]
 }

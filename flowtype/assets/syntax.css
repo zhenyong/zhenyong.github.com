@@ -29,7 +29,7 @@ pre.code {
   border-radius: 2px; }
 
 .error {
-  background: url("/assets/underline.png") bottom repeat-x;
+  background: url("/flowtype/assets/underline.png") bottom repeat-x;
   padding-bottom: 4px; }
 
 .selected {

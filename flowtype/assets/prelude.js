@@ -2143,7 +2143,7 @@ var requirejs, require, define;
 }(this));
 
 require.config({
-  baseUrl: '/assets',
+  baseUrl: '/flowtype/assets',
   paths: {
     'docsearch': 'https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min',
   },
