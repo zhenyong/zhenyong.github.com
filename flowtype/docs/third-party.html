@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Checking third-party code</title>
+    <title>Flow | 检测第三方模块调用代码</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Checking third-party code" />
+    <meta property="og:title" content="检测第三方模块调用代码" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -107,7 +107,7 @@
         
           <li>
             <a href="/flowtype/docs/third-party.html#_" class="active">
-              Checking third-party code
+              检测第三方模块调用代码
             </a>
             
           </li>
@@ -273,21 +273,30 @@
 
 
 <article class='withtoc'>
-    <h1>Checking third-party code</h1>
+    <h1>检测第三方模块调用代码</h1>
     <p></p>
 
-    <p>Most real JavaScript programs depend on third-party libraries. This guide shows how to use Flow in a project with external dependencies, without having to typecheck library code.</p>
+    <p>大多数 JavaScript 应用程序都依赖第三方库。
+这节指南会展示，当项目引用外部资源时如何使用 Flow，至于检查第三方的源码，当然不必了。</p>
 
-<h2>Interface Files<a id="interface-files" class="hashref"></a><a href="#interface-files" class="hash">#</a></h2>
+<h2>接口文件<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h2>
 
-<p>Flow supports <em>interface files</em> for the purpose of understanding third party code you did not write. These files define the interface to a library, including types, separately from the actual code of the library. You never need to change library code to use interface files, but your code will be typechecked against the types declared in the interface file.</p>
+<p>Flow 支持 <em>接口文件</em>，目的是帮助 Flow 理解那些不是你写的第三方代码。
+这些文件定义了一个第三方模块的接口，包括类型，同时又跟第三方库源码分离。
+你不需要改变第三方源码就能使用接口文件，同时，你的代码会根据接口文件中的类型作检测。</p>
 
-<p>The workflow for dealing with library code is:</p>
+<p>整个工作流是这样的：</p>
 
 <ul>
-  <li>Do not change the library files or add <code class="highlighter-rouge">@flow</code> to them</li>
-  <li>Add one or more interface files for your libraries in a special directory in your project - for example <code class="highlighter-rouge">interfaces</code></li>
-  <li>Point Flow at those interface files by starting it with <code class="highlighter-rouge">flow start --lib  &lt;path to your interface files&gt;</code> or by specifying a <code class="highlighter-rouge">[libs]</code> section in your <code class="highlighter-rouge">.flowconfig</code> file as such:</li>
+  <li>
+    <p>不要碰第三方源码，也不需要给它们加 <code class="highlighter-rouge">@flow</code></p>
+  </li>
+  <li>
+    <p>给第三方库增加一个或多个接口文件，放在项目下的某个目录内 - 例如 <code class="highlighter-rouge">interfaces</code> 目录</p>
+  </li>
+  <li>
+    <p>接着告诉 Flow 使用这些接口文件，可以通过 <code class="highlighter-rouge">flow start --lib  &lt;path to your interface files&gt;</code> 命令或者在配置文件 <code class="highlighter-rouge">.flowconfig</code> 中指明</p>
+  </li>
 </ul>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[libs]
@@ -295,9 +304,10 @@ interfaces/
 </code></pre>
 </div>
 
-<h2>Example<a id="example" class="hashref"></a><a href="#example" class="hash">#</a></h2>
+<h2>例子<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
 
-<p>To illustrate this workflow, we’ll pick the <a href="http://underscorejs.org/">Underscore</a> library. Let’s say we have this simple file using Underscore:</p>
+<p>演示下整个过程，我们选择 <a href="http://underscorejs.org/">Underscore</a> 库。
+下面代码使用了 Underscore：</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -326,13 +336,18 @@ interfaces/
 </div>
 </div>
 
-<p>Running <code class="highlighter-rouge">flow</code> will unsurprisingly produce an error:</p>
+<p>运行 <code class="highlighter-rouge">flow</code>， 毫无意外的出现错误:</p>
 
 <div class="language-text cli-error highlighter-rouge"><pre class="highlight"><code>underscore_example.js:11:10,10: unknown global name: _
 </code></pre>
 </div>
 
 <p>This is because Flow doesn’t know anything about the global variable <code class="highlighter-rouge">_</code>. To fix this we need to create an interface file for Underscore. If we set the <code class="highlighter-rouge">[libs]</code> configuration to <code class="highlighter-rouge">interfaces/</code>, Flow will look for any <code class="highlighter-rouge">.js</code> files located inside that directory for declarations.</p>
+
+<p>这是因为 Flow 不认识全局变量 <code class="highlighter-rouge">_</code>.
+要解决这个问题，需要为 Underscore 创建一个接口文件。
+如果我们配置 <code class="highlighter-rouge">[libs]</code> 为 <code class="highlighter-rouge">interfaces/</code>，
+Flow 就会查找 interfaces/ 目录下的所有 <code class="highlighter-rouge">.js</code> 文件作为接口定义</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
 2
@@ -349,16 +364,17 @@ interfaces/
 </div>
 </div>
 
-<p>This only describes (part of) the interface for Underscore, eliding all implementation details - so Flow never has to understand the Underscore code itself.</p>
+<p>这里只是描述了 Underscore（部分）接口，忽略了很多其它方法。有了这个接口文件，Flow 也不需要
+理解 Underscore 的源码。</p>
 
-<p>If we now add the <code class="highlighter-rouge">interfaces/</code> directory to our flow config under a <code class="highlighter-rouge">[libs]</code> section:</p>
+<p>如果我们配置好 <code class="highlighter-rouge">.flowconfig</code></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[libs]
 interfaces/
 </code></pre>
 </div>
 
-<p>We can run flow again and see that the error goes away:</p>
+<p>重新运行 flow，错误没了</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$&gt; </span>flow
 </code></pre>
@@ -368,9 +384,14 @@ interfaces/
 </code></pre>
 </div>
 
-<p>If you temporarily modify your code that uses Underscore to purposefully introduce a type error, you can verify that it’s now being checked against this interface file.</p>
+<p>现在你随意修改代码，调用 Underscore 的方法重现错误，然后就能证实现在是根据接口定义文件来检测的。</p>
 
 <p>When defining the interface for a library, you can use the <code class="highlighter-rouge">any</code> type whenever you don’t need Flow to check a value. This lets you gradually add type definitions for the parts of the library you care most about. See the reference guide on <a href="declarations.html">declarations</a> for more details.</p>
+
+<p>给一个库定义接口文件的时候，如果你不想 Flow 检测某个值，你可是使用 <code class="highlighter-rouge">any</code> 类型。
+这让你只关注用的，然后逐步定义接口文件。
+查看这篇文档 <a href="declarations.html">声明</a>，了解更多详情。</p>
+
 
 
     <p class="docs-prevnext">
