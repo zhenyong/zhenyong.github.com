@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Advanced Configuration</title>
+    <title>Flow | 高级配置</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Advanced Configuration" />
+    <meta property="og:title" content="高级配置" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -100,7 +100,7 @@
         
           <li>
             <a href="/flowtype/docs/type-annotations.html#_">
-              Adding 类型注解
+              类型注解
             </a>
             
           </li>
@@ -121,7 +121,7 @@
         
           <li>
             <a href="/flowtype/docs/troubleshooting.html#_">
-              分析&解决
+              干掉错误
             </a>
             
           </li>
@@ -135,7 +135,7 @@
         
           <li>
             <a href="/flowtype/docs/advanced-configuration.html#_" class="active">
-              Advanced Configuration
+              高级配置
             </a>
             
           </li>
@@ -273,33 +273,27 @@
 
 
 <article class='withtoc'>
-    <h1>Advanced Configuration</h1>
+    <h1>高级配置</h1>
     <p></p>
 
-    <p>This section discusses some of the advanced configuration options available
-for customizing how <code class="highlighter-rouge">flow</code> runs.</p>
+    <p>本节讨论一些高级配置用来定制 <code class="highlighter-rouge">flow</code> 的运行</p>
 
 <h2><code class="highlighter-rouge">.flowconfig</code><a id="flowconfig" class="hashref"></a><a href="#flowconfig" class="hash">#</a></h2>
 
-<p>Many times it is enough to create an empty <code class="highlighter-rouge">.flowconfig</code> file via <code class="highlighter-rouge">flow init</code>
-and just have <code class="highlighter-rouge">.flowconfig</code> simply be the token that tells flow to “start type
-checking here”.</p>
+<p>使用 <code class="highlighter-rouge">flow init</code> 创建的 <code class="highlighter-rouge">.flowconfig</code> 文件，告诉 Flow 在这个目录下
+开始检测，这能满足大多数情况。</p>
 
-<p>However, <code class="highlighter-rouge">.flowconfig</code> does provide some configuration options that can be
-used to customize what files <code class="highlighter-rouge">flow</code> accesses and what files it ignores.</p>
+<p>不过，<code class="highlighter-rouge">.flowconfig</code> 确实提供了一些配置选项，额外告诉 Flow 哪些文件是否要检测</p>
 
 <h3><code class="highlighter-rouge">[include]</code><a id="include" class="hashref"></a><a href="#include" class="hash">#</a></h3>
 
-<p>The <code class="highlighter-rouge">[include]</code> heading in a <code class="highlighter-rouge">.flowconfig</code> file tells <code class="highlighter-rouge">flow</code> to include the
-specified files or directories when type checking your code. Including a
-directory includes all the files under that directory. Each line in the
-include section is a path to include. These paths can be relative to the root
-directory or absolute, and support both single and double star wildcards.</p>
+<p><code class="highlighter-rouge">.flowconfig</code> 中的 <code class="highlighter-rouge">[include]</code> 一栏，用来告诉 <code class="highlighter-rouge">flow</code> 还要检测哪些文件或者目录（所有子文件）。
+这一栏配置的每一行表示一个待检测的路径，可以使用相对于根目录的路径，或者绝对路径，
+支持一个或多个星号通配符。</p>
 
-<p>The root directory (where your <code class="highlighter-rouge">.flowconfig</code> lives) is automatically included.</p>
+<p>别忘了，根目录（<code class="highlighter-rouge">.flowconfig</code> 所在目录）下的所有文件都自动认为是待检测</p>
 
-<p>For example, if <code class="highlighter-rouge">/path/to/root/.flowconfig</code> contains the following <code class="highlighter-rouge">[include]</code>
-section:</p>
+<p>举例说明，如果 <code class="highlighter-rouge">/path/to/root/.flowconfig</code> 包含了下面配置</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[include]
 ../externalFile.js
@@ -309,33 +303,31 @@ section:</p>
 </code></pre>
 </div>
 
-<p>then when Flow checks the project in <code class="highlighter-rouge">/path/to/root</code>, it will read and watch</p>
+<p>当 Flow 检测项目 <code class="highlighter-rouge">/path/to/root</code> 的时候，检测文件包括：</p>
 
 <ol>
-  <li><code class="highlighter-rouge">/path/to/root/</code> (automatically included)</li>
+  <li><code class="highlighter-rouge">/path/to/root/</code> (自动包含)</li>
   <li><code class="highlighter-rouge">/path/to/externalFile.js</code></li>
   <li><code class="highlighter-rouge">/path/to/externalDir/</code></li>
-  <li>Any file in <code class="highlighter-rouge">/path/to/otherProject/</code> that ends in <code class="highlighter-rouge">.js</code></li>
-  <li>Any directory under <code class="highlighter-rouge">/path/to/otherProject</code> named <code class="highlighter-rouge">coolStuff/</code></li>
+  <li><code class="highlighter-rouge">/path/to/otherProject/</code> 下所有以 <code class="highlighter-rouge">.js</code> 结尾的文件</li>
+  <li><code class="highlighter-rouge">/path/to/otherProject</code> 下任意名为 <code class="highlighter-rouge">coolStuff/</code> 的目录</li>
 </ol>
 
 <h3><code class="highlighter-rouge">[ignore]</code><a id="ignore" class="hashref"></a><a href="#ignore" class="hash">#</a></h3>
 
-<p>The <code class="highlighter-rouge">[ignore]</code> heading in a <code class="highlighter-rouge">.flowconfig</code> file tells <code class="highlighter-rouge">flow</code> to ignore files
-matching the specified regular expressions when type checking your code. By
-default, nothing is ignored.</p>
+<p><code class="highlighter-rouge">.flowconfig</code> 文件的 <code class="highlighter-rouge">[ignore]</code> 一栏，用来告诉 <code class="highlighter-rouge">flow</code> 哪些文件不需要检测，
+路径匹配使用正则表达式。当然，默认为空，就是都得检测嘛</p>
 
 <p>Things to keep in mind:</p>
 
 <ol>
-  <li>These are <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Str.html#TYPEregexp">OCaml regular expressions</a>.</li>
-  <li>These regular expressions match against absolute paths. They probably should
-start with <code class="highlighter-rouge">.*</code></li>
-  <li>Ignores are processed AFTER includes. If you include and ignore a file it
-will be ignored.</li>
+  <li>这是 <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Str.html#TYPEregexp">OCaml 正则表达式</a>.</li>
+  <li>这些正则表达式匹配的绝对路径. 通常应该以 <code class="highlighter-rouge">.*</code> 开头</li>
+  <li><code class="highlighter-rouge">[ignore]</code> 在 <code class="highlighter-rouge">[include]</code> 之后，
+如果同时 include 和 ignore 同个路径，那么就会 ignore</li>
 </ol>
 
-<p>An example <code class="highlighter-rouge">[ignore]</code> section might look like</p>
+<p>一个 <code class="highlighter-rouge">[ignore]</code> 的例子大概长这样：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[ignore]
 .*/__tests__/.*
@@ -344,88 +336,84 @@ will be ignored.</li>
 </code></pre>
 </div>
 
-<p>This <code class="highlighter-rouge">[ignore]</code> section will ignore</p>
+<p>该 <code class="highlighter-rouge">[ignore]</code> 配置表示忽略：</p>
 
 <ol>
-  <li>Any file or directory under a directory named <code class="highlighter-rouge">__tests__</code></li>
-  <li>Any file or directory under <code class="highlighter-rouge">.*/src/foo</code> or under <code class="highlighter-rouge">.*/src/bar</code></li>
-  <li>Any file that ends with the extension <code class="highlighter-rouge">.ignore.js</code></li>
+  <li>所有名为 <code class="highlighter-rouge">__tests__</code> 目录下的目录和文件</li>
+  <li>所有 … <code class="highlighter-rouge">.*/src/foo</code> 或 <code class="highlighter-rouge">.*/src/bar</code> 下 …</li>
+  <li>所有以 <code class="highlighter-rouge">.ignore.js</code> 结尾命名的文件</li>
 </ol>
 
-<p>Starting with Flow v0.23.0, you may use the <code class="highlighter-rouge">&lt;PROJECT_ROOT&gt;</code> placeholder in
-your regular expressions. At runtime, Flow will treat the placeholder as if it
-were the absolute path to the project’s root directory. This is useful for
-writing regular expressions that are relative rather than absolute. For
-example, you can write</p>
+<p>从 Flow v0.23.0 开始，你可以在正则中用 <code class="highlighter-rouge">&lt;PROJECT_ROOT&gt;</code> 占位符表示根目录的绝对路径。
+对于相对路径的场景就很有用了，例如：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[ignore]
 &lt;PROJECT_ROOT&gt;/__tests__/.*
 </code></pre>
 </div>
 
-<p>which would ignore any file or directory under the directory named <code class="highlighter-rouge">__tests__/</code>
-within the project root. However, unlike the previous example’s
-<code class="highlighter-rouge">.*/__tests__/.*</code>, it would NOT ignore files or directories under other
-directories named <code class="highlighter-rouge">__tests__/</code>, like <code class="highlighter-rouge">src/__tests__/</code>.</p>
+<p>这就忽略了项目根目录下 <code class="highlighter-rouge">__tests__</code> 的目录和文件。</p>
+
+<p>不像之前的 <code class="highlighter-rouge">.*/__tests__/.*</code> 那样忽略了整个系统名为 <code class="highlighter-rouge">__tests__</code> 的目录</p>
 
 <h3><code class="highlighter-rouge">[libs]</code><a id="libs" class="hashref"></a><a href="#libs" class="hash">#</a></h3>
 
-<p>The <code class="highlighter-rouge">[libs]</code> heading in a <code class="highlighter-rouge">.flowconfig</code> file tells <code class="highlighter-rouge">flow</code> to include the
-specified <a href="declarations.html">declarations</a> when type
-checking your code. Multiple libraries can be specified. By default, no
-additional libraries are included.</p>
+<p>配置了 <code class="highlighter-rouge">.flowconfig</code> 文件的 <code class="highlighter-rouge">[libs]</code> 后，当检测代码的时候， <code class="highlighter-rouge">flow</code> 
+就会包含指定的 <a href="declarations.html">声明</a> (接口文件)。</p>
 
-<p>Each line in the <code class="highlighter-rouge">[libs]</code> section is a path to the lib file or lib directory
-which you would like to include. These paths can be relative to the root
-directory or absolute.</p>
+<p><code class="highlighter-rouge">[libs]</code> 下每行配置表示要包含的一个目录或文件，相对与根目录的路径，或者绝对路径</p>
 
 <h3><code class="highlighter-rouge">[options]</code><a id="options" class="hashref"></a><a href="#options" class="hash">#</a></h3>
 
-<p>The <code class="highlighter-rouge">[options]</code> heading in a <code class="highlighter-rouge">.flowconfig</code> file can contain several key-value
-pairs. Any options that are omitted will use their default values. Some options
-can be overridden with command line flags.</p>
+<p><code class="highlighter-rouge">.flowconfig</code> 的 <code class="highlighter-rouge">[options]</code> 支持多个键值对。
+任何未设置的配置项都有默认值，有一些配置项可以通过命令行标记 (<code class="highlighter-rouge">--xx</code>) 覆盖。</p>
 
 <ul>
-  <li><code class="highlighter-rouge">log.file</code> (string): the path to the log file (defaults to <code class="highlighter-rouge">/tmp/flow/&lt;escaped root path&gt;.log</code>)</li>
   <li>
-    <p><code class="highlighter-rouge">module.name_mapper</code> (regex -&gt; string): specify a regular expression to match against module names, and a replacement pattern, separated by a <code class="highlighter-rouge">-&gt;</code>.</p>
+    <p><code class="highlighter-rouge">log.file</code> (string): 日志文件路径 (默认为 <code class="highlighter-rouge">/tmp/flow/&lt;根目录转义&gt;.log</code>)</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">module.name_mapper</code> (‘正则’ -&gt; ‘字符串’): 正则用来匹配模块名，字符串表示替换后的模块</p>
 
-    <p>For example:</p>
+    <p>例如:</p>
 
     <p><code class="highlighter-rouge">
   module.name_mapper='^image![a-zA-Z0-9$_]+$' -&gt; 'ImageStub'
  </code></p>
 
-    <p>makes Flow treat <code class="highlighter-rouge">require('image!foo.jpg')</code> as if it were <code class="highlighter-rouge">require('ImageStub')</code>.</p>
+    <p>让 Flow 认为 <code class="highlighter-rouge">require('image!foo.jpg')</code> 
+  就是 <code class="highlighter-rouge">require('ImageStub')</code>.</p>
 
-    <p>These are <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Str.html#TYPEregexp">OCaml regular expressions</a>. Use <code class="highlighter-rouge">\(</code> and <code class="highlighter-rouge">\)</code> (slashes required!) to create a capturing group, which you can refer to in the replacement pattern as <code class="highlighter-rouge">\1</code> (up to <code class="highlighter-rouge">\9</code>).</p>
+    <p>表达式使用 <a href="http://caml.inria.fr/pub/docs/manual-ocaml/libref/Str.html#TYPEregexp">OCaml 正则表达式</a>. 使用 <code class="highlighter-rouge">\(</code> 和 <code class="highlighter-rouge">\)</code> (斜杠不能少) 来创建捕获组, 然后在替换字符串中引用，像<code class="highlighter-rouge">\1</code> (到 <code class="highlighter-rouge">\9</code>).</p>
 
-    <p>(<strong>note:</strong> you can specify <code class="highlighter-rouge">module.name_mapper</code> multiple times)</p>
+    <p>(<strong>注意:</strong> 可以给 <code class="highlighter-rouge">module.name_mapper</code> 配置多条规则)</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">module.name_mapper.extension</code> (string -&gt; string): specify a file extension to match, and a replacement module name, separated by a <code class="highlighter-rouge">-&gt;</code>.</p>
+    <p><code class="highlighter-rouge">module.name_mapper.extension</code> (string -&gt; string): 指定文件扩展名用于匹配, 和一个用于替换的模块名, 用 <code class="highlighter-rouge">-&gt;</code> 分隔</p>
 
-    <p><em>(Note that this is just shorthand for <code class="highlighter-rouge">module.name_mapper='^\(.\*\)\.EXTENSION$' -&gt; 'TEMPLATE'</code>)</em></p>
+    <p><em>(注意，这相当于
+   <code class="highlighter-rouge">module.name_mapper='^\(.\*\)\.EXTENSION$' -&gt; 'TEMPLATE'</code>
+   的简便用法)</em></p>
 
-    <p>For example:</p>
+    <p>例如:</p>
 
     <p><code class="highlighter-rouge">
   module.name_mapper.extension='css' -&gt; '&lt;PROJECT_ROOT&gt;/CSSFlowStub.js.flow'
  </code></p>
 
-    <p>makes Flow treat <code class="highlighter-rouge">require('foo.css')</code> as if it were <code class="highlighter-rouge">require(PROJECT_ROOT + '/CSSFlowStub')</code>.</p>
+    <p>让 Flow 认为 <code class="highlighter-rouge">require('foo.css')</code> 就是 <code class="highlighter-rouge">require(PROJECT_ROOT + '/CSSFlowStub')</code>.</p>
 
-    <p>(<strong>note:</strong> you can specify <code class="highlighter-rouge">module.name_mapper.extension</code> multiple times for different extensions)</p>
+    <p>(<strong>注意:</strong> 可以配置多条  <code class="highlighter-rouge">module.name_mapper.extension</code> )</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">module.system</code> (<code class="highlighter-rouge">node</code> | <code class="highlighter-rouge">haste</code>): the module system to use to resolve
-<code class="highlighter-rouge">import</code> and <code class="highlighter-rouge">require</code>. <a href="https://github.com/facebook/node-haste">Haste</a> is
-used in React Native. The default is <code class="highlighter-rouge">node</code>.</p>
+    <p><code class="highlighter-rouge">module.system</code> (<code class="highlighter-rouge">node</code> | <code class="highlighter-rouge">haste</code>): 使用哪种模块系统解析 <code class="highlighter-rouge">import</code> 和 <code class="highlighter-rouge">require</code>
+. <a href="https://github.com/facebook/node-haste">Haste</a> 用在 React Native. 默认是<code class="highlighter-rouge">node</code>.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">module.system.node.resolve_dirname</code> (string): By default, Flow will look in
-directories named <code class="highlighter-rouge">node_modules</code> for node modules. You can configure this
-behavior with this option. For example, if you do</p>
+    <p><code class="highlighter-rouge">module.system.node.resolve_dirname</code> (string): 默认， Flow 会在
+ <code class="highlighter-rouge">node_modules</code> 目录下查找 node 模块。 通过这个配置更改查找目录。</p>
+
+    <p>例如配置：</p>
 
     <p><code class="highlighter-rouge">
   [options]
@@ -433,18 +421,18 @@ behavior with this option. For example, if you do</p>
   module.system.node.resolve_dirname=custom_node_modules
  </code></p>
 
-    <p>then Flow will look in directories named <code class="highlighter-rouge">node_modules</code> or
-  <code class="highlighter-rouge">custom_node_modules</code></p>
+    <p>Flow 会依次在 <code class="highlighter-rouge">node_modules</code> 和
+  <code class="highlighter-rouge">custom_node_modules</code> 查找模块</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">module.ignore_non_literal_requires</code> (boolean): set this to <code class="highlighter-rouge">true</code> and Flow
-will no longer complain when you use <code class="highlighter-rouge">require()</code> with something other than a
-string literal. The default value is <code class="highlighter-rouge">false</code></p>
+    <p><code class="highlighter-rouge">module.ignore_non_literal_requires</code> (boolean): 设置 <code class="highlighter-rouge">true</code> 的话，Flow 允许
+<code class="highlighter-rouge">require()</code> 动态路径. 默认 <code class="highlighter-rouge">false</code></p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">module.file_ext</code> (string): By default, Flow will look for files with the extensions
-<code class="highlighter-rouge">.js</code>, <code class="highlighter-rouge">.jsx</code>, and <code class="highlighter-rouge">.json</code>. You can override this behavior with this option.
-For example, if you do</p>
+    <p><code class="highlighter-rouge">module.file_ext</code> (string): 默认, Flow 查找以
+<code class="highlighter-rouge">.js</code>, <code class="highlighter-rouge">.jsx</code>, 和 <code class="highlighter-rouge">.json</code> 文件，通过这个配置改变默认规则</p>
+
+    <p>例如配置：</p>
 
     <p><code class="highlighter-rouge">
   [options]
@@ -452,50 +440,51 @@ For example, if you do</p>
   module.file_ext=.bar
  </code></p>
 
-    <p>then Flow will instead look for the file extensions <code class="highlighter-rouge">.foo</code> and <code class="highlighter-rouge">.bar</code>.</p>
+    <p>于是 Flow 将默认检测 <code class="highlighter-rouge">.foo</code> 和 <code class="highlighter-rouge">.bar</code> 扩展名的文件</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">module.use_strict</code> (boolean): set this to <code class="highlighter-rouge">true</code> if you use a transpiler that
-adds <code class="highlighter-rouge">"use strict";</code> to the top of every module. The default value is <code class="highlighter-rouge">false</code>.</p>
+    <p><code class="highlighter-rouge">module.use_strict</code> (boolean): 如果你使用一个转换器给
+  每个模块的头部添加 <code class="highlighter-rouge">"use strict";</code> 的话
+ 就设置为 <code class="highlighter-rouge">true</code> ，默认 <code class="highlighter-rouge">false</code>。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">munge_underscores</code> (boolean): Set this to <code class="highlighter-rouge">true</code> to have Flow treat
-underscore-prefixed class properties and methods as private. This should be
-used in conjunction with <a href="https://github.com/facebook/jstransform/blob/master/visitors/es6-class-visitors.js"><code class="highlighter-rouge">jstransform</code>’s ES6 class
-transform</a>,
-which enforces the same privacy at runtime.</p>
+    <p><code class="highlighter-rouge">munge_underscores</code> (boolean): 如果设置为 <code class="highlighter-rouge">true</code>，Flow会认为
+类中以 <code class="highlighter-rouge">_</code> 下划线开头的属性和方法都是私有的。这个功能要结合
+<a href="https://github.com/facebook/jstransform/blob/master/visitors/es6-class-visitors.js"><code class="highlighter-rouge">jstransform</code>的 ES6 class
+transform</a> 使用，保证运行时也具有一样规则</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">server.max_workers</code> (integer): The maximum number of workers the Flow server
-can start. By default, the server will use all available cores.</p>
+    <p><code class="highlighter-rouge">server.max_workers</code> (integer): Flow server 能启动 workder 最大数
+          默认, 用上各个 cpu.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">traces</code> (integer): enables traces on all error output (showing additional
-details about the flow of types through the system), to the depth specified.
-This can be very expensive, so is disabled by default.</p>
+    <p><code class="highlighter-rouge">traces</code> (integer): 打开错误跟踪 (展示更多信息),指定层级.
+            消耗很大，默认禁用.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">strip_root</code> (boolean): set this to <code class="highlighter-rouge">true</code> to always strip the root directory
-from file paths in error messages. Can be overridden with the command line
+    <p><code class="highlighter-rouge">strip_root</code> (boolean): 设置为 <code class="highlighter-rouge">true</code> 就会在错误信息中移除根目录字符串
+可以通过命令参数行覆盖
 flag <code class="highlighter-rouge">--strip-root</code>.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">suppress_comment</code> (regex): defines a magical comment that suppresses any Flow errors on the following line. For example:</p>
+    <p><code class="highlighter-rouge">suppress_comment</code> (regex): 定义一个神奇的注释，这样，他后面的代码就不会报错后面代码. 例如:</p>
 
     <p><code class="highlighter-rouge">
   suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
  </code></p>
 
-    <p>will match a comment like this:</p>
+    <p>匹配到下面的注释:</p>
 
     <p><code class="highlighter-rouge">
-  // $FlowFixMe: suppressing this error until we can refactor
+  // $FlowFixMe: 禁止下面报错
   var x : string = 123;
  </code></p>
 
-    <p>and suppress the error. If there is no error on the next line (the suppression is unnecessary), an “Unused suppression” error will be shown instead.</p>
+    <p>则会禁止报错. 如果后面的代码没错(描述部分是可以忽略的), 会给出 “Unused suppression” 错误</p>
 
-    <p><strong>Note:</strong> you can specify <code class="highlighter-rouge">suppress_comment</code> multiple times. We recommend defining something like <code class="highlighter-rouge">$FlowFixMe</code> (for type errors that need to be fixed) in addition to <code class="highlighter-rouge">$FlowIssue</code> (to suppress errors caused by bugs in Flow).</p>
+    <p><strong>提醒:</strong> 可以配置多条 <code class="highlighter-rouge">suppress_comment</code> 建议你这样定义
+   <code class="highlighter-rouge">$FlowFixMe</code> (表示需要解决的)
+   <code class="highlighter-rouge">$FlowIssue</code> (Flow 内部错误，不用管).</p>
   </li>
   <li>
     <p><code class="highlighter-rouge">temp_dir</code> (string): Tell Flow which directory to use as a temp directory.
@@ -503,86 +492,92 @@ Defaults to <code class="highlighter-rouge">/tmp/flow</code>. Can be overridden 
 <code class="highlighter-rouge">--temp-dir</code>.</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">esproposal.class_static_fields</code> (<code class="highlighter-rouge">enable</code>|<code class="highlighter-rouge">ignore</code>|<code class="highlighter-rouge">warn</code>): set this to
-<code class="highlighter-rouge">enable</code> to indicate that Flow should interpret static <a href="https://github.com/jeffmo/es-class-fields-and-static-properties">class
-fields</a> per
-the pending spec. You may also set this to <code class="highlighter-rouge">ignore</code> to indicate that Flow
-should simply ignore the syntax (i.e. Flow will not use this syntax to
-indicate the presence of a static property on the class). The default value
-of this option is <code class="highlighter-rouge">warn</code>, which gives a warning on use since this proposal is
-still very early-stage.</p>
+    <table>
+      <tbody>
+        <tr>
+          <td><code class="highlighter-rouge">esproposal.class_static_fields</code> (<code class="highlighter-rouge">enable</code></td>
+          <td><code class="highlighter-rouge">ignore</code></td>
+          <td><code class="highlighter-rouge">warn</code>): 设置为</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><code class="highlighter-rouge">enable</code> 
+则 Flow 会根据草案解析静态 <a href="https://github.com/jeffmo/es-class-fields-and-static-properties">类成员</a>。如果设置成 <code class="highlighter-rouge">ignore</code> 则
+Flow 会忽略这类语法
+(好比说：Flow 不会根据这个语法，然后去探测类上静态属性的存在).
+默认是 <code class="highlighter-rouge">warn</code>，
+只给一些警告， 
+毕竟这是个草案</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">esproposal.class_instance_fields</code> (<code class="highlighter-rouge">enable</code>|<code class="highlighter-rouge">ignore</code>|<code class="highlighter-rouge">warn</code>): set this to
-<code class="highlighter-rouge">enable</code> to indicate that Flow should interpret instance <a href="https://github.com/jeffmo/es-class-fields-and-static-properties">class
-fields</a> per
-the pending spec. You may also set this to <code class="highlighter-rouge">ignore</code> to indicate that Flow
-should simply ignore the syntax (i.e. Flow will not use this syntax to
-indicate the presence of a property on instances of the class). The default
-value of this option is <code class="highlighter-rouge">warn</code>, which gives a warning on use since this
-proposal is still very early-stage.</p>
+    <p><code class="highlighter-rouge">esproposal.class_instance_fields</code> (<code class="highlighter-rouge">enable</code>|<code class="highlighter-rouge">ignore</code>|<code class="highlighter-rouge">warn</code>): 设置为
+<code class="highlighter-rouge">enable</code> 的话，则 Flow 会根据草案解析对象 
+<a href="https://github.com/jeffmo/es-class-fields-and-static-properties">成员</a> 
+设置 <code class="highlighter-rouge">ignore</code> 则略这个语法 
+(好比说：Flow 不会根据这个语法，然后去探测类上对象属性的存在).
+默认是 <code class="highlighter-rouge">warn</code>，只给一些警告， 毕竟这是个草案</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">esproposal.decorators</code> (<code class="highlighter-rouge">ignore</code>|<code class="highlighter-rouge">warn</code>): set this to
-<code class="highlighter-rouge">ignore</code> to indicate that Flow should ignore decorators. The default
-value of this option is <code class="highlighter-rouge">warn</code>, which gives a warning on use since this
-proposal is still very early-stage.</p>
+    <p><code class="highlighter-rouge">esproposal.decorators</code> (<code class="highlighter-rouge">ignore</code>|<code class="highlighter-rouge">warn</code>): 设置为
+<code class="highlighter-rouge">ignore</code> 则 Flow 忽略 decorators 语法. 
+默认 <code class="highlighter-rouge">warn</code>, 只给一些警告， 毕竟这是个草案</p>
   </li>
   <li><code class="highlighter-rouge">esproposal.export_star_as</code> (<code class="highlighter-rouge">enable</code>|<code class="highlighter-rouge">ignore</code>|<code class="highlighter-rouge">warn</code>): set this to
-<code class="highlighter-rouge">enable</code> to indicate that Flow should support the <code class="highlighter-rouge">export * as</code> syntax from
+<code class="highlighter-rouge">enable</code> 则 Flow 支持 <code class="highlighter-rouge">export * as</code> 语法，提案在
 <a href="https://github.com/leebyron/ecmascript-more-export-from">leebyron’s proposal</a>.
-You may also set this to <code class="highlighter-rouge">ignore</code> to indicate that Flow
-should simply ignore the syntax. The default value of this option is <code class="highlighter-rouge">warn</code>,
-which gives a warning on use since this proposal is still very early-stage.</li>
+设置 <code class="highlighter-rouge">ignore</code> 则略这个语法 
+默认是 <code class="highlighter-rouge">warn</code>，只给一些警告， 毕竟这是个草案</li>
 </ul>
 
 <h3>[version]<a id="version" class="hashref"></a><a href="#version" class="hash">#</a></h3>
 
-<p>You can specify in the <code class="highlighter-rouge">.flowconfig</code> which version of Flow you expect to use.
-You do this with the <code class="highlighter-rouge">[version]</code> section. If this section is omitted or left
-blank, then any version is allowed. If a version is specified and not matched,
-then Flow will immediately error and exit.</p>
+<p>可以在 <code class="highlighter-rouge">.flowconfig</code> 通过配置 <code class="highlighter-rouge">[version]</code> 指定 Flow 的版本</p>
 
-<p>So if you have the following in your .flowconfig</p>
+<p>如果没有配置或者留白, 则允许任意版本.
+如果配置了，但是运行的版本不匹配，就报错退出</p>
+
+<p>例如你配置 .flowconfig 为</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>[version]
 0.22.0
 </code></pre>
 </div>
 
-<p>and you try to use Flow v0.21.0, then Flow will immediately error with the
-message</p>
+<p>你运行 Flow 版本未 v0.21.0, 则报错</p>
 
 <p><code class="highlighter-rouge">"Wrong version of Flow. The config specifies version 0.22.0 but this is version
 0.21.0"</code></p>
 
-<p>So far, we support the following ways to specify supported versions</p>
+<p>目前为止，我们提供下列方式为指定支持的版本</p>
 
 <ul>
-  <li>Explicit versions, (e.g. <code class="highlighter-rouge">0.22.0</code>, which only matches <code class="highlighter-rouge">0.22.0</code>).</li>
-  <li>Intersection ranges, which are ANDed together, (e.g. <code class="highlighter-rouge">&gt;=0.13.0 &lt;0.14.0</code>,
-which matches <code class="highlighter-rouge">0.13.0</code> and <code class="highlighter-rouge">0.13.5</code> but not <code class="highlighter-rouge">0.14.0</code>).</li>
-  <li>Caret ranges, which allow changes that do not modify the left-most non-zero
-digit (e.g.  <code class="highlighter-rouge">^0.13.0</code> expands into <code class="highlighter-rouge">&gt;=0.13.0 &lt;0.14.0</code>, and <code class="highlighter-rouge">^0.13.1</code> expands
-into <code class="highlighter-rouge">&gt;=0.13.1 &lt;0.14.0</code>, whereas “^1.2.3” expands into “&gt;=1.2.3 &lt;2.0.0”).</li>
+  <li>明确的版本, (e.g. <code class="highlighter-rouge">0.22.0</code>, which only matches <code class="highlighter-rouge">0.22.0</code>).</li>
+  <li>范围, (例如 <code class="highlighter-rouge">&gt;=0.13.0 &lt;0.14.0</code> 将
+匹配 <code class="highlighter-rouge">0.13.0</code> 和 <code class="highlighter-rouge">0.13.5</code>，单步包括 <code class="highlighter-rouge">0.14.0</code>).</li>
+  <li>Caret 范围，下界：左起第一个非0数字升1，后面改为0
+    <ul>
+      <li><code class="highlighter-rouge">^0.13.0</code> 表示 <code class="highlighter-rouge">&gt;=0.13.0 &lt;0.14.0</code></li>
+      <li><code class="highlighter-rouge">^0.13.1</code> 表示 <code class="highlighter-rouge">&gt;=0.13.1 &lt;0.14.0</code></li>
+      <li><code class="highlighter-rouge">^1.2.3"</code> 表示 <code class="highlighter-rouge">&gt;=1.2.3 &lt;2.0.0</code></li>
+    </ul>
+  </li>
 </ul>
 
-<h3>Comments<a id="comments" class="hashref"></a><a href="#comments" class="hash">#</a></h3>
+<h3>注释<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h3>
 
-<p>Comment support was added in v0.23.0. Lines beginning with 0 or more spaces
-followed by an <code class="highlighter-rouge">#</code> or <code class="highlighter-rouge">;</code> are ignored.  For example:</p>
+<p>注释从 v0.23.0 开始支持，例子：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code># This is a comment
-   # This is a comment
-; This is a comment
-   ; This is a comment
+<div class="highlighter-rouge"><pre class="highlight"><code># 这行是注释
+   # 这行是注释
+; 这行是注释
+   ; 这行是注释
 </code></pre>
 </div>
 
-<h3>Example<a id="example" class="hashref"></a><a href="#example" class="hash">#</a></h3>
+<h3>例子<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h3>
 
-<p>Say you have the following directory structure, with your <code class="highlighter-rouge">.flowconfig</code> in
-<code class="highlighter-rouge">mydir</code>:</p>
+<p>假设目录 <code class="highlighter-rouge">mydir</code> 有 <code class="highlighter-rouge">.flowconfig</code> 文件，并且子目录如下：</p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>otherdir
 └── src
@@ -602,7 +597,7 @@ mydir
 </code></pre>
 </div>
 
-<p>Here is an example of how you could use the <code class="highlighter-rouge">.flowconfig</code> directives.</p>
+<p>下面展示如何配置 <code class="highlighter-rouge">.flowconfig</code></p>
 
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>[include]
 ../otherdir/src
@@ -615,8 +610,8 @@ mydir
 </code></pre>
 </div>
 
-<p>Now <code class="highlighter-rouge">flow</code> will include a directory outside the <code class="highlighter-rouge">.flowconfig</code> path in its
-check, ignore the <code class="highlighter-rouge">build</code> directory and use the declarations in  <code class="highlighter-rouge">lib</code>.</p>
+<p>现在 <code class="highlighter-rouge">flow</code> 包含检测根目录以外的一个文件夹，
+忽略 <code class="highlighter-rouge">build</code> 目录和使用  <code class="highlighter-rouge">lib</code> 中的类型定义</p>
 
 
     <p class="docs-prevnext">
