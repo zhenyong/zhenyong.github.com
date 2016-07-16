@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Quick Reference</title>
+    <title>Flow | 快速参考</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Quick Reference" />
+    <meta property="og:title" content="快速参考" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -149,7 +149,7 @@
         
           <li>
             <a href="/flowtype/docs/quick-reference.html#_" class="active">
-              Quick Reference
+              快速参考
             </a>
             
           </li>
@@ -273,13 +273,13 @@
 
 
 <article class='withtoc'>
-    <h1>Quick Reference</h1>
+    <h1>快速参考</h1>
     <p></p>
 
     
-<h2>Primitives<a id="primitives" class="hashref"></a><a href="#primitives" class="hash">#</a></h2>
+<h2>Primitive 原生数据类型<a id="primitive-" class="hashref"></a><a href="#primitive-" class="hash">#</a></h2>
 
-<p>Flow has types for all of the JavaScript <strong>primitive types</strong>.</p>
+<p>JavaScript 有的 <strong>原生数据类型</strong>，Flow 都有</p>
 
 <ul>
   <li><a href="builtins.html#boolean">boolean</a></li>
@@ -289,43 +289,45 @@
   <li><a href="builtins.html#null-and-void">void</a></li>
 </ul>
 
-<p>See <a href="builtins.html">Built-in Types</a> for more information and examples.</p>
+<p>查看 <a href="builtins.html">内置类型</a> 了解更多介绍和例子.</p>
 
 <h2>any<a id="any" class="hashref"></a><a href="#any" class="hash">#</a></h2>
 
-<p>The <code class="highlighter-rouge">any</code> type is a supertype <em>and</em> subtype of all types.</p>
+<p><code class="highlighter-rouge">any</code> 是一种超集类型 <em>同时</em> 又是所有类型的子集</p>
 
-<p>Code that uses <code class="highlighter-rouge">any</code> is effectively unchecked, and should be avoided when
-another type can be used instead.</p>
+<p>实际上用了 <code class="highlighter-rouge">any</code> 类型就不会检查了，如果能用别的类型就别用 <code class="highlighter-rouge">any</code></p>
 
-<p>It can be useful to opt out of type checking, however. In particular, it is
-very useful when converting an existing code base to use types.</p>
+<p>用这种方式忽略检查是可行的，特别是在老项目中开始应用 Flow 类型的时候</p>
 
 <p>It is also occasionally necessary to bypass the type checker. There are a
 (decreasing) number of JS idioms which Flow is not able to type statically. In
-these instances, it is practical and reasonable to use <code class="highlighter-rouge">any</code>.</p>
+these instances, it is practical and reasonable to use <code class="highlighter-rouge">any</code>.
+有少数情况必须得忽略检查，Flow 无法对少数 JS 高级特性（草案）作静态类型分析，
+这种情况就真的得用 <code class="highlighter-rouge">any</code> 了</p>
 
-<p>See <a href="builtins.html#any">Built-in Types</a> for more about <code class="highlighter-rouge">any</code>.</p>
+<p>查看 <a href="builtins.html#any">内置类型</a> 了解更多 <code class="highlighter-rouge">any</code> 的特性</p>
 
 <h2>mixed<a id="mixed" class="hashref"></a><a href="#mixed" class="hash">#</a></h2>
 
-<p>The <code class="highlighter-rouge">mixed</code> type is a supertype of all types.</p>
+<p><code class="highlighter-rouge">mixed</code> 是所有类型的超集</p>
 
-<p>This type is particularly useful when paired with <a href="dynamic-type-tests.html">dynamic type
-tests</a>. For example, you can use <code class="highlighter-rouge">mixed</code> to annotate
-a value of an unknown type, and Flow will ensure that you perform the
-necessary type tests to use the value safely.</p>
+<p>当你代码需要 <a href="dynamic-type-tests.html">动态判断类型</a> 时，这种类型就很合适。
+例如，你可以使用 <code class="highlighter-rouge">mixed</code> 类型来声明一个不确定类型的值，Flow 会确保你有足够的条件判断
+来安全地使用这个值。</p>
 
-<p>See <a href="builtins.html#mixed">Built-in Types</a> for more about <code class="highlighter-rouge">mixed</code>.</p>
+<p>查看 <a href="builtins.html#mixed">内置类型</a> 了解更多 <code class="highlighter-rouge">mixed</code> 的特性</p>
 
 <h2>Arrays<a id="arrays" class="hashref"></a><a href="#arrays" class="hash">#</a></h2>
 
-<p>This type describes JavaScript array objects and the type of the elements
-contained within the array.</p>
+<p>这个类型用来描述 JavaScript 数组对象，并且描述数组中元素的类型</p>
 
 <p>Indexing into an array with type <code class="highlighter-rouge">Array&lt;T&gt;</code> will always yield a value with
 type <code class="highlighter-rouge">T</code>. That is, Flow assumes arrays are dense and does not do bounds
 checking.</p>
+
+<p>用 <code class="highlighter-rouge">Array&lt;T&gt;</code> 来声明一个数组后，数组的所有元素值都得是 <code class="highlighter-rouge">T</code> 类型的。
+Flow 假设数组都是无限长度的，所以不作长度检测</p>
+
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_LET">let</span> <span class="normal T_IDENTIFIER">array</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="type T_LBRACKET">[</span><span class="type T_RBRACKET">]</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_LBRACKET">[</span><span class="normal T_NUMBER">1</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">2</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">3.14</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">42</span><span class="normal T_RBRACKET">]</span><span class="normal T_SEMICOLON">;</span>
 <span class="normal T_LET">let</span> <span class="normal T_IDENTIFIER">theAnswer</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_IDENTIFIER">array</span><span class="normal T_LBRACKET">[</span><span class="normal T_NUMBER">3</span><span class="normal T_RBRACKET">]</span><span class="normal T_SEMICOLON">;</span> <span class="comment line">// 42</span>
@@ -334,10 +336,9 @@ checking.</p>
 <span class="normal T_LET">let</span> <span class="normal T_IDENTIFIER">array2</span><span class="type T_COLON">:</span> <span class="type T_IDENTIFIER">Array</span><span class="type T_LESS_THAN">&lt;</span><span class="type T_STRING_TYPE">string</span><span class="type T_GREATER_THAN">&gt;</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_LBRACKET">[</span><span class="normal T_STRING">&quot;an alternate&quot;</span><span class="normal T_COMMA">,</span> <span class="normal T_STRING">&quot;syntax&quot;</span><span class="normal T_COMMA">,</span> <span class="normal T_STRING">&quot;for arrays&quot;</span><span class="normal T_RBRACKET">]</span><span class="normal T_SEMICOLON">;</span></code></pre>
 </div>
 
-<h3>Tuples<a id="tuples" class="hashref"></a><a href="#tuples" class="hash">#</a></h3>
+<h3>Tuples (元组)<a id="tuples-" class="hashref"></a><a href="#tuples-" class="hash">#</a></h3>
 
-<p>Tuple types are a kind of array type particularly suited to describe finite,
-heterogeneous collections.</p>
+<p>元组类型是一种特殊的数组类型，可以描述多个不同类型的元素</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -363,7 +364,7 @@ heterogeneous collections.</p>
         </td>
         <td class="code"><pre><span class="normal T_LET">let</span> <span class="normal T_IDENTIFIER">tuple</span><span class="type T_COLON">:</span> <span class="type T_LBRACKET">[</span><span class="error" data-error-id="E5" data-message-id="M5003"><span class="error" data-error-id="E1" data-message-id="M1001"><span class="type T_STRING_TYPE">string</span></span></span><span class="type T_COMMA">,</span> <span class="error" data-error-id="E3" data-message-id="M3001"><span class="error" data-error-id="E2" data-message-id="M2001"><span class="type T_NUMBER_TYPE">number</span></span></span><span class="type T_COMMA">,</span> <span class="error" data-error-id="E4" data-message-id="M4001"><span class="type T_BOOLEAN_TYPE">boolean</span></span><span class="type T_RBRACKET">]</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_LBRACKET">[</span><span class="normal T_STRING">&quot;foo&quot;</span><span class="normal T_COMMA">,</span> <span class="normal T_NUMBER">0</span><span class="normal T_COMMA">,</span> <span class="normal T_TRUE">true</span><span class="normal T_RBRACKET">]</span><span class="normal T_SEMICOLON">;</span>
 
-<span class="comment line">// Indexing into the array will return the type at a given index.</span>
+<span class="comment line">// </span>
 <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">tuple</span><span class="normal T_LBRACKET">[</span><span class="normal T_NUMBER">0</span><span class="normal T_RBRACKET">]</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
 <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">tuple</span><span class="normal T_LBRACKET">[</span><span class="normal T_NUMBER">1</span><span class="normal T_RBRACKET">]</span><span class="type T_COLON">:</span> <span class="error" data-error-id="E2" data-message-id="M2003"><span class="type T_STRING_TYPE">string</span></span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
 
@@ -676,7 +677,7 @@ of specifically what is inside.</p>
 </div>
 
 <script>require(['inlineErrors'], function(inlineErrors) {
-  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":74,"column":13,"offset":2148},"end":{"line":74,"column":18,"offset":2154}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"undefined","context":"(tuple[unknownNumber]: void);","source":"-","start":{"line":83,"column":24,"offset":2486},"end":{"line":83,"column":27,"offset":2490}}],"operation":null},{"id":"E2","messages":[{"id":"M2001","description":"number","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":74,"column":21,"offset":2156},"end":{"line":74,"column":26,"offset":2162}},{"id":"M2002","description":"This type is incompatible with","context":null},{"id":"M2003","description":"string","context":"(tuple[1]: string);","source":"-","start":{"line":78,"column":12,"offset":2291},"end":{"line":78,"column":17,"offset":2297}}],"operation":null},{"id":"E3","messages":[{"id":"M3001","description":"number","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":74,"column":21,"offset":2156},"end":{"line":74,"column":26,"offset":2162}},{"id":"M3002","description":"This type is incompatible with","context":null},{"id":"M3003","description":"undefined","context":"(tuple[unknownNumber]: void);","source":"-","start":{"line":83,"column":24,"offset":2486},"end":{"line":83,"column":27,"offset":2490}}],"operation":null},{"id":"E4","messages":[{"id":"M4001","description":"boolean","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":74,"column":29,"offset":2164},"end":{"line":74,"column":35,"offset":2171}},{"id":"M4002","description":"This type is incompatible with","context":null},{"id":"M4003","description":"undefined","context":"(tuple[unknownNumber]: void);","source":"-","start":{"line":83,"column":24,"offset":2486},"end":{"line":83,"column":27,"offset":2490}}],"operation":null},{"id":"E5","messages":[{"id":"M5001","description":"boolean","context":"tuple[0] = false;","source":"-","start":{"line":88,"column":12,"offset":2639},"end":{"line":88,"column":16,"offset":2644}},{"id":"M5002","description":"This type is incompatible with","context":null},{"id":"M5003","description":"string","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":74,"column":13,"offset":2148},"end":{"line":74,"column":18,"offset":2154}}],"operation":null},{"id":"E6","messages":[{"id":"M6001","description":"string","context":"object.bar = \"bar\";","source":"-","start":{"line":102,"column":14,"offset":2963},"end":{"line":102,"column":18,"offset":2968}},{"id":"M6002","description":"This type is incompatible with","context":null},{"id":"M6003","description":"number","context":"let object: {foo: string, bar: number} = {foo: \"foo\", bar: 0};","source":"-","start":{"line":98,"column":32,"offset":2833},"end":{"line":98,"column":37,"offset":2839}}],"operation":null}]);
+  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"string","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":77,"column":13,"offset":2381},"end":{"line":77,"column":18,"offset":2387}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"undefined","context":"(tuple[unknownNumber]: void);","source":"-","start":{"line":86,"column":24,"offset":2657},"end":{"line":86,"column":27,"offset":2661}}],"operation":null},{"id":"E2","messages":[{"id":"M2001","description":"number","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":77,"column":21,"offset":2389},"end":{"line":77,"column":26,"offset":2395}},{"id":"M2002","description":"This type is incompatible with","context":null},{"id":"M2003","description":"string","context":"(tuple[1]: string);","source":"-","start":{"line":81,"column":12,"offset":2462},"end":{"line":81,"column":17,"offset":2468}}],"operation":null},{"id":"E3","messages":[{"id":"M3001","description":"number","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":77,"column":21,"offset":2389},"end":{"line":77,"column":26,"offset":2395}},{"id":"M3002","description":"This type is incompatible with","context":null},{"id":"M3003","description":"undefined","context":"(tuple[unknownNumber]: void);","source":"-","start":{"line":86,"column":24,"offset":2657},"end":{"line":86,"column":27,"offset":2661}}],"operation":null},{"id":"E4","messages":[{"id":"M4001","description":"boolean","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":77,"column":29,"offset":2397},"end":{"line":77,"column":35,"offset":2404}},{"id":"M4002","description":"This type is incompatible with","context":null},{"id":"M4003","description":"undefined","context":"(tuple[unknownNumber]: void);","source":"-","start":{"line":86,"column":24,"offset":2657},"end":{"line":86,"column":27,"offset":2661}}],"operation":null},{"id":"E5","messages":[{"id":"M5001","description":"boolean","context":"tuple[0] = false;","source":"-","start":{"line":91,"column":12,"offset":2810},"end":{"line":91,"column":16,"offset":2815}},{"id":"M5002","description":"This type is incompatible with","context":null},{"id":"M5003","description":"string","context":"let tuple: [string, number, boolean] = [\"foo\", 0, true];","source":"-","start":{"line":77,"column":13,"offset":2381},"end":{"line":77,"column":18,"offset":2387}}],"operation":null},{"id":"E6","messages":[{"id":"M6001","description":"string","context":"object.bar = \"bar\";","source":"-","start":{"line":105,"column":14,"offset":3134},"end":{"line":105,"column":18,"offset":3139}},{"id":"M6002","description":"This type is incompatible with","context":null},{"id":"M6003","description":"number","context":"let object: {foo: string, bar: number} = {foo: \"foo\", bar: 0};","source":"-","start":{"line":101,"column":32,"offset":3004},"end":{"line":101,"column":37,"offset":3010}}],"operation":null}]);
 });</script>
 
     <p class="docs-prevnext">
