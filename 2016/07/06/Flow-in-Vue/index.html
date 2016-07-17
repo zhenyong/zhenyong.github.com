@@ -8,7 +8,8 @@
     <meta name="description" content="Facebook 出品的 JS 静态类型检查器
 
 JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 回答
-Flow 官网">
+Flow 官网
+Flow 官网（中文）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flow in Vue">
 <meta property="og:url" content="http://zhenyong.site/2016/07/06/Flow-in-Vue/index.html">
@@ -16,18 +17,20 @@ Flow 官网">
 <meta property="og:description" content="Facebook 出品的 JS 静态类型检查器
 
 JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 回答
-Flow 官网">
+Flow 官网
+Flow 官网（中文）">
 <meta property="og:image" content="http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg">
 <meta property="og:image" content="http://zhenyong.site/images/webchat.jpg">
 <meta property="og:image" content="http://zhenyong.site/images/alipay.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
-<meta property="og:updated_time" content="2016-07-15T00:48:11.000Z">
+<meta property="og:updated_time" content="2016-07-17T13:54:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flow in Vue">
 <meta name="twitter:description" content="Facebook 出品的 JS 静态类型检查器
 
 JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 回答
-Flow 官网">
+Flow 官网
+Flow 官网（中文）">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg">
     
 
@@ -257,6 +260,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p>JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 Code 编辑器，杠杠的，为何 vue 选用 Flow 呢，作者在知乎作了 <a href="http://www.zhihu.com/question/46397274" target="_blank" rel="external">回答</a></p>
 <p><a href="https://flowtype.org/" target="_blank" rel="external">Flow 官网</a></p>
+<p><a href="http://zhenyong.site/flowtype">Flow 官网</a>（中文）</p>
 <a id="more"></a>
 <h2 id="Flow-简单体验"><a href="#Flow-简单体验" class="headerlink" title="Flow 简单体验"></a>Flow 简单体验</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>mac 用户：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install flow</div></pre></td></tr></table></figure>
@@ -279,7 +283,22 @@ var _hmt = _hmt || [];
 </ul>
 <p>效果：</p>
 <p><img src="http://ww1.sinaimg.cn/mw690/68ef88dajw1f5nvq1917aj20bc04a0t0.jpg" alt=""></p>
-<h2 id="Flow-in-Vue"><a href="#Flow-in-Vue" class="headerlink" title="Flow in Vue"></a>Flow in Vue</h2><p>// TODO<br>
+<h2 id="Flow-in-Vue"><a href="#Flow-in-Vue" class="headerlink" title="Flow in Vue"></a>Flow in Vue</h2><h3 id="flowconfig-配置文件"><a href="#flowconfig-配置文件" class="headerlink" title=".flowconfig 配置文件"></a>.flowconfig 配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">[ignore]</div><div class="line">.*/node_modules/.*</div><div class="line">.*/test/.*</div><div class="line">.*/build/.*</div><div class="line">.*/examples/.*</div><div class="line">.*/benchmarks/.*</div><div class="line"></div><div class="line">[include]</div><div class="line"></div><div class="line">[libs]</div><div class="line">flow</div><div class="line"></div><div class="line">[options]</div><div class="line">module.name_mapper=&apos;^compiler/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/compiler/\1&apos;</div><div class="line">module.name_mapper=&apos;^core/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/core/\1&apos;</div><div class="line">module.name_mapper=&apos;^shared/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/shared/\1&apos;</div><div class="line">module.name_mapper=&apos;^web/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/platforms/web/\1&apos;</div><div class="line">module.name_mapper=&apos;^server/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/server/\1&apos;</div><div class="line">module.name_mapper=&apos;^entries/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/entries/\1&apos;</div><div class="line">module.name_mapper=&apos;^sfc/\(.*\)$&apos; -&gt; &apos;&lt;PROJECT_ROOT&gt;/src/sfc/\1&apos;</div></pre></td></tr></table></figure>
+<p>解释下各个配置意思</p>
+<ul>
+<li><code>ignore</code>：表示该以下匹配到的文件夹都不需要检测</li>
+<li><code>include</code>：这里是空白，默认所有文件，如果检测项目根目录以外就要罗列在这里</li>
+<li><code>libs</code>: 表示使用目录 /flow 下的接口定义文件</li>
+<li><code>options</code>: 第一行配置的效果是，当<code>require(&#39;compiler/xx/yy&#39;)</code> 时把加载路径重定向到 <code>项目路径/src/compiler/xx/yy</code></li>
+</ul>
+<h3 id="接口类型文件"><a href="#接口类型文件" class="headerlink" title="接口类型文件"></a>接口类型文件</h3><p>回一下 Java 或者其它强类型 OO 语言，当你调用类中没定义的方法时，或者调用方法的参数个数不对时，IDE就会提醒，那么接口类型文件就有点这个意思，让你的类也有这么一个规则文件可以用来校验开发者的代码，举个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// /flow/component.js</div><div class="line"></div><div class="line">declare interface Component &#123;</div><div class="line">  // constructor information</div><div class="line">  static cid: number</div><div class="line">	...省略...</div><div class="line">  $data: Object;</div><div class="line">  $options: ComponentOptions;</div><div class="line">...省略...</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p><code>Component</code> 是 vue 内部一个类，通过这个接口类型文件表明组件类有哪些成员，哪些静态属性等等，特别要看到 <code>ComponentOptions</code>，这对应到另一个接口类型。</p>
+<p>通过这种接口类型，某种意义上，你就有了强类型 OO 语言写代码的一些优点。</p>
+<p>当然 vue 的类型文件远不止这用到这点点，更多细节就不一一介绍</p>
+<p>语法部分请参照<a href="https://flowtype.org/" target="_blank" rel="external">Flow 官网</a>或者我翻译的<a href="http://zhenyong.site/flowtype">中文网站</a></p>
+<p>至于 vue 为什么选用 flow 而不用相对流行的 TypeScript，参考他的知乎回答 <a href="http://www.zhihu.com/question/46397274" target="_blank" rel="external">Vue 2.0 为什么选用 Flow 进行静态代码检查而不是直接使用 TypeScript?</a>。</p>
+<p>而我个人也觉得 Flow 有些很实用的场景，例如你无需学习成本，就能用上他的智能检测，解决 null 相关的潜在问题。
 
   <!-- css -->
   <style type="text/css">
