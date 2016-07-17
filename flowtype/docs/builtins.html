@@ -2,14 +2,14 @@
 <html prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset='utf-8'>
-    <title>Flow | Built-in Types</title>
+    <title>Flow | 内置的类型</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css" />
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/default.css">
     <link type="text/css" rel="stylesheet" href="/flowtype/assets/syntax.css">
     <link rel='shortcut icon' href='/flowtype/static/favicon.png'>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta property="og:title" content="Built-in Types" />
+    <meta property="og:title" content="内置的类型" />
     <meta property="og:site_name" content="flowtype">
     <meta property='og:description' content='Flow is a static type checker for
     JavaScript.'>
@@ -156,7 +156,7 @@
         
           <li>
             <a href="/flowtype/docs/builtins.html#_" class="active">
-              Built-in Types
+              内置的类型
             </a>
             
           </li>
@@ -273,32 +273,27 @@
 
 
 <article class='withtoc'>
-    <h1>Built-in Types</h1>
+    <h1>内置的类型</h1>
     <p></p>
 
     
-<p>Flow includes many built-in types, which can be used to describe values in
-JavaScript.</p>
+<p>Flow 包含很多内置类型来描述 JavasScript 中的值</p>
 
-<p>There are types for primitive values, like <code class="highlighter-rouge">number</code> and <code class="highlighter-rouge">string</code>. Types like
-<code class="highlighter-rouge">any</code> and <code class="highlighter-rouge">mixed</code> describe more flexible constraints on values, whereas
-literal types describe specifically a single value.</p>
+<p>有些是给原生类型用的，像 <code class="highlighter-rouge">number</code> 和 <code class="highlighter-rouge">string</code>。
+<code class="highlighter-rouge">any</code> 和 <code class="highlighter-rouge">mixed</code> 比较宽松，没有把值的类型限定死，而其他字面类型则描述某一种类型。</p>
 
-<p>Flow comes out of the box with support for the JavaScript standard library,
-Browser APIs like the DOM, and the Node.js standard library.</p>
+<p>Flow 支持标准 js，浏览器 api 和 Node.js 标准库，所以开箱即用</p>
 
-<h4>Note about typecast syntax<a id="note-about-typecast-syntax" class="hashref"></a><a href="#note-about-typecast-syntax" class="hash">#</a></h4>
+<h4>注意使用类型转换语法<a id="section" class="hashref"></a><a href="#section" class="hash">#</a></h4>
 
-<p>The following examples make extensive use of typecasts in order to demonstrate
-type compatibility.</p>
+<p>为了方便讲解，下面例子大量使用类型转换：</p>
 
-<p>In Flow, typecasts are sound, meaning that the statement <code class="highlighter-rouge">(e:T)</code> for some
-expression <code class="highlighter-rouge">e</code> and type <code class="highlighter-rouge">T</code> is a type error unless the inferred type of <code class="highlighter-rouge">e</code> is
-a valid subtype of <code class="highlighter-rouge">T</code>.</p>
+<p>Flow 的类型转换目测就那么回事：
+表达式 <code class="highlighter-rouge">e</code> 和类型 <code class="highlighter-rouge">T</code> 组成 <code class="highlighter-rouge">(e:T)</code>，如果 e 不属于 <code class="highlighter-rouge">T</code> 类型（子集）则会报类型错误</p>
 
-<p>In other words, with respect to validity a typecast behaves just like a type
-annotation on a variable or parameter. If <code class="highlighter-rouge">var x:T = e</code> would be valid, then
-<code class="highlighter-rouge">(e:T)</code> would be as well.</p>
+<p>换个说法，要检测一个强制转换的用法是否正确，只需要把它当做变量或者参数的类型注解来检测就行了。
+举个例子，如果 <code class="highlighter-rouge">var x:T = e</code> 合法，意味着 <code class="highlighter-rouge">(e:T)</code> 同样合法</p>
+
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -354,8 +349,8 @@ annotation on a variable or parameter. If <code class="highlighter-rouge">var x:
 
 <h2>boolean<a id="boolean" class="hashref"></a><a href="#boolean" class="hash">#</a></h2>
 
-<p>This type describes a boolean value in JavaScript. The possible values of this
-type are <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code>.</p>
+<p>这个类型用来描述 JavaScript 的布尔值，这个类型的值就只有 <code class="highlighter-rouge">true</code> 和 <code class="highlighter-rouge">false</code></p>
+
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -392,11 +387,10 @@ type are <code class="highlighter-rouge">true</code> and <code class="highlighte
 
 </div>
 
-<p>JavaScript specifies many implicit conversions, which provide boolean
-semantics to values of other types. Flow understands this and allows any
-expression to be used as a conditional in an <code class="highlighter-rouge">if</code> statement or as an operand
-to <code class="highlighter-rouge">&amp;&amp;</code>. However, if you need to cast an object specifically to the <code class="highlighter-rouge">boolean</code>
-type, you can use the built-in <code class="highlighter-rouge">Boolean</code> function</p>
+<p>Javascript 允许把某些非布尔值当做布尔值来用。Flow 理解也允许用在 <code class="highlighter-rouge">if</code> 作为条件，
+或者是 <code class="highlighter-rouge">&amp;&amp;</code> 之类的逻辑运算。如果你需要强制把对象转化为 <code class="highlighter-rouge">boolean</code>，
+可以用 js 自带的 <code class="highlighter-rouge">Boolean</code> 方法</p>
+
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -435,10 +429,9 @@ type, you can use the built-in <code class="highlighter-rouge">Boolean</code> fu
 
 </div>
 
-<p>Note that <code class="highlighter-rouge">boolean</code> and <code class="highlighter-rouge">Boolean</code> are separate types. The former is the type
-of primitive booleans which appear in programs as literals <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code>,
-or as the result of expressions like <code class="highlighter-rouge">a === b</code>. The latter is the type of
-Boolean wrapper objects, which are rarely used.</p>
+<p>注意 <code class="highlighter-rouge">boolean</code> 和 <code class="highlighter-rouge">Boolean</code> 是不同的，前者是原生类型的布尔，就是程序中的字面量
+<code class="highlighter-rouge">true</code> 和 <code class="highlighter-rouge">false</code>，或者是类似 <code class="highlighter-rouge">a === b</code> 这类表达式的值。而后者是一个包装对象，
+很少用到。</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -475,8 +468,8 @@ Boolean wrapper objects, which are rarely used.</p>
 
 <h2>number<a id="number" class="hashref"></a><a href="#number" class="hash">#</a></h2>
 
-<p>JavaScript has a single number type, which is IEEE 754 floating point numbers.
-The <code class="highlighter-rouge">number</code> type describes these values, which includes <code class="highlighter-rouge">Infinity</code> and <code class="highlighter-rouge">NaN</code>.</p>
+<p>JavaScript 只有一种数字类型，就是 IEEE 754 浮点数。
+<code class="highlighter-rouge">number</code> 类型就是描述它的，包括 <code class="highlighter-rouge">Infinity</code> 和 <code class="highlighter-rouge">NaN</code></p>
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_LPAREN">(</span><span class="normal T_NUMBER">3.14</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
 <span class="normal T_LPAREN">(</span><span class="normal T_NUMBER">42</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
@@ -485,10 +478,8 @@ The <code class="highlighter-rouge">number</code> type describes these values, w
 <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">parseFloat</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&quot;not a number&quot;</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span> <span class="comment line">// hint: NaN</span></code></pre>
 </div>
 
-<p>Note that <code class="highlighter-rouge">number</code> and <code class="highlighter-rouge">Number</code> are separate types. The former is the type of
-primitive numbers which appear in programs as literals, like <code class="highlighter-rouge">3.14</code> and <code class="highlighter-rouge">42</code>,
-or as the result of expressions like <code class="highlighter-rouge">parseFloat(input.value)</code>.  The latter is
-the type of Number wrapper objects, which are rarely used.</p>
+<p>注意：<code class="highlighter-rouge">number</code> 和 <code class="highlighter-rouge">Number</code> 是不同的。前者是原生数字类型，像代码里的 <code class="highlighter-rouge">3.14</code> 和 <code class="highlighter-rouge">42</code>，
+或者是 <code class="highlighter-rouge">parseFlow(input.value)</code> 这类表达式的值。而后者是 Number 包装对象，很少用到。</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -529,17 +520,16 @@ the type of Number wrapper objects, which are rarely used.</p>
 <span class="normal T_LPAREN">(</span><span class="normal T_STRING">&quot;bar&quot;</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
 </div>
 
-<p>Generally, implicit type casting is an error with Flow. However, it is a
-fairly common JavaScript idiom to produce a string by combining a <code class="highlighter-rouge">string</code> and
-a <code class="highlighter-rouge">number</code> with the binary operator <code class="highlighter-rouge">+</code>, so Flow accepts it.</p>
+<p>一般来说，类型静默转换在 Flow 中是会报错的。
+不过，将 <code class="highlighter-rouge">字符串</code> 和 <code class="highlighter-rouge">数字</code> 用 <code class="highlighter-rouge">+</code> 号连接生成字符串， 在 JS 中很常见。
+所以 Flow 也接受这种方式。</p>
+
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_LPAREN">(</span><span class="normal T_LPAREN">(</span><span class="normal T_NUMBER">100</span> <span class="normal T_PLUS">+</span> <span class="normal T_STRING">&quot;%&quot;</span><span class="normal T_RPAREN">)</span> <span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
 </div>
 
-<p>Note that <code class="highlighter-rouge">string</code> and <code class="highlighter-rouge">String</code> are separate types. The former is the type of
-primitive strings which appear in programs as literals, like <code class="highlighter-rouge">"foo"</code> and
-<code class="highlighter-rouge">"bar"</code>, or as the result of expressions like <code class="highlighter-rouge">"" + 42</code>. The latter is the
-type of String wrapper objects, which are rarely used.</p>
+<p>注意：<code class="highlighter-rouge">string</code> 和 <code class="highlighter-rouge">String</code> 是不同类型。前者是原生类型字符串，像程序中的 <code class="highlighter-rouge">"foo"</code> 和
+<code class="highlighter-rouge">"bar"</code>，或者是 <code class="highlighter-rouge">""+42</code> 这类表达式的返回值，而后者就是一个字符串包装类，很少用到。</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -576,9 +566,8 @@ type of String wrapper objects, which are rarely used.</p>
 
 <h2>null and void<a id="null-and-void" class="hashref"></a><a href="#null-and-void" class="hash">#</a></h2>
 
-<p>JavaScript has both <code class="highlighter-rouge">null</code> and <code class="highlighter-rouge">undefined</code>, which Flow is careful to treat
-separately. <code class="highlighter-rouge">null</code> (the value) has the type <code class="highlighter-rouge">null</code>. <code class="highlighter-rouge">undefined</code> has the type
-<code class="highlighter-rouge">void</code>.</p>
+<p>JavaScript 有 <code class="highlighter-rouge">null</code> 和 <code class="highlighter-rouge">undefined</code>，Flow 中， <code class="highlighter-rouge">null</code>(值) 有 <code class="highlighter-rouge">null</code> 类型，
+<code class="highlighter-rouge">undefined</code> 有 <code class="highlighter-rouge">void</code> 类型</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -624,8 +613,7 @@ separately. <code class="highlighter-rouge">null</code> (the value) has the type
 
 </div>
 
-<p>Optional object properties and optional function parameters have the type
-<code class="highlighter-rouge">T|void</code>, for some type <code class="highlighter-rouge">T</code>.</p>
+<p>对于可选的对象属性和可选的方法参数用 <code class="highlighter-rouge">T|void</code>，有些用 <code class="highlighter-rouge">T</code></p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -689,8 +677,8 @@ separately. <code class="highlighter-rouge">null</code> (the value) has the type
 
 </div>
 
-<p>Function parameters that have a default are optional as well, but only for
-callers. Within the function body, the binding has a non-<code class="highlighter-rouge">void</code> type.</p>
+<p>方法的参数如果有默认值就意味着是可选的，不过只针对调用的时候是可选类型，一旦进入
+方法体，这个参数值就是 非-<code class="highlighter-rouge">void</code> 类型</p>
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">default_fun</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">foo</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span> <span class="normal T_ASSIGN">=</span> <span class="normal T_STRING">&quot;default foo&quot;</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
   <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">foo</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
@@ -700,7 +688,8 @@ callers. Within the function body, the binding has a non-<code class="highlighte
 <span class="normal T_IDENTIFIER">default_fun</span><span class="normal T_LPAREN">(</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
 </div>
 
-<p>Maybe types have the type <code class="highlighter-rouge">T|void|null</code> for some type <code class="highlighter-rouge">T</code>.</p>
+<p>对于可能是某个类型 <code class="highlighter-rouge">T</code> 的，还可以这样 <code class="highlighter-rouge">T|void|null</code> 表示可选</p>
+
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">maybe_fun</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">foo</span><span class="type T_COLON">:</span> <span class="type T_PLING">?</span><span class="type T_STRING_TYPE">string</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
   <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">foo</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="type T_BIT_OR">|</span><span class="type T_VOID_TYPE">void</span><span class="type T_BIT_OR">|</span><span class="type T_NULL">null</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
@@ -713,9 +702,9 @@ callers. Within the function body, the binding has a non-<code class="highlighte
 
 <h2>any<a id="any" class="hashref"></a><a href="#any" class="hash">#</a></h2>
 
-<p><code class="highlighter-rouge">any</code> is simultaneously a supertype of all types and a subtype of all types.
-Intuitively, an <code class="highlighter-rouge">any</code> value can take the place of “any” other value, and Flow
-will understand that to be well-typed.</p>
+<p><code class="highlighter-rouge">any</code> 是所有类型的超集，同时也是所有类型的子集。
+如果有些地方目测就一定是某种类型，那么 Flow 肯定也能看得出来，给你提醒。</p>
+
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">takes_any</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="type T_COLON">:</span> <span class="type T_ANY_TYPE">any</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="type T_VOID_TYPE">void</span> <span class="normal T_LCURLY">{</span><span class="normal T_RCURLY">}</span>
 <span class="normal T_IDENTIFIER">takes_any</span><span class="normal T_LPAREN">(</span><span class="normal T_NUMBER">0</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
@@ -728,34 +717,29 @@ will understand that to be well-typed.</p>
 <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">unsafe</span><span class="type T_COLON">:</span> <span class="type T_LCURLY">{</span> <span class="normal T_IDENTIFIER">foo</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span> <span class="type T_RCURLY">}</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
 </div>
 
-<p>In addition to compatibility between types, it’s useful to think of <code class="highlighter-rouge">any</code> in
-terms of operations that can be performed on values. Accessing any property on
-an <code class="highlighter-rouge">any</code> will yield an <code class="highlighter-rouge">any</code>. It is possible to call an <code class="highlighter-rouge">any</code> as a function,
-taking any number arguments of any type, which will also return <code class="highlighter-rouge">any</code>.</p>
+<p>除了关注类型的匹配外，对 <code class="highlighter-rouge">any</code> 类型值的操作的相关的概念也是值得思考的。
+对于 <code class="highlighter-rouge">any</code> 类型的值，通过任何属性访问，返回值依然是 <code class="highlighter-rouge">any</code> 类型。
+你甚至可以把 <code class="highlighter-rouge">any</code> 类型的值当做方法来用，传入任意多个任意类型的参数。</p>
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_IDENTIFIER">unsafe</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">foo</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">bar</span><span class="normal T_PERIOD">.</span><span class="normal T_IDENTIFIER">baz</span><span class="normal T_SEMICOLON">;</span>
 <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">unsafe</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&quot;foo&quot;</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="type T_STRING_TYPE">string</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span>
 <span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">unsafe</span><span class="normal T_LPAREN">(</span><span class="normal T_STRING">&quot;bar&quot;</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="type T_NUMBER_TYPE">number</span><span class="normal T_RPAREN">)</span><span class="normal T_SEMICOLON">;</span></code></pre>
 </div>
 
-<p>You can think of <code class="highlighter-rouge">any</code> as a kind of “backdoor” in the type system. Use of
-<code class="highlighter-rouge">any</code> is inherently unsafe and should be avoided whenever possible. However,
-it can also be incredibly convenient.</p>
+<p>你可以认为 <code class="highlighter-rouge">any</code> 类型就是某种类型系统的后门。
+使用 <code class="highlighter-rouge">any</code> 是有潜在危险的，尽可能避免。</p>
 
-<p>For example, when adding types to existing code, using <code class="highlighter-rouge">any</code> can help make the
-gradual transition from untyped to typed code. Similarly, modeling third-party
-APIs with <code class="highlighter-rouge">any</code> can ease integration.</p>
+<p>不过，有时候用它也是很靠谱的，例如，当你对现有代码添加类型，
+使用 <code class="highlighter-rouge">any</code> 可以帮助你平缓过渡到类型检测。
+同样，对第三方模块声明 <code class="highlighter-rouge">any</code> 也方便整合。</p>
 
-<p>Lastly, due to the highly dynamic nature of JavaScript, there are some idioms
-which Flow does not yet understand. Principled use of <code class="highlighter-rouge">any</code> makes it possible
-to wrap untyped code in types.</p>
+<p>最后，由于 JS 极其动态的特性，有些情况 Flow 是无法解析的,
+而 <code class="highlighter-rouge">any</code> 的原则就是把不确定类型的值变成有类型</p>
 
 <h2>mixed<a id="mixed" class="hashref"></a><a href="#mixed" class="hash">#</a></h2>
 
-<p>Like <code class="highlighter-rouge">any</code>, <code class="highlighter-rouge">mixed</code> is a supertype of all types. Unlike <code class="highlighter-rouge">any</code>, however,
-<code class="highlighter-rouge">mixed</code> is not a subtype of all types. This means <code class="highlighter-rouge">mixed</code> is like a safe 
-but somewhat annoying version of <code class="highlighter-rouge">any</code>. It should be preferred over <code class="highlighter-rouge">any</code>
-whenever possible.</p>
+<p><code class="highlighter-rouge">mixed</code> 跟 <code class="highlighter-rouge">any</code> 一样，是所有类型的超集，但不是所有类型子集。
+这意味着 <code class="highlighter-rouge">mixed</code> 稍微安全版的 <code class="highlighter-rouge">any</code>，尽量能用 <code class="highlighter-rouge">mixed</code> 就不用 <code class="highlighter-rouge">any</code>。</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -814,25 +798,24 @@ whenever possible.</p>
 
 </div>
 
-<p>It’s still possible to use a value with a <code class="highlighter-rouge">mixed</code>, but you must first
-<a href="/flowtype/docs/dynamic-type-tests.html">refine</a> the value.</p>
+<p>不过还是有可能用 <code class="highlighter-rouge">mixed</code> 表示一个值，不过你得
+ <a href="/flowtype/docs/dynamic-type-tests.html">refine</a> 这个值</p>
 
-<p>For example, let’s construct a type of values which can be expressed directly
-as JSON. We can express this type quite naturally.</p>
+<p>例如，我们构造某种值的类型，能直接用 JSON 表示。
+自然会这样表达这种类型：</p>
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_TYPE">type</span> <span class="type T_IDENTIFIER">JSON</span> <span class="type T_ASSIGN">=</span> <span class="type T_BIT_OR">|</span> <span class="type T_STRING_TYPE">string</span> <span class="type T_BIT_OR">|</span> <span class="type T_NUMBER_TYPE">number</span> <span class="type T_BIT_OR">|</span> <span class="type T_BOOLEAN_TYPE">boolean</span> <span class="type T_BIT_OR">|</span> <span class="type T_NULL">null</span> <span class="type T_BIT_OR">|</span> <span class="type T_IDENTIFIER">JSONObject</span> <span class="type T_BIT_OR">|</span> <span class="type T_IDENTIFIER">JSONArray</span><span class="type T_SEMICOLON">;</span>
 <span class="normal T_TYPE">type</span> <span class="type T_IDENTIFIER">JSONObject</span> <span class="type T_ASSIGN">=</span> <span class="type T_LCURLY">{</span> <span class="type T_LBRACKET">[</span><span class="type T_IDENTIFIER">key</span><span class="type T_COLON">:</span><span class="type T_STRING_TYPE">string</span><span class="type T_RBRACKET">]</span><span class="type T_COLON">:</span> <span class="type T_IDENTIFIER">JSON</span> <span class="type T_RCURLY">}</span><span class="type T_SEMICOLON">;</span>
 <span class="normal T_TYPE">type</span> <span class="type T_IDENTIFIER">JSONArray</span> <span class="type T_ASSIGN">=</span> <span class="type T_IDENTIFIER">Array</span><span class="type T_LESS_THAN">&lt;</span><span class="type T_IDENTIFIER">JSON</span><span class="type T_GREATER_THAN">&gt;</span><span class="type T_SEMICOLON">;</span></code></pre>
 </div>
 
-<p>Now let’s write a function that verifies that a given value is a JSON value.
-If we annotated the parameter as <code class="highlighter-rouge">any</code>, we could just return the parameter and
-Flow would accept that without error because <code class="highlighter-rouge">any</code> is a subtype of all types,
-including <code class="highlighter-rouge">JSON</code>.</p>
+<p>给定一个方法，验证它的参数是不是 JSON 格式。
+如果我们把参数类型声明为 <code class="highlighter-rouge">any</code>，那么我们可以直接返回参数，因为 <code class="highlighter-rouge">any</code> 是任意类型的
+子集，所以 Flow 不会报错。</p>
 
-<p>If we use <code class="highlighter-rouge">mixed</code>, however, we can still pass any value into our function, as
-<code class="highlighter-rouge">mixed</code> is a supertype of all types. But in order to satisfy the <code class="highlighter-rouge">JSON</code> return
-type, Flow requires us to implement the necessary runtime type checks.</p>
+<p>如果我们用的是 <code class="highlighter-rouge">mixed</code>，虽然我们可以合法的传入参数，毕竟 <code class="highlighter-rouge">mixed</code> 是所有类型的超集，
+但是为了要满足返回值为 <code class="highlighter-rouge">JSON</code> 类型，Flow 就要求我们实现必要的条件判断，因为 <code class="highlighter-rouge">mixed</code>
+不是所有类型的子集</p>
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_FUNCTION">function</span> <span class="normal T_IDENTIFIER">typedJSON</span><span class="normal T_LPAREN">(</span><span class="normal T_IDENTIFIER">x</span><span class="type T_COLON">:</span> <span class="type T_IDENTIFIER">mixed</span><span class="normal T_RPAREN">)</span><span class="type T_COLON">:</span> <span class="type T_IDENTIFIER">JSON</span> <span class="normal T_LCURLY">{</span>
   <span class="normal T_IF">if</span> <span class="normal T_LPAREN">(</span><span class="normal T_TYPEOF">typeof</span> <span class="normal T_IDENTIFIER">x</span> <span class="normal T_STRICT_EQUAL">===</span> <span class="normal T_STRING">&quot;object&quot;</span> <span class="normal T_AND">&amp;&amp;</span> <span class="normal T_IDENTIFIER">x</span> <span class="normal T_STRICT_NOT_EQUAL">!==</span> <span class="normal T_NULL">null</span><span class="normal T_RPAREN">)</span> <span class="normal T_LCURLY">{</span>
@@ -858,15 +841,16 @@ type, Flow requires us to implement the necessary runtime type checks.</p>
 <span class="normal T_RCURLY">}</span></code></pre>
 </div>
 
-<h2>literal types<a id="literal-types" class="hashref"></a><a href="#literal-types" class="hash">#</a></h2>
+<h2>字面量类型<a id="section-1" class="hashref"></a><a href="#section-1" class="hash">#</a></h2>
 
-<p>While type <code class="highlighter-rouge">boolean</code>, <code class="highlighter-rouge">number</code>, and <code class="highlighter-rouge">string</code> types admit <code class="highlighter-rouge">true</code> and <code class="highlighter-rouge">false</code>,
-any number, and any string, respectively, it can also be useful to specify a
-type that admits a single value. This feature turns out to be surprisingly
-<a href="disjoint-unions.html">versatile</a>: literal types can be used to build enums
-and other disjoint unions, as well as express some common forms of method
-overloading for which the types <code class="highlighter-rouge">boolean</code>, <code class="highlighter-rouge">number</code>, and <code class="highlighter-rouge">string</code> are not
-adequate.</p>
+<p><code class="highlighter-rouge">boolean</code>, <code class="highlighter-rouge">number</code>, 和 <code class="highlighter-rouge">string</code> 类型分别表示 <code class="highlighter-rouge">true</code> 和 <code class="highlighter-rouge">false</code>,
+任意数字，任意字符串。
+与此同时，定义一个具体值作为类型也是很有用的。</p>
+
+<p>这个功能表现出惊人的<a href="disjoint-unions.html">灵活多样</a>:
+字面量类型可以用来表示枚举类型或其他不相交的并集，</p>
+
+<p>还有一些公用的类型，用来补充表示 <code class="highlighter-rouge">boolean</code>, <code class="highlighter-rouge">number</code>, 和 <code class="highlighter-rouge">string</code> 外的类型</p>
 <div class="code-sample">
 
 <div class="language-javascript highlighter-flow">
@@ -947,9 +931,8 @@ adequate.</p>
 
 </div>
 
-<p>Let’s have a little fun with literal types. The following program shows how
-literals can be used to statically index into objects. It also shows how
-tuples of unions can be used to represent enums.</p>
+<p>我们用字面类型弄点有意思的，下面的程序展示了字面量类型可以定义对象的属性类型。
+同事也展示了元组类型怎么作枚举类型用。</p>
 <div class="language-javascript highlighter-flow">
   <pre class="highlight"><code><span class="normal T_TYPE">type</span> <span class="type T_IDENTIFIER">Suit</span> <span class="type T_ASSIGN">=</span>
   <span class="type T_BIT_OR">|</span> <span class="type T_STRING">&quot;Diamonds&quot;</span>
@@ -999,31 +982,28 @@ tuples of unions can be used to represent enums.</p>
 <span class="normal T_RCURLY">}</span></code></pre>
 </div>
 
-<p>Note that Flow is able to infer the parameter and return types of <code class="highlighter-rouge">suitOrder</code>,
-<code class="highlighter-rouge">rankOrder</code>, and <code class="highlighter-rouge">cardComparator</code> correctly. Try copying that into your text
-editor and introducing type errors to see what Flow can catch!</p>
+<p>注意，Flow 能够探测出 <code class="highlighter-rouge">suitOrder</code>, <code class="highlighter-rouge">rankOrder</code>, 和 <code class="highlighter-rouge">cardComparator</code>
+的参数以及返回类型。
+可以试试把这些代码拷贝到编辑器重现错误，看看 Flow 能捕获到什么。</p>
 
-<h2>JavaScript standard library<a id="javascript-standard-library" class="hashref"></a><a href="#javascript-standard-library" class="hash">#</a></h2>
+<h2>JavaScript 标准库<a id="javascript-" class="hashref"></a><a href="#javascript-" class="hash">#</a></h2>
 
-<p>Type declarations for the <a href="https://github.com/facebook/flow/blob/master/lib/core.js">JavaScript standard library</a> are included
-with Flow.</p>
+<p>Flow 支持 <a href="https://github.com/facebook/flow/blob/master/lib/core.js">JavaSript标准</a> 类型</p>
 
-<p>Flow has broad support for the standard library, including support for
-Iterables, Iterators, and Generators.</p>
+<p>Flow 广泛支持标准库，包括遍历、迭代器和生成器。</p>
 
-<h2>Browser APIs<a id="browser-apis" class="hashref"></a><a href="#browser-apis" class="hash">#</a></h2>
+<h2>浏览器接口<a id="section-2" class="hashref"></a><a href="#section-2" class="hash">#</a></h2>
 
-<p>Type declarations for the <a href="https://github.com/facebook/flow/blob/master/lib/dom.js">Document Object Model</a> (DOM), <a href="https://github.com/facebook/flow/blob/master/lib/bom.js">Browser Object
-Model</a> (BOM), and <a href="https://github.com/facebook/flow/blob/master/lib/cssom.js">CSS Object Model</a> (CSSOM) are all included with
-Flow.</p>
+<p>Flow 支持 <a href="https://github.com/facebook/flow/blob/master/lib/dom.js">文档对象模型</a> (DOM),
+ <a href="https://github.com/facebook/flow/blob/master/lib/bom.js">浏览器对象模型</a> (BOM), 以及 <a href="https://github.com/facebook/flow/blob/master/lib/cssom.js">样式对象模型</a> (CSSOM)
+ 的类型</p>
 
 <h2>Node.js<a id="nodejs" class="hashref"></a><a href="#nodejs" class="hash">#</a></h2>
 
-<p>Type declarations for the <a href="https://github.com/facebook/flow/blob/master/lib/node.js">Node.js standard library</a> are included with
-Flow.</p>
+<p>Flow 支持 <a href="https://github.com/facebook/flow/blob/master/lib/node.js">Node.js</a> 的类型</p>
 
 <script>require(['inlineErrors'], function(inlineErrors) {
-  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"number","context":"(1 + 1: string); // Error: Numbers are not strings","source":"-","start":{"line":39,"column":2,"offset":1103},"end":{"line":39,"column":6,"offset":1108}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"string","context":"(1 + 1: string); // Error: Numbers are not strings","source":"-","start":{"line":39,"column":9,"offset":1110},"end":{"line":39,"column":14,"offset":1116}}],"operation":null},{"id":"E2","messages":[{"id":"M2001","description":"A","context":"(a: B); // Error: A is not a subclass of B","source":"-","start":{"line":47,"column":2,"offset":1310},"end":{"line":47,"column":2,"offset":1311}},{"id":"M2002","description":"This type is incompatible with","context":null},{"id":"M2003","description":"B","context":"(a: B); // Error: A is not a subclass of B","source":"-","start":{"line":47,"column":5,"offset":1313},"end":{"line":47,"column":5,"offset":1314}}],"operation":null},{"id":"E3","messages":[{"id":"M3001","description":"string","context":"(\"foo\": boolean); // strings are not booleans","source":"-","start":{"line":58,"column":2,"offset":1522},"end":{"line":58,"column":6,"offset":1527}},{"id":"M3002","description":"This type is incompatible with","context":null},{"id":"M3003","description":"boolean","context":"(\"foo\": boolean); // strings are not booleans","source":"-","start":{"line":58,"column":9,"offset":1529},"end":{"line":58,"column":15,"offset":1536}}],"operation":null},{"id":"E4","messages":[{"id":"M4001","description":"number","context":"takes_boolean(0); // Implicit casting is an error.","source":"-","start":{"line":69,"column":15,"offset":1991},"end":{"line":69,"column":15,"offset":1992}},{"id":"M4002","description":"This type is incompatible with","context":null},{"id":"M4003","description":"boolean","context":"function takes_boolean(x: boolean): void {}","source":"-","start":{"line":68,"column":27,"offset":1959},"end":{"line":68,"column":33,"offset":1966}}],"operation":{"description":"function call\n","context":"takes_boolean(0); // Implicit casting is an error.","source":"-","start":{"line":69,"column":1,"offset":1977},"end":{"line":69,"column":16,"offset":1993}}},{"id":"E5","messages":[{"id":"M5001","description":"boolean","context":"(true: Boolean);","source":"-","start":{"line":79,"column":2,"offset":2390},"end":{"line":79,"column":5,"offset":2394}},{"id":"M5002","description":"This type is incompatible with","context":null},{"id":"M5003","description":"Boolean","context":"(true: Boolean);","source":"-","start":{"line":79,"column":8,"offset":2396},"end":{"line":79,"column":14,"offset":2403}}],"operation":null},{"id":"E6","messages":[{"id":"M6001","description":"number","context":"(0: Number);","source":"-","start":{"line":102,"column":2,"offset":3028},"end":{"line":102,"column":2,"offset":3029}},{"id":"M6002","description":"This type is incompatible with","context":null},{"id":"M6003","description":"Number","context":"(0: Number);","source":"-","start":{"line":102,"column":5,"offset":3031},"end":{"line":102,"column":10,"offset":3037}}],"operation":null},{"id":"E7","messages":[{"id":"M7001","description":"string","context":"(\"foo\": String);","source":"-","start":{"line":127,"column":2,"offset":3668},"end":{"line":127,"column":6,"offset":3673}},{"id":"M7002","description":"This type is incompatible with","context":null},{"id":"M7003","description":"String","context":"(\"foo\": String);","source":"-","start":{"line":127,"column":9,"offset":3675},"end":{"line":127,"column":14,"offset":3681}}],"operation":null},{"id":"E8","messages":[{"id":"M8001","description":"null","context":"(null: void); // nope","source":"-","start":{"line":139,"column":2,"offset":3929},"end":{"line":139,"column":5,"offset":3933}},{"id":"M8002","description":"This type is incompatible with","context":null},{"id":"M8003","description":"undefined","context":"(null: void); // nope","source":"-","start":{"line":139,"column":8,"offset":3935},"end":{"line":139,"column":11,"offset":3939}}],"operation":null},{"id":"E9","messages":[{"id":"M9001","description":"undefined","context":"(undefined: null); // nope","source":"-","start":{"line":142,"column":2,"offset":3978},"end":{"line":142,"column":10,"offset":3987}},{"id":"M9002","description":"This type is incompatible with","context":null},{"id":"M9003","description":"null","context":"(undefined: null); // nope","source":"-","start":{"line":142,"column":13,"offset":3989},"end":{"line":142,"column":16,"offset":3993}}],"operation":null},{"id":"E10","messages":[{"id":"M10001","description":"null","context":"optional_fun(null); // null is not a string, nor void","source":"-","start":{"line":155,"column":14,"offset":4256},"end":{"line":155,"column":17,"offset":4260}},{"id":"M10002","description":"This type is incompatible with","context":null},{"id":"M10003","description":"string","context":"function optional_fun(foo?: string) {","source":"-","start":{"line":149,"column":29,"offset":4147},"end":{"line":149,"column":34,"offset":4153}}],"operation":{"description":"function call\n","context":"optional_fun(null); // null is not a string, nor void","source":"-","start":{"line":155,"column":1,"offset":4243},"end":{"line":155,"column":18,"offset":4261}}},{"id":"E11","messages":[{"id":"M11001","description":"null","context":"({foo: null}: optional_obj); // null is not a string, nor void","source":"-","start":{"line":161,"column":8,"offset":4426},"end":{"line":161,"column":11,"offset":4430}},{"id":"M11002","description":"This type is incompatible with","context":null},{"id":"M11003","description":"string","context":"type optional_obj = { foo?: string }","source":"-","start":{"line":157,"column":29,"offset":4326},"end":{"line":157,"column":34,"offset":4332}}],"operation":null},{"id":"E12","messages":[{"id":"M12001","description":"mixed","context":"(returns_mixed(): number);","source":"-","start":{"line":243,"column":2,"offset":6760},"end":{"line":243,"column":16,"offset":6775}},{"id":"M12002","description":"This type is incompatible with","context":null},{"id":"M12003","description":"number","context":"(returns_mixed(): number);","source":"-","start":{"line":243,"column":19,"offset":6777},"end":{"line":243,"column":24,"offset":6783}}],"operation":null},{"id":"E13","messages":[{"id":"M13001","description":"mixed","context":"(returns_mixed(): string);","source":"-","start":{"line":244,"column":2,"offset":6787},"end":{"line":244,"column":16,"offset":6802}},{"id":"M13002","description":"This type is incompatible with","context":null},{"id":"M13003","description":"string","context":"(returns_mixed(): string);","source":"-","start":{"line":244,"column":19,"offset":6804},"end":{"line":244,"column":24,"offset":6810}}],"operation":null},{"id":"E14","messages":[{"id":"M14001","description":"mixed","context":"(returns_mixed(): { foo: string });","source":"-","start":{"line":245,"column":2,"offset":6814},"end":{"line":245,"column":16,"offset":6829}},{"id":"M14002","description":"This type is incompatible with","context":null},{"id":"M14003","description":"object type","context":"(returns_mixed(): { foo: string });","source":"-","start":{"line":245,"column":19,"offset":6831},"end":{"line":245,"column":33,"offset":6846}}],"operation":null},{"id":"E15","messages":[{"id":"M15001","description":"string","context":"(\"bar\": \"foo\"); // `\"bar\"` is not exactly `\"foo\"`","source":"-","start":{"line":306,"column":2,"offset":8717},"end":{"line":306,"column":6,"offset":8722}},{"id":"M15002","description":"Expected string literal `foo`, got `bar` instead","context":null},{"id":"M15003","description":"string literal `foo`","context":"(\"bar\": \"foo\"); // `\"bar\"` is not exactly `\"foo\"`","source":"-","start":{"line":306,"column":9,"offset":8724},"end":{"line":306,"column":13,"offset":8729}}],"operation":null},{"id":"E16","messages":[{"id":"M16001","description":"string","context":"(\"fo\"+\"o\": \"foo\"); // even simple expressions lose literal information","source":"-","start":{"line":307,"column":2,"offset":8767},"end":{"line":307,"column":9,"offset":8775}},{"id":"M16002","description":"Expected string literal `foo`","context":null},{"id":"M16003","description":"string literal `foo`","context":"(\"fo\"+\"o\": \"foo\"); // even simple expressions lose literal information","source":"-","start":{"line":307,"column":12,"offset":8777},"end":{"line":307,"column":16,"offset":8782}}],"operation":null},{"id":"E17","messages":[{"id":"M17001","description":"number","context":"(2: 1); // `2` is not exactly `1`","source":"-","start":{"line":310,"column":2,"offset":8847},"end":{"line":310,"column":2,"offset":8848}},{"id":"M17002","description":"Expected number literal `1`, got `2` instead","context":null},{"id":"M17003","description":"number literal `1`","context":"(2: 1); // `2` is not exactly `1`","source":"-","start":{"line":310,"column":5,"offset":8850},"end":{"line":310,"column":5,"offset":8851}}],"operation":null},{"id":"E18","messages":[{"id":"M18001","description":"number","context":"(1+1: 2); // even simple expressions lose literal information","source":"-","start":{"line":311,"column":2,"offset":8881},"end":{"line":311,"column":4,"offset":8884}},{"id":"M18002","description":"Expected number literal `2`","context":null},{"id":"M18003","description":"number literal `2`","context":"(1+1: 2); // even simple expressions lose literal information","source":"-","start":{"line":311,"column":7,"offset":8886},"end":{"line":311,"column":7,"offset":8887}}],"operation":null},{"id":"E19","messages":[{"id":"M19001","description":"boolean","context":"(true: false); // `true` is not exactly `false`","source":"-","start":{"line":314,"column":2,"offset":8958},"end":{"line":314,"column":5,"offset":8962}},{"id":"M19002","description":"Expected boolean literal `false`, got `true` instead","context":null},{"id":"M19003","description":"boolean literal `false`","context":"(true: false); // `true` is not exactly `false`","source":"-","start":{"line":314,"column":8,"offset":8964},"end":{"line":314,"column":12,"offset":8969}}],"operation":null}]);
+  inlineErrors.highlight([{"id":"E1","messages":[{"id":"M1001","description":"number","context":"(1 + 1: string); // Error: Numbers are not strings","source":"-","start":{"line":34,"column":2,"offset":966},"end":{"line":34,"column":6,"offset":971}},{"id":"M1002","description":"This type is incompatible with","context":null},{"id":"M1003","description":"string","context":"(1 + 1: string); // Error: Numbers are not strings","source":"-","start":{"line":34,"column":9,"offset":973},"end":{"line":34,"column":14,"offset":979}}],"operation":null},{"id":"E2","messages":[{"id":"M2001","description":"A","context":"(a: B); // Error: A is not a subclass of B","source":"-","start":{"line":42,"column":2,"offset":1173},"end":{"line":42,"column":2,"offset":1174}},{"id":"M2002","description":"This type is incompatible with","context":null},{"id":"M2003","description":"B","context":"(a: B); // Error: A is not a subclass of B","source":"-","start":{"line":42,"column":5,"offset":1176},"end":{"line":42,"column":5,"offset":1177}}],"operation":null},{"id":"E3","messages":[{"id":"M3001","description":"string","context":"(\"foo\": boolean); // strings are not booleans","source":"-","start":{"line":54,"column":2,"offset":1375},"end":{"line":54,"column":6,"offset":1380}},{"id":"M3002","description":"This type is incompatible with","context":null},{"id":"M3003","description":"boolean","context":"(\"foo\": boolean); // strings are not booleans","source":"-","start":{"line":54,"column":9,"offset":1382},"end":{"line":54,"column":15,"offset":1389}}],"operation":null},{"id":"E4","messages":[{"id":"M4001","description":"number","context":"takes_boolean(0); // Implicit casting is an error.","source":"-","start":{"line":65,"column":15,"offset":1736},"end":{"line":65,"column":15,"offset":1737}},{"id":"M4002","description":"This type is incompatible with","context":null},{"id":"M4003","description":"boolean","context":"function takes_boolean(x: boolean): void {}","source":"-","start":{"line":64,"column":27,"offset":1704},"end":{"line":64,"column":33,"offset":1711}}],"operation":{"description":"function call\n","context":"takes_boolean(0); // Implicit casting is an error.","source":"-","start":{"line":65,"column":1,"offset":1722},"end":{"line":65,"column":16,"offset":1738}}},{"id":"E5","messages":[{"id":"M5001","description":"boolean","context":"(true: Boolean);","source":"-","start":{"line":74,"column":2,"offset":2083},"end":{"line":74,"column":5,"offset":2087}},{"id":"M5002","description":"This type is incompatible with","context":null},{"id":"M5003","description":"Boolean","context":"(true: Boolean);","source":"-","start":{"line":74,"column":8,"offset":2089},"end":{"line":74,"column":14,"offset":2096}}],"operation":null},{"id":"E6","messages":[{"id":"M6001","description":"number","context":"(0: Number);","source":"-","start":{"line":95,"column":2,"offset":2617},"end":{"line":95,"column":2,"offset":2618}},{"id":"M6002","description":"This type is incompatible with","context":null},{"id":"M6003","description":"Number","context":"(0: Number);","source":"-","start":{"line":95,"column":5,"offset":2620},"end":{"line":95,"column":10,"offset":2626}}],"operation":null},{"id":"E7","messages":[{"id":"M7001","description":"string","context":"(\"foo\": String);","source":"-","start":{"line":119,"column":2,"offset":3184},"end":{"line":119,"column":6,"offset":3189}},{"id":"M7002","description":"This type is incompatible with","context":null},{"id":"M7003","description":"String","context":"(\"foo\": String);","source":"-","start":{"line":119,"column":9,"offset":3191},"end":{"line":119,"column":14,"offset":3197}}],"operation":null},{"id":"E8","messages":[{"id":"M8001","description":"null","context":"(null: void); // nope","source":"-","start":{"line":130,"column":2,"offset":3398},"end":{"line":130,"column":5,"offset":3402}},{"id":"M8002","description":"This type is incompatible with","context":null},{"id":"M8003","description":"undefined","context":"(null: void); // nope","source":"-","start":{"line":130,"column":8,"offset":3404},"end":{"line":130,"column":11,"offset":3408}}],"operation":null},{"id":"E9","messages":[{"id":"M9001","description":"undefined","context":"(undefined: null); // nope","source":"-","start":{"line":133,"column":2,"offset":3447},"end":{"line":133,"column":10,"offset":3456}},{"id":"M9002","description":"This type is incompatible with","context":null},{"id":"M9003","description":"null","context":"(undefined: null); // nope","source":"-","start":{"line":133,"column":13,"offset":3458},"end":{"line":133,"column":16,"offset":3462}}],"operation":null},{"id":"E10","messages":[{"id":"M10001","description":"null","context":"optional_fun(null); // null is not a string, nor void","source":"-","start":{"line":145,"column":14,"offset":3700},"end":{"line":145,"column":17,"offset":3704}},{"id":"M10002","description":"This type is incompatible with","context":null},{"id":"M10003","description":"string","context":"function optional_fun(foo?: string) {","source":"-","start":{"line":139,"column":29,"offset":3591},"end":{"line":139,"column":34,"offset":3597}}],"operation":{"description":"function call\n","context":"optional_fun(null); // null is not a string, nor void","source":"-","start":{"line":145,"column":1,"offset":3687},"end":{"line":145,"column":18,"offset":3705}}},{"id":"E11","messages":[{"id":"M11001","description":"null","context":"({foo: null}: optional_obj); // null is not a string, nor void","source":"-","start":{"line":151,"column":8,"offset":3870},"end":{"line":151,"column":11,"offset":3874}},{"id":"M11002","description":"This type is incompatible with","context":null},{"id":"M11003","description":"string","context":"type optional_obj = { foo?: string }","source":"-","start":{"line":147,"column":29,"offset":3770},"end":{"line":147,"column":34,"offset":3776}}],"operation":null},{"id":"E12","messages":[{"id":"M12001","description":"mixed","context":"(returns_mixed(): number);","source":"-","start":{"line":229,"column":2,"offset":6057},"end":{"line":229,"column":16,"offset":6072}},{"id":"M12002","description":"This type is incompatible with","context":null},{"id":"M12003","description":"number","context":"(returns_mixed(): number);","source":"-","start":{"line":229,"column":19,"offset":6074},"end":{"line":229,"column":24,"offset":6080}}],"operation":null},{"id":"E13","messages":[{"id":"M13001","description":"mixed","context":"(returns_mixed(): string);","source":"-","start":{"line":230,"column":2,"offset":6084},"end":{"line":230,"column":16,"offset":6099}},{"id":"M13002","description":"This type is incompatible with","context":null},{"id":"M13003","description":"string","context":"(returns_mixed(): string);","source":"-","start":{"line":230,"column":19,"offset":6101},"end":{"line":230,"column":24,"offset":6107}}],"operation":null},{"id":"E14","messages":[{"id":"M14001","description":"mixed","context":"(returns_mixed(): { foo: string });","source":"-","start":{"line":231,"column":2,"offset":6111},"end":{"line":231,"column":16,"offset":6126}},{"id":"M14002","description":"This type is incompatible with","context":null},{"id":"M14003","description":"object type","context":"(returns_mixed(): { foo: string });","source":"-","start":{"line":231,"column":19,"offset":6128},"end":{"line":231,"column":33,"offset":6143}}],"operation":null},{"id":"E15","messages":[{"id":"M15001","description":"string","context":"(\"bar\": \"foo\"); // `\"bar\"` is not exactly `\"foo\"`","source":"-","start":{"line":292,"column":2,"offset":7937},"end":{"line":292,"column":6,"offset":7942}},{"id":"M15002","description":"Expected string literal `foo`, got `bar` instead","context":null},{"id":"M15003","description":"string literal `foo`","context":"(\"bar\": \"foo\"); // `\"bar\"` is not exactly `\"foo\"`","source":"-","start":{"line":292,"column":9,"offset":7944},"end":{"line":292,"column":13,"offset":7949}}],"operation":null},{"id":"E16","messages":[{"id":"M16001","description":"string","context":"(\"fo\"+\"o\": \"foo\"); // even simple expressions lose literal information","source":"-","start":{"line":293,"column":2,"offset":7987},"end":{"line":293,"column":9,"offset":7995}},{"id":"M16002","description":"Expected string literal `foo`","context":null},{"id":"M16003","description":"string literal `foo`","context":"(\"fo\"+\"o\": \"foo\"); // even simple expressions lose literal information","source":"-","start":{"line":293,"column":12,"offset":7997},"end":{"line":293,"column":16,"offset":8002}}],"operation":null},{"id":"E17","messages":[{"id":"M17001","description":"number","context":"(2: 1); // `2` is not exactly `1`","source":"-","start":{"line":296,"column":2,"offset":8067},"end":{"line":296,"column":2,"offset":8068}},{"id":"M17002","description":"Expected number literal `1`, got `2` instead","context":null},{"id":"M17003","description":"number literal `1`","context":"(2: 1); // `2` is not exactly `1`","source":"-","start":{"line":296,"column":5,"offset":8070},"end":{"line":296,"column":5,"offset":8071}}],"operation":null},{"id":"E18","messages":[{"id":"M18001","description":"number","context":"(1+1: 2); // even simple expressions lose literal information","source":"-","start":{"line":297,"column":2,"offset":8101},"end":{"line":297,"column":4,"offset":8104}},{"id":"M18002","description":"Expected number literal `2`","context":null},{"id":"M18003","description":"number literal `2`","context":"(1+1: 2); // even simple expressions lose literal information","source":"-","start":{"line":297,"column":7,"offset":8106},"end":{"line":297,"column":7,"offset":8107}}],"operation":null},{"id":"E19","messages":[{"id":"M19001","description":"boolean","context":"(true: false); // `true` is not exactly `false`","source":"-","start":{"line":300,"column":2,"offset":8178},"end":{"line":300,"column":5,"offset":8182}},{"id":"M19002","description":"Expected boolean literal `false`, got `true` instead","context":null},{"id":"M19003","description":"boolean literal `false`","context":"(true: false); // `true` is not exactly `false`","source":"-","start":{"line":300,"column":8,"offset":8184},"end":{"line":300,"column":12,"offset":8189}}],"operation":null}]);
 });</script>
 
     <p class="docs-prevnext">
