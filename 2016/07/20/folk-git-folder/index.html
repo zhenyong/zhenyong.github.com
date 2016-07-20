@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
 <meta property="og:image" content="http://zhenyong.site/images/webchat.jpg">
 <meta property="og:image" content="http://zhenyong.site/images/alipay.jpg">
-<meta property="og:updated_time" content="2016-07-20T05:43:48.000Z">
+<meta property="og:updated_time" content="2016-07-20T05:49:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何跟踪仓库子目录之 subtree 命令">
 <meta name="twitter:description" content="想翻译 react 的网站，然后发现 github 仓库中，有关网站部分的源码放在子目录 /docs 下，于是想能否单独 folk 子目录 /docs，而且以后只 pull 这个子目录的更新，于是提交记录就只有该目录下的，我就能专心对比提交然后修改对应翻译。">
@@ -270,7 +270,7 @@ var _hmt = _hmt || [];
 <li>-&gt; <code>split 子目录成为新分支</code> </li>
 <li>-&gt; <code>push 我的库</code></li>
 </ul>
-<h3 id="follow-update"><a href="#follow-update" class="headerlink" title="follow update"></a>follow update</h3><h4 id="方法21"><a href="#方法21" class="headerlink" title="方法21"></a>方法21</h4><p>接下来，如果 react 团队更新了提交，我要怎么更新 <code>docs-branch</code> 分支呢,<br>简单的思路就是，回到 master 分支，重复上面的操作：</p>
+<h3 id="follow-update"><a href="#follow-update" class="headerlink" title="follow update"></a>follow update</h3><h4 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h4><p>接下来，如果 react 团队更新了提交，我要怎么更新 <code>docs-branch</code> 分支呢,<br>简单的思路就是，回到 master 分支，重复上面的操作：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 回到 master分支， 然后拉取</div><div class="line">git checkout master</div><div class="line">git pull</div><div class="line"></div><div class="line"># 重复上面的 git subtree split 及后续操作</div><div class="line">...</div></pre></td></tr></table></figure>
 <p>归纳：</p>
 <ul>
@@ -285,9 +285,9 @@ var _hmt = _hmt || [];
 <li><code>subtree pull react库</code></li>
 <li>-&gt; <code>push 我的库</code></li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面的操作演示了如果持续的把 react 仓库子目录 /docs 最新提交同步推送到我们的库。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面的操作演示了如果持续的把 <code>react</code> 仓库子目录 <code>/docs</code> 同步推送到我们的库。</p>
 <p>实际使用时，你肯定还要修改自己库的代码，下面介绍在自己仓库目录下的工作。</p>
-<h2 id="2-工作在自己的仓库"><a href="#2-工作在自己的仓库" class="headerlink" title="2. 工作在自己的仓库"></a>2. 工作在自己的仓库</h2><p>假设我的库是一个全新的，空的仓库，我希望我有一个分支 <code>docs-branch</code><br>专门用来跟踪 <code>react</code> 远程库的 <code>docs</code> 子目录，然后 <code>master</code> 分支则<br>时刻包含 (merge/rebase) <code>docs-branch</code> 分支，并且在 <code>master</code> 增加中文文档目录 <code>docs-cn</code>，这样就不会有冲突。</p>
+<h2 id="2-工作在自己的仓库"><a href="#2-工作在自己的仓库" class="headerlink" title="2. 工作在自己的仓库"></a>2. 工作在自己的仓库</h2><p>假设我的库是一个全新的，空的仓库，我希望我有一个分支 <code>docs-branch</code><br>专门用来跟踪 <code>react</code> 远程库的 <code>docs</code> 子目录，然后 <code>master</code> 分支则<br>时刻包含 (merge/rebase) <code>docs-branch</code> 分支，<br>翻译的时候在 <code>master</code> 增加中文文档目录 <code>docs-cn</code>，这样就不会有冲突。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:zhenyong/react-website-cn.git</div><div class="line">cd react-website-cn</div><div class="line"></div><div class="line">## 给 react 远程仓库创建一个别名</div><div class="line">git remote add react https://github.com/facebook/react.git</div><div class="line"></div><div class="line">## 创建 docs-branch 分支</div><div class="line">git checkout -b docs-branch</div><div class="line"></div><div class="line">## 通过 subtree 命令添加 react 的 docs 目录</div><div class="line">## 注意：这个命令需要你已经有一个提交，</div><div class="line">## 你可以随便提交一个文件，例如新增 .gitignore，然后 commit</div><div class="line">git subtree add --prefix=docs origin master</div><div class="line"></div><div class="line">## 此时，当 `docs-branch` 分支就拥有了 react 仓库的子目录 docs，</div><div class="line">## 以及其下所有提交记录</div><div class="line"></div><div class="line">## 切换到 master</div><div class="line">git checkout master</div><div class="line"></div><div class="line">## 融合 `docs-branch` 分支的内容</div><div class="line">git rebase docs-branc</div><div class="line"></div><div class="line">## 接下来就会在 master 分支新增各种内容</div><div class="line">## 然后提交 push</div><div class="line"></div><div class="line">## 当你发现 react 库有更新，想要更新呢？</div><div class="line">## 回到 docs-branch，拉取 react 库的子目录 docs</div><div class="line">git subtree pull --prefix=docs react master</div><div class="line"></div><div class="line">## 然后就重复之前的操作</div></pre></td></tr></table></figure>
 <p>归纳: </p>
 <ul>
