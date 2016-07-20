@@ -14,7 +14,7 @@
 <meta property="og:image" content="http://zhenyong.site/images/webchat.jpg">
 <meta property="og:image" content="http://zhenyong.site/images/alipay.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
-<meta property="og:updated_time" content="2016-07-20T17:16:44.000Z">
+<meta property="og:updated_time" content="2016-07-20T17:18:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何跟踪仓库子目录之 subtree 命令">
 <meta name="twitter:description" content="想翻译 react 的网站，然后发现 github 仓库中，有关网站部分的源码放在子目录 /docs 下，于是想能否单独 folk 子目录 /docs，而且以后只 pull 这个子目录的更新，于是提交记录就只有该目录下的，我就能专心对比提交然后修改对应翻译。">
@@ -281,7 +281,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">git checkout react-master</div><div class="line">git pull react master</div><div class="line"></div><div class="line">git subtree split --prefix=docs --squash \</div><div class="line"> --onto react-docs -b react-docs</div><div class="line"> </div><div class="line"> git checkout react-docs</div><div class="line"> git push origin react-docs</div></pre></td></tr></table></figure>
 <p>注意 split 多了一个参数 –onto, 表明再次生成分支时基于原来 <code>react-docs</code> （HEAD）提交记录形成历史纪录</p>
 <h3 id="6-我的-master-更新子仓库"><a href="#6-我的-master-更新子仓库" class="headerlink" title="6. 我的 master 更新子仓库"></a>6. 我的 master 更新子仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout master</div><div class="line">git subtree pull --prefix=docs --squash origin react-docs</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 <code>react</code> 仓库分离子目录成为新的（中转）仓库，在我的仓库下建立子目录作为子仓库指向中转仓库，从而达到我的 <code>/docs</code> 目录跟踪 <code>react 的</code>/docs` 目录。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 <code>react</code> 仓库分离子目录成为新的（中转）仓库，在我的仓库下建立子目录作为子仓库指向中转仓库，从而达到我的 <code>/docs</code> 目录跟踪 <code>react</code> 的<br><code>\docs</code> 目录。</p>
 <p>note: 为了演示命令，所以没有设置分支跟踪来简化命令。另外你也可以考虑先 clone react 仓库然后再操作。</p>
 
 
