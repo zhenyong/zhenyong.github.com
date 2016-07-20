@@ -3,20 +3,22 @@
 <head>
     <meta charset="utf-8">
     
-    <title>EditorConfig in Vue | Make Hungry</title>
+    <title>如何跟踪仓库子目录之 subtree 命令 | Make Hungry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格">
+    <meta name="description" content="想翻译 react 的网站，然后发现 github 仓库中，有关网站部分的源码放在子目录 /docs 下，于是想能否单独 folk 子目录 /docs，而且以后只 pull 这个子目录的更新，于是提交记录就只有该目录下的，我就能专心对比提交然后修改对应翻译。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EditorConfig in Vue">
-<meta property="og:url" content="http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/index.html">
+<meta property="og:title" content="如何跟踪仓库子目录之 subtree 命令">
+<meta property="og:url" content="http://zhenyong.site/2016/07/20/folk-git-folder/index.html">
 <meta property="og:site_name" content="Make Hungry">
-<meta property="og:description" content="EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格">
-<meta property="og:image" content="http://editorconfig.org/logo.png">
-<meta property="og:updated_time" content="2016-07-05T07:14:16.000Z">
+<meta property="og:description" content="想翻译 react 的网站，然后发现 github 仓库中，有关网站部分的源码放在子目录 /docs 下，于是想能否单独 folk 子目录 /docs，而且以后只 pull 这个子目录的更新，于是提交记录就只有该目录下的，我就能专心对比提交然后修改对应翻译。">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
+<meta property="og:image" content="http://zhenyong.site/images/webchat.jpg">
+<meta property="og:image" content="http://zhenyong.site/images/alipay.jpg">
+<meta property="og:updated_time" content="2016-07-20T05:43:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EditorConfig in Vue">
-<meta name="twitter:description" content="EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格">
-<meta name="twitter:image" content="http://editorconfig.org/logo.png">
+<meta name="twitter:title" content="如何跟踪仓库子目录之 subtree 命令">
+<meta name="twitter:description" content="想翻译 react 的网站，然后发现 github 仓库中，有关网站部分的源码放在子目录 /docs 下，于是想能否单独 folk 子目录 /docs，而且以后只 pull 这个子目录的更新，于是提交记录就只有该目录下的，我就能专心对比提交然后修改对应翻译。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg">
     
 
     
@@ -207,7 +209,7 @@ var _hmt = _hmt || [];
 </aside>
 
             
-            <section id="main"><article id="post-EditorConfig-in-Vue" class="article article-type-post" itemscope itemprop="blogPost">
+            <section id="main"><article id="post-folk-git-folder" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -216,7 +218,7 @@ var _hmt = _hmt || [];
                 
     
         <h1 class="article-title" itemprop="name">
-            EditorConfig in Vue
+            如何跟踪仓库子目录之 subtree 命令
         </h1>
     
 
@@ -225,8 +227,8 @@ var _hmt = _hmt || [];
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2016/07/03/EditorConfig-in-Vue/">
-            <time datetime="2016-07-03T09:23:26.000Z" itemprop="datePublished">2016-07-03</time>
+        <a href="/2016/07/20/folk-git-folder/">
+            <time datetime="2016-07-20T05:35:03.000Z" itemprop="datePublished">2016-07-20</time>
         </a>
     </div>
 
@@ -240,7 +242,7 @@ var _hmt = _hmt || [];
                         
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/vue/">vue</a>
+        <a class="tag-link" href="/tags/git/">git</a>
     </div>
 
                     </div>
@@ -250,55 +252,59 @@ var _hmt = _hmt || [];
         <div class="article-entry" itemprop="articleBody">
         
             
-            <blockquote>
-<p>EditorConfig 可以帮助开发者在不同的编辑器和IDE之间定义和维护一致的代码风格</p>
-</blockquote>
+            <p>想翻译 react 的网站，然后发现 github 仓库中，有关网站部分的源码放在子目录 <code>/docs</code> 下，于是想能否单独 <code>folk</code> 子目录 <code>/docs</code>，而且以后只 <code>pull</code> 这个子目录的更新，于是提交记录就只有该目录下的，我就能专心对比提交然后修改对应翻译。</p>
 <a id="more"></a>
-<p>某些编辑器使用 EditorConfig 则需要安装对应的插件，Sublime Text 的话就安装 EditorConfig </p>
-<p>源码中的配置文件 <code>.editorconfig</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">root = true</div><div class="line"></div><div class="line">[*]</div><div class="line">charset = utf-8</div><div class="line">indent_style = space</div><div class="line">indent_size = 2</div><div class="line">end_of_line = lf</div><div class="line">insert_final_newline = true</div><div class="line">trim_trailing_whitespace = true</div></pre></td></tr></table></figure>
-<p>解释一下这份配置的意思:</p>
+<p>通过阅读下列资源</p>
 <ul>
-<li><code>root = true</code></li>
+<li><a href="http://stackoverflow.com/questions/24577084/forking-a-sub-directory-of-a-repository-on-github-and-making-it-part-of-my-own-r" target="_blank" rel="external">Forking a sub directory … part of my own repo</a></li>
+<li><a href="https://lostechies.com/johnteague/2014/04/04/using-git-subtrees-to-split-a-repository/" target="_blank" rel="external">Using Git subtrees to split a repository</a></li>
+<li><a href="https://github.com/apenwarr/git-subtree/blob/master/git-subtree.txt" target="_blank" rel="external">git-subtree/git-subtree.txt</a></li>
 </ul>
-<p>当打开一个文件时，EditorConfig 插件在文件的目录和其每一级父目录查找 .editorconfig 文件，直到有一个配置文件包含 root = true</p>
-<p>EditorConfig 配置文件从上往下读取，并且路径最近的文件最后被读取，匹配到的配置按照读取顺序应用在代码上，最接近代码文件的属性优先级最高</p>
+<p>找到解决方法：</p>
+<p>最终的效果就是：我的 <code>zhenyong/react-website-cn</code> 仓库的 <code>/docs</code> 目录跟踪 <code>react</code> 仓库的子目录 <code>/docs</code>，具体工作流有两种，下面分别讲解</p>
+<h2 id="1-工作在-react-仓库"><a href="#1-工作在-react-仓库" class="headerlink" title="1. 工作在 react 仓库"></a>1. 工作在 react 仓库</h2><p>下面介绍的操作都工作在 react 的仓库目录</p>
+<h3 id="first-push"><a href="#first-push" class="headerlink" title="first push"></a>first push</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/facebook/react.git</div><div class="line">cd react</div><div class="line"></div><div class="line"># 可以理解为把子目录 docs 分割出去，单独成为一个分支 docs-branch</div><div class="line">git subtree split --prefix=docs -b docs-branch</div><div class="line"></div><div class="line"># 切换到只有 docs 子目录的分支</div><div class="line">git checkout docs-branch</div><div class="line"></div><div class="line"># 添加我的仓库地址，命名为 zhenyong</div><div class="line">git remote add zhenyong git@github.com:zhenyong/react-website-cn.git</div><div class="line"></div><div class="line"># 把该分支推送到自己仓库的 docs-branch 分支</div><div class="line"># 其中 -u 表示以后 `git push` 默认推送到 `zhenyong docs-branch`</div><div class="line">git push -u zhenyong docs-branch</div></pre></td></tr></table></figure>
+<p>归纳：</p>
 <ul>
-<li><p><code>[*]</code><br>表示对所有文件文件使用 editorconfig，也可以指定某种文件格式</p>
-</li>
-<li><p><code>charset = utf-8</code></p>
-</li>
+<li><code>clone react</code></li>
+<li>-&gt; <code>split 子目录成为新分支</code> </li>
+<li>-&gt; <code>push 我的库</code></li>
 </ul>
-<p>设置文件编码格式为 utf-8</p>
+<h3 id="follow-update"><a href="#follow-update" class="headerlink" title="follow update"></a>follow update</h3><h4 id="方法21"><a href="#方法21" class="headerlink" title="方法21"></a>方法21</h4><p>接下来，如果 react 团队更新了提交，我要怎么更新 <code>docs-branch</code> 分支呢,<br>简单的思路就是，回到 master 分支，重复上面的操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 回到 master分支， 然后拉取</div><div class="line">git checkout master</div><div class="line">git pull</div><div class="line"></div><div class="line"># 重复上面的 git subtree split 及后续操作</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>归纳：</p>
 <ul>
-<li><code>indent_style = space</code></li>
+<li><code>master pull</code> </li>
+<li>-&gt; <code>split 子目录成为分支</code> </li>
+<li>-&gt; <code>push 我的库</code></li>
 </ul>
-<p>所有的缩进使用空格，包括 tab 键产生的空白</p>
+<h4 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h4><p>当然，你估计会想，为什么不直接在 <code>docs-branch</code> 分支中更新了，当然是可以的，不过要注意，这里涉及两个远程库，一个是 react 库 (origin)，一个是我们的库 (zhenyong)，拉取和推送使用不同的库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 使用该命令拉取react 库的 docs 目录</div><div class="line">git subtree pull --prefix=docs origin master</div><div class="line"></div><div class="line"># 推送到我们库的 docs-branch 分支</div><div class="line"># 如果之前加了参数 -u，这里直接 git push 也行</div><div class="line">git push zhenyong docs-branch</div></pre></td></tr></table></figure>
+<p>归纳：</p>
 <ul>
-<li><code>indent_size = 2</code></li>
+<li><code>subtree pull react库</code></li>
+<li>-&gt; <code>push 我的库</code></li>
 </ul>
-<p>设置整数表示规定每级缩进的列数</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>上面的操作演示了如果持续的把 react 仓库子目录 /docs 最新提交同步推送到我们的库。</p>
+<p>实际使用时，你肯定还要修改自己库的代码，下面介绍在自己仓库目录下的工作。</p>
+<h2 id="2-工作在自己的仓库"><a href="#2-工作在自己的仓库" class="headerlink" title="2. 工作在自己的仓库"></a>2. 工作在自己的仓库</h2><p>假设我的库是一个全新的，空的仓库，我希望我有一个分支 <code>docs-branch</code><br>专门用来跟踪 <code>react</code> 远程库的 <code>docs</code> 子目录，然后 <code>master</code> 分支则<br>时刻包含 (merge/rebase) <code>docs-branch</code> 分支，并且在 <code>master</code> 增加中文文档目录 <code>docs-cn</code>，这样就不会有冲突。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">git clone git@github.com:zhenyong/react-website-cn.git</div><div class="line">cd react-website-cn</div><div class="line"></div><div class="line">## 给 react 远程仓库创建一个别名</div><div class="line">git remote add react https://github.com/facebook/react.git</div><div class="line"></div><div class="line">## 创建 docs-branch 分支</div><div class="line">git checkout -b docs-branch</div><div class="line"></div><div class="line">## 通过 subtree 命令添加 react 的 docs 目录</div><div class="line">## 注意：这个命令需要你已经有一个提交，</div><div class="line">## 你可以随便提交一个文件，例如新增 .gitignore，然后 commit</div><div class="line">git subtree add --prefix=docs origin master</div><div class="line"></div><div class="line">## 此时，当 `docs-branch` 分支就拥有了 react 仓库的子目录 docs，</div><div class="line">## 以及其下所有提交记录</div><div class="line"></div><div class="line">## 切换到 master</div><div class="line">git checkout master</div><div class="line"></div><div class="line">## 融合 `docs-branch` 分支的内容</div><div class="line">git rebase docs-branc</div><div class="line"></div><div class="line">## 接下来就会在 master 分支新增各种内容</div><div class="line">## 然后提交 push</div><div class="line"></div><div class="line">## 当你发现 react 库有更新，想要更新呢？</div><div class="line">## 回到 docs-branch，拉取 react 库的子目录 docs</div><div class="line">git subtree pull --prefix=docs react master</div><div class="line"></div><div class="line">## 然后就重复之前的操作</div></pre></td></tr></table></figure>
+<p>归纳: </p>
 <ul>
-<li><code>end_of_line = lf</code></li>
+<li><code>clone 我的库</code></li>
+<li>-&gt; <code>分支 docs-branch</code> </li>
+<li>-&gt; <code>跟踪 react 库子目录</code> </li>
+<li>-&gt; <code>master 融合 docs-branch</code></li>
 </ul>
-<p>统一设置换行符，不同操作系统默认使用不同的换行符</p>
-<p>windows 是 crlf，即 <code>\r\n</code></p>
-<p>unix 则是 lf ，即 <code>\n</code></p>
-<ul>
-<li><code>insert_final_newline = true</code></li>
-</ul>
-<p>文件都以一个空白行结尾</p>
-<ul>
-<li><code>trim_trailing_whitespace = true</code></li>
-</ul>
-<p>除去换行行首的任意空白字符</p>
+<p>注意： 如果你嫌 react /docs 目录下提交记录太多，污染你的仓库，你可以考虑在<br>subtree 的 <code>add</code> <code>splite</code> <code>pull</code> 命令时带上 <code>--squash</code> 参数，这样<br>会将 react 仓库的多条记录当做一条记录在你的仓库中，个人觉得首次这么弄可以，<br>后续更新还是保持多条，也不容易引起冲突。</p>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p>通过在两个仓库目录的工作方式，介绍 git subtree 命令的特点，让你更好的 <code>folk 子目录</code>。</p>
+<p>实际工作起来，我会在自己仓库目录下玩，当然你在本地 react 仓库目录里创建一个分支跟踪 zhenyong 库也是一回事，融会贯通嘛。</p>
 <hr>
-<p>参考：</p>
-<ul>
-<li><a href="http://editorconfig.org/" target="_blank" rel="external">官网</a></li>
-<li><a href="http://www.alloyteam.com/2014/12/editor-config/" target="_blank" rel="external">EditorConfig介绍（译）</a></li>
-</ul>
-
+<p><strong>版权声明</strong></p>
+<p>本作品采用 <img style="display:inline-block;vertical-align: top;" src="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg"> <a href="https://creativecommons.org/licenses/by/2.5/cn/" target="_blank" rel="external">知识共享署名 2.5 中国大陆许可协议</a> 进行许可</p>
+<p>欢迎转载，但转载请注明来自 <a href="zhenyong.github.io">zhenyong.github.io</a>，并保持转载后文章内容的完整</p>
+<p>本人保留所有版权相关权利</p>
+<p>本文链接：<a href="http://zhenyong.site/2016/07/20/folk-git-folder/">http://zhenyong.site/2016/07/20/folk-git-folder/</a>
 
   <!-- css -->
   <style type="text/css">
@@ -397,13 +403,7 @@ var _hmt = _hmt || [];
   <!-- /donate script -->
 </div>
 <!-- /Donate Module -->
-   
-<hr>
-<p><strong>版权声明</strong></p>
-<p>本作品采用 <img style="display:inline-block;vertical-align: top;" src="http://ww1.sinaimg.cn/large/68ef88dajw1f5j9v8t5eqj202g00vwe9.jpg"> <a href="https://creativecommons.org/licenses/by/2.5/cn/" target="_blank" rel="external">知识共享署名 2.5 中国大陆许可协议</a> 进行许可</p>
-<p>欢迎转载，但转载请注明来自 <a href="zhenyong.github.io">zhenyong.github.io</a>，并保持转载后文章内容的完整</p>
-<p>本人保留所有版权相关权利</p>
-<p>本文链接：<a href="http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/">http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/</a></p>
+   </p>
 
         
         </div>
@@ -467,7 +467,7 @@ var _hmt = _hmt || [];
 
             
     
-        <a href="http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/">Comments</a>
+        <a href="http://zhenyong.site/2016/07/20/folk-git-folder/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://zhenyong.site/2016/07/20/folk-git-folder/">Comments</a>
     
 
         </footer>
@@ -476,19 +476,10 @@ var _hmt = _hmt || [];
         
 <nav id="article-nav">
     
-        <a href="/2016/07/04/Babel-in-Vue/" id="article-nav-newer" class="article-nav-link-wrap">
-            <strong class="article-nav-caption">Newer</strong>
-            <div class="article-nav-title">
-                
-                    Babel in Vue
-                
-            </div>
-        </a>
     
-    
-        <a href="/2016/07/03/Vue-源码工具链介绍/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2016/07/06/Flow-in-Vue/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">Older</strong>
-            <div class="article-nav-title">Vue 源码工具链介绍</div>
+            <div class="article-nav-title">Flow in Vue</div>
         </a>
     
 </nav>
@@ -688,9 +679,9 @@ var _hmt = _hmt || [];
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/';
+            this.page.url = 'http://zhenyong.site/2016/07/20/folk-git-folder/';
         
-        this.page.identifier = 'EditorConfig-in-Vue';
+        this.page.identifier = 'folk-git-folder';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
