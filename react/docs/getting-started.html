@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Getting Started | React</title>
+  <title>开始入门 | React</title>
   <meta name="viewport" content="width=device-width">
-  <meta property="og:title" content="Getting Started | React">
+  <meta property="og:title" content="开始入门 | React">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://facebook.github.io/react/docs/getting-started.html">
   <meta property="og:image" content="https://facebook.github.io/react/img/logo_og.png">
@@ -60,6 +60,7 @@
         </ul>
 
         <ul class="nav-site nav-site-external">
+          <li><a href="https://github.com/zhenyong/react-website-cn">译者GitHub</a></li>
           <li><a href="https://github.com/facebook/react">GitHub</a></li>
           <li><a href="https://facebook.github.io/react-native/">React Native</a></li>
         </ul>
@@ -73,11 +74,11 @@
   <!-- Docs Nav -->
   
     <div class="nav-docs-section">
-      <h3>Quick Start</h3>
+      <h3>快速入门</h3>
       <ul>
         
           <li>
-            <a href="/react/docs/getting-started.html" class="active">Getting Started</a>
+            <a href="/react/docs/getting-started.html" class="active">开始入门</a>
             
           </li>
         
@@ -427,27 +428,28 @@
   <div class="inner-content">
     <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs/getting-started.md" target="_blank">Edit on GitHub</a>
     <h1>
-      Getting Started
+      开始入门
     </h1>
     <div class="subHeader"></div>
 
     <h2><a class="anchor" name="jsfiddle"></a>JSFiddle <a class="hash-link" href="#jsfiddle">#</a></h2>
-<p>The easiest way to start hacking on React is using the following JSFiddle Hello World examples:</p>
+<p>用下面 JSFiddle 的 Hello World 例子，简单快速搞起 React</p>
 
 <ul>
 <li><strong><a href="https://jsfiddle.net/reactjs/69z2wepo/">React JSFiddle</a></strong></li>
-<li><a href="https://jsfiddle.net/reactjs/5vjqabv3/">React JSFiddle without JSX</a></li>
+<li><a href="https://jsfiddle.net/reactjs/5vjqabv3/">React JSFiddle 不用 JSX</a></li>
 </ul>
-<h2><a class="anchor" name="starter-pack"></a>Starter Pack <a class="hash-link" href="#starter-pack">#</a></h2>
-<p>If you&#39;re just getting started, you can download the starter kit. The starter kit includes prebuilt copies of React and React DOM for the browser, as well as a collection of usage examples to help you get started.</p>
+<h2><a class="anchor" name=""></a>入门安利包 <a class="hash-link" href="#">#</a></h2>
+<p>如果你只是刚入门，可以下载入门工具包，里面包含了编译好的，用于浏览器的 React 和 React Dom 库，
+还有一些例子帮助你快速入门。</p>
 
 <div class="buttons-unit downloads">
   <a href="/react/downloads/react-15.2.1.zip" class="button">
-    Download Starter Kit 15.2.1
+    下载入门工具包 15.2.1
   </a>
 </div>
 
-<p>In the root directory of the starter kit, create a <code>helloworld.html</code> with the following contents.</p>
+<p>在入门包的根目录创建 <code>helloworld.html</code> 文件，内容如下：</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
   <span class="nt">&lt;head&gt;</span>
@@ -468,24 +470,31 @@
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
-<p>The XML syntax inside of JavaScript is called JSX; check out the <a href="/react/docs/jsx-in-depth.html">JSX syntax</a> to learn more about it. In order to translate it to vanilla JavaScript we use <code>&lt;script type=&quot;text/babel&quot;&gt;</code> and include Babel to actually perform the transformation in the browser. Open the html from a browser and you should already be able to see the greeting!</p>
-<h3><a class="anchor" name="separate-file"></a>Separate File <a class="hash-link" href="#separate-file">#</a></h3>
-<p>Your React JSX code can live in a separate file. Create the following <code>src/helloworld.js</code>.</p>
+<p>在 JavaScript 中，插入跟 XML 类似的代码，这种语法称之为 JSX；
+查看 <a href="/react/docs/jsx-in-depth.html">JSX 语法</a> 了解更多。</p>
+
+<p>为了把它转化为普通的 JavaScript，我们用上 <code>&lt;script type=&quot;text/babel&quot;&gt;</code>，
+并且引入 Babel ，在浏览器运行时转换代码，然后在执行。
+通过浏览器打开这个 html 文件，你就可以看到 Hello world 啦！</p>
+<h3><a class="anchor" name=""></a>分离文件 <a class="hash-link" href="#">#</a></h3>
+<p>JSX 代码可以单独放在一个文件，创建 <code>src/helloworld.js</code>，内容如下：</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span>
   <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">!&lt;</span><span class="err">/h1&gt;,</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
-<p>Then reference it from <code>helloworld.html</code>:</p>
+<p>然后在 <code>helloworld.html</code> 中引用它</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/babel&quot;</span> <span class="na">src=</span><span class="s">&quot;src/helloworld.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div>
-<p>Note that some browsers (Chrome, e.g.) will fail to load the file unless it&#39;s served via HTTP.</p>
-<h2><a class="anchor" name="using-react-with-npm-or-bower"></a>Using React with npm or Bower <a class="hash-link" href="#using-react-with-npm-or-bower">#</a></h2>
-<p>You can also use React with package managers like npm or Bower. You can learn more in our <a href="/react/docs/package-management.html">Package Managers</a> section.</p>
-<h2><a class="anchor" name="next-steps"></a>Next Steps <a class="hash-link" href="#next-steps">#</a></h2>
-<p>Check out <a href="/react/docs/tutorial.html">the tutorial</a> and the other examples in the starter kit&#39;s <code>examples</code> directory to learn more.</p>
+<p>提醒：某些浏览器可能无法本地加载 js 文件，你就起个静态服务器呗</p>
+<h2><a class="anchor" name="-npm--bower--react"></a>通过 npm 或者 Bower 来玩 React <a class="hash-link" href="#-npm--bower--react">#</a></h2>
+<p>你可以通过包管理器，像 npm 或者 Bower，来使用 React。
+在 <a href="/react/docs/package-management.html">包管理器</a> 这章可以了解更多。</p>
+<h2><a class="anchor" name=""></a>下一步 <a class="hash-link" href="#">#</a></h2>
+<p>想学更多的话，可以查看 <a href="/react/docs/tutorial.html">教程</a> 文档，
+以及入门工具包 <code>examples</code> 目录下的其他例子。</p>
 
-<p>Good luck, and welcome!</p>
+<p>祝你好运, 欢迎入坑！</p>
 
 
     <div class="docs-prevnext">

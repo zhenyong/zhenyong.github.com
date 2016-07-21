@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Tutorial | React</title>
+  <title>教程 | React</title>
   <meta name="viewport" content="width=device-width">
-  <meta property="og:title" content="Tutorial | React">
+  <meta property="og:title" content="教程 | React">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://facebook.github.io/react/docs/tutorial.html">
   <meta property="og:image" content="https://facebook.github.io/react/img/logo_og.png">
@@ -60,6 +60,7 @@
         </ul>
 
         <ul class="nav-site nav-site-external">
+          <li><a href="https://github.com/zhenyong/react-website-cn">译者GitHub</a></li>
           <li><a href="https://github.com/facebook/react">GitHub</a></li>
           <li><a href="https://facebook.github.io/react-native/">React Native</a></li>
         </ul>
@@ -73,11 +74,11 @@
   <!-- Docs Nav -->
   
     <div class="nav-docs-section">
-      <h3>Quick Start</h3>
+      <h3>快速入门</h3>
       <ul>
         
           <li>
-            <a href="/react/docs/getting-started.html">Getting Started</a>
+            <a href="/react/docs/getting-started.html">开始入门</a>
             
           </li>
         
@@ -427,35 +428,44 @@
   <div class="inner-content">
     <a class="edit-page-link" href="https://github.com/facebook/react/tree/master/docs/docs/tutorial.md" target="_blank">Edit on GitHub</a>
     <h1>
-      Tutorial
+      教程
     </h1>
     <div class="subHeader"></div>
 
-    <p>We&#39;ll be building a simple but realistic comments box that you can drop into a blog, a basic version of the realtime comments offered by Disqus, LiveFyre or Facebook comments.</p>
+    <p>我们来一个简单又实用的评论框，然后可以放在你的博客，就像 Disqus, 
+ LiveFyre 或者 Facebook 评论那样，不过是一个基础版咯。</p>
 
-<p>We&#39;ll provide:</p>
+<p>需求就是:</p>
 
 <ul>
-<li>A view of all of the comments</li>
-<li>A form to submit a comment</li>
-<li>Hooks for you to provide a custom backend</li>
+<li>显示所有评论的列表</li>
+<li>提交评论的表单</li>
+<li>Hooks for you to provide a custom backend </li>
 </ul>
 
 <p>It&#39;ll also have a few neat features:</p>
 
 <ul>
-<li><strong>Optimistic commenting:</strong> comments appear in the list before they&#39;re saved on the server so it feels fast.</li>
-<li><strong>Live updates:</strong> other users&#39; comments are popped into the comment view in real time.</li>
-<li><strong>Markdown formatting:</strong> users can use Markdown to format their text.</li>
+<li><strong>乐观地评论:</strong>  评论在提交后立刻展现在列表中，对于评论是否成功地保存到服务器，我们很乐观，这样体验起来会爽一点。</li>
+<li><strong>实时更新:</strong> 其他用户的评论实时出现在评论界面</li>
+<li><strong>支持 Markdown 格式:</strong> 用户能用 markdown 语法来写评论</li>
 </ul>
-<h3><a class="anchor" name="want-to-skip-all-this-and-just-see-the-source"></a>Want to skip all this and just see the source? <a class="hash-link" href="#want-to-skip-all-this-and-just-see-the-source">#</a></h3>
-<p><a href="https://github.com/reactjs/react-tutorial">It&#39;s all on GitHub.</a></p>
-<h3><a class="anchor" name="running-a-server"></a>Running a server <a class="hash-link" href="#running-a-server">#</a></h3>
-<p>In order to start this tutorial, we&#39;re going to require a running server. This will serve purely as an API endpoint which we&#39;ll use for getting and saving data. In order to make this as easy as possible, we&#39;ve created a simple server in a number of scripting languages that does exactly what we need it to do. <strong>You can <a href="https://github.com/reactjs/react-tutorial/">view the source</a> or <a href="https://github.com/reactjs/react-tutorial/archive/master.zip">download a zip file</a> containing everything needed to get started.</strong></p>
+<h3><a class="anchor" name=""></a>想直接上代码？ <a class="hash-link" href="#">#</a></h3>
+<p><a href="https://github.com/reactjs/react-tutorial">都在 GitHub 上</a></p>
+<h3><a class="anchor" name=""></a>启动一个服务器 <a class="hash-link" href="#">#</a></h3>
+<p>这个教程需要一个服务器，提供纯 API 服务，用来获取和保存数据。
+为了方便，我们写好了一个简单够用的服务器，提供几种脚本语言版本。
+*<em>你可以 <a href="https://github.com/reactjs/react-tutorial/">查看源码</a> 或者 
+<a href="https://github.com/reactjs/react-tutorial/archive/master.zip">下载 zip 包</a>
+*</em></p>
 
-<p>For sake of simplicity, the server we will run uses a <code>JSON</code> file as a database. You would not run this in production but it makes it easy to simulate what you might do when consuming an API. Once you <a href="https://github.com/reactjs/react-tutorial/#to-use">start the server</a>, it will support our API endpoint and it will also serve the static pages we need.</p>
-<h3><a class="anchor" name="getting-started"></a>Getting started <a class="hash-link" href="#getting-started">#</a></h3>
-<p>For this tutorial, we&#39;re going to make it as easy as possible. Included in the server package discussed above is an HTML file which we&#39;ll work in. Open up <code>public/index.html</code> in your favorite editor. It should look something like this:</p>
+<p>简单起见，服务器使用一个 <code>JSON</code> 文件作为数据库。
+这样方便我们模拟一个真实 API 服务，当然啦，生产环境不能这么干。
+一旦 <a href="https://github.com/reactjs/react-tutorial/#to-use">启动这个服务器</a>，
+它就能支持 API 服务和静态页面访问。</p>
+<h3><a class="anchor" name=""></a>开始咯 <a class="hash-link" href="#">#</a></h3>
+<p>教程会很简单滴。刚才说的服务器包，里面有一个 <code>public/index.html</code> HTML 文件，我们先用它干活，
+用你喜欢的编辑器打开它，长这样:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- index.html --&gt;</span>
 <span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
@@ -478,21 +488,24 @@
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div>
-<p>For the remainder of this tutorial, we&#39;ll be writing our JavaScript code in this script tag. We don&#39;t have any advanced live-reloading so you&#39;ll need to refresh your browser to see updates after saving. Follow your progress by opening <code>http://localhost:3000</code> in your browser (after starting the server). When you load this for the first time without any changes, you&#39;ll see the finished product of what we&#39;re going to build. When you&#39;re ready to start working, just delete the preceding <code>&lt;script&gt;</code> tag and then you can continue.</p>
+<p>接下来的教程里，我们会在这个 script 标签内写代码。
+我们木有什么高级实时刷新工具，所以你得保存代码后手动刷新浏览器。
+启动服务器后，在浏览器打开 <code>http://localhost:3000</code>。
+如果你啥都没改的话，看到的就是我们最终想要完成的产品，现在就删除前一个 <code>&lt;script ...example.js&gt;</code> 标签，然后开始敲代码。</p>
 
 <blockquote>
-<p>Note:</p>
+<p>注意:</p>
 
-<p>We included jQuery here because we want to simplify the code of our future ajax calls, but it&#39;s <strong>NOT</strong> mandatory for React to work.</p>
+<p>我们引入了 jQuery，只是为了简化 ajax 调用，<strong>不是</strong> React 必要的</p>
 </blockquote>
-<h3><a class="anchor" name="your-first-component"></a>Your first component <a class="hash-link" href="#your-first-component">#</a></h3>
-<p>React is all about modular, composable components. For our comment box example, we&#39;ll have the following component structure:</p>
+<h3><a class="anchor" name=""></a>第一个组件 <a class="hash-link" href="#">#</a></h3>
+<p>React 玩的就是模块化、可组合的组件。而我们的例子会采用下面这样的组件结构：</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">- CommentBox
   - CommentList
     - Comment
   - CommentForm
 </code></pre></div>
-<p>Let&#39;s build the <code>CommentBox</code> component, which is just a simple <code>&lt;div&gt;</code>:</p>
+<p>先弄 <code>CommentBox</code> 组件，就是个简单的 <code>&lt;div&gt;</code></p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tutorial1.js</span>
 <span class="kd">var</span> <span class="nx">CommentBox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -508,9 +521,10 @@
   <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
-<p>Note that native HTML element names start with a lowercase letter, while custom React class names begin with an uppercase letter.</p>
-<h4><a class="anchor" name="jsx-syntax"></a>JSX Syntax <a class="hash-link" href="#jsx-syntax">#</a></h4>
-<p>The first thing you&#39;ll notice is the XML-ish syntax in your JavaScript. We have a simple precompiler that translates the syntactic sugar to this plain JavaScript:</p>
+<p>原生的 HTML 标签名字以小写字幕开头，而自定义的 React 类名以大写字母开头。</p>
+<h4><a class="anchor" name="jsx-"></a>JSX 语法 <a class="hash-link" href="#jsx-">#</a></h4>
+<p>首先注意到的就是 JavaScript 里边有像 XML 那样的代码。
+我们有一个简单的预编译器，可以把把这种语法糖转换成普通的 JavaScript 代码。</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tutorial1-raw.js</span>
 <span class="kd">var</span> <span class="nx">CommentBox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span><span class="nx">displayName</span><span class="o">:</span> <span class="s1">&#39;CommentBox&#39;</span><span class="p">,</span>
   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -526,21 +540,33 @@
   <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;content&#39;</span><span class="p">)</span>
 <span class="p">);</span>
 </code></pre></div>
-<p>Its use is optional but we&#39;ve found JSX syntax easier to use than plain JavaScript. Read more on the <a href="/react/docs/jsx-in-depth.html">JSX Syntax article</a>.</p>
-<h4><a class="anchor" name="whats-going-on"></a>What&#39;s going on <a class="hash-link" href="#whats-going-on">#</a></h4>
-<p>We pass some methods in a JavaScript object to <code>React.createClass()</code> to create a new React component. The most important of these methods is called <code>render</code> which returns a tree of React components that will eventually render to HTML.</p>
+<p>Its use is optional but we&#39;ve found JSX syntax easier to use than plain JavaScript.
+Read more on the <a href="/react/docs/jsx-in-depth.html">JSX Syntax article</a>.
+不一定要用 JSX，但是用它比起用普通的 JavaScript 要简单一点。
+参考 <a href="/react/docs/jsx-in-depth.html">JSX 语法</a> 了解更多。</p>
+<h4><a class="anchor" name=""></a>接下来干嘛咧 <a class="hash-link" href="#">#</a></h4>
+<p>我们给 <code>React.createClass()</code> 方法传入一个对象，包含一些方法，从而创建一个 React 组件。
+这些方法里，<code>render</code> 是最重要的，它返回一棵 React 组件树。</p>
 
-<p>The <code>&lt;div&gt;</code> tags are not actual DOM nodes; they are instantiations of React <code>div</code> components. You can think of these as markers or pieces of data that React knows how to handle. React is <strong>safe</strong>. We are not generating HTML strings so XSS protection is the default.</p>
+<p>这里的 <code>&lt;div&gt;</code> 标签并不是真正的 DOM 节点；他们表示 React 的 <code>div</code> 组件实例。
+你可以把它理解为标记或者数据，React 知道怎么处理它。
+React 是<strong>安全的</strong>。我们不生成 HTML 字符串，所以默认 XSS 安全没问题。</p>
 
-<p>You do not have to return basic HTML. You can return a tree of components that you (or someone else) built. This is what makes React <strong>composable</strong>: a key tenet of maintainable frontends.</p>
+<p>不一定要返回基本的 HTML，
+你可以返回一颗组建树，这些组件可以是你（或者别人）创建的。
+这使得 React <strong>组件化</strong>: 一个前端可维护性的原则</p>
 
-<p><code>ReactDOM.render()</code> instantiates the root component, starts the framework, and injects the markup into a raw DOM element, provided as the second argument.</p>
+<p><code>ReactDOM.render()</code> 实例化根组件, 启动框架。 
+第二个参数是一个原生 DOM 元素，React 会把这些标记注入到这个元素里。</p>
 
-<p>The <code>ReactDOM</code> module exposes DOM-specific methods, while <code>React</code> has the core tools shared by React on different platforms (e.g., <a href="http://facebook.github.io/react-native/">React Native</a>).</p>
+<p><code>ReactDOM</code> 模块暴露了一些 DOM 特定的方法。
+而 <code>React</code> 在不同平台上都有 React 团队分享的核心工具 (例如, <a href="http://facebook.github.io/react-native/">React Native</a>).</p>
 
-<p>It is important that <code>ReactDOM.render</code> remain at the bottom of the script for this tutorial. <code>ReactDOM.render</code> should only be called after the composite components have been defined.</p>
+<p><code>ReactDOM.render</code> 放在 script 最下面执行，这点很重要，
+因为 <code>ReactDOM.render</code> 必须在组合的组件定义完之后才能调用。</p>
 <h2><a class="anchor" name="composing-components"></a>Composing components <a class="hash-link" href="#composing-components">#</a></h2>
-<p>Let&#39;s build skeletons for <code>CommentList</code> and <code>CommentForm</code> which will, again, be simple <code>&lt;div&gt;</code>s. Add these two components to your file, keeping the existing <code>CommentBox</code> declaration and <code>ReactDOM.render</code> call:</p>
+<p>创建 <code>CommentList</code> 和 <code>CommentForm</code> 的骨架，同样是一个简单的 <code>div</code> 啥的。
+把这两个组件添加到你的文件，保持原来的 <code>CommentBox</code> 定义和 <code>ReactDOM.render</code> 调用。</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tutorial2.js</span>
 <span class="kd">var</span> <span class="nx">CommentList</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -562,7 +588,7 @@
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>Next, update the <code>CommentBox</code> component to use these new components:</p>
+<p>接着，修改 <code>CommentBox</code> 组件，在里边使用这些新组件</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tutorial3.js</span>
 <span class="kd">var</span> <span class="nx">CommentBox</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
@@ -576,9 +602,15 @@
   <span class="p">}</span>
 <span class="p">});</span>
 </code></pre></div>
-<p>Notice how we&#39;re mixing HTML tags and components we&#39;ve built. HTML components are regular React components, just like the ones you define, with one difference. The JSX compiler will automatically rewrite HTML tags to <code>React.createElement(tagName)</code> expressions and leave everything else alone. This is to prevent the pollution of the global namespace.</p>
-<h3><a class="anchor" name="using-props"></a>Using props <a class="hash-link" href="#using-props">#</a></h3>
-<p>Let&#39;s create the <code>Comment</code> component, which will depend on data passed in from its parent. Data passed in from a parent component is available as a &#39;property&#39; on the child component. These &#39;properties&#39; are accessed through <code>this.props</code>. Using props, we will be able to read the data passed to the <code>Comment</code> from the <code>CommentList</code>, and render some markup:</p>
+<p>注意到我们如何把组件和 HTML 标签弄一起的。
+HTML 组件是常规的 React 组件，和你定义的组件差不多，有一点不同：
+JSX 编译器会自动把 HTML 标签替换为 <code>React.createElement(标签名)</code> 表达式，其它不变。
+这是为了全局命名空间bei&#39;wu&#39;r</p>
+<h3><a class="anchor" name="-props"></a>使用 props <a class="hash-link" href="#-props">#</a></h3>
+<p>Let&#39;s create the <code>Comment</code> component, which will depend on data passed in from its parent.
+ Data passed in from a parent component is available as a &#39;property&#39; on the child component.
+  These &#39;properties&#39; are accessed through <code>this.props</code>. 
+  Using props, we will be able to read the data passed to the <code>Comment</code> from the <code>CommentList</code>, and render some markup:</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// tutorial4.js</span>
 <span class="kd">var</span> <span class="nx">Comment</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
   <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
