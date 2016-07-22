@@ -4,7 +4,14 @@
   <url>
     <loc>http://zhenyong.site/docs/index.html</loc>
     
-    <lastmod>2016-07-22T06:33:55.000Z</lastmod>
+    <lastmod>2016-07-22T15:56:50.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhenyong.site/tags/index.html</loc>
+    
+    <lastmod>2016-07-22T13:11:02.000Z</lastmod>
     
   </url>
   
@@ -47,13 +54,6 @@
     <loc>http://zhenyong.site/2016/07/03/EditorConfig-in-Vue/</loc>
     
     <lastmod>2016-07-05T07:14:16.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhenyong.site/tags/index.html</loc>
-    
-    <lastmod>2016-07-05T01:59:42.000Z</lastmod>
     
   </url>
   
