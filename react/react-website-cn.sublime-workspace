@@ -372,11 +372,19 @@
 	],
 	"file_history":
 	[
-		"/Users/zhenyong/codes/react-website-cn/docs-cn/index.md",
-		"/Users/zhenyong/codes/react-website-cn/docs-cn/_layouts/default.html",
-		"/Users/zhenyong/codes/react-website-cn/docs-cn/_config.yml",
-		"/Users/zhenyong/codes/react-website-cn/docs-cn/docs/04-multiple-components.md",
 		"/Users/zhenyong/codes/react-website-cn/docs-cn/react-website-cn.sublime-project",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/docs/tutorial.md",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/_data/nav_docs.yml",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/docs/getting-started.md",
+		"/Users/zhenyong/codes/react-website-cn/.gitignore",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/_config.yml",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/Gemfile",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/react/docs/index-zh-CN.html",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/blog/index.html",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/docs/getting-started.zh-CN.md",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/_layouts/default.html",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/index.md",
+		"/Users/zhenyong/codes/react-website-cn/docs-cn/docs/04-multiple-components.md",
 		"/Users/zhenyong/codes/react-website-cn/docs-cn/Rakefile",
 		"/Users/zhenyong/codes/react-website-cn/docs-cn/_js/live_editor.js",
 		"/Users/zhenyong/codes/react-website-cn/package.json",
@@ -491,15 +499,7 @@
 		"/Users/zhenyong/codes/vue/src/shared/util.js",
 		"/Users/zhenyong/codes/vue/src/core/util/index.js",
 		"/Users/zhenyong/codes/vue/src/core/instance/proxy.js",
-		"/Users/zhenyong/codes/vue/src/entries/web-runtime.js",
-		"/Users/zhenyong/codes/vue/src/entries/web-runtime-with-compiler.js",
-		"/Users/zhenyong/codes/vue/browser/build.js",
-		"/Users/zhenyong/codes/vue/src/platforms/web/compiler/index.js",
-		"/Users/zhenyong/codes/vue/src/entries/web-compiler.js",
-		"/Users/zhenyong/codes/vue/src/compiler/index.js",
-		"/Users/zhenyong/codes/vue/src/compiler/parser/index.js",
-		"/Users/zhenyong/codes/vue/src/compiler/error-detector.js",
-		"/Users/zhenyong/codes/vue/examples/commits/index.html"
+		"/Users/zhenyong/codes/vue/src/entries/web-runtime.js"
 	],
 	"find":
 	{
@@ -510,6 +510,7 @@
 		"height": 158.0,
 		"where_history":
 		[
+			"/Users/zhenyong/codes/react-website-cn/docs-cn",
 			"",
 			"/Users/zhenyong/codes/react-website-cn/docs-cn/_site",
 			"",
@@ -556,9 +557,31 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"Tutorial",
+			"handleSubmit",
+			"从后台",
+			"获取疏忽",
+			"有一点不同",
+			"其它",
+			"其它不",
+			"Remarkable",
+			"tutorial2",
+			"Getting Started",
+			".sass-cache",
+			".sass-cache\n",
+			"previous_page",
+			"en",
+			"gems",
+			"QUICK START",
+			"React Native",
+			"起步",
+			"markdownExample",
+			"scripts",
+			"node_modules",
+			"A Simple Component",
 			"一个",
 			"minitext",
 			"Get Started",
@@ -664,29 +687,7 @@
 			"console.log",
 			"push",
 			"_asyncHolder",
-			"EditorConfig",
-			"console.log",
-			"slugize =",
-			"slugize:",
-			"slugize",
-			"slug",
-			"ciqkmaapw00005gtg6euqgofi",
-			"ciqkmaaqg000a5gtgfhllahul",
-			"Flow-in-vue",
-			"PostAsset",
-			"asset_path",
-			"titlecase",
-			"CASE",
-			"link",
-			"getFileName",
-			"cacheLink",
-			"flush",
-			"asset_img",
-			"asset_path",
-			"slug",
-			"Flow",
-			"/Flow",
-			"getFileName"
+			"EditorConfig"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -780,6 +781,30 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"tutorial",
+				"docs/tutorial.md"
+			],
+			[
+				"get-star",
+				"docs/getting-started.md"
+			],
+			[
+				"indezh",
+				"react/docs/index-zh-CN.html"
+			],
+			[
+				"config",
+				"_config.yml"
+			],
+			[
+				"getting",
+				"docs/getting-started.md"
+			],
+			[
+				"gett",
+				"docs/getting-started.zh-CN.md"
+			],
 			[
 				"04-multiple-components",
 				"docs/04-multiple-components.md"
@@ -1267,30 +1292,6 @@
 			[
 				"if.js",
 				"src/directives/if.js"
-			],
-			[
-				"trans",
-				"src/compile/transclude.js"
-			],
-			[
-				"batch",
-				"src/batcher.js"
-			],
-			[
-				"tran",
-				"src/transition.js"
-			],
-			[
-				"viemo",
-				"src/viewmodel.js"
-			],
-			[
-				"fra",
-				"src/fragment.js"
-			],
-			[
-				"todohtml",
-				"examples/todomvc/index.html"
 			]
 		],
 		"width": 0.0
@@ -1320,7 +1321,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": true,
+	"side_bar_visible": false,
 	"side_bar_width": 309.0,
 	"status_bar_visible": true,
 	"template_settings":
