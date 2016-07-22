@@ -5,11 +5,11 @@ var debug = require('gulp-debug')
 
 var path = require('path')
 
-var rootName = 'flowtype'
+var rootName = 'react'
 
 var config = {
     website: {
-        src: '/Users/zhenyong/codes/flow/website-cn/_site/**',
+        src: '/Users/zhenyong/codes/react-website-cn/docs-cn/react/**',
         dest: './source/' + rootName + '/'
     }
 }
@@ -40,12 +40,5 @@ gulp.task('default', function() {
     rimraf.sync(config.website.dest)
 
     gulp.src(config.website.src)
-        .pipe(tap(function(file, t) {
-            if (shouldReplace(file)) {
-                str = changeBasepath(file.contents.toString(),
-                    regScriptOrHref, regConfig, regUrl)
-                file.contents = new Buffer(str)
-            }
-        }))
         .pipe(gulp.dest(config.website.dest))
 })

@@ -10,6 +10,8 @@ JS 相关的静态检测，一般人都会想到 Typescript， 配合微软的 C
 
 [Flow 官网](https://flowtype.org/)
 
+[Flow 官网](http://zhenyong.site/flowtype)（中文）
+
 <!--more-->
 
 ## Flow 简单体验
@@ -82,4 +84,63 @@ flow check
 
 ## Flow in Vue
 
-// TODO
+### .flowconfig 配置文件
+
+```
+[ignore]
+.*/node_modules/.*
+.*/test/.*
+.*/build/.*
+.*/examples/.*
+.*/benchmarks/.*
+
+[include]
+
+[libs]
+flow
+
+[options]
+module.name_mapper='^compiler/\(.*\)$' -> '<PROJECT_ROOT>/src/compiler/\1'
+module.name_mapper='^core/\(.*\)$' -> '<PROJECT_ROOT>/src/core/\1'
+module.name_mapper='^shared/\(.*\)$' -> '<PROJECT_ROOT>/src/shared/\1'
+module.name_mapper='^web/\(.*\)$' -> '<PROJECT_ROOT>/src/platforms/web/\1'
+module.name_mapper='^server/\(.*\)$' -> '<PROJECT_ROOT>/src/server/\1'
+module.name_mapper='^entries/\(.*\)$' -> '<PROJECT_ROOT>/src/entries/\1'
+module.name_mapper='^sfc/\(.*\)$' -> '<PROJECT_ROOT>/src/sfc/\1'
+```
+
+解释下各个配置意思
+
+- `ignore`：表示该以下匹配到的文件夹都不需要检测
+- `include`：这里是空白，默认所有文件，如果检测项目根目录以外就要罗列在这里
+- `libs`: 表示使用目录 /flow 下的接口定义文件
+- `options`: 第一行配置的效果是，当`require('compiler/xx/yy')` 时把加载路径重定向到 `项目路径/src/compiler/xx/yy`
+
+### 接口类型文件
+
+回一下 Java 或者其它强类型 OO 语言，当你调用类中没定义的方法时，或者调用方法的参数个数不对时，IDE就会提醒，那么接口类型文件就有点这个意思，让你的类也有这么一个规则文件可以用来校验开发者的代码，举个例子：
+
+```
+// /flow/component.js
+
+declare interface Component {
+  // constructor information
+  static cid: number
+	...省略...
+  $data: Object;
+  $options: ComponentOptions;
+...省略...
+	}
+```
+
+`Component` 是 vue 内部一个类，通过这个接口类型文件表明组件类有哪些成员，哪些静态属性等等，特别要看到 `ComponentOptions `，这对应到另一个接口类型。
+
+通过这种接口类型，某种意义上，你就有了强类型 OO 语言写代码的一些优点。
+
+当然 vue 的类型文件远不止这用到这点点，更多细节就不一一介绍
+
+语法部分请参照[Flow 官网](https://flowtype.org/)或者我翻译的[中文网站](http://zhenyong.site/flowtype)
+
+至于 vue 为什么选用 flow 而不用相对流行的 TypeScript，参考他的知乎回答 [Vue 2.0 为什么选用 Flow 进行静态代码检查而不是直接使用 TypeScript?](http://www.zhihu.com/question/46397274)。
+
+而我个人也觉得 Flow 有些很实用的场景，例如你无需学习成本，就能用上他的智能检测，解决 null 相关的潜在问题。
