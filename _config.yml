@@ -7,7 +7,7 @@ title: Make Hungry
 subtitle: 饥渴难耐
 description:
 author: huáng zhèn yǒng
-language: en
+language: zh-Hans
 timezone:
 
 # URL
@@ -24,7 +24,7 @@ tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
-i18n_dir: :lang
+i18n_dir: :langnext
 skip_render:
     - react/**
     - flowtype/**
@@ -66,7 +66,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -84,3 +84,9 @@ sitemap:
   path: sitemap.xml
 baidusitemap:
   path: baidusitemap.xml
+  
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
