@@ -8,14 +8,16 @@ var donateInterceptor = '<!--donate' + Date.now() + '-->';
 
 // for donate
 hexo.extend.filter.register('after_post_render', function(data) {
-    data.content = data.content.replace(donateInterceptor, fs.readFileSync('donate.html').toString());
-    return data;
+    if(data && data.donate !== false) {
+        data.content = data.content.replace(donateInterceptor, fs.readFileSync('donate.html').toString());
+        return data;
+    }
 });
 
 // for donate
 hexo.extend.filter.register('before_post_render', function(data) {
-    if (data && data.content) {
+    if (data && data.content && data.donate !== false) {
         data.content += donateInterceptor
+        return data
     }
-    return data
 });
