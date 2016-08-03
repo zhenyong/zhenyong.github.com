@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenyong.site/"/>
-  <updated>2016-08-03T05:35:15.000Z</updated>
+  <updated>2016-08-03T05:51:00.000Z</updated>
   <id>http://zhenyong.site/</id>
   
   <author>
@@ -20,10 +20,13 @@
     <link href="http://zhenyong.site/2016/08/03/starting-atom/"/>
     <id>http://zhenyong.site/2016/08/03/starting-atom/</id>
     <published>2016-08-03T05:05:49.000Z</published>
-    <updated>2016-08-03T05:35:15.000Z</updated>
+    <updated>2016-08-03T05:51:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Atom 是 Github 出品的跨平台编辑器，基于 Electron 开发。我之前是 Sublime 重度使用者，因为 React Native 出了个插件，且只支持 Atom，于是开始折腾 Atom。</p>
-<p>从更换主题开始吧…</p>
+    <content type="html"><![CDATA[<blockquote>
+<p>Atom 是 Github 出品，基于 Electron 开发的跨平台编辑器。</p>
+</blockquote>
+<p>之前是 Sublime 重度使用者，因为 React Native 出了个只支持 Atom 的插件，于是开始折腾 Atom，以前没用是因为它太慢了，一个月卸三次装三次，目前 1.9 版本性能提升了好多，插件都是基于 JS，目前插件数量跟 Sublime 的差不多，毕竟是基于浏览器，使用的技术都是前端熟悉的。</p>
+<p>那么，从更换主题开始吧…</p>
 <a id="more"></a>
 <h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><p>下面是原来 Sublime 使用的界面主题和语法颜色，很高大上：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;theme&quot;: &quot;Material-Theme.sublime-theme&quot;,</div><div class="line">&quot;color_scheme&quot;: &quot;Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme&quot;</div></pre></td></tr></table></figure>
@@ -40,15 +43,16 @@
     
     <summary type="html">
     
-      &lt;p&gt;Atom 是 Github 出品的跨平台编辑器，基于 Electron 开发。我之前是 Sublime 重度使用者，因为 React Native 出了个插件，且只支持 Atom，于是开始折腾 Atom。&lt;/p&gt;
-&lt;p&gt;从更换主题开始吧…&lt;/p&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;Atom 是 Github 出品，基于 Electron 开发的跨平台编辑器。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前是 Sublime 重度使用者，因为 React Native 出了个只支持 Atom 的插件，于是开始折腾 Atom，以前没用是因为它太慢了，一个月卸三次装三次，目前 1.9 版本性能提升了好多，插件都是基于 JS，目前插件数量跟 Sublime 的差不多，毕竟是基于浏览器，使用的技术都是前端熟悉的。&lt;/p&gt;
+&lt;p&gt;那么，从更换主题开始吧…&lt;/p&gt;
     
     </summary>
     
     
       <category term="Atom" scheme="http://zhenyong.site/tags/Atom/"/>
-    
-      <category term="theme" scheme="http://zhenyong.site/tags/theme/"/>
     
   </entry>
   
