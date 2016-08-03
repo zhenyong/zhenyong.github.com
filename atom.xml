@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenyong.site/"/>
-  <updated>2016-08-03T05:51:00.000Z</updated>
+  <updated>2016-08-03T19:01:26.000Z</updated>
   <id>http://zhenyong.site/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zhenyong.site/2016/08/03/starting-atom/"/>
     <id>http://zhenyong.site/2016/08/03/starting-atom/</id>
     <published>2016-08-03T05:05:49.000Z</published>
-    <updated>2016-08-03T05:51:00.000Z</updated>
+    <updated>2016-08-03T19:01:26.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Atom 是 Github 出品，基于 Electron 开发的跨平台编辑器。</p>
@@ -32,9 +32,121 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&quot;theme&quot;: &quot;Material-Theme.sublime-theme&quot;,</div><div class="line">&quot;color_scheme&quot;: &quot;Packages/User/SublimeLinter/Oceanic Next (SL).tmTheme&quot;</div></pre></td></tr></table></figure>
 <p>在 Atom 中安装界面主题 <a href="https://atom.io/themes/material-ui" target="_blank" rel="external">material-ui</a> 和语法颜色 <a href="https://atom.io/themes/oceanic-next" target="_blank" rel="external">oceanic-next</a>，文档说的很详细</p>
 <h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><p>使用了上面的主题和颜色后，发现编辑区的背景颜色跟 sublime 用的不一样，因为 Atom 本质上是个 Chrome 浏览，第一个想法就是调出控制台 (alt+cmd+i)，查看这个节点 <code>atom-text-editor</code> 的样式 ，接着按照 <a href="https://atom.io/themes/material-ui" target="_blank" rel="external">material-ui</a> 的文档修改主题：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// styles/editor.less</div><div class="line">atom-text-editor &#123;</div><div class="line">	// 注释掉这行就好了</div><div class="line">  // background: @level-3-color;</div><div class="line"></div><div class="line">  &amp;::shadow .line-number &#123;</div><div class="line">    padding-left: 1em;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// styles/editor.less</div><div class="line">atom-text-editor &#123;</div><div class="line">	// 注释掉这行就好了</div><div class="line">  // background: @level-3-color;</div><div class="line"></div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果擅长前端的童鞋用 Atom 上手会很高效，这玩意就是个浏览器，^_^ ！</p>
-<h2 id="插件们"><a href="#插件们" class="headerlink" title="插件们"></a>插件们</h2><p>…</p>
+<h2 id="插件们"><a href="#插件们" class="headerlink" title="插件们"></a>插件们</h2><blockquote>
+<p>从下面文章中搜刮</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/39938370" target="_blank" rel="external">Atom 有什么优秀插件</a></li>
+</ul>
+</blockquote>
+<ul>
+<li><p><a href="https://github.com/sindresorhus/atom-editorconfig" target="_blank" rel="external">EditorConfig</a></p>
+<p>  Atom 内置 <code>whitespace</code> 插件会『覆盖』掉 EditorConfig 配置，导致 <code>trim_trailing_whitespace</code> 和 <code>insert_final_newline</code> 在 <code>.editorconfig</code> 中无效，参考 <a href="https://github.com/sindresorhus/atom-editorconfig/issues/3" target="_blank" rel="external">github issue</a><br>  (##2016-08-03##)</p>
+</li>
+<li><p>Markdown</p>
+<ul>
+<li><p><a href="https://github.com/atom/markdown-preview" target="_blank" rel="external"><code>markdown-previwe</code></a></p>
+<p>内置的 <code>markdown-previwe</code> 很好用，（shift+ctrl+m）打开实时预览，还能设置 github 的样式，很酷</p>
+</li>
+<li><p><a href="https://github.com/mark-hahn/markdown-scroll-sync" target="_blank" rel="external"><code>markdown-scroll-sync</code></a></p>
+<p>让预览视图随着编辑光标位置滚动，滚的很准！</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://atom.io/packages/linter" target="_blank" rel="external">Linter</a></p>
+<p>  错误提示的 UI 做的真好</p>
+<ul>
+<li><p><a href="https://atom.io/packages/linter-eslint" target="_blank" rel="external">linter-eslint</a></p>
+</li>
+<li><p><a href="https://atom.io/packages/linter-flow" target="_blank" rel="external">linter-flow</a></p>
+<p>  如果安装了 <code>nuclide</code> 会引发配置错误提示，参考<a href="https://github.com/facebook/nuclide/issues/387" target="_blank" rel="external">这里</a><br>  问题不大，但是每次出现很烦，所以 Disable <code>linter-flow</code>，反正 <code>nuclide</code> 本身有 <code>nuclide-flow</code> 支持 Flow 检测</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://atom.io/packages/hyperclick" target="_blank" rel="external">hyperclick</a></p>
+<p>  点击文本跳转的基础，支持各类扩展跳转，如安装 <code>js-hyperclick</code> 插件支持变量定义跳转等</p>
+<ul>
+<li><p><a href="https://atom.io/packages/js-hyperclick" target="_blank" rel="external">js-hyperclick</a></p>
+<p>JS 点击变量跳转到定义处…强大到远超我想像</p>
+</li>
+</ul>
+</li>
+<li><p><a href="https://atom.io/packages/atom-ternjs" target="_blank" rel="external">atom-ternjs</a></p>
+<p>  代码智能提示，还支持 ES6，它是会扫描代码作分析的，快赶上 IDE了。</p>
+</li>
+<li><p><a href="https://atom.io/packages/highlight-selected" target="_blank" rel="external">highlight-selected</a></p>
+<p>  选中文本后，高亮其他相同文本，双击变量最实用</p>
+</li>
+<li><p><a href="https://atom.io/packages/autocomplete-paths" target="_blank" rel="external">autocomplete-paths</a></p>
+<p>  require、src 等路径提示</p>
+</li>
+<li><p><a href="https://atom.io/packages/docblockr" target="_blank" rel="external">docblockr</a></p>
+<p>  愉快的写注释文档，包括方法等…</p>
+</li>
+<li><p><a href="https://atom.io/packages/regex-railroad-diagram" target="_blank" rel="external">regex-railroad-diagram</a></p>
+<p>  选中正则之后，展示可视化的匹配路径，酷~</p>
+</li>
+<li><p><a href="https://link.zhihu.com/?target=https%3A//atom.io/packages/file-icons" target="_blank" rel="external">file-icons</a></p>
+<p>  导航区文件图标，图标齐全好看</p>
+</li>
+<li><p><a href="https://atom.io/packages/emmet" target="_blank" rel="external">emmet</a></p>
+<p>  手写 HTML 的神器，有个快捷键会跟 markdown preview 冲突，参考<a href="https://discuss.atom.io/t/keyboard-shortcut-overriding-emmet-and-markdown-preview/14113/7" target="_blank" rel="external">这里</a></p>
+</li>
+<li><p><a href="https://atom.io/packages/local-history" target="_blank" rel="external">local-history</a></p>
+<p>  本地记录文件历史</p>
+</li>
+<li><p><a href="https://atom.io/packages/pigments" target="_blank" rel="external">pigments</a></p>
+<p>  颜色相关工具，包括：把<code>rgb(x,x,x)</code>背景色变成相应颜色，选色…牛</p>
+</li>
+<li><p><a href="https://atom.io/packages/atom-beautify" target="_blank" rel="external">atom-beautify</a></p>
+<p>  代码格式化，支持巨多语言</p>
+</li>
+<li><p><a href="https://atom.io/packages/auto-update-packages" target="_blank" rel="external">auto-update-packages</a></p>
+<p>  自动更新插件，虽然设置里面点一下就可以，但是自动不更好吗</p>
+</li>
+<li><p><a href="https://atom.io/packages/git-projects" target="_blank" rel="external">git-projects</a></p>
+<p>  快速打开本地 git 项目，省得切换一次命令行</p>
+</li>
+<li><p><a href="https://atom.io/packages/minimap" target="_blank" rel="external">minimap</a></p>
+<p>  像 Sublime 那样在右侧有个全景代码小图，支持很多扩展</p>
+</li>
+<li><p><a href="https://atom.io/packages/language-babel" target="_blank" rel="external">language-babel</a></p>
+<p>  语法支持 ES6、JSX、Flow …，还支持预览 babel 或 react 编译结果</p>
+</li>
+<li><p>(nuclide)[<a href="https://atom.io/packages/nuclide" target="_blank" rel="external">https://atom.io/packages/nuclide</a>]</p>
+<p>  帮助开发 ReactNative、Flow 相关项目，装完感觉更像 IDE</p>
+</li>
+<li><p>(open-recent)[<a href="https://atom.io/packages/open-recent" target="_blank" rel="external">https://atom.io/packages/open-recent</a>]</p>
+<p>  像 Sublime 的 File -&gt; Open Recent，搞不懂为啥不内置</p>
+</li>
+<li><p>(react)[<a href="https://atom.io/packages/react" target="_blank" rel="external">https://atom.io/packages/react</a>]</p>
+<p>  JSX 语法高亮、格式化…最喜欢的事 HTML-&gt;JSX</p>
+</li>
+<li><p>(term3)[<a href="https://atom.io/packages/term3" target="_blank" rel="external">https://atom.io/packages/term3</a>]</p>
+<p>  终端</p>
+</li>
+<li><p>(todo-show)[<a href="https://atom.io/packages/todo-show" target="_blank" rel="external">https://atom.io/packages/todo-show</a>]</p>
+<p>  找出所有 <code>// TODO</code></p>
+</li>
+<li><p>(tool-bar)[<a href="https://atom.io/packages/tool-bar" target="_blank" rel="external">https://atom.io/packages/tool-bar</a>]</p>
+<p>  让 Atom 支持 toolbar，需要安装其他扩展插件</p>
+</li>
+<li><p>(Advanced Open File)[<a href="https://atom.io/packages/advanced-open-file" target="_blank" rel="external">https://atom.io/packages/advanced-open-file</a>]</p>
+<p>  快速打开硬盘上某个文件，如果不存在则创建，支持相对项目路径，创建多个文件，真方便</p>
+</li>
+<li><p>(keybinding-resolver)[<a href="https://atom.io/packages/keybinding-resolver" target="_blank" rel="external">https://atom.io/packages/keybinding-resolver</a>]</p>
+<p>  查看快捷键对应哪些命令，命令冲突时最好用了</p>
+</li>
+</ul>
+<h2 id="疑难杂症"><a href="#疑难杂症" class="headerlink" title="疑难杂症"></a>疑难杂症</h2><ul>
+<li><p>安装插件速度慢</p>
+<p>  在 <code>~/.atom/.apmrc</code> 配置 npm 镜像</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">registry = https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<p>  或者命令行</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apm config set registry https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <hr>
 <p><strong>CC BY-NC-SA 3.0 CN</strong></p>
 <p>本著作采用 <img alt="署名-非商业性使用-相同方式共享 3.0 中国大陆" style="display:inline-block!important;vertical-align: top;" src="/images/cc-by-nc-sa.svg"> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">署名-非商业性使用-相同方式共享 3.0 中国大陆</a> 进行许可</p>
