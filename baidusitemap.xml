@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://zhenyong.site/2016/08/03/starting-atom/</loc>
+    <lastmod>2016-08-03T05:35:15.000Z</lastmod>
+    <data>
+        <display>
+        <title>开始折腾 Atom</title>
+        <pubTime>2016-08-03T05:05:49.000Z</pubTime>
+        
+        <tag>Atom</tag>
+         
+        <tag>theme</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://zhenyong.site/2016/07/06/Flow-in-Vue/</loc>
+    <lastmod>2016-08-02T17:41:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>Flow in Vue</title>
+        <pubTime>2016-07-06T05:07:31.000Z</pubTime>
+        
+        <tag>flow</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhenyong.site/2016/07/30/vuex-q-and-a/</loc>
     <lastmod>2016-07-30T07:43:20.000Z</lastmod>
     <data>
@@ -44,21 +80,6 @@
              
               <breadCrumb title="tech" url="http://zhenyong.site/categories/tech/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhenyong.site/2016/07/06/Flow-in-Vue/</loc>
-    <lastmod>2016-07-17T13:54:04.000Z</lastmod>
-    <data>
-        <display>
-        <title>Flow in Vue</title>
-        <pubTime>2016-07-06T05:07:31.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>

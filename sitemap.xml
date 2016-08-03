@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhenyong.site/2016/08/03/starting-atom/</loc>
+    
+    <lastmod>2016-08-03T05:35:15.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://zhenyong.site/2016/07/06/Flow-in-Vue/</loc>
+    
+    <lastmod>2016-08-02T17:41:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhenyong.site/2016/07/30/vuex-q-and-a/</loc>
     
     <lastmod>2016-07-30T07:43:20.000Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://zhenyong.site/2016/07/20/folk-git-folder/</loc>
     
     <lastmod>2016-07-20T17:18:20.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhenyong.site/2016/07/06/Flow-in-Vue/</loc>
-    
-    <lastmod>2016-07-17T13:54:04.000Z</lastmod>
     
   </url>
   
