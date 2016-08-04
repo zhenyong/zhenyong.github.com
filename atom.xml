@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenyong.site/"/>
-  <updated>2016-08-03T19:01:26.000Z</updated>
+  <updated>2016-08-04T00:38:24.000Z</updated>
   <id>http://zhenyong.site/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zhenyong.site/2016/08/03/starting-atom/"/>
     <id>http://zhenyong.site/2016/08/03/starting-atom/</id>
     <published>2016-08-03T05:05:49.000Z</published>
-    <updated>2016-08-03T19:01:26.000Z</updated>
+    <updated>2016-08-04T00:38:24.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Atom 是 Github 出品，基于 Electron 开发的跨平台编辑器。</p>
@@ -34,13 +34,7 @@
 <h2 id="修改主题"><a href="#修改主题" class="headerlink" title="修改主题"></a>修改主题</h2><p>使用了上面的主题和颜色后，发现编辑区的背景颜色跟 sublime 用的不一样，因为 Atom 本质上是个 Chrome 浏览，第一个想法就是调出控制台 (alt+cmd+i)，查看这个节点 <code>atom-text-editor</code> 的样式 ，接着按照 <a href="https://atom.io/themes/material-ui" target="_blank" rel="external">material-ui</a> 的文档修改主题：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// styles/editor.less</div><div class="line">atom-text-editor &#123;</div><div class="line">	// 注释掉这行就好了</div><div class="line">  // background: @level-3-color;</div><div class="line"></div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果擅长前端的童鞋用 Atom 上手会很高效，这玩意就是个浏览器，^_^ ！</p>
-<h2 id="插件们"><a href="#插件们" class="headerlink" title="插件们"></a>插件们</h2><blockquote>
-<p>从下面文章中搜刮</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/39938370" target="_blank" rel="external">Atom 有什么优秀插件</a></li>
-</ul>
-</blockquote>
-<ul>
+<h2 id="插件们"><a href="#插件们" class="headerlink" title="插件们"></a>插件们</h2><ul>
 <li><p><a href="https://github.com/sindresorhus/atom-editorconfig" target="_blank" rel="external">EditorConfig</a></p>
 <p>  Atom 内置 <code>whitespace</code> 插件会『覆盖』掉 EditorConfig 配置，导致 <code>trim_trailing_whitespace</code> 和 <code>insert_final_newline</code> 在 <code>.editorconfig</code> 中无效，参考 <a href="https://github.com/sindresorhus/atom-editorconfig/issues/3" target="_blank" rel="external">github issue</a><br>  (##2016-08-03##)</p>
 </li>
