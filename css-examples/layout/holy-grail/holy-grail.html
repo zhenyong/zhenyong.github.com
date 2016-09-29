@@ -86,16 +86,57 @@
 
 
 
-<meta name="description" content="vue-router 中文文档vue-loader 中文文档React 中文文档Flow 中文文档">
+<meta name="description" content="#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-left: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: &apos;&apos;;
+}
+main {">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Docs">
-<meta property="og:url" content="http://zhenyong.site/docs/index.html">
+<meta property="og:title" content="Make Hungry">
+<meta property="og:url" content="http://zhenyong.site/css-examples/layout/holy-grail/holy-grail.html">
 <meta property="og:site_name" content="Make Hungry">
-<meta property="og:description" content="vue-router 中文文档vue-loader 中文文档React 中文文档Flow 中文文档">
-<meta property="og:updated_time" content="2016-09-29T11:11:18.000Z">
+<meta property="og:description" content="#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-left: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: &apos;&apos;;
+}
+main {">
+<meta property="og:image" content="http://zhenyong.site/images/cc-by-nc-sa.svg">
+<meta property="og:updated_time" content="2016-09-05T09:04:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docs">
-<meta name="twitter:description" content="vue-router 中文文档vue-loader 中文文档React 中文文档Flow 中文文档">
+<meta name="twitter:title" content="Make Hungry">
+<meta name="twitter:description" content="#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-left: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: &apos;&apos;;
+}
+main {">
+<meta name="twitter:image" content="http://zhenyong.site/images/cc-by-nc-sa.svg">
 
 
 
@@ -116,13 +157,13 @@
 
 
 
-  <link rel="canonical" href="http://zhenyong.site/docs/"/>
+  <link rel="canonical" href="http://zhenyong.site/css-examples/layout/holy-grail/holy-grail.html"/>
 
   <title>
   
 
   
-    Docs | Make Hungry
+     | Make Hungry
   
 </title>
 </head>
@@ -294,7 +335,63 @@
   <div id="posts" class="posts-expand">
     
     
-      <h3 id="vue-router-中文文档"><a href="#vue-router-中文文档" class="headerlink" title="vue-router 中文文档"></a><a href="/vue-router">vue-router 中文文档</a></h3><h3 id="vue-loader-中文文档"><a href="#vue-loader-中文文档" class="headerlink" title="vue-loader 中文文档"></a><a href="/vue-loader">vue-loader 中文文档</a></h3><h3 id="React-中文文档"><a href="#React-中文文档" class="headerlink" title="React 中文文档"></a><a href="/react">React 中文文档</a></h3><h3 id="Flow-中文文档"><a href="#Flow-中文文档" class="headerlink" title="Flow 中文文档"></a><a href="/flowtype">Flow 中文文档</a></h3>
+      <style>
+#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-left: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: '';
+}
+main {
+  background: red;
+  float: left;
+  width: 100%;
+}
+nav {
+  background: yellow;
+  width: 300px;
+  float: left;
+  position: relative;
+  left: -310px;
+  margin-left: -100%;
+}
+</style>
+<div id="ct">
+  <main>
+    主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主
+    内容主内容主内容主内容
+  </main>
+  <nav>侧边栏</nav>
+</div>
+
+<pre>
+  ## 圣杯布局的优势:
+
+  - main 容宽度完全自适应
+  - 没有脱离文档流，ct 高度可以被 nav 和 main 撑开
+
+  ## 理解难点：
+
+  当 main 宽度为 100% 时，同为 float:left 的 nav 跟在 main 后面，因为塞不下就会变为下一行，
+  此时为 nav 设置 margin-left:-100% (容器的100%)，此时 main 同行也能容纳 nav 了，且两者
+  开头位置重叠，于是乎继续用 left: -310px 把它放到最左侧
+</pre>
+
+___
+**CC BY-NC-SA 3.0 CN**
+
+本著作采用 <img alt="署名-非商业性使用-相同方式共享 3.0 中国大陆" style="display:inline-block!important;vertical-align: top;" src="/images/cc-by-nc-sa.svg"> [署名-非商业性使用-相同方式共享 3.0 中国大陆](https://creativecommons.org/licenses/by-nc-sa/3.0/cn/) 进行许可
+
+欢迎转载，但转载请注明来自 [zhenyong.site](http://zhenyong.site)，并保持转载后文章内容的完整
+
+
     
   </div>
 
@@ -306,8 +403,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="docs/index.html"
-           data-title="Docs" data-url="http://zhenyong.site/docs/index.html">
+      <div class="ds-thread" data-thread-key="css-examples/layout/holy-grail/holy-grail.html"
+           data-title="" data-url="http://zhenyong.site/css-examples/layout/holy-grail/holy-grail.html">
       </div>
     
   </div>
