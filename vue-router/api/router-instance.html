@@ -270,7 +270,7 @@
                 <a href="../advanced/navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -322,7 +322,7 @@
                 <a href="../advanced/scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -393,7 +393,7 @@
                 <a href="route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -432,7 +432,7 @@
                 <a href="component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -490,12 +490,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="router-instance">Router Instance</h1><h3 id="properties">Properties</h3><h4 id="routerapp">router.app</h4><ul><li><p>type: <code>Vue instance</code></p><p>The root Vue instance the <code>router</code> was injected into.</p></li></ul>
-<h4 id="routermode">router.mode</h4><ul><li><p>type: <code>string</code></p><p>The <a href="options.html#mode">mode</a> the router is using.</p></li></ul>
-<h4 id="routercurrentroute">router.currentRoute</h4><ul><li><p>type: <code>Route</code></p><p>The current route represented as a <a href="route-object.html">Route Object</a>.</p></li></ul>
-<h3 id="methods">Methods</h3><ul><li><strong>router.beforeEach(guard)</strong>
+                                <h1 id="router-&#x5B9E;&#x4F8B;">Router &#x5B9E;&#x4F8B;</h1><h3 id="&#x5C5E;&#x6027;">&#x5C5E;&#x6027;</h3><h4 id="routerapp">router.app</h4><ul><li><p>&#x7C7B;&#x578B;: <code>Vue instance</code></p><p>&#x914D;&#x7F6E;&#x4E86; <code>router</code> &#x7684; Vue &#x6839;&#x5B9E;&#x4F8B;&#x3002;</p></li></ul>
+<h4 id="routermode">router.mode</h4><ul><li><p>&#x7C7B;&#x578B;: <code>string</code></p><p>&#x8DEF;&#x7531;&#x4F7F;&#x7528;&#x7684; <a href="options.html#mode">&#x6A21;&#x5F0F;</a>&#x3002;</p></li></ul>
+<h4 id="routercurrentroute">router.currentRoute</h4><ul><li><p>&#x7C7B;&#x578B;: <code>Route</code></p><p>&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x5BF9;&#x5E94;&#x7684; <a href="route-object.html">&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;</a>.</p></li></ul>
+<h3 id="&#x65B9;&#x6CD5;">&#x65B9;&#x6CD5;</h3><ul><li><strong>router.beforeEach(guard)</strong>
 </li>
-<li><p><strong>router.afterEach(hook)</strong></p><p>Add global navigation guards. See <a href="../advanced/navigation-guards.html">Navigation Guards</a>.</p></li></ul>
+<li><p><strong>router.afterEach(hook)</strong></p><p>&#x589E;&#x52A0;&#x5168;&#x5C40;&#x7684;&#x5BFC;&#x822A;&#x94A9;&#x5B50;&#x3002;&#x53C2;&#x8003; <a href="../advanced/navigation-guards.html">&#x5BFC;&#x822A;&#x94A9;&#x5B50;</a>.</p></li></ul>
 <ul><li><strong>router.push(location)</strong>
 </li>
 <li><strong>router.replace(location)</strong>
@@ -504,8 +504,8 @@
 </li>
 <li><strong>router.back()</strong>
 </li>
-<li><p><strong>router.forward()</strong></p><p>Programmatically navigate to a new URL. See <a href="../essentials/navigation.html">Programmatic Navigation</a>.</p></li>
-<li><p><strong>router.getMatchedComponents()</strong></p><p>Returns an Array of the components (definition/constructor, not instances) matched by the current route. This is mostly used during server-side rendering to perform data prefetching.</p></li></ul>
+<li><p><strong>router.forward()</strong></p><p>&#x52A8;&#x6001;&#x7684;&#x5BFC;&#x822A;&#x5230;&#x4E00;&#x4E2A;&#x65B0; url&#x3002;&#x53C2;&#x8003; <a href="../essentials/navigation.html">&#x7F16;&#x7A0B;&#x5F0F;&#x5BFC;&#x822A;</a>.</p></li>
+<li><p><strong>router.getMatchedComponents()</strong></p><p>&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x5339;&#x914D;&#x7684;&#x7EC4;&#x4EF6;&#x6570;&#x7EC4;&#xFF08;&#x662F;&#x6570;&#x7EC4;&#x7684;&#x5B9A;&#x4E49;/&#x6784;&#x9020;&#x7C7B;&#xFF0C;&#x4E0D;&#x662F;&#x5B9E;&#x4F8B;&#xFF09;&#x3002;&#x901A;&#x5E38;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x7684;&#x6570;&#x636E;&#x9884;&#x52A0;&#x8F7D;&#x65F6;&#x65F6;&#x5019;&#x3002;</p></li></ul>
 
                                 
                                 </section>
@@ -538,7 +538,7 @@
                 </a>
                 
                 
-                <a href="component-injections.html" class="navigation navigation-next " aria-label="Next page: Component Injections">
+                <a href="component-injections.html" class="navigation navigation-next " aria-label="Next page: 对组件注入">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -549,7 +549,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Router 实例","level":"1.6.5","depth":2,"next":{"title":"Component Injections","level":"1.6.6","depth":2,"path":"api/component-injections.md","ref":"api/component-injections.md","articles":[]},"previous":{"title":"Router 构造配置","level":"1.6.4","depth":2,"path":"api/options.md","ref":"api/options.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/router-instance.md","mtime":"2016-09-29T07:49:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Router 实例","level":"1.6.5","depth":2,"next":{"title":"对组件注入","level":"1.6.6","depth":2,"path":"api/component-injections.md","ref":"api/component-injections.md","articles":[]},"previous":{"title":"Router 构造配置","level":"1.6.4","depth":2,"path":"api/options.md","ref":"api/options.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/router-instance.md","mtime":"2016-09-30T03:20:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

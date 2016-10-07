@@ -270,7 +270,7 @@
                 <a href="navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -322,7 +322,7 @@
                 <a href="scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -393,7 +393,7 @@
                 <a href="../api/route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -432,7 +432,7 @@
                 <a href="../api/component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -506,7 +506,7 @@
     }
   ]
 })</code></pre>
-<p>&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A; <code>meta</code> &#x5B57;&#x6BB5;&#x5462;&#xFF1F;</p><p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x547C; <code>routes</code> &#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x4E3A; <strong>&#x8DEF;&#x7531;&#x8BB0;&#x5F55;</strong>&#x3002;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x53EF;&#x4EE5;&#x662F;&#x5D4C;&#x5957;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5339;&#x914D;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4ED6;&#x53EF;&#x80FD;&#x5339;&#x914D;&#x591A;&#x4E2A;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;</p><p>&#x4F8B;&#x5982;&#xFF0C;&#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#xFF0C;<code>/foo/bar</code> &#x8FD9;&#x4E2A; URL &#x5C06;&#x4F1A;&#x5339;&#x914D;&#x7236;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x4EE5;&#x53CA;&#x5B50;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x3002;</p><p>&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5339;&#x914D;&#x5230;&#x7684;&#x6240;&#x6709;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x4F1A;&#x66B4;&#x9732;&#x4E3A; <code>$route</code> &#x5BF9;&#x8C61;&#xFF08;&#x8FD8;&#x6709;&#x5728;&#x5BFC;&#x822A;&#x536B;&#x58EB;&#x94A9;&#x5B50;&#x4E2D;&#x7684; route &#x5BF9;&#x8C61;&#xFF09;&#x7684; <code>$route.matched</code> &#x6570;&#x7EC4;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x9700;&#x8981;&#x904D;&#x5386;  <code>$route.matched</code> &#x6765;&#x68C0;&#x67E5;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x4E2D;&#x7684; <code>meta</code> &#x5B57;&#x6BB5;&#x3002;</p><p>&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x5C55;&#x793A;&#x5728;&#x5168;&#x5C40;&#x5BFC;&#x822A;&#x5B88;&#x536B;&#x4E2D;&#x68C0;&#x67E5; meta &#x5B57;&#x6BB5;&#xFF1A;</p><pre><code class="lang-js">router.beforeEach((to, <span class="hljs-keyword">from</span>, next) =&gt; {
+<p>&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A; <code>meta</code> &#x5B57;&#x6BB5;&#x5462;&#xFF1F;</p><p>&#x9996;&#x5148;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x547C; <code>routes</code> &#x914D;&#x7F6E;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x4E3A; <strong>&#x8DEF;&#x7531;&#x8BB0;&#x5F55;</strong>&#x3002;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x53EF;&#x4EE5;&#x662F;&#x5D4C;&#x5957;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5339;&#x914D;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x4ED6;&#x53EF;&#x80FD;&#x5339;&#x914D;&#x591A;&#x4E2A;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;</p><p>&#x4F8B;&#x5982;&#xFF0C;&#x6839;&#x636E;&#x4E0A;&#x9762;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#xFF0C;<code>/foo/bar</code> &#x8FD9;&#x4E2A; URL &#x5C06;&#x4F1A;&#x5339;&#x914D;&#x7236;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x4EE5;&#x53CA;&#x5B50;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x3002;</p><p>&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x5339;&#x914D;&#x5230;&#x7684;&#x6240;&#x6709;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x4F1A;&#x66B4;&#x9732;&#x4E3A; <code>$route</code> &#x5BF9;&#x8C61;&#xFF08;&#x8FD8;&#x6709;&#x5728;&#x5BFC;&#x822A;&#x94A9;&#x5B50;&#x4E2D;&#x7684; route &#x5BF9;&#x8C61;&#xFF09;&#x7684; <code>$route.matched</code> &#x6570;&#x7EC4;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x904D;&#x5386; <code>$route.matched</code> &#x6765;&#x68C0;&#x67E5;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x4E2D;&#x7684; <code>meta</code> &#x5B57;&#x6BB5;&#x3002;</p><p>&#x4E0B;&#x9762;&#x4F8B;&#x5B50;&#x5C55;&#x793A;&#x5728;&#x5168;&#x5C40;&#x5BFC;&#x822A;&#x94A9;&#x5B50;&#x4E2D;&#x68C0;&#x67E5; meta &#x5B57;&#x6BB5;&#xFF1A;</p><pre><code class="lang-js">router.beforeEach((to, <span class="hljs-keyword">from</span>, next) =&gt; {
   <span class="hljs-keyword">if</span> (to.matched.some(record =&gt; record.meta.requiresAuth)) {
     <span class="hljs-comment">// this route requires auth, check if logged in</span>
     <span class="hljs-comment">// if not, redirect to login page.</span>
@@ -549,7 +549,7 @@
 
             
                 
-                <a href="navigation-guards.html" class="navigation navigation-prev " aria-label="Previous page: 导航卫士">
+                <a href="navigation-guards.html" class="navigation navigation-prev " aria-label="Previous page: 导航钩子">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -565,7 +565,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"路由元信息","level":"1.5.2","depth":2,"next":{"title":"过渡动效","level":"1.5.3","depth":2,"path":"advanced/transitions.md","ref":"advanced/transitions.md","articles":[]},"previous":{"title":"导航卫士","level":"1.5.1","depth":2,"path":"advanced/navigation-guards.md","ref":"advanced/navigation-guards.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/meta.md","mtime":"2016-09-29T07:52:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"路由元信息","level":"1.5.2","depth":2,"next":{"title":"过渡动效","level":"1.5.3","depth":2,"path":"advanced/transitions.md","ref":"advanced/transitions.md","articles":[]},"previous":{"title":"导航钩子","level":"1.5.1","depth":2,"path":"advanced/navigation-guards.md","ref":"advanced/navigation-guards.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"advanced/meta.md","mtime":"2016-09-30T01:51:11.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

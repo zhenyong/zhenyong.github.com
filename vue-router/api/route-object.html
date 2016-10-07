@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>The Route Object · GitBook</title>
+        <title>路由信息对象 · GitBook</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -270,7 +270,7 @@
                 <a href="../advanced/navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -322,7 +322,7 @@
                 <a href="../advanced/scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -393,7 +393,7 @@
                 <a href="route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -432,7 +432,7 @@
                 <a href="component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -475,7 +475,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >The Route Object</a>
+        <a href=".." >路由信息对象</a>
     </h1>
 </div>
 
@@ -490,45 +490,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="the-route-object">The Route Object</h1><p>&#x4E00;&#x4E2A; <strong>route object</strong> &#x8868;&#x793A;&#x5F53;&#x524D;&#x6FC0;&#x6D3B;&#x7684;&#x8DEF;&#x7531;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5F53;&#x524D; URL &#x89E3;&#x6790;&#x5F97;&#x5230;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD8;&#x6709; URL &#x5339;&#x914D;&#x5230;&#x7684; <strong>route records</strong>&#xFF08;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#xFF09;&#x3002;</p><p>route object &#x662F; immutable &#x7684;&#xFF0C;&#x6BCF;&#x6B21;&#x6210;&#x529F;&#x7684;&#x5BFC;&#x822A;&#x540E;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p><p>route object &#x80FD;&#x5728;&#x591A;&#x4E2A;&#x5730;&#x65B9;&#x627E;&#x5230;:</p><ul><li><p>&#x7EC4;&#x4EF6;&#x5185;&#x7684; <code>this.$route</code> &#x548C; <code>$route</code> watcher &#x56DE;&#x8C03;;</p></li>
+                                <h1 id="&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;">&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;</h1><p>&#x4E00;&#x4E2A; <strong>route object&#xFF08;&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;&#xFF09;</strong> &#x8868;&#x793A;&#x5F53;&#x524D;&#x6FC0;&#x6D3B;&#x7684;&#x8DEF;&#x7531;&#x7684;&#x72B6;&#x6001;&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x5F53;&#x524D; URL &#x89E3;&#x6790;&#x5F97;&#x5230;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD8;&#x6709; URL &#x5339;&#x914D;&#x5230;&#x7684; <strong>route records&#xFF08;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#xFF09;</strong>&#x3002;</p><p>route object &#x662F; immutable&#xFF08;&#x4E0D;&#x53EF;&#x53D8;&#xFF09; &#x7684;&#xFF0C;&#x6BCF;&#x6B21;&#x6210;&#x529F;&#x7684;&#x5BFC;&#x822A;&#x540E;&#x90FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p><p>route object &#x51FA;&#x73B0;&#x5728;&#x591A;&#x4E2A;&#x5730;&#x65B9;:</p><ul><li><p>&#x7EC4;&#x4EF6;&#x5185;&#x7684; <code>this.$route</code> &#x548C; <code>$route</code> watcher &#x56DE;&#x8C03;&#xFF08;&#x76D1;&#x6D4B;&#x53D8;&#x5316;&#x5904;&#x7406;&#xFF09;;</p></li>
 <li><p><code>router.match(location)</code> &#x7684;&#x8FD4;&#x56DE;&#x503C;</p></li>
-<li><p>&#x5BFC;&#x822A; (guard) &#x5B88;&#x536B;&#x7684;&#x53C2;&#x6570;&#xFF1A;</p><pre><code class="lang-js">router.beforeEach((to, <span class="hljs-keyword">from</span>, next) =&gt; {
-  <span class="hljs-comment">// to and from are both route objects</span>
+<li><p>&#x5BFC;&#x822A;&#x94A9;&#x5B50;&#x7684;&#x53C2;&#x6570;&#xFF1A;</p><pre><code class="lang-js">router.beforeEach((to, <span class="hljs-keyword">from</span>, next) =&gt; {
+  <span class="hljs-comment">// to &#x548C; from &#x90FD;&#x662F; &#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;</span>
 })</code></pre>
 <ul><li><code>scrollBehavior</code> &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;:
 </li></ul>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
   scrollBehavior (to, <span class="hljs-keyword">from</span>, savedPosition) {
-    <span class="hljs-comment">// to and from are both route objects</span>
+    <span class="hljs-comment">// to &#x548C; from &#x90FD;&#x662F; &#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;</span>
   }
 })</code></pre>
 </li></ul>
-<h3 id="route-object-properties">Route Object Properties</h3><ul><li><p><strong>$route.path</strong></p><ul><li><p>type: <code>string</code></p><p>&#x5B57;&#x7B26;&#x5E8A;&#xFF0C;&#x5BF9;&#x5E94;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x603B;&#x662F;&#x89E3;&#x6790;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5982; <code>&quot;/foo/bar&quot;</code>&#x3002;</p></li></ul>
+<h3 id="&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;">&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;</h3><ul><li><p><strong>$route.path</strong></p><ul><li><p>&#x7C7B;&#x578B;: <code>string</code></p><p>&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5BF9;&#x5E94;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x603B;&#x662F;&#x89E3;&#x6790;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5982; <code>&quot;/foo/bar&quot;</code>&#x3002;</p></li></ul>
 </li></ul>
-<ul><li><p><strong>$route.params</strong></p><ul><li>type: <code>Object</code>
+<ul><li><p><strong>$route.params</strong></p><ul><li>&#x7C7B;&#x578B;: <code>Object</code>
 </li></ul>
 <p>&#x4E00;&#x4E2A; key/value &#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;&#x4E86; &#x52A8;&#x6001;&#x7247;&#x6BB5; &#x548C; &#x5168;&#x5339;&#x914D;&#x7247;&#x6BB5;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;&#x3002;</p></li>
-<li><p><strong>$route.query</strong></p><ul><li><p>type: <code>Object</code></p><p>An object that contains key/value pairs of the query string. For example, for a path <code>/foo?user=1</code>, we get <code>$route.query.user == 1</code>. If there is no query the value will be an empty object.</p></li></ul>
+<li><p><strong>$route.query</strong></p><ul><li><p>&#x7C7B;&#x578B;: <code>Object</code></p><p>&#x4E00;&#x4E2A; key/value &#x5BF9;&#x8C61;&#xFF0C;&#x8868;&#x793A; URL &#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x4E8E;&#x8DEF;&#x5F84; <code>/foo?user=1</code>&#xFF0C;&#x5219;&#x6709; <code>$route.query.user == 1</code>&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x662F;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;&#x3002;</p></li></ul>
 </li></ul>
-<ul><li><p><strong>$route.hash</strong></p><ul><li><p>type: <code>string</code></p><p>The hash of the current route (without <code>#</code>), if it has one. If no hash is present the value will be an empty string.</p></li></ul>
+<ul><li><p><strong>$route.hash</strong></p><ul><li><p>&#x7C7B;&#x578B;: <code>string</code></p><p>&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684; hash &#x503C; (&#x4E0D;&#x5E26; <code>#</code>) &#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709; hash &#x503C;&#xFF0C;&#x5219;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p></li></ul>
 </li></ul>
-<ul><li><p><strong>$route.fullPath</strong></p><ul><li><p>type: <code>string</code></p><p>The full resolved URL including query and hash.</p></li></ul>
+<ul><li><p><strong>$route.fullPath</strong></p><ul><li><p>&#x7C7B;&#x578B;: <code>string</code></p><p>&#x5B8C;&#x6210;&#x89E3;&#x6790;&#x540E;&#x7684; URL&#xFF0C;&#x5305;&#x542B;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#x548C; hash &#x7684;&#x5B8C;&#x6574;&#x8DEF;&#x5F84;&#x3002;</p></li></ul>
 </li></ul>
-<ul><li><p><strong>$route.matched</strong></p><ul><li>type: <code>Array&lt;RouteRecord&gt;</code>
+<ul><li><p><strong>$route.matched</strong></p><ul><li>&#x7C7B;&#x578B;: <code>Array&lt;RouteRecord&gt;</code>
 </li></ul>
-<p>An Array containing <strong>route records</strong> for all nested path segments of the current route. Route records are the copies of the objects in the <code>routes</code> configuration Array (and in <code>children</code> Arrays):</p><pre><code class="lang-js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
+<p>&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5305;&#x542B;&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x6240;&#x6709;&#x5D4C;&#x5957;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684; <strong>&#x8DEF;&#x7531;&#x8BB0;&#x5F55;</strong> &#x3002;&#x8DEF;&#x7531;&#x8BB0;&#x5F55;&#x5C31;&#x662F; <code>routes</code> &#x914D;&#x7F6E;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5BF9;&#x8C61;&#x526F;&#x672C;&#xFF08;&#x8FD8;&#x6709;&#x5728; <code>children</code> &#x6570;&#x7EC4;&#xFF09;&#x3002;</p><pre><code class="lang-js"><span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
   routes: [
-    <span class="hljs-comment">// the following object is a route record</span>
+    <span class="hljs-comment">// &#x4E0B;&#x9762;&#x7684;&#x5BF9;&#x8C61;&#x5C31;&#x662F; route record</span>
     { path: <span class="hljs-string">&apos;/foo&apos;</span>, component: Foo,
       children: [
-        <span class="hljs-comment">// this is also a route record</span>
+        <span class="hljs-comment">// &#x8FD9;&#x4E5F;&#x662F;&#x4E2A; route record</span>
         { path: <span class="hljs-string">&apos;bar&apos;</span>, component: Bar }
       ]
     }
   ]
 })</code></pre>
-<p>When the URL is <code>/foo/bar</code>, <code>$route.matched</code> will be an Array containing both objects (cloned), in parent to child order.</p></li>
-<li><p><strong>$route.name</strong></p><p>The name of the current route, if it has one. (See <a href="../essentials/named-routes.html">Named Routes</a>)</p></li></ul>
+<p>&#x5F53; URL &#x4E3A; <code>/foo/bar</code>&#xFF0C;<code>$route.matched</code> &#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#xFF08;&#x526F;&#x672C;&#xFF09;&#x3002;</p></li>
+<li><p><strong>$route.name</strong></p><p>&#x5F53;&#x524D;&#x8DEF;&#x7531;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x7684;&#x8BDD;&#x3002;&#xFF08;&#x67E5;&#x770B; <a href="../essentials/named-routes.html">&#x547D;&#x540D;&#x8DEF;&#x7531;</a>&#xFF09;</p></li></ul>
 
                                 
                                 </section>
@@ -572,7 +572,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Route Object","level":"1.6.3","depth":2,"next":{"title":"Router 构造配置","level":"1.6.4","depth":2,"path":"api/options.md","ref":"api/options.md","articles":[]},"previous":{"title":"router-view","level":"1.6.2","depth":2,"path":"api/router-view.md","ref":"api/router-view.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/route-object.md","mtime":"2016-09-29T09:50:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"路由信息对象","level":"1.6.3","depth":2,"next":{"title":"Router 构造配置","level":"1.6.4","depth":2,"path":"api/options.md","ref":"api/options.md","articles":[]},"previous":{"title":"router-view","level":"1.6.2","depth":2,"path":"api/router-view.md","ref":"api/router-view.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/route-object.md","mtime":"2016-09-30T03:15:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

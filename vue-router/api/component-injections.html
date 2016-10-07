@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Component Injections · GitBook</title>
+        <title>对组件注入 · GitBook</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -268,7 +268,7 @@
                 <a href="../advanced/navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -320,7 +320,7 @@
                 <a href="../advanced/scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -391,7 +391,7 @@
                 <a href="route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -430,7 +430,7 @@
                 <a href="component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -473,7 +473,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Component Injections</a>
+        <a href=".." >对组件注入</a>
     </h1>
 </div>
 
@@ -488,11 +488,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="component-injections">Component Injections</h1><h3 id="injected-properties">Injected Properties</h3><p>These properties are injected into every child component by passing the router instance to the root instance as the <code>router</code> option.</p><ul><li><h4 id="router">$router</h4><p>The router instance.</p></li>
-<li><h4 id="route">$route</h4><p>The current active <a href="route-object.html">Route</a>. This property is read-only and its properties are immutable, but it can be watched.</p></li></ul>
-<h3 id="enabled-options">Enabled Options</h3><ul><li><strong>beforeRouteEnter</strong>
+                                <h1 id="&#x5BF9;&#x7EC4;&#x4EF6;&#x6CE8;&#x5165;">&#x5BF9;&#x7EC4;&#x4EF6;&#x6CE8;&#x5165;</h1><h3 id="&#x6CE8;&#x5165;&#x7684;&#x5C5E;&#x6027;">&#x6CE8;&#x5165;&#x7684;&#x5C5E;&#x6027;</h3><p>&#x901A;&#x8FC7;&#x5728; Vue &#x6839;&#x5B9E;&#x4F8B;&#x7684; <code>router</code> &#x914D;&#x7F6E;&#x4F20;&#x5165; router &#x5B9E;&#x4F8B;&#xFF0C;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x6210;&#x5458;&#x4F1A;&#x88AB;&#x6CE8;&#x5165;&#x5230;&#x6BCF;&#x4E2A;&#x5B50;&#x7EC4;&#x4EF6;&#x3002;</p><ul><li><h4 id="router">$router</h4><p>router &#x5B9E;&#x4F8B;.</p></li>
+<li><h4 id="route">$route</h4><p>&#x5F53;&#x524D;&#x6FC0;&#x6D3B;&#x7684; <a href="route-object.html">&#x8DEF;&#x7531;&#x4FE1;&#x606F;&#x5BF9;&#x8C61;</a>&#x3002;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x91CC;&#x9762;&#x7684;&#x5C5E;&#x6027;&#x662F; immutable&#xFF08;&#x4E0D;&#x53EF;&#x53D8;&#xFF09; &#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x4F60;&#x53EF;&#x4EE5; watch&#xFF08;&#x76D1;&#x6D4B;&#x53D8;&#x5316;&#xFF09; &#x5B83;&#x3002;</p></li></ul>
+<h3 id="&#x5141;&#x8BB8;&#x7684;&#x989D;&#x5916;&#x914D;&#x7F6E;">&#x5141;&#x8BB8;&#x7684;&#x989D;&#x5916;&#x914D;&#x7F6E;</h3><ul><li><strong>beforeRouteEnter</strong>
 </li>
-<li><p><strong>beforeRouteLeave</strong></p><p>See <a href="../advanced/navigation-guards.html#incomponent-guards">In Component Guards</a>.</p></li></ul>
+<li><p><strong>beforeRouteLeave</strong></p><p>&#x67E5;&#x770B; <a href="../advanced/navigation-guards.html#incomponent-guards">&#x7EC4;&#x4EF6;&#x7EA7;&#x5BFC;&#x822A;&#x94A9;&#x5B50;</a>.</p></li></ul>
 
                                 
                                 </section>
@@ -532,7 +532,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Component Injections","level":"1.6.6","depth":2,"previous":{"title":"Router 实例","level":"1.6.5","depth":2,"path":"api/router-instance.md","ref":"api/router-instance.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/component-injections.md","mtime":"2016-09-29T07:49:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"对组件注入","level":"1.6.6","depth":2,"previous":{"title":"Router 实例","level":"1.6.5","depth":2,"path":"api/router-instance.md","ref":"api/router-instance.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/component-injections.md","mtime":"2016-09-30T02:12:10.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+<html lang="en" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>State（状态） | Vuex</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        
+        
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="gitbook/style.css">
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-prism/prism.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-search/search.css">
+        
+    
+        
+        <link rel="stylesheet" href="gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="./getters.html" />
+    
+    
+    <link rel="prev" href="./getting-started.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+    <div class="book"
+        data-level="6.1"
+        data-chapter-title="State（状态）"
+        data-filepath="state.md"
+        data-basepath="."
+        data-revision="Fri Oct 07 2016 14:07:45 GMT+0800 (CST)"
+        data-innerlanguage="">
+    
+
+<div class="book-summary">
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+            
+
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="./index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" >
+            
+                
+                    <a target="_blank" href="https:/github.com/vuejs/vuex/tree/1.0/docs">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        想找 1.0 的文档？
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2" >
+            
+                
+                    <a target="_blank" href="https:/github.com/vuejs/vuex/releases">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        版本说明
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="installation.html">
+            
+                
+                    <a href="./installation.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        安装
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="intro.html">
+            
+                
+                    <a href="./intro.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Vuex 是什么？
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="5" data-path="getting-started.html">
+            
+                
+                    <a href="./getting-started.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                        起步
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6" >
+            
+            <span><b>6.</b> 核心概念</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="6.1" data-path="state.html">
+            
+                
+                    <a href="./state.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                        State（状态）
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="getters.html">
+            
+                
+                    <a href="./getters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                        Getters
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="mutations.html">
+            
+                
+                    <a href="./mutations.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                        Mutations
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="actions.html">
+            
+                
+                    <a href="./actions.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                        Actions
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="modules.html">
+            
+                
+                    <a href="./modules.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                        模块
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7" data-path="structure.html">
+            
+                
+                    <a href="./structure.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                        应用架构
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="8" data-path="plugins.html">
+            
+                
+                    <a href="./plugins.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                        插件
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="9" data-path="strict.html">
+            
+                
+                    <a href="./strict.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                        严格模式
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="10" data-path="forms.html">
+            
+                
+                    <a href="./forms.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                        表单处理
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="11" data-path="testing.html">
+            
+                
+                    <a href="./testing.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                        测试
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="12" data-path="hot-reload.html">
+            
+                
+                    <a href="./hot-reload.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.</b>
+                        
+                        热加载
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="13" data-path="api.html">
+            
+                
+                    <a href="./api.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>13.</b>
+                        
+                        API 指南
+                    </a>
+            
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="./" >Vuex</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="state&#xFF08;&#x72B6;&#x6001;&#xFF09;">State&#xFF08;&#x72B6;&#x6001;&#xFF09;</h1>
+<h3 id="&#x5355;&#x4E00;&#x72B6;&#x6001;&#x6811;">&#x5355;&#x4E00;&#x72B6;&#x6001;&#x6811;</h3>
+<p>Vuex &#x4F7F;&#x7528; <strong>&#x5355;&#x4E00;&#x72B6;&#x6001;&#x6811;</strong> - &#x662F;&#x7684;&#xFF0C;&#x8FD9;&#x5355;&#x4E2A;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86;&#x5168;&#x90E8;&#x7684;&#x5E94;&#x7528;&#x7EA7;&#x72B6;&#x6001;&#xFF0C;&#x7136;&#x540E;&#x4F5C;&#x4E3A; &quot;&#x5355;&#x4E00;&#x6570;&#x636E;&#x6E90;&quot;&#x3002;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x6BCF;&#x4E2A;&#x5F15;&#x7528;&#x901A;&#x5E38;&#x53EA;&#x6709;&#x4E00;&#x4E2A; store&#x3002;&#x4F7F;&#x7528;&#x5355;&#x72B6;&#x6001;&#x6811;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730;&#x5B9A;&#x4F4D;&#x5230;&#x72B6;&#x6001;&#x7684;&#x67D0;&#x4E9B;&#x90E8;&#x5206;&#xFF0C;&#x4E5F;&#x8BA9;&#x6211;&#x4EEC;&#x5BB9;&#x6613;&#x4FDD;&#x5B58;&#x524D;&#x5E94;&#x7528;&#x72B6;&#x6001;&#x7684;&#x5FEB;&#x7167;&#xFF0C;&#x7528;&#x6765;&#x8C03;&#x8BD5;&#x7A0B;&#x5E8F;&#x3002;</p>
+<p>&#x5355;&#x72B6;&#x6001;&#x6811;&#x548C;&#x6A21;&#x5757;&#x5316;&#x5E76;&#x4E0D;&#x51B2;&#x7A81; &#x2014;&#x2014; &#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x7AE0;&#x8282;&#x8BA8;&#x8BBA;&#x5982;&#x4F55;&#x5C06; state &#x548C; mutation &#x5206;&#x6563;&#x5728;&#x591A;&#x4E2A;&#x5B50;&#x6A21;&#x5757;&#x4E2D;&#x3002;</p>
+<h3 id="&#x5728;-vue-&#x7EC4;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE;-vuex-&#x7684;&#x72B6;&#x6001;">&#x5728; Vue &#x7EC4;&#x4EF6;&#x4E2D;&#x8BBF;&#x95EE; Vuex &#x7684;&#x72B6;&#x6001;</h3>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x5728; Vue &#x7EC4;&#x4EF6;&#x4E2D;&#x5C55;&#x793A; store &#x4E2D;&#x7684;&#x72B6;&#x6001;&#x5462;&#xFF1F;&#x56E0;&#x4E3A; Vuex &#x5B58;&#x50A8;&#x7684;&#x72B6;&#x6001;&#x662F;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x4ECE;&#x4E2D;&quot;&#x83B7;&#x5F97;&quot;&#x72B6;&#x6001;&#x7684;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x5728; <a href="http://vuejs.org/guide/computed.html" target="_blank">computed property&#xFF08;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#xFF09;</a> &#x5185;&#x8FD4;&#x56DE;&#x67D0;&#x4E9B;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8BA1;&#x6570;&#x5668;&#x7EC4;&#x4EF6;</span>
+<span class="token keyword">const</span> Counter <span class="token operator">=</span> <span class="token punctuation">{</span>
+  template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`&lt;div&gt;{{ count }}&lt;/div&gt;`</span></span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    count <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>count
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x53EA;&#x8981; <code>store.state.count</code> &#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x5F15;&#x8D77;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x91CD;&#x65B0;&#x6C42;&#x503C;&#xFF0C;&#x63A5;&#x7740;&#x89E6;&#x53D1;&#x5173;&#x8054;&#x7684; DOM &#x66F4;&#x65B0;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4F7F;&#x5F97;&#x7EC4;&#x4EF6;&#x4F9D;&#x8D56;&#x4E86;&#x5168;&#x5C40;&#x7684; store &#x5355;&#x4F8B;&#x3002;&#x5F53;&#x4F7F;&#x7528;&#x6A21;&#x5757;&#x5316;&#x5DE5;&#x7A0B;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5728;&#x7528;&#x5230;&#x5168;&#x5C40;&#x72B6;&#x6001;&#x7684;&#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x91CC; import &#x8FD9;&#x4E2A; store&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x6D4B;&#x8BD5;&#x7EC4;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#x4E5F;&#x9700;&#x8981;&#x6A21;&#x62DF;&#x8FD9;&#x4E2A; strore&#x3002;</p>
+<p>Vuex &#x63D0;&#x4F9B;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF0C;&#x5728;&#x6839;&#x7EC4;&#x4EF6;&#x914D;&#x7F6E; <code>store</code> &#x9009;&#x9879;&#xFF0C;&#x5219;&#x4F1A;&#x5C06;&#x8BE5; store &#x300E;&#x6CE8;&#x5165;&#x300F;&#x5230;&#x6839;&#x7EC4;&#x4EF6;&#x4EE5;&#x53CA;&#x5176;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#xFF08;&#x901A;&#x8FC7; <code>Vue.use(Vuex)</code> &#x5F00;&#x542F;&#x8BE5;&#x673A;&#x5236;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">&apos;#app&apos;</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// &#x4F7F;&#x7528; &quot;store&quot; &#x914D;&#x7F6E;&#x9879;&#x6765;&#x63D0;&#x4F9B; store</span>
+  <span class="token comment" spellcheck="true">// &#x8FD9;&#x4E2A; store &#x5B9E;&#x4F8B;&#x5C06;&#x4F1A;&#x88AB;&#x6CE8;&#x5165;&#x5230;&#x6BCF;&#x4E2A;&#x5B50;&#x7EC4;&#x4EF6;</span>
+  store<span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span> Counter <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`
+    &lt;div class=&quot;app&quot;&gt;
+      &lt;counter&gt;&lt;/counter&gt;
+    &lt;/div&gt;
+  `</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x5728;&#x6839;&#x5B9E;&#x4F8B;&#x914D;&#x7F6E; <code>store</code> &#x9009;&#x9879;&#xFF0C;&#x8FD9;&#x4E2A; store &#x5C31;&#x4F1A;&#x88AB;&#x6CE8;&#x5165;&#x5230;&#x6839;&#x5B9E;&#x4F8B;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x5B50;&#x7EC4;&#x4EF6;&#x4E2D;&#x901A;&#x8FC7; <code>this.$store</code> &#x6765;&#x8BBF;&#x95EE;&#x5B83;&#x3002;&#x6211;&#x4EEC;&#x6765;&#x66F4;&#x65B0;&#x4E00;&#x4E0B; <code>&#x8BA1;&#x6570;&#x5668;</code> &#x7684;&#x5B9E;&#x73B0;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="token keyword">const</span> Counter <span class="token operator">=</span> <span class="token punctuation">{</span>
+  template<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`&lt;div&gt;{{ count }}&lt;/div&gt;`</span></span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    count <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>count
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="mapstate-&#x5DE5;&#x5177;"><code>mapState</code> &#x5DE5;&#x5177;</h3>
+<p>&#x5F53;&#x4E00;&#x4E2A;&#x7EC4;&#x4EF6;&#x7528;&#x5230; store &#x7684;&#x591A;&#x4E2A;&#x72B6;&#x6001;&#x5C5E;&#x6027;&#x6216; getter&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x8981;&#x9010;&#x4E2A;&#x5B9A;&#x4E49;&#x8FD9;&#x4E9B;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#xFF0C;&#x8FD9;&#x662F;&#x91CD;&#x590D;&#x53C8;&#x7E41;&#x7410;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>mapState</code> &#x5DE5;&#x5177;&#xFF0C;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x751F;&#x6210;&#x8BA1;&#x7B97;&#x5C5E;&#x6027; getter &#x65B9;&#x6CD5;&#xFF0C;&#x8282;&#x7701;&#x4E00;&#x4E9B;&#x5DE5;&#x4F5C;&#x91CF;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="token comment" spellcheck="true">// &#x72EC;&#x7ACB;&#x53D1;&#x5E03;&#x7248;&#x7684;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;&#x4F1A;&#x66B4;&#x9732;&#x4E3A; Vuex.mapState</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> mapState <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;vuex&apos;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  computed<span class="token punctuation">:</span> <span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// &#x7BAD;&#x5934;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BA9;&#x4EE3;&#x7801;&#x975E;&#x5E38;&#x7B80;&#x6D01;</span>
+    count<span class="token punctuation">:</span> state <span class="token operator">=</span><span class="token operator">&gt;</span> state<span class="token punctuation">.</span>count<span class="token punctuation">,</span>
+
+    <span class="token comment" spellcheck="true">// &#x60F3;&#x901A;&#x8FC7; `this` &#x8BBF;&#x95EE;&#x672C;&#x5730;&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x5F97;&#x7528;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;&#x65B9;&#x6CD5;</span>
+    countPlusLocalState <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>count <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>localCount
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x5BF9;&#x8C61;&#x89E3;&#x6784;&#x64CD;&#x4F5C;&#x7B26;">&#x5BF9;&#x8C61;&#x89E3;&#x6784;&#x64CD;&#x4F5C;&#x7B26;</h3>
+<p>&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>mapState</code> &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x5C06;&#x5B83;&#x7ED3;&#x5408;&#x5176;&#x4ED6;&#x672C;&#x5730;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x5462;&#xFF1F;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x7528;&#x4E00;&#x4E2A;&#x5DE5;&#x5177;&#x65B9;&#x6CD5;&#x6765;&#x5C06;&#x591A;&#x4E2A;&#x5BF9;&#x8C61;&#x878D;&#x5408;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x4E8E;&#x662F;&#x5C31;&#x53EF;&#x4EE5;&#x5C06;&#x8FD9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4F20;&#x9012;&#x5230; <code>computed</code> &#x9009;&#x9879;&#x3002;&#x4E0D;&#x8FC7;&#xFF0C;&#x8981;&#x662F;&#x7528;&#x4E0A; <a href="https://github.com/sebmarkbage/ecmascript-rest-spread" target="_blank">&#x5BF9;&#x8C61;&#x89E3;&#x6784;&#x64CD;&#x4F5C;&#x7B26;</a>&#xFF08;ECMASCript &#x8349;&#x6848; stage-2 &#x9636;&#x6BB5;&#xFF09;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x80FD;&#x6781;&#x5927;&#x7684;&#x7B80;&#x5316;&#x8BED;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-js">computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  localComputed <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">/* ... */</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// &#x7528;&#x89E3;&#x6784;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5C06;&#x8BE5;&#x5BF9;&#x8C61;&#x8DDF;&#x5916;&#x9762;&#x7684;&#x5C5E;&#x6027;&#x6DF7;&#x5408;</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x7EC4;&#x4EF6;&#x4F9D;&#x7136;&#x6709;&#x672C;&#x5730;&#x72B6;&#x6001;">&#x7EC4;&#x4EF6;&#x4F9D;&#x7136;&#x6709;&#x672C;&#x5730;&#x72B6;&#x6001;</h3>
+<p>&#x4F7F;&#x7528; Vuex &#x5E76;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x4F60;&#x4E00;&#x5B9A;&#x8981;&#x628A; <strong>&#x6240;&#x6709;</strong> &#x72B6;&#x6001;&#x90FD;&#x653E;&#x5230; Vuex&#x3002;&#x867D;&#x7136;&#x628A;&#x66F4;&#x591A;&#x7684;&#x72B6;&#x6001;&#x653E;&#x5230; Vuex &#x4F1A;&#x8BA9;&#x72B6;&#x6001;&#x53D8;&#x5316;&#x53D8;&#x5F97;&#x66F4;&#x660E;&#x786E;&#x548C;&#x53EF;&#x8C03;&#x8BD5;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x65F6;&#x5019;&#x4F1A;&#x8BA9;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x5570;&#x55E6;&#x590D;&#x6742;&#x3002;&#x5982;&#x679C;&#x67D0;&#x4E9B;&#x5C5E;&#x6027;&#x53EA;&#x5C5E;&#x4E8E;&#x67D0;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x628A;&#x5B83;&#x4F5C;&#x4E3A;&#x672C;&#x5730;&#x72B6;&#x6001;&#x5C31;&#x597D;&#x4E86;&#x3002;&#x4F60;&#x5F97;&#x6839;&#x636E;&#x5E94;&#x7528;&#x7684;&#x5F00;&#x53D1;&#x6240;&#x9700;&#x4F5C;&#x6743;&#x8861;&#x53D6;&#x820D;&#x3002;</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="./getting-started.html" class="navigation navigation-prev " aria-label="Previous page: 起步"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="./getters.html" class="navigation navigation-next " aria-label="Next page: Getters"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="gitbook/app.js"></script>
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-github/plugin.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    
+
+    
+    <script src="gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"edit-link":{"base":"https://github.com/vuejs/vuex/tree/dev/docs","label":"Edit This Page"},"github":{"url":"https://github.com/vuejs/vuex/"},"prism":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":false,"twitter":false,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        
+    </body>
+    
+</html>

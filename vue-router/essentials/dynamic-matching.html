@@ -270,7 +270,7 @@
                 <a href="../advanced/navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -322,7 +322,7 @@
                 <a href="../advanced/scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -393,7 +393,7 @@
                 <a href="../api/route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -432,7 +432,7 @@
                 <a href="../api/component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -496,7 +496,7 @@
 
 <span class="hljs-keyword">const</span> router = <span class="hljs-keyword">new</span> VueRouter({
   routes: [
-    <span class="hljs-comment">// &#x52A8;&#x6001; segments &#x4EE5;&#x5192;&#x53F7;&#x5F00;&#x5934;</span>
+    <span class="hljs-comment">// &#x52A8;&#x6001;&#x8DEF;&#x5F84;&#x53C2;&#x6570; &#x4EE5;&#x5192;&#x53F7;&#x5F00;&#x5934;</span>
     { path: <span class="hljs-string">&apos;/user/:id&apos;</span>, component: User }
   ]
 })</code></pre>
@@ -506,8 +506,8 @@
 }</code></pre>
 <p>&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#x8FD9;&#x4E2A;<a href="http://jsfiddle.net/yyx990803/4xfa2f19/" target="_blank">&#x5728;&#x7EBF;&#x4F8B;&#x5B50;</a>.</p><p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x4E2D;&#x8BBE;&#x7F6E;&#x591A;&#x6BB5;&#x300E;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x300F;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#x90FD;&#x4F1A;&#x8BBE;&#x7F6E;&#x5230; <code>$route.params</code> &#x4E2D;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p><table>
 <thead>
-<tr><th>pattern</th>
-<th>matched path</th>
+<tr><th>&#x6A21;&#x5F0F;</th>
+<th>&#x5339;&#x914D;&#x8DEF;&#x5F84;</th>
 <th>$route.params</th>
 </tr></thead><tbody>
 <tr><td>/user/:username</td>
@@ -518,7 +518,7 @@
 <td><code>{ username: &apos;evan&apos;, post_id: 123 }</code></td>
 </tr></tbody></table>
 
-<p>&#x9664;&#x4E86; <code>$route.params</code> &#x5916;&#xFF0C;<code>$route</code> &#x5BF9;&#x8C61;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x5176;&#x5B83;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;<code>$route.query</code>&#xFF08;&#x5982;&#x679C; URL &#x4E2D;&#x6709;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF09;&#x3001;<code>$route.hash</code> &#x7B49;&#x7B49;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x67E5;&#x770B; <a href="../api/route-object.html">API &#x6587;&#x6863;</a> &#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</p><h3 id="&#x54CD;&#x5E94;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;">&#x54CD;&#x5E94;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;</h3><p>&#x63D0;&#x9192;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x4F8B;&#x5982;&#x4ECE; <code>/user/foo</code> &#x5BFC;&#x822A;&#x5230; <code>user/bar</code>&#xFF0C;<strong>&#x539F;&#x6765;&#x7684;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x4F1A;&#x88AB;&#x590D;&#x7528;</strong>&#x3002;&#x56E0;&#x4E3A;&#x4E24;&#x4E2A;&#x8DEF;&#x7531;&#x90FD;&#x6E32;&#x67D3;&#x540C;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x6BD4;&#x8D77;&#x9500;&#x6BC1;&#x518D;&#x521B;&#x5EFA;&#xFF0C;&#x590D;&#x7528;&#x5219;&#x663E;&#x5F97;&#x66F4;&#x52A0;&#x9AD8;&#x6548;&#x3002;<strong>&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x4E0D;&#x4F1A;&#x518D;&#x88AB;&#x8C03;&#x7528;</strong>&#x3002;</p><p>&#x590D;&#x7528;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x60F3;&#x5BF9;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;&#x4F5C;&#x51FA;&#x54CD;&#x5E94;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730; watch <code>$route</code> &#x5BF9;&#x8C61;&#xFF1A;</p><pre><code class="lang-js"><span class="hljs-keyword">const</span> User = {
+<p>&#x9664;&#x4E86; <code>$route.params</code> &#x5916;&#xFF0C;<code>$route</code> &#x5BF9;&#x8C61;&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x5176;&#x5B83;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;<code>$route.query</code>&#xFF08;&#x5982;&#x679C; URL &#x4E2D;&#x6709;&#x67E5;&#x8BE2;&#x53C2;&#x6570;&#xFF09;&#x3001;<code>$route.hash</code> &#x7B49;&#x7B49;&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x67E5;&#x770B; <a href="../api/route-object.html">API &#x6587;&#x6863;</a> &#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x3002;</p><h3 id="&#x54CD;&#x5E94;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;">&#x54CD;&#x5E94;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;</h3><p>&#x63D0;&#x9192;&#x4E00;&#x4E0B;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x4F8B;&#x5982;&#x4ECE; <code>/user/foo</code> &#x5BFC;&#x822A;&#x5230; <code>user/bar</code>&#xFF0C;<strong>&#x539F;&#x6765;&#x7684;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x4F1A;&#x88AB;&#x590D;&#x7528;</strong>&#x3002;&#x56E0;&#x4E3A;&#x4E24;&#x4E2A;&#x8DEF;&#x7531;&#x90FD;&#x6E32;&#x67D3;&#x540C;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x6BD4;&#x8D77;&#x9500;&#x6BC1;&#x518D;&#x521B;&#x5EFA;&#xFF0C;&#x590D;&#x7528;&#x5219;&#x663E;&#x5F97;&#x66F4;&#x52A0;&#x9AD8;&#x6548;&#x3002;<strong>&#x4E0D;&#x8FC7;&#xFF0C;&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x94A9;&#x5B50;&#x4E0D;&#x4F1A;&#x518D;&#x88AB;&#x8C03;&#x7528;</strong>&#x3002;</p><p>&#x590D;&#x7528;&#x7EC4;&#x4EF6;&#x65F6;&#xFF0C;&#x60F3;&#x5BF9;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x7684;&#x53D8;&#x5316;&#x4F5C;&#x51FA;&#x54CD;&#x5E94;&#x7684;&#x8BDD;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x5730; watch&#xFF08;&#x76D1;&#x6D4B;&#x53D8;&#x5316;&#xFF09; <code>$route</code> &#x5BF9;&#x8C61;&#xFF1A;</p><pre><code class="lang-js"><span class="hljs-keyword">const</span> User = {
   template: <span class="hljs-string">&apos;...&apos;</span>,
   watch: {
     <span class="hljs-string">&apos;$route&apos;</span> (to, <span class="hljs-keyword">from</span>) {
@@ -569,7 +569,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"动态路由匹配","level":"1.4.2","depth":2,"next":{"title":"嵌套路由","level":"1.4.3","depth":2,"path":"essentials/nested-routes.md","ref":"essentials/nested-routes.md","articles":[]},"previous":{"title":"开始","level":"1.4.1","depth":2,"path":"essentials/getting-started.md","ref":"essentials/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"essentials/dynamic-matching.md","mtime":"2016-09-29T07:31:46.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"动态路由匹配","level":"1.4.2","depth":2,"next":{"title":"嵌套路由","level":"1.4.3","depth":2,"path":"essentials/nested-routes.md","ref":"essentials/nested-routes.md","articles":[]},"previous":{"title":"开始","level":"1.4.1","depth":2,"path":"essentials/getting-started.md","ref":"essentials/getting-started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"essentials/dynamic-matching.md","mtime":"2016-09-30T03:24:47.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

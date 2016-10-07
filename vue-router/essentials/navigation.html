@@ -270,7 +270,7 @@
                 <a href="../advanced/navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -322,7 +322,7 @@
                 <a href="../advanced/scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -393,7 +393,7 @@
                 <a href="../api/route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -432,7 +432,7 @@
                 <a href="../api/component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -492,8 +492,8 @@
                                 
                                 <h1 id="&#x7F16;&#x7A0B;&#x5F0F;&#x7684;&#x5BFC;&#x822A;">&#x7F16;&#x7A0B;&#x5F0F;&#x7684;&#x5BFC;&#x822A;</h1><p>&#x9664;&#x4E86;&#x4F7F;&#x7528; <code>&lt;router-link&gt;</code> &#x521B;&#x5EFA; a &#x6807;&#x7B7E;&#x6765;&#x5B9A;&#x4E49;&#x5BFC;&#x822A;&#x94FE;&#x63A5;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x501F;&#x52A9; router &#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF0C;&#x901A;&#x8FC7;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p><h4 id="routerpushlocation"><code>router.push(location)</code></h4><p>&#x60F3;&#x8981;&#x5BFC;&#x822A;&#x5230;&#x4E0D;&#x540C;&#x7684; URL&#xFF0C;&#x5219;&#x4F7F;&#x7528; <code>router.push</code> &#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5411; history &#x6808;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x70B9;&#x51FB;&#x6D4F;&#x89C8;&#x5668;&#x540E;&#x9000;&#x6309;&#x94AE;&#x65F6;&#xFF0C;&#x5219;&#x56DE;&#x5230;&#x4E4B;&#x524D;&#x7684; URL&#x3002;</p><p>&#x5F53;&#x4F60;&#x70B9;&#x51FB; <code>&lt;router-link&gt;</code> &#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F1A;&#x5728;&#x5185;&#x90E8;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;&#xFF0C;&#x70B9;&#x51FB; <code>&lt;router-link :to=&quot;...&quot;&gt;</code> &#x7B49;&#x540C;&#x4E8E;&#x8C03;&#x7528; <code>router.push(...)</code>&#x3002;</p><table>
 <thead>
-<tr><th>Declarative</th>
-<th>Programmatic</th>
+<tr><th>&#x58F0;&#x660E;&#x5F0F;</th>
+<th>&#x7F16;&#x7A0B;&#x5F0F;</th>
 </tr></thead><tbody>
 <tr><td><code>&lt;router-link :to=&quot;...&quot;&gt;</code></td>
 <td><code>router.push(...)</code></td>
@@ -512,8 +512,8 @@ router.push({ name: <span class="hljs-string">&apos;user&apos;</span>, params: {
 router.push({ path: <span class="hljs-string">&apos;register&apos;</span>, query: { plan: <span class="hljs-string">&apos;private&apos;</span> }})</code></pre>
 <h4 id="routerreplacelocation"><code>router.replace(location)</code></h4><p>&#x8DDF; <code>router.push</code> &#x5F88;&#x50CF;&#xFF0C;&#x552F;&#x4E00;&#x7684;&#x4E0D;&#x540C;&#x5C31;&#x662F;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x5411; history &#x6DFB;&#x52A0;&#x65B0;&#x8BB0;&#x5F55;&#xFF0C;&#x800C;&#x662F;&#x8DDF;&#x5B83;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x4E00;&#x6837; &#x2014;&#x2014; &#x66FF;&#x6362;&#x6389;&#x5F53;&#x524D;&#x7684; history &#x8BB0;&#x5F55;&#x3002;</p><table>
 <thead>
-<tr><th>Declarative</th>
-<th>Programmatic</th>
+<tr><th>&#x58F0;&#x660E;&#x5F0F;</th>
+<th>&#x7F16;&#x7A0B;&#x5F0F;</th>
 </tr></thead><tbody>
 <tr><td><code>&lt;router-link :to=&quot;...&quot; replace&gt;</code></td>
 <td><code>router.replace(...)</code></td>
@@ -574,7 +574,7 @@ router.go(<span class="hljs-number">100</span>)</code></pre>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"编程式导航","level":"1.4.4","depth":2,"next":{"title":"命名路由","level":"1.4.5","depth":2,"path":"essentials/named-routes.md","ref":"essentials/named-routes.md","articles":[]},"previous":{"title":"嵌套路由","level":"1.4.3","depth":2,"path":"essentials/nested-routes.md","ref":"essentials/nested-routes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"essentials/navigation.md","mtime":"2016-09-29T07:49:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"编程式导航","level":"1.4.4","depth":2,"next":{"title":"命名路由","level":"1.4.5","depth":2,"path":"essentials/named-routes.md","ref":"essentials/named-routes.md","articles":[]},"previous":{"title":"嵌套路由","level":"1.4.3","depth":2,"path":"essentials/nested-routes.md","ref":"essentials/nested-routes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"essentials/navigation.md","mtime":"2016-09-30T03:25:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

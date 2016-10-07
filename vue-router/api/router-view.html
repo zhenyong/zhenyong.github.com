@@ -270,7 +270,7 @@
                 <a href="../advanced/navigation-guards.html">
             
                     
-                    导航卫士
+                    导航钩子
             
                 </a>
             
@@ -322,7 +322,7 @@
                 <a href="../advanced/scroll-behavior.html">
             
                     
-                    滚动
+                    滚动行为
             
                 </a>
             
@@ -393,7 +393,7 @@
                 <a href="route-object.html">
             
                     
-                    The Route Object
+                    路由信息对象
             
                 </a>
             
@@ -432,7 +432,7 @@
                 <a href="component-injections.html">
             
                     
-                    Component Injections
+                    对组件注入
             
                 </a>
             
@@ -490,10 +490,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="router-view"><code>&lt;router-view&gt;</code></h1><p><code>&lt;router-view&gt;</code> &#x7EC4;&#x4EF6;&#x662F;&#x4E00;&#x4E2A; functional &#x7EC4;&#x4EF6;&#xFF0C;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x5339;&#x914D;&#x5230;&#x7684;&#x89C6;&#x56FE;&#x7EC4;&#x4EF6;&#x3002;<code>&lt;router-view&gt;</code> &#x6E32;&#x67D3;&#x7684;&#x7EC4;&#x4EF6;&#x8FD8;&#x53EF;&#x4EE5;&#x5185;&#x5D4C;&#x81EA;&#x5DF1;&#x7684; <code>&lt;router-view&gt;</code>&#xFF0C;&#x6839;&#x636E;&#x5D4C;&#x5957;&#x8DEF;&#x5F84;&#xFF0C;&#x6E32;&#x67D3;&#x5D4C;&#x5957;&#x7EC4;&#x4EF6;&#x3002;</p><h3 id="props">Props</h3><ul><li><p><strong>name</strong></p><ul><li><p>type: <code>string</code></p></li>
-<li><p>default: <code>&quot;default&quot;</code></p></li></ul>
+                                <h1 id="router-view"><code>&lt;router-view&gt;</code></h1><p><code>&lt;router-view&gt;</code> &#x7EC4;&#x4EF6;&#x662F;&#x4E00;&#x4E2A; functional &#x7EC4;&#x4EF6;&#xFF0C;&#x6E32;&#x67D3;&#x8DEF;&#x5F84;&#x5339;&#x914D;&#x5230;&#x7684;&#x89C6;&#x56FE;&#x7EC4;&#x4EF6;&#x3002;<code>&lt;router-view&gt;</code> &#x6E32;&#x67D3;&#x7684;&#x7EC4;&#x4EF6;&#x8FD8;&#x53EF;&#x4EE5;&#x5185;&#x5D4C;&#x81EA;&#x5DF1;&#x7684; <code>&lt;router-view&gt;</code>&#xFF0C;&#x6839;&#x636E;&#x5D4C;&#x5957;&#x8DEF;&#x5F84;&#xFF0C;&#x6E32;&#x67D3;&#x5D4C;&#x5957;&#x7EC4;&#x4EF6;&#x3002;</p><h3 id="&#x5C5E;&#x6027;">&#x5C5E;&#x6027;</h3><ul><li><p><strong>name</strong></p><ul><li><p>&#x7C7B;&#x578B;: <code>string</code></p></li>
+<li><p>&#x9ED8;&#x8BA4;&#x503C;: <code>&quot;default&quot;</code></p></li></ul>
 </li></ul>
-<p>&#x5982;&#x679C; <code>&lt;router-view&gt;</code>&#x8BBE;&#x7F6E;&#x4E86;&#x540D;&#x79F0;&#xFF0C;&#x5219;&#x4F1A;&#x6E32;&#x67D3;&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x4E2D; <code>components</code> &#x4E0B;&#x7684;&#x76F8;&#x5E94;&#x7EC4;&#x4EF6;&#x3002;&#x67E5;&#x770B; <a href="../essentials/named-views.html">&#x547D;&#x540D;&#x89C6;&#x56FE;</a> &#x4E2D;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p><h3 id="behavior">Behavior</h3><p>&#x5176;&#x4ED6; non-name props &#xFF08;&#x975E; router-view &#x5B9A;&#x4E49;&#x7684;&#x5C5E;&#x6027;&#xFF09;&#x90FD;&#x4EE5;&#x76F4;&#x63A5;&#x4F20;&#x7ED9;&#x6E32;&#x67D3;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;
+<p>&#x5982;&#x679C; <code>&lt;router-view&gt;</code>&#x8BBE;&#x7F6E;&#x4E86;&#x540D;&#x79F0;&#xFF0C;&#x5219;&#x4F1A;&#x6E32;&#x67D3;&#x5BF9;&#x5E94;&#x7684;&#x8DEF;&#x7531;&#x914D;&#x7F6E;&#x4E2D; <code>components</code> &#x4E0B;&#x7684;&#x76F8;&#x5E94;&#x7EC4;&#x4EF6;&#x3002;&#x67E5;&#x770B; <a href="../essentials/named-views.html">&#x547D;&#x540D;&#x89C6;&#x56FE;</a> &#x4E2D;&#x7684;&#x4F8B;&#x5B50;&#x3002;</p><h3 id="&#x884C;&#x4E3A;&#x8868;&#x73B0;">&#x884C;&#x4E3A;&#x8868;&#x73B0;</h3><p>&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#xFF08;&#x975E; router-view &#x4F7F;&#x7528;&#x7684;&#x5C5E;&#x6027;&#xFF09;&#x90FD;&#x76F4;&#x63A5;&#x4F20;&#x7ED9;&#x6E32;&#x67D3;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;
 &#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;&#x6BCF;&#x4E2A;&#x8DEF;&#x7531;&#x7684;&#x6570;&#x636E;&#x90FD;&#x662F;&#x5305;&#x542B;&#x5728;&#x8DEF;&#x7531;&#x53C2;&#x6570;&#x4E2D;&#x3002;</p><p>&#x56E0;&#x4E3A;&#x5B83;&#x4E5F;&#x662F;&#x4E2A;&#x7EC4;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x914D;&#x5408; <code>&lt;transition&gt;</code> &#x548C; <code>&lt;keep-alive&gt;</code> &#x4F7F;&#x7528;&#x3002;&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x7ED3;&#x5408;&#x4E00;&#x8D77;&#x7528;&#xFF0C;&#x8981;&#x786E;&#x4FDD;&#x5728;&#x5185;&#x5C42;&#x4F7F;&#x7528; <code>&lt;keep-alive&gt;</code>&#xFF1A;</p><pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">keep-alive</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">router-view</span>&gt;</span>
@@ -531,7 +531,7 @@
                 </a>
                 
                 
-                <a href="route-object.html" class="navigation navigation-next " aria-label="Next page: The Route Object">
+                <a href="route-object.html" class="navigation navigation-next " aria-label="Next page: 路由信息对象">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -542,7 +542,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"router-view","level":"1.6.2","depth":2,"next":{"title":"The Route Object","level":"1.6.3","depth":2,"path":"api/route-object.md","ref":"api/route-object.md","articles":[]},"previous":{"title":"router-link","level":"1.6.1","depth":2,"path":"api/router-link.md","ref":"api/router-link.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/router-view.md","mtime":"2016-09-29T08:38:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-29T11:00:22.627Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"router-view","level":"1.6.2","depth":2,"next":{"title":"路由信息对象","level":"1.6.3","depth":2,"path":"api/route-object.md","ref":"api/route-object.md","articles":[]},"previous":{"title":"router-link","level":"1.6.1","depth":2,"path":"api/router-link.md","ref":"api/router-link.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"api/router-view.md","mtime":"2016-09-30T03:24:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-10-07T06:08:08.408Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
