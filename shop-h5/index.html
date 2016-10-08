@@ -1,0 +1,178 @@
+<html style="font-size: 100px;">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=yes">
+  <title>赤列酩馏高级定制系列</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: content-box;
+    }
+
+    img {
+      display: inline-block;
+    }
+
+    html, body {
+      width: 100%;
+    }
+
+    .f-width {
+      width: 100%;
+      display: inline-block;
+    }
+    .show-face-wrap {
+      position: relative;
+    }
+
+    #banner {
+      height: 0.8rem;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #banner .mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: .35;
+      background-color: #000;
+    }
+
+    #banner .txt {
+      vertical-align: middle;
+      height: 100%;
+      font-size: .24rem;
+      color: #FFF;
+    }
+
+    #banner .txt p {
+      line-height: 1.4;
+    }
+
+    #banner > table {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+
+    #banner .img-wrap {
+      width: 0.8rem;
+      padding: 0 .32rem 0 .24rem;
+    }
+
+    img#logo {
+      width: .8rem;
+    }
+
+    .mb-24 {
+      margin-bottom: .24rem;
+    }
+    .mb-36 {
+      margin-bottom: .36rem;
+    }
+    .mb-48 {
+      margin-bottom: .48rem;
+    }
+
+    .f-max-width {
+      max-width: 100%;
+    }
+    .center {
+      text-align: center;
+    }
+
+    .img-click-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
+    .img-click-wrap > a {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      font-size: 1px;
+      opacity: 0;
+    }
+
+  </style>
+  <script>
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth;
+          if (!clientWidth) return;
+          docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+        };
+
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+  </script>
+</head>
+<body>
+<!--门店logo-->
+<section class="show-face-wrap mb-24">
+  <img class="f-width" src="/img/shopface.jpg" alt="门店">
+  <div id="banner">
+    <div class="mask"></div>
+    <table>
+      <tr>
+        <td class="img-wrap"><img id="logo" src="/img/logo.png" alt="赤列酩馏"></td>
+        <td class="txt">
+          <p>【迎客食品超市店】</p>
+          <p>双十一钜惠来袭，赤列酩馏送大礼</p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
+<!--商品页1-->
+<section class="mb-24">
+  <img class="f-width" src="/img/product1.jpg" alt="套餐一">
+</section>
+<!--商品页2-->
+<section class="mb-24">
+  <img class="f-width" src="/img/product2.jpg" alt="套餐二">
+</section>
+<!--游戏-->
+<section class="mb-36">
+  <img class="f-width" src="/img/game.jpg" alt="互动游戏">
+</section>
+<!--门店自定义-->
+<section class="mb-48">
+  <img class="f-width" src="/img/shop-custom-def.jpg" alt="门店优惠">
+</section>
+
+<!--优惠券-->
+<section class="mb-36">
+  <img class="f-width" src="/img/coupon.jpg" alt="代金券">
+</section>
+<!--导航-->
+<section class="mb-36 center">
+  <div class="img-click-wrap">
+    <img class="nav f-max-width" src="/img/nav.png" alt="导航">
+    <a href="http://m.amap.com/search/mapview/keywords=%E8%BF%8E%E5%AE%A2%E9%A3%9F%E5%93%81%E8%B6%85%E5%B8%82&city=630102&poiid=B0FFFQ1WYS"></a>
+  </div>
+</section>
+<!--电话-->
+<section id="contact" class="center">
+  <div class="img-click-wrap">
+    <img class="nav f-max-width" src="/img/contact.png" alt="联系电话">
+    <a id="tel-num" href="tel:+16866668888">16866668888</a>
+  </div>
+</section>
+</body>
+</html>
