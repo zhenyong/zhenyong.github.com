@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenyong.site/"/>
-  <updated>2016-10-27T12:04:25.000Z</updated>
+  <updated>2016-10-27T12:06:11.000Z</updated>
   <id>http://zhenyong.site/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>你用 webpack 1.x 输出的 hash 稳定不？</title>
+    <title>你用 webpack 1.x 输出的 hash 靠谱不？</title>
     <link href="http://zhenyong.site/2016/10/27/webpack-long-term-hash/"/>
     <id>http://zhenyong.site/2016/10/27/webpack-long-term-hash/</id>
     <published>2016-10-27T11:05:08.000Z</published>
-    <updated>2016-10-27T12:04:25.000Z</updated>
+    <updated>2016-10-27T12:06:11.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>使用 webpack 构建输出文件时，通常会给文件名加上 hash，该 hash 值根据文件内容计算得到，只要文件内容不变，hash 就不变，于是就可以利用浏览器缓存来节省下载流量。可是 webpack 提供的 hash 似乎不那么靠谱…</p>
