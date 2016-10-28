@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Make Hungry">
 <meta property="og:description" content="使用 webpack 构建输出文件时，通常会给文件名加上 hash，该 hash 值根据文件内容计算得到，只要文件内容不变，hash 就不变，于是就可以利用浏览器缓存来节省下载流量。可是 webpack 提供的 hash 似乎不那么靠谱…">
 <meta property="og:image" content="http://zhenyong.site/images/cc-by-nc-sa.svg">
-<meta property="og:updated_time" content="2016-10-27T12:06:11.000Z">
+<meta property="og:updated_time" content="2016-10-28T02:28:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="你用 webpack 1.x 输出的 hash 靠谱不？">
 <meta name="twitter:description" content="使用 webpack 构建输出文件时，通常会给文件名加上 hash，该 hash 值根据文件内容计算得到，只要文件内容不变，hash 就不变，于是就可以利用浏览器缓存来节省下载流量。可是 webpack 提供的 hash 似乎不那么靠谱…">
@@ -378,7 +378,7 @@
 <p>使用 webpack 构建输出文件时，通常会给文件名加上 hash，该 hash 值根据文件内容计算得到，只要文件内容不变，hash 就不变，于是就可以利用浏览器缓存来节省下载流量。可是 webpack 提供的 hash 似乎不那么靠谱…</p>
 </blockquote>
 <a id="more"></a>
-<p>本文只围绕如何保证 webpack 1.x 输出稳定的 hash 值展开讨论，如果对 webpack 还没了解的，可以戳 <a href="http://webpack.github.io/docs/" target="_blank" rel="external">webpack</a>。</p>
+<p>本文只围绕如何保证 webpack 1.x 在 <strong>生产发布阶段</strong> 输出稳定的 hash 值展开讨论，如果对 webpack 还没了解的，可以戳 <a href="http://webpack.github.io/docs/" target="_blank" rel="external">webpack</a>。</p>
 <p>本文 基于 webpack 1.x 的背景展开讨论，毕竟有些问题在 webpack 2 已经得到解决。为了方便描述问题，文中展示的代码、配置可能很挫，也许不是工程最佳实践，请轻拍。</p>
 <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>除了 html 文件以外，其他静态资源文件名都带上哈希值，根据文件本身的内容计算得到，保证文件没变化，则构建后的文件名跟上次一样。</p>
 <h2 id="webpack-提供的-hash"><a href="#webpack-提供的-hash" class="headerlink" title="webpack 提供的 hash"></a>webpack 提供的 hash</h2><h3 id="hash"><a href="#hash" class="headerlink" title="[hash]"></a>[hash]</h3><p>假设<strong>文件目录</strong>长这样：</p>
@@ -448,9 +448,7 @@
 <p>另外要注意，ExtractTextPlugin 会把 pageA.css 的内容抽取之后，替换该模块的内容 <code>mod._source._value</code> 为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">// removed by extract-text-webpack-plugin</div></pre></td></tr></table></figure>
 <p>由于每一个 css 模块都对应这段内容，所以不会影响效果。</p>
-<p>PS: <a href="https://github.com/erm0l0v/webpack-md5-hash" target="_blank" rel="external">erm0l0v/webpack-md5-hash</a> 该插件也是为了解决类似问题，但是它其中的『排序』算法是基于模块的 id，而模块的 id 理论上是不稳定的，后续会提到。</p>
-<p>是不是这样就达到目标了呢，no~~~</p>
-<p>接下来会讨论，由于 模块 ID 的不稳定导致 hash 相关问题。webpack 1.x 的这个问题在网上有好多讨论，目前 issue 区讨论出来的几个方案我觉得还不够完美。</p>
+<p><a href="https://github.com/erm0l0v/webpack-md5-hash" target="_blank" rel="external">erm0l0v/webpack-md5-hash</a> 插件也是为了解决类似问题，但是它其中的『排序』算法是基于模块的 id，而模块的 id 理论上是不稳定的，接下来我们就讨论不稳定的模块 ID 带来的坑。</p>
 <h2 id="模块-ID-的坑"><a href="#模块-ID-的坑" class="headerlink" title="模块 ID 的坑"></a>模块 ID 的坑</h2><p>我们简单的把每个文件理解为一个模块（module），在 webpack 处理模块依赖关系时，会给每个模块定义一个 ID，查看 <a href="https://github.com/webpack/webpack/blob/75caa169bcf63c66ab069c38c73c3ab0e873cdc2/lib/Compilation.js#L748" target="_blank" rel="external">webpack/Compilation.js </a> 发现，webpack 根据收集 module 的顺序给每个模块分配递增数字作为 ID，至于『收集的 module 顺序』，在你开发生涯里，这玩意绝对是不稳定！不稳定的！</p>
 <h3 id="Module-ID-不稳定怎么了"><a href="#Module-ID-不稳定怎么了" class="headerlink" title="Module ID 不稳定怎么了"></a>Module ID 不稳定怎么了</h3><p>我们的<strong>文件结构</strong>现在长这样：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/src</div><div class="line">	|- pageA.js</div><div class="line">	|- pageB.js</div><div class="line">	|- a.js</div><div class="line">	|- b.js</div><div class="line">	|- c.js</div></pre></td></tr></table></figure>
@@ -477,7 +475,54 @@
 <p>第一念头：把原来计算 hash 的方式改一下，就那构建输出后的文件内容来计算？</p>
 <p>细想: 不要，明明 pageB 这一次就不用重新上传的，浪费。</p>
 <p>比较优雅的思路就是：让模块 ID 给我稳定下来！！！</p>
-<h3 id="给我稳定的-Module-ID"><a href="#给我稳定的-Module-ID" class="headerlink" title="给我稳定的 Module ID"></a>给我稳定的 Module ID</h3><p>// 先吃饭 …</p>
+<h3 id="给我稳定的-Module-ID"><a href="#给我稳定的-Module-ID" class="headerlink" title="给我稳定的 Module ID"></a>给我稳定的 Module ID</h3><h4 id="webpack-1-的官方方案"><a href="#webpack-1-的官方方案" class="headerlink" title="webpack 1 的官方方案"></a>webpack 1 的官方方案</h4><p>webpack 文档提供了几种方案</p>
+<ul>
+<li><p><a href="http://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin" target="_blank" rel="external">OccurrenceOrderPlugin</a>    </p>
+<p>  这个插件根据 module 被引用的次数（被 entry 引用、被 chunk 引用）来排序分配 ID，如果你的整个应用的文件依赖是没太多变化，那么模块 ID 就稳定，但是谁能保证呢？</p>
+</li>
+<li><p><a href="http://webpack.github.io/docs/configuration.html#recordspath-recordsinputpath-recordsoutputpath" target="_blank" rel="external"><code>recordsPath 配置</code></a></p>
+<blockquote>
+<p>Store/Load compiler state from/to a json file. This will result in persistent ids of modules and chunks.</p>
+</blockquote>
+<p>  会记录每一次打包的模块的”文件处理路径”使用的 ID，下次打包同样的模块直接使用记录中的 ID:</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;node_modules/style-loader/index.js!node_modules/css-loader/index.js!src/b.css&quot;: 9,</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<pre><code>这就要求每个人都得提交这份文件了，港真，我觉得体验很差咯。
+
+另外一旦你修改文件名，或者是增减 loader，原来的路径就无效了，从而再次入坑！
+</code></pre><ul>
+<li><p><a href="http://webpack.github.io/docs/list-of-plugins.html#dllplugin" target="_blank" rel="external">DllPlugin 和 DllReferencePlugin
+</a></p>
+<p>  原理就是在你打包源码前，你得新建一个构建配置用 <a href="https://github.com/webpack/webpack/tree/master/examples/dll" target="_blank" rel="external">DllPlugin</a> 单独打包生成一份模块文件路径对应的 ID 记录，然后在你的原来配置使用 <a href="https://github.com/webpack/webpack/tree/master/examples/dll-user" target="_blank" rel="external">DllReferencePlugin</a> 引用这份记录，跟 recordsPath 大同小异，但是更高效和稳定，但是这个额外的构建，我觉得不够优雅，至于能快多少呢，我目前还不在意这个速度，另外还是得提交多一份记录文件。</p>
+</li>
+</ul>
+<h4 id="webpack-2-的思路"><a href="#webpack-2-的思路" class="headerlink" title="webpack 2 的思路"></a>webpack 2 的思路</h4><ul>
+<li><p><a href="https://github.com/webpack/webpack/blob/master/lib/HashedModuleIdsPlugin.js" target="_blank" rel="external">webpack/HashedModuleIdsPlugin.js at master · webpack/webpack</a></p>
+</li>
+<li><p><a href="https://github.com/webpack/webpack/blob/master/lib/NamedModulesPlugin.js" target="_blank" rel="external">webpack/NamedModulesPlugin.js at master · webpack/webpack</a></p>
+</li>
+</ul>
+<p>以上两个插件的思路都是用模块对应的文件路径直接作为模块 ID，而不是 webpack 1 中的默认使用数字，另外 webpack 1 不接受非数字作为 模块 ID。</p>
+<h4 id="我们的思路"><a href="#我们的思路" class="headerlink" title="我们的思路"></a>我们的思路</h4><p>把模块对应的文件路径通过一个哈希计算映射为数字，用这个全局唯一的数字作为 ID 就解决了，妥妥的！</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://github.com/webpack/webpack/blob/75caa169bcf63c66ab069c38c73c3ab0e873cdc2/lib/Compilation.js#L569,L571" target="_blank" rel="external">webpack/Compilation.js 中暴露的 before-module-ids 钩子</a> </li>
+<li><a href="https://github.com/webpack/webpack/blob/54aa3cd0d6167943713491fd5e1110b777336be6/lib/HashedModuleIdsPlugin.js" target="_blank" rel="external">webpack/HashedModuleIdsPlugin.js</a> </li>
+</ul>
+<p>给出 webpack 1.x 中的解决方案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">xx.prototype.apply = function(compiler) &#123;</div><div class="line"></div><div class="line">  function hexToNum(str) &#123;</div><div class="line">    str = str.toUpperCase();</div><div class="line">    var code = &apos;&apos;</div><div class="line">    for (var i = 0; i &lt; str.length; i++) &#123;</div><div class="line">      var c = str.charCodeAt(i) + &apos;&apos;;</div><div class="line">      if ((c + &apos;&apos;).length &lt; 2) &#123;</div><div class="line">        c = &apos;0&apos; + c</div><div class="line">      &#125;</div><div class="line">      code += c</div><div class="line">    &#125;</div><div class="line">    return parseInt(code, 10);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  var usedIds = &#123;&#125;;</div><div class="line"></div><div class="line">  function genModuleId(module) &#123;</div><div class="line">    var modulePath = module.libIdent(&#123;</div><div class="line">      context: compiler.options.context</div><div class="line">    &#125;);</div><div class="line">    var id = md5(modulePath);</div><div class="line">    var len = 4;</div><div class="line">    while (usedIds[id.substr(0, len)]) &#123;</div><div class="line">      len++;</div><div class="line">    &#125;</div><div class="line">    id = id.substr(0, len);</div><div class="line">    return hexToNum(id)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  compiler.plugin(&quot;compilation&quot;, function(compilation) &#123;</div><div class="line">    compilation.plugin(&quot;before-module-ids&quot;, function(modules) &#123;</div><div class="line">      modules.forEach(function(module) &#123;</div><div class="line">        if (module.libIdent &amp;&amp; module.id === null) &#123;</div><div class="line">          module.id = genModuleId(module);</div><div class="line">          usedIds[module.id] = true;</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125;);</div><div class="line">  &#125;);</div><div class="line">&#125;;</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>注册钩子的思路跟之前的 content hash 插件差不多，获取到模块文件路径后，通过 md5 计算输出 16 进制的字符串（[0-9A-E]），再把字符串的字符逐个转为 ascii 形式的整数，由于 16 进制字符串只会包含 <code>[0-9A-E]</code>，所以保证单个字符转化的整数是两位就能保证这个算法是有效的。</p>
+<p>举例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">path = &apos;/node_module/xxx&apos;</div><div class="line">md5Hash = md5(path) // =&gt; A3E...</div><div class="line">nul = hexToNum(md5Hash) // =&gt; 650369</div></pre></td></tr></table></figure>
+<p>这个方案还有些小缺点，就是用模块文件路径作为哈希输入还不是百分百完美，如果文件名改了，那么模块 ID 就 “不稳定了”。其实，可以用模块文件内容作为哈希输入，考虑到效率问题，权衡之下还是用路径好了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>为了保证 webpack 1.x 生产阶段的文件 hash 值能够完美跟文件内容一一映射，查阅了大量信息，根据目前 github 上讨论的解决方案算是大体解决了问题，但是还不够优雅和完美，于是借鉴 webpack 2 的思路加上一点小技巧，比较优雅地解决了这个问题。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://github.com/webpack/webpack/issues/1315" target="_blank" rel="external">Vendor chunkhash changes when app code changes · Issue #1315 · webpack/webpack</a></li>
+<li><a href="https://github.com/webpack/webpack/issues/1315" target="_blank" rel="external">Vendor chunkhash changes when app code changes · Issue #1315 · webpack/webpack</a></li>
+<li><a href="http://www.cnblogs.com/ihardcoder/p/5623411.html" target="_blank" rel="external">Webpack中hash与chunkhash的区别，以及js与css的hash指纹解耦方案 - zhoujunpeng - 博客园</a></li>
+<li><a href="http://www.alloyteam.com/2016/01/webpack-use-optimization/" target="_blank" rel="external">webpack使用优化 | Web前端 腾讯AlloyTeam Blog | 愿景: 成为地球卓越的Web团队！</a></li>
+</ul>
 <hr>
 <p><strong>CC BY-NC-SA 3.0 CN</strong></p>
 <p>本著作采用 <img alt="署名-非商业性使用-相同方式共享 3.0 中国大陆" style="display:inline-block!important;vertical-align: top;" src="/images/cc-by-nc-sa.svg"> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">署名-非商业性使用-相同方式共享 3.0 中国大陆</a> 进行许可</p>
@@ -701,7 +746,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-提供的-hash"><span class="nav-number">2.</span> <span class="nav-text">webpack 提供的 hash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hash"><span class="nav-number">2.1.</span> <span class="nav-text">[hash]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chunkhash"><span class="nav-number">2.2.</span> <span class="nav-text">[chunkhash]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义-chunkhash"><span class="nav-number">3.</span> <span class="nav-text">自定义 chunkhash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块-ID-的坑"><span class="nav-number">4.</span> <span class="nav-text">模块 ID 的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module-ID-不稳定怎么了"><span class="nav-number">4.1.</span> <span class="nav-text">Module ID 不稳定怎么了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给我稳定的-Module-ID"><span class="nav-number">4.2.</span> <span class="nav-text">给我稳定的 Module ID</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-提供的-hash"><span class="nav-number">2.</span> <span class="nav-text">webpack 提供的 hash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hash"><span class="nav-number">2.1.</span> <span class="nav-text">[hash]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chunkhash"><span class="nav-number">2.2.</span> <span class="nav-text">[chunkhash]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义-chunkhash"><span class="nav-number">3.</span> <span class="nav-text">自定义 chunkhash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块-ID-的坑"><span class="nav-number">4.</span> <span class="nav-text">模块 ID 的坑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Module-ID-不稳定怎么了"><span class="nav-number">4.1.</span> <span class="nav-text">Module ID 不稳定怎么了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给我稳定的-Module-ID"><span class="nav-number">4.2.</span> <span class="nav-text">给我稳定的 Module ID</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-1-的官方方案"><span class="nav-number">4.2.1.</span> <span class="nav-text">webpack 1 的官方方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-2-的思路"><span class="nav-number">4.2.2.</span> <span class="nav-text">webpack 2 的思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#我们的思路"><span class="nav-number">4.2.3.</span> <span class="nav-text">我们的思路</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">6.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
           </div>
         </section>
