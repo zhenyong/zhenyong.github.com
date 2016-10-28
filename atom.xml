@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenyong.site/"/>
-  <updated>2016-10-28T05:03:14.000Z</updated>
+  <updated>2016-10-28T07:29:19.000Z</updated>
   <id>http://zhenyong.site/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://zhenyong.site/2016/10/27/webpack-long-term-hash/"/>
     <id>http://zhenyong.site/2016/10/27/webpack-long-term-hash/</id>
     <published>2016-10-27T11:05:08.000Z</published>
-    <updated>2016-10-28T05:03:14.000Z</updated>
+    <updated>2016-10-28T07:29:19.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>使用 webpack 构建输出文件时，通常会给文件名加上 hash，该 hash 值根据文件内容计算得到，只要文件内容不变，hash 就不变，于是就可以利用浏览器缓存来节省下载流量。可是 webpack 提供的 hash 似乎不那么靠谱…</p>
@@ -141,8 +141,7 @@
 
 另外一旦你修改文件名，或者是增减 loader，原来的路径就无效了，从而再次入坑！
 </code></pre><ul>
-<li><p><a href="http://webpack.github.io/docs/list-of-plugins.html#dllplugin" target="_blank" rel="external">DllPlugin 和 DllReferencePlugin
-</a></p>
+<li><p><a href="http://webpack.github.io/docs/list-of-plugins.html#dllplugin" target="_blank" rel="external">DllPlugin 和 DllReferencePlugin</a></p>
 <p>  原理就是在你打包源码前，你得新建一个构建配置用 <a href="https://github.com/webpack/webpack/tree/master/examples/dll" target="_blank" rel="external">DllPlugin</a> 单独打包生成一份模块文件路径对应的 ID 记录，然后在你的原来配置使用 <a href="https://github.com/webpack/webpack/tree/master/examples/dll-user" target="_blank" rel="external">DllReferencePlugin</a> 引用这份记录，跟 recordsPath 大同小异，但是更高效和稳定，但是这个额外的构建，我觉得不够优雅，至于能快多少呢，我目前还不在意这个速度，另外还是得提交多一份记录文件。</p>
 </li>
 </ul>
