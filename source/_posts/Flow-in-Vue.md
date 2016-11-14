@@ -2,6 +2,7 @@
 title: Flow in Vue
 date: 2016-07-06 13:07:31
 tags:
+  - flow
 ---
 
 > Facebook 出品的 JS 静态类型检查器

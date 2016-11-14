@@ -2,6 +2,10 @@
 # Site Information Settings
 # ---------------------------------------------------------------
 
+reward_comment: 支持 & 鼓励
+wechatpay: /images/webchat.jpg
+alipay: /images/alipay.jpg
+
 # Put your favicon.ico into `hexo-site/source/` directory.
 favicon: /favicon.ico
 
@@ -33,7 +37,8 @@ menu:
   # about: /about
   archives: /archives
   tags: /tags
-  #commonweal: /404.html
+  docs: /docs
+  # commonweal: /404.html
 
 
 # Enable/Disable menu icons.
@@ -60,8 +65,8 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-scheme: Mist
-# scheme: Pisces
+# scheme: Mist
+scheme: Pisces
 
 
 # ---------------------------------------------------------------

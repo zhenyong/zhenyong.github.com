@@ -1,0 +1,35 @@
+<style>
+#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-right: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: '';
+}
+main {
+  background: red;
+  float: left;
+  width: 100%;
+}
+nav {
+  background: yellow;
+  width: 300px;
+  float: left;
+  position: relative;
+  margin-left: -300px;
+  right: -310px;
+}
+</style>
+<div id="ct">
+  <main>
+    主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主
+    内容主内容主内容主内容
+  </main>
+  <nav>侧边栏</nav>
+</div>

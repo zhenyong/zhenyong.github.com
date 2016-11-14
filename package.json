@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "copywebsite": "gulp --gulpfile copy-flow-website.gulpfile.js",
-    "copyreact": "gulp --gulpfile copy-react-website.gulpfile.js"
+    "copyreact": "gulp --gulpfile copy-react-website.gulpfile.js",
+    "copyvueloader": "gulp --gulpfile copy-vue-loader-doc.gulpfile.js"
   },
   "hexo": {
     "version": "3.2.2"

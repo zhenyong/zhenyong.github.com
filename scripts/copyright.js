@@ -26,8 +26,8 @@ hexo.extend.filter.register('before_post_render', function(data) {
     }
 
     // 添加具体文章链接, 不需要去掉即可
-    var permalink = '\n本文链接：' + data.permalink
-    data.content += permalink
+    // var permalink = '\n本文链接：' + data.permalink
+    // data.content += permalink
 
     return data
 })

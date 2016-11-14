@@ -1,0 +1,44 @@
+<style>
+#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-right: 310px;
+  padding-left: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: '';
+}
+main {
+  background: red;
+  float: left;
+  width: 100%;
+}
+nav#left {
+  background: blue;
+  width: 300px;
+  float: left;
+  position: relative;
+  left: -310px;
+  margin-left: -100%;
+}
+nav#right {
+  background: yellow;
+  width: 300px;
+  float: left;
+  position: relative;
+  margin-left: -300px;
+  right: -310px;
+}
+</style>
+<div id="ct">
+  <main>
+    主内容主内
+  </main>
+  <nav id="left">左侧边栏</nav>
+  <nav id="right">右侧边栏</nav>
+</div>

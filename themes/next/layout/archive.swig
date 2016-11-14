@@ -39,7 +39,9 @@
       {% endif %}
       {# endshow #}
 
+      {% if post.visible !== false %}
       {{ post_template.render(post) }}
+      {% endif %}
 
     {% endfor %}
 

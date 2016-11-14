@@ -1,8 +1,13 @@
 title: "Docs"
-layout: "docs"
+type: "docs"
 donate: false
 copyright: false
 datetime: false
 ---
-### - **[React 中文文档](/react)**
-### - **[Flow 中文文档](/flowtype)**
+### [vue-vuex 中文文档](/vuex)
+### [vue-router 中文文档](/vue-router)
+### [vue-loader 中文文档](/vue-loader)
+### [React 中文文档](/react)
+### [Flow 中文文档](/flowtype)
+
+

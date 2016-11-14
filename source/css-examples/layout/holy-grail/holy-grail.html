@@ -1,0 +1,48 @@
+<style>
+#ct {
+  width: 800px;
+  border: 1px solid;
+  padding-left: 310px;
+  box-sizing: border-box;
+}
+#ct::after{
+  display: block;
+  clear: both;
+  visibility: hidden;
+  height: 0;
+  content: '';
+}
+main {
+  background: red;
+  float: left;
+  width: 100%;
+}
+nav {
+  background: yellow;
+  width: 300px;
+  float: left;
+  position: relative;
+  left: -310px;
+  margin-left: -100%;
+}
+</style>
+<div id="ct">
+  <main>
+    主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主内容主
+    内容主内容主内容主内容
+  </main>
+  <nav>侧边栏</nav>
+</div>
+
+<pre>
+  ## 圣杯布局的优势:
+
+  - main 容宽度完全自适应
+  - 没有脱离文档流，ct 高度可以被 nav 和 main 撑开
+
+  ## 理解难点：
+
+  当 main 宽度为 100% 时，同为 float:left 的 nav 跟在 main 后面，因为塞不下就会变为下一行，
+  此时为 nav 设置 margin-left:-100% (容器的100%)，此时 main 同行也能容纳 nav 了，且两者
+  开头位置重叠，于是乎继续用 left: -310px 把它放到最左侧
+</pre>
