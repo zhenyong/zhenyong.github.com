@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
@@ -107,24 +107,35 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: "",
+      labels: ""
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://zhenyong.site/2016/07/30/vuex-q-and-a/"/>
+
+
+
+
 
   <title> Vuex 笔记之 Q & A | Make Hungry </title>
 </head>
@@ -284,6 +295,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -297,13 +310,26 @@
     
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://zhenyong.site/2016/07/30/vuex-q-and-a/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="huáng zhèn yǒng">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Make Hungry">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Make Hungry" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -326,9 +352,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-30T15:16:51+08:00" content="2016-07-30">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-07-30T15:16:51+08:00">
               2016-07-30
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-07-30T15:43:20+08:00">
+              2016-07-30
+            </time>
+            
           </span>
 
           
@@ -339,7 +375,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/tech/" itemprop="url" rel="index">
                     <span itemprop="name">tech</span>
                   </a>
@@ -357,7 +393,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/07/30/vuex-q-and-a/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/vuex-q-and-a/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/30/vuex-q-and-a/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -369,6 +405,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -444,13 +483,14 @@
       
     </div>
 
+
     <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag">#vue</a>
+            <a href="/tags/vue/" rel="tag"># vue</a>
           
-            <a href="/tags/vuex/" rel="tag">#vuex</a>
+            <a href="/tags/vuex/" rel="tag"># vuex</a>
           
         </div>
       
@@ -464,6 +504,8 @@
               </a>
             
           </div>
+
+          <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
@@ -549,7 +591,7 @@
         </ul>
       
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -621,19 +663,27 @@
         
         
 
+        
+
+
       </section>
 
       
+      <!--noindex-->
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
+
             
               
             
+
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据存储在哪里？"><span class="nav-number">1.</span> <span class="nav-text">数据存储在哪里？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件怎么获取状态？"><span class="nav-number">2.</span> <span class="nav-text">组件怎么获取状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么修改状态？"><span class="nav-number">3.</span> <span class="nav-text">怎么修改状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何异步修改状态"><span class="nav-number">4.</span> <span class="nav-text">如何异步修改状态?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单同步操作用-Mutation-还是-Action？"><span class="nav-number">5.</span> <span class="nav-text">简单同步操作用 Mutation 还是 Action？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#怎么处理多模块？"><span class="nav-number">6.</span> <span class="nav-text">怎么处理多模块？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我想要一些回调的钩子啥的，拦截一些state的处理作分析，有吗？"><span class="nav-number">7.</span> <span class="nav-text">我想要一些回调的钩子啥的，拦截一些state的处理作分析，有吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如果我不遵循潜规则，然后在vuex-以外修改状态，你管得着吗？"><span class="nav-number">8.</span> <span class="nav-text">如果我不遵循潜规则，然后在vuex 以外修改状态，你管得着吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我也想遵循潜规则，但是在表单-input-中用-v-model，双向绑定呀，会在-mutation-以外修改-state-呀，怎么办？"><span class="nav-number">9.</span> <span class="nav-text">我也想遵循潜规则，但是在表单 input 中用 v-model，双向绑定呀，会在 mutation 以外修改 state 呀，怎么办？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我怎么测试-mutation-和-action"><span class="nav-number">10.</span> <span class="nav-text">我怎么测试 mutation 和 action ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#还有什么碉堡的要告诉我？"><span class="nav-number">11.</span> <span class="nav-text">还有什么碉堡的要告诉我？</span></a></li></ol></div>
             
+
           </div>
         </section>
+      <!--/noindex-->
       
 
     </div>
@@ -656,16 +706,7 @@
   <span class="author" itemprop="copyrightHolder">huáng zhèn yǒng</span>
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
 
         
 
@@ -770,6 +811,7 @@
 
   
     
+    
     <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
@@ -779,6 +821,8 @@
 
 
 
+
+
   
   
 
@@ -787,6 +831,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>
