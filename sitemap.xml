@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhenyong.site/2016/10/07/vue-next-stack-doc/</loc>
+    
+    <lastmod>2016-12-01T06:55:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhenyong.site/2016/11/09/front-end-tech-stack-2016/</loc>
     
     <lastmod>2016-11-09T03:42:29.000Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://zhenyong.site/2016/10/27/webpack-long-term-hash/</loc>
     
     <lastmod>2016-10-28T07:29:19.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://zhenyong.site/2016/10/07/vue-next-stack-doc/</loc>
-    
-    <lastmod>2016-10-07T06:18:14.000Z</lastmod>
     
   </url>
   

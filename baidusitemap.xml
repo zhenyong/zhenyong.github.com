@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://zhenyong.site/2016/10/07/vue-next-stack-doc/</loc>
+    <lastmod>2016-12-01T06:55:22.000Z</lastmod>
+    <data>
+        <display>
+        <title>Vue 2 相关库的中文翻译</title>
+        <pubTime>2016-10-07T06:15:35.000Z</pubTime>
+        
+        <tag>vue</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="tech" url="http://zhenyong.site/categories/tech/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://zhenyong.site/2016/11/09/front-end-tech-stack-2016/</loc>
     <lastmod>2016-11-09T03:42:29.000Z</lastmod>
     <data>
@@ -32,28 +54,6 @@
         <pubTime>2016-10-27T11:05:08.000Z</pubTime>
         
         <tag>webpack</tag>
-         
-         
-           
-             
-              <breadCrumb title="tech" url="http://zhenyong.site/categories/tech/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://zhenyong.site/2016/10/07/vue-next-stack-doc/</loc>
-    <lastmod>2016-10-07T06:18:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>Vue 2 相关库的中文翻译</title>
-        <pubTime>2016-10-07T06:15:35.000Z</pubTime>
-        
-        <tag>vue</tag>
-         
-        <tag>git</tag>
          
          
            

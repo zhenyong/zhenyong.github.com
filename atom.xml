@@ -233,7 +233,7 @@
     <link href="http://zhenyong.site/2016/10/07/vue-next-stack-doc/"/>
     <id>http://zhenyong.site/2016/10/07/vue-next-stack-doc/</id>
     <published>2016-10-07T06:15:35.000Z</published>
-    <updated>2016-10-07T06:18:14.000Z</updated>
+    <updated>2016-12-01T06:55:22.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>Vue 2 相关库 vue-router@next 和 vuex@next 的中文翻译</p>
@@ -242,6 +242,7 @@
 <li><a href="http://zhenyong.site/vue-router">vue-router</a></li>
 <li><a href="http://zhenyong.site/vuex">vuex</a></li>
 </ul>
+<a id="more"></a>
 <hr>
 <p><strong>CC BY-NC-SA 3.0 CN</strong></p>
 <p>本著作采用 <img alt="署名-非商业性使用-相同方式共享 3.0 中国大陆" style="display:inline-block!important;vertical-align: top;" src="/images/cc-by-nc-sa.svg"> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">署名-非商业性使用-相同方式共享 3.0 中国大陆</a> 进行许可</p>
@@ -254,7 +255,9 @@
 &lt;p&gt;Vue 2 相关库 vue-router@next 和 vuex@next 的中文翻译&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://zhenyong.site/vue-router&quot;&gt;vue-router&lt;
+&lt;li&gt;&lt;a href=&quot;http://zhenyong.site/vue-router&quot;&gt;vue-router&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://zhenyong.site/vuex&quot;&gt;vuex&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
     
     </summary>
     
