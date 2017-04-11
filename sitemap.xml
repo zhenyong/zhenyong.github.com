@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://zhenyong.site/2017/04/10/hot-reload-in-nodejs/</loc>
+    
+    <lastmod>2017-04-11T06:51:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://zhenyong.site/2016/10/07/vue-next-stack-doc/</loc>
     
     <lastmod>2016-12-01T06:55:22.000Z</lastmod>

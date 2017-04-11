@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhenyong.site/"/>
-  <updated>2016-11-09T03:42:29.000Z</updated>
+  <updated>2017-04-11T06:51:28.000Z</updated>
   <id>http://zhenyong.site/</id>
   
   <author>
@@ -14,6 +14,80 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Node.js 热更新（一）</title>
+    <link href="http://zhenyong.site/2017/04/10/hot-reload-in-nodejs/"/>
+    <id>http://zhenyong.site/2017/04/10/hot-reload-in-nodejs/</id>
+    <published>2017-04-10T14:36:26.000Z</published>
+    <updated>2017-04-11T06:51:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>刚思考这个话题的时候，首先想到的是 <strong>Vue</strong> 或 <strong>React</strong> 的组件热更新（基于 Webpack HMR），后来又想到了 <strong>Lua</strong>、<strong>Erlang</strong> 等语言的热更新，不过在实际开发 Node.js 后台时，使用 <a href="https://github.com/remy/nodemon" target="_blank" rel="external">remy/nodemon</a>  之类的热重启（侦测代码改动重启程序）工具也够用，于是 Node.js 的热更新（替换模块，无须重启）的验证就一直搁置。</p>
+<p>直到最近在使用<a href="[Chatie/wechaty: Wechat for Bot. Powered by WebDriver / Node.js / Docker](https://github.com/Chatie/wechaty">「微信机器人」</a>)（Node.js） 时，遇到了强烈的需求。这类机器人程序就是：启动了一个网页，登录 Web 微信，通过抓取识别页面中的元素获得一些状态信息，如：消息、好友请求等等，由于它的启动时间也比较长，如果每次修改业务代码后都要重启，那么等待程序启动就要消耗不少时间，导致开发体验很差，于是实践 Node.js 的热更新就迫在眉睫了。</p>
+<a id="more"></a>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>以下是机器人的核心用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">robot = new Robot()</div><div class="line">robot.addEventListener(&apos;msg&apos;, ...)</div><div class="line">robot.removeEventListener(&apos;msg&apos;, ...)</div></pre></td></tr></table></figure>
+<p>那么我们的目标：增/删/改 业务逻辑（事件处理器）的时候程序无须重启，自动热更新业务逻辑代码，从而提高开发效率。</p>
+<h2 id="思路一：基于-Webpack-验证可行"><a href="#思路一：基于-Webpack-验证可行" class="headerlink" title="思路一：基于 Webpack 验证可行"></a>思路一：基于 Webpack 验证可行</h2><p>从 Webpack Wiki <a href="https://github.com/webpack/docs/wiki/hot-module-replacement" target="_blank" rel="external">hot module replacement · webpack/docs Wiki</a> 了解到，Webpack 能知道「哪个模块需要热更新」，并提供一些钩子，另外 webpack 自有一套模块管理，能够管理替换模块，让你访问的是热更新之后的模块。另外，要实现热加载的不仅要满足「再次加载」，还要考虑如何清空相关的「持久资源」。</p>
+<p>所以说，如果基于 webpack HMR 来实现的话，需要完成几件事情：</p>
+<ol>
+<li>把事件处理器的代码模块化，便于 webpack 管理。</li>
+<li>自动加载所有处理器模块</li>
+<li>某个事件处理模块更新后需要拿到老的模块，用来移除老的监听处理器。</li>
+<li>要知道文件的增加和删除，并且拿到模块内容。</li>
+</ol>
+<h3 id="1-业务代码模块化"><a href="#1-业务代码模块化" class="headerlink" title="1. 业务代码模块化"></a>1. 业务代码模块化</h3><p>简单地把每个事件处理器定义为一个文件 <code>*.biz.js</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// msg.biz.js</div><div class="line">module.exports = &#123;</div><div class="line">    evt: &apos;msg&apos;,</div><div class="line">    fn() &#123;</div><div class="line">        console.log(&apos;msg hanlder....&apos;)</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>其中 <code>evt</code> 是事件名， <code>fn</code> 是处理器，于是加载一个业务模块后就能拿到事件名称和处理器。<br>（可能不满足实际要求，先简单验证热更新是否可行哈！）</p>
+<h3 id="2-自动加载"><a href="#2-自动加载" class="headerlink" title="2. 自动加载"></a>2. 自动加载</h3><p>我们约定，业务模块 <code>*.biz.js</code> 都放在 <code>/biz</code> 目录下，该目录下的 <code>index.js</code> 会加载所有业务模块，而 <code>main.js</code> 就只需加载 <code>/biz/index.js</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">src</div><div class="line"> |--- /biz</div><div class="line"> 		 |--- a.biz.js</div><div class="line"> 		 |--- b.biz.js</div><div class="line"> 		 |--- index.js</div><div class="line"> 		 </div><div class="line"> |--- main.js</div></pre></td></tr></table></figure>
+<p>借助 webpack 的 <a href="https://webpack.js.org/guides/dependency-management/#require-context" target="_blank" rel="external">require-context</a> 加载所有 <code>*.biz.js</code> 模块，避免手写 require:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">// index.js</div><div class="line">// 加载当前目录下所有 `*.biz.js`</div><div class="line">const requireContext = require.context(&apos;./&apos;, true, /\.biz.js/);</div><div class="line"></div><div class="line">// 此时 requireContext.keys() 为 [&apos;./a.biz.js&apos;, &apos;./b.biz.js&apos;]</div><div class="line">requireContext.keys().forEach(key =&gt; &#123;</div><div class="line"></div><div class="line">    const module = requireContext(key);</div><div class="line">    // 相当于 module = require(&apos;./biz/a.biz.js&apos;)</div><div class="line">    </div><div class="line">    // 于是拿到事件名和处理器，然后进行事件监听</div><div class="line">    // robot.addEventListener(module.evt, module.fn)</div><div class="line">    </div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="3-修改后热更新"><a href="#3-修改后热更新" class="headerlink" title="3. 修改后热更新"></a>3. 修改后热更新</h3><p>参考 Wiki 的例子 <a href="https://github.com/webpack/docs/wiki/hot-module-replacement#example-3-hot-module-replace-with-requirecontext" target="_blank" rel="external">Example 3</a>，知道 require.context 如何使用热更新机制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">// index.js</div><div class="line">// 启动 webpack HRM 时则 module.hot 为 true</div><div class="line">if (module.hot) &#123;</div><div class="line">	// 表示该 context 下的模块都要检测更新</div><div class="line">    module.hot.accept(requireContext.id, () =&gt; &#123;</div><div class="line"></div><div class="line">        const requireContext = require.context(&apos;./&apos;, true, /\.biz.js/);</div><div class="line">        requireContext.keys().forEach(key =&gt; &#123;</div><div class="line">        </div><div class="line">            const newModule = requireContext(key);</div><div class="line"></div><div class="line">            // 前面首次自动加载所有模块后，记录到 oldModules 对象（&lt;key,module&gt;）</div><div class="line">            // 如果模块内容不一样，则表示要作热更新处理了</div><div class="line">            if (oldModules[key] !== newModule) &#123;</div><div class="line">               	// ... 对老模块 oldModules[key] 移除事件监听</div><div class="line">               	// ... 对新模块 newModule 注册事件监听</div><div class="line">					</div><div class="line">					// 同时更新缓存记录</div><div class="line">                oldModules[key] = newModule;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到了这一步，修改任何 <code>*.biz.js</code> 的代码都能自动热更新了。</p>
+<h3 id="4-增删文件后热更新"><a href="#4-增删文件后热更新" class="headerlink" title="4. 增删文件后热更新"></a>4. 增删文件后热更新</h3><p>上面的代码已经不小心实现了 「增加文件后热更新」，因为 <code>module.hot.accept(requireContext.id</code> 表示检测 <code>./biz/*.biz.js</code> 的更新，如果增加一个 <code>c.biz.js</code>，那么 <code>requireContext.keys()</code> 就变成 <code>[ ..., &#39;./c.biz.js&#39;]</code>，于是新模块不等于老模块（不存在），从而使用 <code>c.biz.js</code> 注册事件监听器。</p>
+<p>对于删除文件后的热更新，则在上面代码基础上增加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"> if (module.hot) &#123;</div><div class="line">     module.hot.accept(requireContext.id, () =&gt; &#123;</div><div class="line">         </div><div class="line">         // 在重新加载目录下的所有模块前，对老记录作个副本</div><div class="line">         const oldKeysRetain = &#123;&#125;;</div><div class="line">         Object.keys(oldModules)</div><div class="line">         	.forEach(k =&gt; (oldKeysRetain[k] = true));</div><div class="line"></div><div class="line">         const requireContext = require.context(&apos;./&apos;, true, /\.biz.js/);</div><div class="line">         requireContext.keys().forEach(key =&gt; &#123;</div><div class="line">         </div><div class="line">         	  // 如果某模块存在当前目录，则从临时记录中抹去</div><div class="line">             delete oldKeysRetain[key];</div><div class="line">             const newModule = requireContext(key);</div><div class="line">             if (oldModules[key] !== newModule) &#123;</div><div class="line">                ...</div><div class="line">             &#125;</div><div class="line">         &#125;);</div><div class="line"></div><div class="line">// 未抹去的部分，意味着不存在当前目录下了，也就是被删除了</div><div class="line">         Object.keys(oldKeysRetain).forEach(key =&gt; &#123;</div><div class="line">             // ... 对老模块移除事件监听</div><div class="line">             delete oldModules[key];</div><div class="line">         &#125;);</div><div class="line">     &#125;);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>经过以上四步，算是初步验证了，借助 Webpack 来玩是可以的，当然我们作了不少严格约定，不过不影响这一阶段的思路。</p>
+<p>完整代码请移步：<a href="https://github.com/zhenyong/webpack-hot-nodejs-demo" target="_blank" rel="external">zhenyong/webpack-hot-nodejs-demo: Webpack HMR demo use in Node.js, showing how to auto add/remove listeners.</a></p>
+<h2 id="思路二：基于-Webpack-进阶"><a href="#思路二：基于-Webpack-进阶" class="headerlink" title="思路二：基于 Webpack 进阶"></a>思路二：基于 Webpack 进阶</h2><p>上面一种思路存在一些问题</p>
+<ol>
+<li>业务代码的格式限制太死，不够灵活</li>
+<li>在生产阶段也耦合了 webpack</li>
+</ol>
+<p>于是我想，约定业务代码格式是为了方便通过模块管理事件的注册和移除，假如说在不侵入代码，不作任何约定的情况下，也能知道某个模块注册了哪些事件，是不是就不需约定了，好像是的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//## a.biz.js 不约定业务代码格式</div><div class="line">robot.addLisenter(&apos;msg&apos;, ...)</div><div class="line"></div><div class="line"></div><div class="line">//## 入口.js</div><div class="line">robot = new Robot();</div><div class="line"></div><div class="line">_add = robot.addLisenter</div><div class="line">robot.addLisenter = () =&gt; &#123;</div><div class="line">	// 拦截注册事件方法</div><div class="line">	// 从而记录下 a.biz 模块都注册了哪些事件处理器</div><div class="line">&#125;</div><div class="line">require(&apos;a.biz&apos;)</div><div class="line">robot.addLisenter = _add</div></pre></td></tr></table></figure>
+<p>但是问题来了，我们的目标包括「自动加载所有业务模块，增删文件都能热更新」，那么在开发阶段我们还是借助 webpack 的 require.context 方法，并且约定每个业务模块的入口文件命名为 <code>*.biz.js</code>，至于里面代码怎么写就随意了，而在生产阶段可以遍历文件找到所有 <code>*.biz.js</code> 进行加载，无须依赖 webpack。</p>
+<p>剩下的大部分思路跟 #思路一 类似，代码可参考 <a href="https://github.com/zhenyong/webpack-hot-nodejs-demo" target="_blank" rel="external">zhenyong/webpack-hot-nodejs-demo: Webpack HMR demo use in Node.js, showing how to auto add/remove listeners.</a></p>
+<h2 id="更多思路"><a href="#更多思路" class="headerlink" title="更多思路"></a>更多思路</h2><p>最开始写这篇文章是想深扒一下 Node.js 的模块管理和缓存结构，然后验证一下通过清除模块缓存来做热更新是否可行，后来感觉 webpack 给我们作了很多工作，于是就先用 webpack 玩了一轮，看来择日还得再写一篇（二）了</p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>热更新的主要目的是为了提高开发效率，并不是为了在生产上玩热更新，毕竟还有很多潜在问题，例如，模块中涉及全局状态或者单例资源，通过热更新可能会引起混乱……</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000003888845" target="_blank" rel="external">Webpack 做 Node.js 代码热替换, 第一步 - 题叶 - SegmentFault</a></li>
+<li><a href="http://jlongster.com/Backend-Apps-with-Webpack--Part-I" target="_blank" rel="external">Backend Apps with Webpack (Part I)</a></li>
+<li><a href="http://jlongster.com/Backend-Apps-with-Webpack--Part-II" target="_blank" rel="external">Backend Apps with Webpack: Driving with Gulp (Part II)</a></li>
+</ul>
+<hr>
+<p><strong>CC BY-NC-SA 3.0 CN</strong></p>
+<p>本著作采用 <img alt="署名-非商业性使用-相同方式共享 3.0 中国大陆" style="display:inline-block!important;vertical-align: top;" src="/images/cc-by-nc-sa.svg"> <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="external">署名-非商业性使用-相同方式共享 3.0 中国大陆</a> 进行许可</p>
+<p>欢迎转载，但转载请注明来自 <a href="http://zhenyong.site">zhenyong.site</a>，并保持转载后文章内容的完整</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;刚思考这个话题的时候，首先想到的是 &lt;strong&gt;Vue&lt;/strong&gt; 或 &lt;strong&gt;React&lt;/strong&gt; 的组件热更新（基于 Webpack HMR），后来又想到了 &lt;strong&gt;Lua&lt;/strong&gt;、&lt;strong&gt;Erlang&lt;/strong&gt; 等语言的热更新，不过在实际开发 Node.js 后台时，使用 &lt;a href=&quot;https://github.com/remy/nodemon&quot;&gt;remy/nodemon&lt;/a&gt;  之类的热重启（侦测代码改动重启程序）工具也够用，于是 Node.js 的热更新（替换模块，无须重启）的验证就一直搁置。&lt;/p&gt;
+&lt;p&gt;直到最近在使用&lt;a href=&quot;[Chatie/wechaty: Wechat for Bot. Powered by WebDriver / Node.js / Docker](https://github.com/Chatie/wechaty&quot;&gt;「微信机器人」&lt;/a&gt;)（Node.js） 时，遇到了强烈的需求。这类机器人程序就是：启动了一个网页，登录 Web 微信，通过抓取识别页面中的元素获得一些状态信息，如：消息、好友请求等等，由于它的启动时间也比较长，如果每次修改业务代码后都要重启，那么等待程序启动就要消耗不少时间，导致开发体验很差，于是实践 Node.js 的热更新就迫在眉睫了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tech" scheme="http://zhenyong.site/categories/tech/"/>
+    
+    
+      <category term="Webpack" scheme="http://zhenyong.site/tags/Webpack/"/>
+    
+      <category term="Node.js" scheme="http://zhenyong.site/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>2016 前端技能树</title>
