@@ -11,9 +11,7 @@
 {% block content %}
   <section id="posts" class="posts-expand">
     {% for post in page.posts %}
-      {% if post.visible !== false %}
       {{ post_template.render(post, true) }}
-      {% endif %}
     {% endfor %}
   </section>
 

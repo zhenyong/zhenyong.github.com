@@ -26,6 +26,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :langnext
 skip_render:
+    - h5/**
     - shop-h5/**
     - vuex/**
     - vue-router/**
@@ -34,6 +35,7 @@ skip_render:
     - flowtype/**
     - "*.html"
     - 2016/09/01/**
+    - resume.md
 
 # Writing
 new_post_name: :title.md # File name of new posts

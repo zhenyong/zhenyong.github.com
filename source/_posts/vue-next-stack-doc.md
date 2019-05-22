@@ -11,3 +11,5 @@ categories: tech
 
 - [vue-router](http://zhenyong.site/vue-router)
 - [vuex](http://zhenyong.site/vuex)
+
+<!--more-->
